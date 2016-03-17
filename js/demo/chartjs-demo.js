@@ -1,37 +1,37 @@
 $(function () {
 
 	var radarData = {
-		labels: ["Melt", "IZOD", "Density", "NCLS", "Contamination", "Rheology", "Viscosity"],
+		labels: ["Melt", "IZOD", "Density", "NCLS"],
 		datasets: [
 			{
-				label: "My First dataset",
+				label: "low",
 				fillColor: "rgba(220,220,220,0.2)",
 				strokeColor: "rgba(220,220,220,1)",
 				pointColor: "rgba(220,220,220,1)",
 				pointStrokeColor: "#fff",
 				pointHighlightFill: "#fff",
 				pointHighlightStroke: "rgba(220,220,220,1)",
-				data: [65, 59, 90, 81, 56, 55, 40]
+				data: [65, 59, 90, 81]
 			},
 			{
-				label: "My Second dataset",
+				label: "actual",
 				fillColor: "rgba(26,179,148,0.2)",
 				strokeColor: "rgba(26,179,148,1)",
 				pointColor: "rgba(26,179,148,1)",
 				pointStrokeColor: "#fff",
 				pointHighlightFill: "#fff",
 				pointHighlightStroke: "rgba(151,187,205,1)",
-				data: [28, 48, 40, 19, 96, 27, 100]
+				data: [28, 48, 40, 19]
 			},
 			{
-				label: "My Third dataset",
+				label: "high",
 				fillColor: "rgba(26,179,148,0.2)",
 				strokeColor: "rgba(26,179,148,1)",
 				pointColor: "rgba(26,179,148,1)",
 				pointStrokeColor: "#fff",
 				pointHighlightFill: "#fff",
 				pointHighlightStroke: "rgba(151,187,205,1)",
-				data: [28, 48, 40, 19, 96, 27, 100]
+				data: [28, 48, 40, 19]
 			}
 		]
 	};
@@ -57,7 +57,7 @@ $(function () {
 		responsive: true
 	};
 
-	var ctx = document.getElementById("radarChart").getContext("2d");
+	var ctx = $('#radarChart').getContext("2d");
 	var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
 
 });

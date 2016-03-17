@@ -17,7 +17,7 @@
 	<link href="css/inspinia.css" rel="stylesheet">
 	<link href="css/style.css" rel="stylesheet">
 	<!-- page styles -->
-	<link href="css/index.css" rel="stylesheet">
+	<link href="css/lotPreferences.css" rel="stylesheet">
 </head>
 <body>
 <!-- bower scripts-->
@@ -34,10 +34,64 @@
 <script src="js/inspinia.js"></script>
 <script src="js/app.js"></script>
 <!-- page scripts -->
-<script src="js/index.js"></script>
+<script src="js/lotPreferences.js"></script>
 <script>
 	$(document).ready(function () {
-		App.render(Index.render);
+		App.render(LotPreferences.render)
+			.done(function () {
+				$('.chosen-select').chosen();
+
+				var doughnutData = [
+					{
+						value: 300,
+						color: "#a3e1d4",
+						highlight: "#1ab394",
+						label: "Virgin"
+					},
+					{
+						value: 50,
+						color: "#dedede",
+						highlight: "#1ab394",
+						label: "Regrind"
+					},
+					{
+						value: 100,
+						color: "#b5b8cf",
+						highlight: "#1ab394",
+						label: "Spec"
+					}
+				];
+
+				var doughnutOptions = {
+					segmentShowStroke: true,
+					segmentStrokeColor: "#fff",
+					segmentStrokeWidth: 2,
+					percentageInnerCutout: 45, // This is 0 for Pie charts
+					animationSteps: 100,
+					animationEasing: "easeOutBounce",
+					animateRotate: true,
+					animateScale: false,
+					responsive: true
+				};
+
+
+				var ctx = document.getElementById("doughnutChart").getContext("2d");
+				var myNewChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
+
+				new Sortable($('#availableLots'), {
+					group: "lots",
+					handle: '.glyphicon-move',
+					animation: 150,
+					sort: true
+				});
+
+				new Sortable($('#eligibleLots'), {
+					group: "lots",
+					handle: '.glyphicon-move',
+					animation: 150,
+					sort: true
+				});
+			});
 	});
 </script>
 </body>

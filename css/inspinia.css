@@ -1991,6 +1991,16 @@ div.dt-button-info {
   box-shadow: none;
 }
 
+.slider_blue .noUi-connect {
+  background: none repeat scroll 0 0 #1c84c6;
+  box-shadow: none;
+}
+
+.slider_navy .noUi-connect {
+  background: none repeat scroll 0 0 #1ab394;
+  box-shadow: none;
+}
+
 /* UI Sortable */
 .ui-sortable .ibox-title {
   cursor: move;
@@ -4051,7 +4061,7 @@ code {
 
 .ibox {
   clear: both;
-  margin-bottom: 25px;
+  margin-bottom: 5px;
   margin-top: 0;
   padding: 0;
 }

@@ -1,0 +1,193 @@
+<!--
+[draftBlend.mustache.html]
+-->
+<script id="draftBlendTemplate" type="text/html">
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="border-bottom white-bg page-heading">
+				<h2>{{title}}</h2>
+				<ol class="breadcrumb">
+					{{#breadCrumbs}}
+					<li><a href="{{href}}">{{title}}</a></li>
+					{{/breadCrumbs}}
+				</ol>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="ibox">
+				<div class="ibox-title">
+					<h5>Draft Blend</h5>
+					<div class="ibox-tools">
+						<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+						<ul class="dropdown-menu dropdown-user">
+							<li><a href="#">Refresh</a></li>
+							<li><a href="#">Clear</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ibox-content">
+					<div class="row">
+						<div class="col-xs-4">
+							<canvas id="radarChart"></canvas>
+						</div>
+						<div class="col-xs-8">
+							<div id="specTable">
+								<table class="table table-striped">
+									<thead>
+									<tr>
+										<th>spec</th>
+										<th>D</th>
+										<th>M</th>
+										<th>I</th>
+										<th>N</th>
+									</tr>
+									</thead>
+									<tbody>
+									<tr>
+										<th>high</th>
+										<td>0.7</td>
+										<td>0.7</td>
+										<td>0.7</td>
+										<td>0.7</td>
+									</tr>
+									<tr>
+										<th>actual</th>
+										<td>0.35</td>
+										<td>0.35</td>
+										<td>0.35</td>
+										<td>0.35</td>
+									</tr>
+									<tr>
+										<th>low</th>
+										<td>0.1</td>
+										<td>0.1</td>
+										<td>0.1</td>
+										<td>0.1</td>
+									</tr>
+									</tbody>
+									<tfoot>
+									<tr>
+										<th colspan="5">total 40,000 lbs</th>
+									</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="ibox border-bottom">
+				<div class="ibox-title">
+					<h5>Buckets</h5>
+					<div class="ibox-tools">
+						<a class="collapse-link"><i class="fa fa-chevron-down"></i></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+						<ul class="dropdown-menu dropdown-user">
+							<li><a href="#">Refresh</a></li>
+							<li><a href="#">Clear</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ibox-content" style="display: none;">
+					<div class="row">
+						<div class="col-xs-4">
+							Flake
+						</div>
+						<div class="col-xs-6">
+							<div id="hmw_range_slider" class="slider_navy"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="btn-group">
+								<button type="button" class="btn btn-primary btn-outline">Update</button>
+								<button type="button" class="btn btn-primary btn-outline dropdown-toggle" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Blend Prefs</a></li>
+									<li><a href="#">Lot Selection</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							Spec
+						</div>
+						<div class="col-xs-6">
+							<div id="virgin_range_slider" class="slider_blue"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="btn-group">
+								<button type="button" class="btn btn-success btn-outline">Update</button>
+								<button type="button" class="btn btn-success btn-outline dropdown-toggle" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Blend Prefs</a></li>
+									<li><a href="#">Lot Selection</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-xs-4">
+							Regrind
+						</div>
+						<div class="col-xs-6">
+							<div id="regrind_range_slider" class="slider_red"></div>
+						</div>
+						<div class="col-xs-2">
+							<div class="btn-group">
+								<button type="button" class="btn btn-danger btn-outline">Update</button>
+								<button type="button" class="btn btn-danger btn-outline dropdown-toggle" data-toggle="dropdown">
+									<span class="caret"></span>
+									<span class="sr-only">Toggle Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#">Blend Prefs</a></li>
+									<li><a href="#">Lot Selection</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-xs-12">
+			<div class="ibox">
+				<div class="ibox-title">
+					<h5>Included Lots</h5>
+					<div class="ibox-tools">
+						<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+						<ul class="dropdown-menu dropdown-user">
+							<li><a href="#">Refresh</a></li>
+							<li><a href="#">Clear</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="ibox-content">
+					<div class="row">
+						<div class="col-xs-4">
+							percentage
+						</div>
+						<div class="col-xs-8">
+							lot
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</script>

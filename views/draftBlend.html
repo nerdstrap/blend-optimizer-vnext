@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Blend Optimizer vNext</title>
+	<!-- bower styles -->
+	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+	<link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<link href="bower_components/animate.css/animate.css" rel="stylesheet">
+	<link href="bower_components/sortable/css/sortable-theme-bootstrap.css" rel="stylesheet">
+	<link href="bower_components/footable-v3/src/css/FooTable.css" rel="stylesheet">
+	<link href="bower_components/chosen/chosen.css" rel="stylesheet">
+	<link href="bower_components/nouislider/distribute/nouislider.min.css" rel="stylesheet">
+	<!-- custom styles -->
+	<link href="css/inspinia.css" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+	<!-- page styles -->
+	<link href="css/draftBlend.css" rel="stylesheet">
+</head>
+<body>
+<!-- bower scripts-->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/mustache/mustache.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/sortable/js/sortable.js"></script>
+<script src="bower_components/footable-v3/src/js/FooTable.js"></script>
+<script src="bower_components/chosen/chosen.jquery.js"></script>
+<script src="bower_components/nouislider/distribute/nouislider.js"></script>
+<script src="bower_components/Chart.js/Chart.js"></script>
+<!-- custom scripts -->
+<script src="js/inspinia.js"></script>
+<script src="js/app.js"></script>
+<!-- page scripts -->
+<script src="js/draftBlend.js"></script>
+<script>
+	$(document).ready(function () {
+		App.render(DraftBlend.render)
+			.done(function () {
+				var radarData = {
+					labels: ["Melt", "IZOD", "Density", "NCLS"],
+					datasets: [
+						{
+							label: "low",
+							fillColor: "rgba(220,220,220,0.2)",
+							strokeColor: "rgba(220,220,220,1)",
+							pointColor: "rgba(220,220,220,1)",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(220,220,220,1)",
+							data: [65, 59, 90, 81]
+						},
+						{
+							label: "actual",
+							fillColor: "rgba(255,0,0,0.2)",
+							strokeColor: "rgba(26,179,148,1)",
+							pointColor: "rgba(26,179,148,1)",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(255,0,0,1)",
+							data: [28, 48, 40, 19]
+						},
+						{
+							label: "high",
+							fillColor: "rgba(255,0,0,0.2)",
+							strokeColor: "rgba(26,179,148,1)",
+							pointColor: "rgba(26,179,148,1)",
+							pointStrokeColor: "#fff",
+							pointHighlightFill: "#fff",
+							pointHighlightStroke: "rgba(255,0,0,1)",
+							data: [28, 48, 40, 19]
+						}
+					]
+				};
+
+				var radarOptions = {
+					scaleShowLine: true,
+					angleShowLineOut: true,
+					scaleShowLabels: false,
+					scaleBeginAtZero: true,
+					angleLineColor: "rgba(0,0,0,.1)",
+					angleLineWidth: 1,
+					pointLabelFontFamily: "'Arial'",
+					pointLabelFontStyle: "normal",
+					pointLabelFontSize: 10,
+					pointLabelFontColor: "#666",
+					pointDot: true,
+					pointDotRadius: 3,
+					pointDotStrokeWidth: 1,
+					pointHitDetectionRadius: 20,
+					datasetStroke: true,
+					datasetStrokeWidth: 2,
+					datasetFill: true,
+					responsive: true
+				};
+
+				var ctx = document.getElementById('radarChart').getContext("2d");
+				var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
+
+				noUiSlider.create(document.getElementById('hmw_range_slider'), {
+					start: [40, 60],
+					behaviour: 'drag',
+					connect: true,
+					range: {
+						'min': 20,
+						'max': 80
+					}
+				});
+				noUiSlider.create(document.getElementById('virgin_range_slider'), {
+					start: [30, 40],
+					behaviour: 'drag',
+					connect: true,
+					range: {
+						'min': 20,
+						'max': 80
+					}
+				});
+				noUiSlider.create(document.getElementById('regrind_range_slider'), {
+					start: [50, 55],
+					behaviour: 'drag',
+					connect: true,
+					range: {
+						'min': 20,
+						'max': 80
+					}
+				});
+			});
+	});
+</script>
+</body>
+</html>

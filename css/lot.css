@@ -1,0 +1,110 @@
+.ibox-title {
+	position: relative;
+	height: 70px !important;
+}
+
+.ibox-badge {
+	position: absolute;
+	top: 5px;
+	left: 10px;
+}
+
+.ibox-title .ibox-header {
+	position: absolute;
+	top: 5px;
+	left: 40px;
+}
+
+.ibox-title .ibox-tools {
+	position: absolute;
+	top: 5px;
+	right: 10px;
+}
+
+.ibox-title .ibox-subheader {
+	position: absolute;
+	top: 25px;
+	left: 40px;
+}
+
+.ibox-title .ibox-subheader2 {
+	position: absolute;
+	top: 45px;
+	left: 40px;
+}
+
+.lot-sku {
+	font-weight: bold;
+	margin-right: 10px;
+}
+
+.lot-number {
+	font-weight: normal;
+	margin-right: 3px;
+}
+
+.lot-category {
+	font-weight: normal;
+	margin-right: 3px;
+}
+
+.lot-size {
+	font-style: italic;
+	margin-right: 3px;
+}
+
+.lot-density {
+	margin-right: 3px;
+}
+
+.lot-melt {
+	margin-right: 3px;
+}
+
+.lot-izod {
+	margin-right: 3px;
+}
+
+.lot-ncls {
+	margin-right: 3px;
+}
+
+.ibox-content {
+}
+
+.ibox-content .ibox-content-header,
+.ibox-content .ibox-content-subheader {
+	margin-left: 20px;
+	margin-top: 3px;
+}
+
+.lot-supplier {
+	font-weight: bold;
+	margin-right: 3px;
+}
+
+.lot-comments {
+	font-style: italic;
+	margin-right: 3px;
+}
+
+.lot-price {
+	font-style: italic;
+	margin-right: 3px;
+}
+
+.lot-age {
+	margin-right: 3px;
+}
+
+.ibox.fresh-lot {
+	border-left: 3px solid #1ab394 !important;
+}
+
+.ibox.stale-lot {
+	border-left: 3px solid #f8ac59 !important;
+}
+
+.ibox.old-lot {
+	border-left: 3px solid #ed5565 !important;
+}
