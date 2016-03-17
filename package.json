@@ -24,7 +24,8 @@
 		"lodash": "latest",
 		"morgan": "latest",
 		"nconf": "latest",
-		"serve-favicon": "latest"
+		"serve-favicon": "latest",
+		"bower": "latest"
 	},
 	"devDependencies": {
 		"gulp": "latest",
