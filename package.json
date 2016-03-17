@@ -30,6 +30,8 @@
 		"gulp": "latest",
 		"gulp-ruby-sass": "latest"
 	},
-	"scripts": {},
+	"scripts": {
+		"postinstall": "./node_modules/bower/bin/bower install"
+	},
 	"main": "./server"
 }
