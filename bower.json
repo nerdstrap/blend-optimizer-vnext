@@ -1,0 +1,16 @@
+{
+	"name": "blend-optimizer-vnext",
+	"dependencies": {
+		"jquery": "latest",
+		"bootstrap": "latest",
+		"font-awesome": "latest",
+		"mustache": "latest",
+		"lodash": "latest",
+		"animate.css": "latest",
+		"chosen": "latest",
+		"footable-v3": "latest",
+		"nouislider": "latest",
+		"Chart.js": "latest",
+		"sortable": "latest"
+	}
+}

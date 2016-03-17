@@ -1,0 +1,35 @@
+{
+	"name": "blend-optimizer-vnext",
+	"description": "blend-optimizer-vnext",
+	"version": "1.0.0",
+	"author": "Michael Baltic <geekstrap@live.com>",
+	"contributors": [],
+	"license": "MIT",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/nerdstrap/blend-optimizer-vnext.git"
+	},
+	"bugs": "http://github.com/nerdstrap/blend-optimizer-vnext/issues",
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org"
+	},
+	"engines": {
+		"node": "5.8.0",
+		"npm": "3.8.0"
+	},
+	"dependencies": {
+		"body-parser": "latest",
+		"express": "latest",
+		"forever": "latest",
+		"lodash": "latest",
+		"morgan": "latest",
+		"nconf": "latest",
+		"serve-favicon": "latest"
+	},
+	"devDependencies": {
+		"gulp": "latest",
+		"gulp-ruby-sass": "latest"
+	},
+	"scripts": {},
+	"main": "./server"
+}
