@@ -1,0 +1,113 @@
+{
+	"title": "Create A Blend",
+	"breadCrumbs": [
+		{
+			"title": "P42",
+			"href": "/plant/P42/blend"
+		},
+		{
+			"title": "2&quot;.SWALL.REG.NON-PERF.100",
+			"href": "/plant/P42/blend"
+		}
+	],
+	"productionLines": [],
+	"plannerCodes": [],
+	"blendSpecs": [],
+	"lots": [
+		{
+			"lotNumber": "SL311467"
+		},
+		{
+			"lotNumber": "XX987987"
+		},
+		{
+			"lotNumber": "PC232399"
+		}
+	],
+	"categories": [
+		{
+			"name": "Virgin",
+			"color": "danger",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "Regrind",
+			"color": "warning",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "Flake",
+			"color": "success",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "Spec",
+			"color": "success",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "Color",
+			"color": "success",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "OCRA",
+			"color": "success",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		},
+		{
+			"name": "Hybrid",
+			"color": "success",
+			"start": [
+				40,
+				60
+			],
+			"range": {
+				"min": 20,
+				"max": 80
+			}
+		}
+	]
+}

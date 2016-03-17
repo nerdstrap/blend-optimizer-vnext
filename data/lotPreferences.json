@@ -1,0 +1,45 @@
+{
+	"title": "Create A Blend",
+	"breadCrumbs": [
+		{
+			"title": "P42",
+			"href": "/plant/P42/blend"
+		},
+		{
+			"title": "2&quot;.SWALL.REG.NON-PERF.100",
+			"href": "/plant/P42/blend"
+		}
+	],
+	"productionLines": [],
+	"plannerCodes": [],
+	"blendSpecs": [],
+	"lots": [
+		{
+			"lotNumber": "SL311467"
+		},
+		{
+			"lotNumber": "XX987987"
+		},
+		{
+			"lotNumber": "PC232399"
+		}
+	],
+	"categories": [
+		{
+			"name": "HMW",
+			"color": "primary"
+		},
+		{
+			"name": "Virgin",
+			"color": "danger"
+		},
+		{
+			"name": "Regrind",
+			"color": "warning"
+		},
+		{
+			"name": "Flake",
+			"color": "success"
+		}
+	]
+}
