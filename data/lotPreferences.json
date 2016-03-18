@@ -13,32 +13,97 @@
 	"productionLines": [],
 	"plannerCodes": [],
 	"blendSpecs": [],
-	"lots": [
+	"materialItems": [
 		{
-			"lotNumber": "SL311467"
+			"code": "9999E"
 		},
 		{
-			"lotNumber": "XX987987"
+			"code": "9999Z"
 		},
 		{
-			"lotNumber": "PC232399"
+			"code": "9999NE"
+		},
+		{
+			"code": "9999RA"
+		},
+		{
+			"code": "9999L1"
+		},
+		{
+			"code": "9999A"
+		},
+		{
+			"code": "9999N"
+		},
+		{
+			"code": "9999SL"
+		},
+		{
+			"code": "9999V"
+		},
+		{
+			"code": "9999X"
+		},
+		{
+			"code": "9999S"
+		},
+		{
+			"code": "9999B"
+		},
+		{
+			"code": "9999Y"
+		},
+		{
+			"code": "9999NS"
+		},
+		{
+			"code": "9999ZP"
+		},
+		{
+			"code": "99994"
 		}
 	],
-	"categories": [
+	"materialTypes": [
 		{
-			"name": "HMW",
+			"type": "VIRGIN",
+			"description": "Virgin Resin",
+			"badge": "V",
 			"color": "primary"
 		},
 		{
-			"name": "Virgin",
+			"type": "FLAKE",
+			"description": "Flake Resin",
+			"badge": "F",
 			"color": "danger"
 		},
 		{
-			"name": "Regrind",
+			"type": "REGRIND",
+			"description": "Regrind (internal)",
+			"badge": "R",
 			"color": "warning"
 		},
 		{
-			"name": "Flake",
+			"type": "REPRO",
+			"description": "Reprocessed (internal)",
+			"badge": "P",
+			"color": "success"
+		},
+		{
+			"type": "COLOR",
+			"description": "Color resin",
+			"badge": "C",
+			"color": "success"
+		},
+		{
+			"type": "OCRA",
+			"description": "Other (compatibilizer)",
+			"badge": "O",
+			"color": "success"
+		},
+		{
+			"type": "HYBRID",
+			"description": "Hybrid flake/spec resin",
+			"badge": "H",
 			"color": "success"
 		}
 	]

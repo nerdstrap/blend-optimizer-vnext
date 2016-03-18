@@ -2,143 +2,139 @@
 [selectBlend.mustache.html]
 -->
 <script id="selectBlendTemplate" type="text/html">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="border-bottom white-bg page-heading">
-				<h2>{{title}}</h2>
-				<ol class="breadcrumb">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="border-bottom white-bg page-heading">
+                <h2>{{title}}</h2>
+                <ol class="breadcrumb">
 					{{#breadCrumbs}}
-					<li><a href="{{href}}">{{title}}</a></li>
+                        <li><a href="{{href}}">{{title}}</a></li>
 					{{/breadCrumbs}}
-				</ol>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="ibox">
-				<div class="ibox-title">
-					<h5>Select A Product</h5>
-					<div class="ibox-tools">
-						<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu dropdown-user">
-							<li><a href="#">Refresh</a></li>
-							<li><a href="#">Clear</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="ibox-content">
-					<form id="selectProductForm" class="form-inline">
-						<div class="row">
-							<div class="col-xs-4">
-								<div class="form-group">
-									<div class="input-group">
-										<div class="input-group-btn">
-											<button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">
-												<span id="firstIdLabel">DEPT</span>
-												<span class="caret"></span>
-											</button>
-											<ul class="dropdown-menu">
-												<li><a href="#">choose</a></li>
-												<li><a href="#">DEPT</a></li>
-												<li><a href="#">Blend Spec</a></li>
-											</ul>
-										</div>
-										<input id="firstId" name="firstId" type="text" class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div class="form-group">
-									<label for="secondId">Planner Code</label>
-									<div class="input-group">
-										<input id="secondId" name="secondId" type="text" class="form-control">
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-4">
-								<div class="form-group">
-									<label for="thirdId">Blend Spec</label>
-									<div class="input-group">
-										<input id="thirdId" name="thirdId" type="text" class="form-control">
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-					<br/>
-					<div class="row">
-						<div class="col-xs-4">
-							<h3>(04AG) 4" Ag Singlewall Pipe</h3>
-						</div>
-						<div class="col-xs-4">
-							<h4>
+                </ol>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Select A Product</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Refresh</a></li>
+                            <li><a href="#">Clear</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form id="selectProductForm" class="form-inline">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <div class="input-group-btn">
+                                            <button data-toggle="dropdown" class="btn btn-white dropdown-toggle" type="button">
+                                                <span id="firstIdLabel">DEPT</span>
+                                                <span class="caret"></span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="#">choose</a></li>
+                                                <li><a href="#">DEPT</a></li>
+                                                <li><a href="#">Blend Spec</a></li>
+                                            </ul>
+                                        </div>
+                                        <select id="firstId" name="firstId" class="form-control" style="width:170px;">
+                                            <option value="1">3030</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label for="secondId">Planner Code</label>
+                                    <div class="input-group">
+                                        <select id="secondId" name="secondId" class="form-control" style="width:170px;">
+                                            <option value="1">04AG</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label for="thirdId">Blend Spec</label>
+                                    <div class="input-group">
+                                        <select id="thirdId" name="thirdId" class="form-control" style="width:170px;">
+                                            <option value="1">Mix 160</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <br/>
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <h3>(04AG) 4" Ag Singlewall Pipe</h3>
+                        </div>
+                        <div class="col-xs-4">
+                            <h4>
 								{{#products}}
-								{{{productNumber}}},
+									{{{productNumber}}},
 								{{/products}}
-							</h4>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="ibox">
-				<div class="ibox-title">
-					<h5>Blend Size</h5>
-					<div class="ibox-tools">
-						<a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-						<a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu dropdown-user">
-							<li><a href="#">Refresh</a></li>
-							<li><a href="#">Clear</a></li>
-						</ul>
-					</div>
-				</div>
-				<div class="ibox-content">
-					<form method="get" class="form-inline">
-						<div class="row">
-							<div class="col-xs-4">
-								<div class="form-group">
-									<label class="control-label">Minimum Blend Size</label>
-									<div class="input-group">
-										<input type="text" class="form-control" value="10,000">
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-6">
-								<div class="form-group">
-									<label class="control-label">Number of Components</label>
-									<div class="input-group">
-										<select name="status" id="product_sku" class="form-control" style="width:170px;">
-											<option value="1">4</option>
-										</select>
-									</div>
-								</div>
-							</div>
-							<div class="col-xs-2">
-								<div class="form-group">
-									<div class="btn-group">
-										<button type="button" class="btn btn-primary">Lot Preferences</button>
-										<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-											<span class="caret"></span>
-											<span class="sr-only">Toggle Dropdown</span>
-										</button>
-										<ul class="dropdown-menu">
-											<li><a href="#">Blend Prefs</a></li>
-											<li><a href="#">Lot Selection</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
-	</div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Blend Size</h5>
+                    <div class="ibox-tools">
+                        <a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu dropdown-user">
+                            <li><a href="#">Refresh</a></li>
+                            <li><a href="#">Clear</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    <form method="get" class="form-inline">
+                        <div class="row">
+                            <div class="col-xs-4">
+                                <div class="form-group">
+                                    <label class="control-label">Minimum Blend Size</label>
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" value="10,000">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="form-group">
+                                    <label class="control-label">Number of Components</label>
+                                    <div class="input-group">
+                                        <select name="status" id="product_sku" class="form-control" style="width:170px;">
+                                            <option value="1">4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-2">
+                                <div class="form-group">
+                                    <button type="button" class="btn btn-primary">Lot Preferences</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </script>

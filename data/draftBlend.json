@@ -13,6 +13,23 @@
 	"productionLines": [],
 	"plannerCodes": [],
 	"blendSpecs": [],
+	"modificationReasons": [
+		{
+			"reason": "lot age"
+		},
+		{
+			"reason": "blend size"
+		},
+		{
+			"reason": "physically inaccessible "
+		},
+		{
+			"reason": "bored"
+		},
+		{
+			"reason": "other"
+		}
+	],
 	"lots": [
 		{
 			"lotNumber": "SL311467"
