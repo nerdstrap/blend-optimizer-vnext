@@ -34,25 +34,39 @@
 							<div class="form-group">
 								<label class="control-label">Excluded Material Types</label>
 								<select id="excludedMaterialTypes" name="excludedMaterialTypes" data-placeholder="types" class="chosen-select" multiple="" tabindex="-1" style="width: 270px;">
-									{{#lots}}
-									<option value="{{lotNumber}}">{{lotNumber}}</option>
-									{{/lots}}
+									{{#materialTypes}}
+									<option value="{{type}}">{{type}}</option>
+									{{/materialTypes}}
 								</select>
 							</div>
 							<div class="form-group">
-								<label class="control-label">Excluded Material Types</label>
-								<select id="excludedMaterialTypes" name="excludedMaterialTypes" data-placeholder="types" class="chosen-select" multiple="" tabindex="-1" style="width: 270px;">
-									{{#lots}}
-									<option value="{{lotNumber}}">{{lotNumber}}</option>
-									{{/lots}}
+								<label class="control-label">Excluded SKUs</label>
+								<select id="excludedSKUs" name="excludedSKUs" data-placeholder="skus" class="chosen-select" multiple="" tabindex="-1" style="width: 270px;">
+									{{#skus}}
+									<option value="{{sku}}">{{sku}}</option>
+									{{/skus}}
 								</select>
+							</div>
+							<div class="form-group">
+								<div class="btn-group">
+									<button type="button" class="btn btn-primary">Generate Draft Blend</button>
+									<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+										<span class="caret"></span>
+										<span class="sr-only">Toggle Dropdown</span>
+									</button>
+									<ul class="dropdown-menu">
+										<li><a href="#">Blend Prefs</a></li>
+										<li><a href="#">Lot Selection</a></li>
+									</ul>
+								</div>
 							</div>
 						</div>
 						<div class="col-xs-4">
+							<label class="control-label">Filter Available Lots</label>
 							<canvas id="doughnutChart" height="140"></canvas>
 						</div>
 						<div class="col-xs-4">
-							<p class="small">Blend Spec Rules</p>
+							<label class="control-label">Blend Spec Rules</label>
 							<ul>
 								<li>rule 1</li>
 								<li>rule 2</li>
@@ -81,23 +95,26 @@
 				<div class="ibox-content">
 					<div class="row">
 						<div class="col-xs-4">
-							<p class="small"><i class="fa fa-hand-o-up"></i> Drag lots between list</p>
-							<ul id="availableLots">
-								<li>lot 1</li>
-								<li>lot 1</li>
-								<li>lot 1</li>
+							<h3>Available Lots</h3>
+							<p class="small"><i class="fa fa-hand-grab-o"></i> Drag lots between list</p>
+							<ul id="availableLots" class="list-group">
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
 							</ul>
 						</div>
 						<div class="col-xs-4">
-							<p class="small"><i class="fa fa-hand-o-up"></i> Drag lots between list</p>
-							<ul id="eligibleLots">
-								<li>lot 1</li>
-								<li>lot 1</li>
-								<li>lot 1</li>
+							<h3>Excluded Lots</h3>
+							<p class="small"><i class="fa fa-hand-grab-o"></i> Drag lots between list</p>
+							<ul id="eligibleLots" class="list-group">
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
+								<li class="list-group-item"><span class="my-handle">::</span> list item text one</li>
 							</ul>
 						</div>
 						<div class="col-xs-4">
-							<p class="small"><i class="fa fa-hand-o-up"></i> Managers can change lot status</p>
+							<h3>Ineligible Lots</h3>
+							<p class="small"><i class="fa fa-hand-stop-o"></i> Managers can change lot status</p>
 							<ul id="excludedLots">
 								<li>lot 1</li>
 								<li>lot 1</li>

@@ -9,7 +9,6 @@
 	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="bower_components/animate.css/animate.css" rel="stylesheet">
-	<link href="bower_components/sortable/css/sortable-theme-bootstrap.css" rel="stylesheet">
 	<link href="bower_components/footable-v3/src/css/FooTable.css" rel="stylesheet">
 	<link href="bower_components/chosen/chosen.css" rel="stylesheet">
 	<link href="bower_components/nouislider/distribute/nouislider.min.css" rel="stylesheet">
@@ -25,7 +24,7 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/mustache/mustache.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
-<script src="bower_components/sortable/js/sortable.js"></script>
+<script src="bower_components/Sortable/Sortable.js"></script>
 <script src="bower_components/footable-v3/src/js/FooTable.js"></script>
 <script src="bower_components/chosen/chosen.jquery.js"></script>
 <script src="bower_components/nouislider/distribute/nouislider.js"></script>
@@ -78,19 +77,21 @@
 				var ctx = document.getElementById("doughnutChart").getContext("2d");
 				var myNewChart = new Chart(ctx).Doughnut(doughnutData, doughnutOptions);
 
-				new Sortable($('#availableLots'), {
+				var el1 = document.getElementById('availableLots');
+				var sortable1 = Sortable.create(el1, {
 					group: "lots",
 					handle: '.glyphicon-move',
 					animation: 150,
 					sort: true
-				});
+				}).disableSelection();
 
-				new Sortable($('#eligibleLots'), {
+				var el2 = document.getElementById('eligibleLots');
+				var sortable1 = Sortable.create(el2, {
 					group: "lots",
 					handle: '.glyphicon-move',
 					animation: 150,
 					sort: true
-				});
+				}).disableSelection();
 			});
 	});
 </script>

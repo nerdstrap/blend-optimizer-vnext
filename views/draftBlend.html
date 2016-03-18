@@ -9,7 +9,6 @@
 	<link href="bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 	<link href="bower_components/font-awesome/css/font-awesome.css" rel="stylesheet">
 	<link href="bower_components/animate.css/animate.css" rel="stylesheet">
-	<link href="bower_components/sortable/css/sortable-theme-bootstrap.css" rel="stylesheet">
 	<link href="bower_components/footable-v3/src/css/FooTable.css" rel="stylesheet">
 	<link href="bower_components/chosen/chosen.css" rel="stylesheet">
 	<link href="bower_components/nouislider/distribute/nouislider.min.css" rel="stylesheet">
@@ -25,7 +24,7 @@
 <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
 <script src="bower_components/mustache/mustache.js"></script>
 <script src="bower_components/lodash/dist/lodash.js"></script>
-<script src="bower_components/sortable/js/sortable.js"></script>
+<script src="bower_components/Sortable/Sortable.js"></script>
 <script src="bower_components/footable-v3/src/js/FooTable.js"></script>
 <script src="bower_components/chosen/chosen.jquery.js"></script>
 <script src="bower_components/nouislider/distribute/nouislider.js"></script>
@@ -99,31 +98,35 @@
 				var ctx = document.getElementById('radarChart').getContext("2d");
 				var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
 
-				noUiSlider.create(document.getElementById('hmw_range_slider'), {
+				var hmw_range_slider = document.getElementById('hmw_range_slider');
+
+				noUiSlider.create(hmw_range_slider, {
 					start: [40, 60],
 					behaviour: 'drag',
 					connect: true,
 					range: {
-						'min': 20,
-						'max': 80
+						'min': 0,
+						'max': 100
+					},
+					pips: {
+						mode: 'values',
+						values: [20, 80],
+						density: 4
 					}
 				});
-				noUiSlider.create(document.getElementById('virgin_range_slider'), {
-					start: [30, 40],
-					behaviour: 'drag',
-					connect: true,
-					range: {
-						'min': 20,
-						'max': 80
-					}
+				var snapValues = [
+					document.getElementById('slider-snap-value-lower'),
+					document.getElementById('slider-snap-value-upper')
+				];
+
+				hmw_range_slider.noUiSlider.on('update', function (values, handle) {
+					snapValues[handle].innerHTML = values[handle];
 				});
-				noUiSlider.create(document.getElementById('regrind_range_slider'), {
-					start: [50, 55],
-					behaviour: 'drag',
-					connect: true,
-					range: {
-						'min': 20,
-						'max': 80
+				hmw_range_slider.noUiSlider.on('change', function ( values, handle ) {
+					if ( values[handle] < 20 ) {
+						hmw_range_slider.noUiSlider.set(20);
+					} else if ( values[handle] > 80 ) {
+						hmw_range_slider.noUiSlider.set(80);
 					}
 				});
 			});
