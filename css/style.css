@@ -5142,7 +5142,8 @@ button.close {
       margin-top: 5px; }
     .ibox .ibox-title .ibox-tools {
       float: right;
-      display: inline-block; }
+      display: inline-block;
+      margin-left: 20px; }
       .ibox .ibox-title .ibox-tools > ul > li {
         padding: 0; }
         .ibox .ibox-title .ibox-tools > ul > li > a {

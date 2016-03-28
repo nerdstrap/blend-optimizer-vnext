@@ -22,9 +22,9 @@
                 <h3>{{i18n "feature.excludeAvailableLots.title"}}</h3>
                 <form id="excludedLotsForm" class="excluded-lots-form">
                     <div class="form-group">
-                        <label class="control-label" for="excludedMaterialTypes">{{i18n "label.excludedMaterialTypes"}}</label>
+                        <label class="control-label" for="materialTypes">{{i18n "label.materialTypes"}}</label>
                         <div class="input-group">
-                            <select id="excludedMaterialTypes" name="excludedMaterialTypes" data-placeholder="{{i18n "label.excludedMaterialTypes"}}" class="chosen-select" multiple="">
+                            <select id="materialTypes" name="materialTypes" data-placeholder="{{i18n "label.materialTypes"}}" class="chosen-select" multiple="">
 								{{#materialTypes}}
                                     <option value="{{type}}">{{type}}</option>
 								{{/materialTypes}}
@@ -32,9 +32,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="excludedSKUs">{{i18n "label.excludedSKUs"}}</label>
+                        <label class="control-label" for="skus">{{i18n "label.skus"}}</label>
                         <div class="input-group">
-                            <select id="excludedSKUs" name="excludedSKUs" data-placeholder="{{i18n "label.excludedSKUs"}}" class="chosen-select" multiple="">
+                            <select id="skus" name="skus" data-placeholder="{{i18n "label.skus"}}" class="chosen-select" multiple="">
 								{{#materialItems}}
                                     <option value="{{code}}">{{code}}</option>
 								{{/materialItems}}
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button id="generateDraftBlend" type="button" class="btn btn-primary">{{i18n "button.generateDraftBlend"}}</button>
+                        <button id="draftBlend" type="button" class="btn btn-primary">{{i18n "button.draftBlend"}}</button>
                     </div>
                 </form>
             </div>

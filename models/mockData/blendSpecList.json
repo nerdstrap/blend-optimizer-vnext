@@ -3,15 +3,19 @@
 		{
 			"href": "select-plant",
 			"title": "P42"
-		},
-		{
-			"href": "blend-spec-list",
-			"title": "Blend Specs"
 		}
 	],
 	"alerts": [
 		{
 			"alert": "1 new deviation"
+		}
+	],
+	"blendSpecs": [
+		{
+			"id": "ABCD-1230",
+			"name": "Blend Spec 1",
+			"description": "description 1",
+			"active": "true"
 		}
 	]
 }

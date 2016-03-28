@@ -4,161 +4,65 @@ module.exports = function (app) {
 
 	var mockRepository = require('../../models/mockRepository');
 
+	function _renderView(viewName, req, res, next) {
+
+		var options = {};
+
+		mockRepository[viewName](options, function (err, data) {
+			if (err) {
+				throw err;
+			}
+
+			var context = data;
+			res.render(viewName, context);
+		});
+
+	}
+
 	return {
 
-		blendSpecs: function (req, res, next) {
-
-			var templateName = 'blendSpecs';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getBlendSpecs(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-
+		blendSpecList: function (req, res, next) {
+			_renderView('blendSpecList', req, res, next);
 		},
 
-		createBlend: function (req, res, next) {
-
-			var templateName = 'createBlend';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getCreateBlend(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-
+		createBlendSpec: function (req, res, next) {
+			_renderView('createBlendSpec', req, res, next);
 		},
 
-		dashboard: function (req, res, next) {
-
-			var templateName = 'dashboard';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getDashboard(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-
-		},
-
-		draftBlend: function (req, res, next) {
-			var templateName = 'draftBlend';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getDraftBlend(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-		},
-
-		finalizeBlend: function (req, res, next) {
-			var templateName = 'finalizeBlend';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getFinalizeBlend(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
+		blendSpec: function (req, res, next) {
+			_renderView('blendSpec', req, res, next);
 		},
 
 		index: function (req, res, next) {
-
-			var templateName = 'index';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getIndex(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-
+			_renderView('index', req, res, next);
 		},
 
 		kitchenSink: function (req, res, next) {
+			_renderView('kitchenSink', req, res, next);
+		},
 
-			var templateName = 'kitchenSink';
-
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getKitchenSink(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
-
+		dashboard: function (req, res, next) {
+			_renderView('dashboard', req, res, next);
 		},
 
 		lotMaintenance: function (req, res, next) {
-			var templateName = 'lotMaintenance';
+			_renderView('lotMaintenance', req, res, next);
+		},
 
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getLotMaintenance(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
+		createBlend: function (req, res, next) {
+			_renderView('createBlend', req, res, next);
 		},
 
 		lotPreferences: function (req, res, next) {
+			_renderView('lotPreferences', req, res, next);
+		},
 
-			var templateName = 'lotPreferences';
+		draftBlend: function (req, res, next) {
+			_renderView('draftBlend', req, res, next);
+		},
 
-			var options = {
-				plantId: req.params.plantId
-			};
-			mockRepository.getLotPreferences(options, function (err, data) {
-				if (err) {
-					throw err;
-				}
-
-				var context = data;
-				res.render(templateName, context);
-			});
+		finalizeBlend: function (req, res, next) {
+			_renderView('finalizeBlend', req, res, next);
 		}
 	};
 

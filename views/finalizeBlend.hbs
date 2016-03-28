@@ -82,18 +82,18 @@
         </div>
         <div class="row">
             <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.blendMaterials.title"}}</h3>
+                <h3 class="">{{i18n "feature.materials.title"}}</h3>
                 <canvas id="blendMaterialsDonutChart"></canvas>
             </div>
             <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.blendMaterials.title"}}</h3>
+                <h3 class="">{{i18n "feature.materials.title"}}</h3>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>{{i18n "label.percent"}}</th>
                         <th>{{i18n "label.sku"}}</th>
                         <th>{{i18n "label.lotNumber"}}</th>
-                        <th>{{i18n "label.poundsUsed"}}</th>
+                        <th>{{i18n "label.pounds"}}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -102,7 +102,7 @@
                             <th>{{percentUsed}}</th>
                             <td><span class="label label-{{type}}">{{type}}</span> {{sku}}</td>
                             <td>{{lotNumber}}</td>
-                            <td>{{poundsUsed}}</td>
+                            <td>{{pounds}}</td>
                         </tr>
 					{{/finalBlend.materialTypes}}
                     </tbody>

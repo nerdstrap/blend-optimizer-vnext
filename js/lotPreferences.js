@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-	$('.chosen-select').chosen();
-
-	$('#generateDraftBlend').click(function (e) {
+	$('#draftBlend').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}

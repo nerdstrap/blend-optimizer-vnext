@@ -1,0 +1,55 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.blendSpecList.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <div class="pull-right">
+            <button id="newBlendSpec" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+        </div>
+        <h5 class="ibox-header">{{i18n "feature.selectBlend.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Active</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#blendSpecs}}
+                <tr id="{{id}}">
+                    <td>{{name}}</td>
+                    <td>{{description}}</td>
+                    <td>{{active}}</td>
+                    <td>
+                        <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
+                    </td>
+                </tr>
+			{{/blendSpecs}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">&nbsp;</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/blendSpecList.js"></script>
+{{/contentFor}}

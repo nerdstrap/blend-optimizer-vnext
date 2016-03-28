@@ -1,8 +1,6 @@
 $(document).ready(function () {
 
-	$('.chosen-select').chosen();
-
-	$('#goToLotPreferences').click(function (e) {
+	$('#lotPreferences').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}

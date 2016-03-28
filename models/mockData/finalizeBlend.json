@@ -1,10 +1,6 @@
 {
 	"breadcrumbs": [
 		{
-			"href": "create-blend",
-			"title": "Create Blend"
-		},
-		{
 			"href": "select-plant",
 			"title": "Plant: P42"
 		},
@@ -59,7 +55,7 @@
 				"size": "11978",
 				"price": "0.38",
 				"percentUsed": "25",
-				"poundsUsed": "10000"
+				"pounds": "10000"
 			},
 			{
 				"type": "V",
@@ -68,7 +64,7 @@
 				"size": "9203",
 				"price": "0.38",
 				"percentUsed": "25",
-				"poundsUsed": "10000"
+				"pounds": "10000"
 			},
 			{
 				"type": "V",
@@ -77,7 +73,7 @@
 				"size": "1947",
 				"price": "0.3",
 				"percentUsed": "25",
-				"poundsUsed": "10000"
+				"pounds": "10000"
 			},
 			{
 				"type": "V",
@@ -85,7 +81,7 @@
 				"lotNumber": "E299547",
 				"price": "0.38",
 				"percentUsed": "25",
-				"poundsUsed": "10000"
+				"pounds": "10000"
 			},
 			{
 				"type": "C",
@@ -93,7 +89,7 @@
 				"lotNumber": "CO1234",
 				"price": "0.38",
 				"percentUsed": "4",
-				"poundsUsed": "1000"
+				"pounds": "1000"
 			},
 			{
 				"type": "A",
@@ -101,7 +97,7 @@
 				"lotNumber": "A1234",
 				"price": "0.38",
 				"percentUsed": "1",
-				"poundsUsed": "200"
+				"pounds": "200"
 			}
 		]
 	}

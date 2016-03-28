@@ -1,7 +1,5 @@
 $(document).ready(function () {
-
-	$('.chosen-select').chosen();
-
+	
 	$('#saveBlend').click(function (e) {
 		if (e) {
 			e.preventDefault();

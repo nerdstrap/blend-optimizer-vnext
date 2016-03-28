@@ -13,5 +13,11 @@
 		{
 			"alert": "1 new deviation"
 		}
-	]
+	],
+	"blendSpec": {
+		"id": "ABCD-1230",
+		"name": "Blend Spec 1",
+		"description": "description 1",
+		"active": "true"
+	}
 }

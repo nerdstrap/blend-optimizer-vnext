@@ -1,137 +1,88 @@
 'use strict';
 
-var _ = require('lodash');
+var mockData = [];
 
-var blendSpecsMockData = require('./mockData/blendSpecs.json');
-var createBlendMockData = require('./mockData/createBlend.json');
-var dashboardMockData = require('./mockData/dashboard.json');
-var draftBlendMockData = require('./mockData/draftBlend.json');
-var finalizeBlendMockData = require('./mockData/finalizeBlend.json');
-var indexMockData = require('./mockData/index.json');
-var kitchenSinkMockData = require('./mockData/kitchenSink.json');
-var lotMaintenanceMockData = require('./mockData/lotMaintenance.json');
-var lotPreferencesMockData = require('./mockData/lotPreferences.json');
-var saveBlendMockData = require('./mockData/saveBlend.json');
+mockData['index'] = require('./mockData/index.json');
+mockData['kitchenSink'] = require('./mockData/kitchenSink.json');
 
-function _getBlendSpecs(options, callback) {
-	if (callback) {
-		callback(null, blendSpecsMockData);
-	}
-}
+mockData['dashboard'] = require('./mockData/dashboard.json');
 
-function _getCreateBlend(options, callback) {
-	if (callback) {
-		callback(null, createBlendMockData);
-	}
-}
+mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
 
-function _getDashboard(options, callback) {
-	if (callback) {
-		callback(null, dashboardMockData);
-	}
-}
+mockData['blendSpecList'] = require('./mockData/blendSpecList.json');
+mockData['blendSpec'] = require('./mockData/blendSpec.json');
+mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
 
-function _getDraftBlend(options, callback) {
-	if (callback) {
-		callback(null, draftBlendMockData);
-	}
-}
-
-function _getFinalizeBlend(options, callback) {
-	if (callback) {
-		callback(null, finalizeBlendMockData);
-	}
-}
-
-function _getIndex(options, callback) {
-	if (callback) {
-		callback(null, indexMockData);
-	}
-}
-
-function _getKitchenSink(options, callback) {
-	if (callback) {
-		callback(null, kitchenSinkMockData);
-	}
-}
-
-function _getLotMaintenance(options, callback) {
-	if (callback) {
-		callback(null, lotMaintenanceMockData);
-	}
-}
-
-function _getLotPreferences(options, callback) {
-	if (callback) {
-		callback(null, lotPreferencesMockData);
-	}
-}
-
-function _getSaveBlend(options, callback) {
-	if (callback) {
-		callback(null, saveBlendMockData);
-	}
-}
+mockData['createBlend'] = require('./mockData/createBlend.json');
+mockData['lotPreferences'] = require('./mockData/lotPreferences.json');
+mockData['draftBlend'] = require('./mockData/draftBlend.json');
+mockData['finalizeBlend'] = require('./mockData/finalizeBlend.json');
 
 module.exports = {
 
-	getCreateBlend: function (options, callback) {
-		_getCreateBlend(options, function (err, data) {
-			callback(err, data);
-		});
+	index: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['index']);
+		}
 	},
 
-	getBlendSpecs: function (options, callback) {
-		_getBlendSpecs(options, function (err, data) {
-			callback(err, data);
-		});
+	kitchenSink: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['kitchenSink']);
+		}
 	},
 
-	getDashboard: function (options, callback) {
-		_getDashboard(options, function (err, data) {
-			callback(err, data);
-		});
+	dashboard: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['dashboard']);
+		}
 	},
 
-	getDraftBlend: function (options, callback) {
-		_getDraftBlend(options, function (err, data) {
-			callback(err, data);
-		});
+	lotMaintenance: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['lotMaintenance']);
+		}
 	},
 
-	getFinalizeBlend: function (options, callback) {
-		_getFinalizeBlend(options, function (err, data) {
-			callback(err, data);
-		});
+	blendSpecList: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['blendSpecList']);
+		}
 	},
 
-	getIndex: function (options, callback) {
-		_getIndex(options, function (err, data) {
-			callback(err, data);
-		});
+	blendSpec: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['blendSpec']);
+		}
 	},
 
-	getKitchenSink: function (options, callback) {
-		_getKitchenSink(options, function (err, data) {
-			callback(err, data);
-		});
+	createBlendSpec: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['createBlendSpec']);
+		}
 	},
 
-	getLotMaintenance: function (options, callback) {
-		_getLotMaintenance(options, function (err, data) {
-			callback(err, data);
-		});
+	createBlend: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['createBlend']);
+		}
 	},
 
-	getLotPreferences: function (options, callback) {
-		_getLotPreferences(options, function (err, data) {
-			callback(err, data);
-		});
+	lotPreferences: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['lotPreferences']);
+		}
 	},
 
-	getSaveBlend: function (options, callback) {
-		_getSaveBlend(options, function (err, data) {
-			callback(err, data);
-		});
+	draftBlend: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['draftBlend']);
+		}
+	},
+
+	finalizeBlend: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['finalizeBlend']);
+		}
 	}
 };

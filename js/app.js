@@ -25,4 +25,7 @@ $(document).ready(function () {
 			lot.find('[id^=map-]').resize();
 		}, 50);
 	});
+
+	$('.chosen-select').chosen();
+	
 });
