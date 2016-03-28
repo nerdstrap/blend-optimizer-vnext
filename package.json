@@ -21,15 +21,18 @@
 		"body-parser": "latest",
 		"express": "latest",
 		"forever": "latest",
+		"i18n": "latest",
 		"lodash": "latest",
 		"morgan": "latest",
 		"nconf": "latest",
 		"serve-favicon": "latest",
-		"bower": "latest"
+		"bower": "latest",
+		"express-handlebars": "latest"
 	},
 	"devDependencies": {
 		"gulp": "latest",
-		"gulp-ruby-sass": "latest"
+		"gulp-ruby-sass": "latest",
+		"gulp-sourcemaps": "latest"
 	},
 	"scripts": {
 		"postinstall": "./node_modules/bower/bin/bower install"

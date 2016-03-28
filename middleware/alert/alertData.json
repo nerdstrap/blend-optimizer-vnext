@@ -1,0 +1,22 @@
+[
+	{
+		"type": "info",
+		"title": "Info",
+		"message": "This is an info (blue) alert."
+	},
+	{
+		"type": "success",
+		"title": "Success",
+		"message": "This is a success (green) alert."
+	},
+	{
+		"type": "warning",
+		"title": "Warning",
+		"message": "This is a warning (yellow) alert."
+	},
+	{
+		"type": "danger",
+		"title": "Danger",
+		"message": "This is a danger (red) alert."
+	}
+]

@@ -1,0 +1,59 @@
+//
+// Breadcrumbs
+// --------------------------------------------------
+
+.breadcrumb {
+	padding: $breadcrumb-padding-vertical $breadcrumb-padding-horizontal;
+	margin-bottom: 0;
+	list-style: none;
+	background-color: $breadcrumb-bg;
+	border-radius: $border-radius-base;
+
+	> li {
+		display: inline-block;
+
+		+ li:before {
+			// [converter] Workaround for https://github.com/sass/libsass/issues/1115
+			$nbsp: "\00a0";
+			content: "#{$breadcrumb-separator}#{$nbsp}"; // Unicode space added since inline-block means non-collapsing white-space
+			padding: 0 5px;
+			color: $breadcrumb-color;
+		}
+
+		> a {
+			color: $breadcrumb-link-color;
+
+			&:hover,
+			&:focus {
+				color: $breadcrumb-link-hover-color;
+				background-color: $breadcrumb-link-hover-bg;
+			}
+		}
+	}
+
+	> .active {
+		color: $breadcrumb-active-color;
+
+		> a {
+			&,
+			&:hover,
+			&:focus {
+				color: $breadcrumb-link-active-color;
+				background-color: $breadcrumb-link-active-bg;
+			}
+		}
+	}
+
+	> .disabled {
+		color: $breadcrumb-disabled-color;
+
+		> a {
+			&,
+			&:hover,
+			&:focus {
+				color: $breadcrumb-link-disabled-color;
+				background-color: $breadcrumb-link-disabled-bg;
+			}
+		}
+	}
+}

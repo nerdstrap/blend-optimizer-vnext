@@ -1,0 +1,9 @@
+<div class="lot-list-panel">
+    <h3>{{feature.availableLots.title}}</h3>
+    <h4><i class="fa {{dragAndDropIcon}}"></i>{feature.dragDrop.description}}</h4>
+    <ul id="availableLots" class="lot-list">
+		{{#excludedLots}}
+			{{> lot}}
+		{{/excludedLots}}
+    </ul>
+</div>

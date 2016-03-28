@@ -1,0 +1,108 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.createBlend.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.selectBlend.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <form id="selectBlendForm" class="select-blend-form">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="department" class="control-label">{{i18n "label.department"}}</label>
+                        <div class="input-group">
+                            <select id="department" name="department" class="form-control chosen-select">
+								{{#departments}}
+                                    <option value="{{id}}">{{department}}</option>
+								{{/departments}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="plannerCode" class="control-label">{{i18n "label.plannerCode"}}</label>
+                        <div class="input-group">
+                            <select id="plannerCode" name="plannerCode" class="form-control chosen-select">
+								{{#plannerCodes}}
+                                    <option value="{{id}}">{{plannerCode}}</option>
+								{{/plannerCodes}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
+                    <div class="input-group">
+                        <select id="blendSpec" name="blendSpec" class="form-control chosen-select">
+							{{#blendSpecs}}
+                                <option value="{{id}}">{{blendSpec}}</option>
+							{{/blendSpecs}}
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">&nbsp;</div>
+                <div id="plannerCodeDescriptionContainer" class="col-sm-4"></div>
+                <div id="productSkusContainer" class="col-sm-4"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.blendSize.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <form id="blendSizeForm" class="blend-size-form">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="minimumBlendSize" class="control-label">{{i18n "label.minimumBlendSize"}}</label>
+                        <div class="input-group">
+                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="numberOfComponents" class="control-label">{{i18n "label.numberOfComponents"}}</label>
+                        <div class="input-group">
+                            <select id="numberOfComponents" name="numberOfComponents" class="form-control chosen-select">
+								{{#numberOfComponents}}
+                                    <option value="{{number}}">{{number}}</option>
+								{{/numberOfComponents}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="goToLotPreferences" class="control-label">&nbsp;</label>
+                        <div class="input-group">
+                            <button id="goToLotPreferences" type="button" class="btn btn-primary">{{i18n "button.goToLotPreferences"}}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/createBlend.js"></script>
+{{/contentFor}}

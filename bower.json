@@ -3,6 +3,7 @@
 	"dependencies": {
 		"jquery": "latest",
 		"bootstrap": "latest",
+		"bootstrap-sass": "latest",
 		"font-awesome": "latest",
 		"mustache": "latest",
 		"lodash": "latest",
@@ -10,8 +11,9 @@
 		"chosen": "latest",
 		"footable-v3": "latest",
 		"nouislider": "latest",
-		"wnumb": "latest",
 		"Chart.js": "latest",
-		"Sortable": "latest"
+		"Sortable": "latest",
+		"wnumb": "latest",
+		"toastr": "latest"
 	}
 }

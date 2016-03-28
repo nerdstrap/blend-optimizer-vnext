@@ -1,0 +1,237 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.createBlend.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.finalizeBlend.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row margin-bottom-20">
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
+                <canvas id="finalizeBlendRadarChart"></canvas>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{i18n "label.spec"}}</th>
+                        <th>{{i18n "label.densityAbbreviation"}}</th>
+                        <th>{{i18n "label.meltIndexAbbreviation"}}</th>
+                        <th>{{i18n "label.izodAbbreviation"}}</th>
+                        <th>{{i18n "label.nclsAbbreviation"}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#bottomLineSpecs}}
+                        <tr>
+                            <th>{{spec}}</th>
+                            <td>{{density}}</td>
+                            <td>{{meltIndex}}</td>
+                            <td>{{izod}}</td>
+                            <td>{{ncls}}</td>
+                        </tr>
+					{{/bottomLineSpecs}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="5">&nbsp;</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.saveBlend.title"}}</h3>
+                <form id="saveBlendForm" class="save-blend-form">
+                    <div class="form-group">
+                        <label for="comments" class="control-label">{{i18n "label.comments"}}</label>
+                        <div class="input-group">
+                            <input id="comments" name="comments" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="addReservation" class="control-label">{{i18n "label.addReservation"}}</label>
+                        <div class="input-group">
+                            <input id="addReservation" name="addReservation" type="checkbox" class="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="reservationSize" class="control-label">{{i18n "label.reservationSize"}}</label>
+                        <div class="input-group">
+                            <input id="reservationSize" name="reservationSize" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="saveBlend" type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
+                        <button id="printBlend" type="button" class="btn btn-default">{{i18n "button.print"}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.blendMaterials.title"}}</h3>
+                <canvas id="blendMaterialsDonutChart"></canvas>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.blendMaterials.title"}}</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{i18n "label.percent"}}</th>
+                        <th>{{i18n "label.sku"}}</th>
+                        <th>{{i18n "label.lotNumber"}}</th>
+                        <th>{{i18n "label.poundsUsed"}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#finalBlend.materialTypes}}
+                        <tr>
+                            <th>{{percentUsed}}</th>
+                            <td><span class="label label-{{type}}">{{type}}</span> {{sku}}</td>
+                            <td>{{lotNumber}}</td>
+                            <td>{{poundsUsed}}</td>
+                        </tr>
+					{{/finalBlend.materialTypes}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="4">total weight: {{finalBlend.totalWeight}} lbs</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/finalizeBlend.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var radarData = {
+                labels: ["Melt", "IZOD", "Density", "NCLS"],
+                datasets: [
+                    {
+                        label: "low",
+                        fillColor: "rgba(154,157,159,0.4)",
+                        strokeColor: "rgba(154,157,159,1)",
+                        pointColor: "rgba(154,157,159,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(154,157,159,1)",
+                        data: [20, 20, 20, 20]
+                    },
+                    {
+                        label: "actual",
+                        fillColor: "rgba(22,150,224,0.4)",
+                        strokeColor: "rgba(22,150,224,1)",
+                        pointColor: "rgba(22,150,224,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(22,150,224,1)",
+                        data: [60, 60, 60, 60]
+                    },
+                    {
+                        label: "high",
+                        fillColor: "rgba(237,85,101,0.1)",
+                        strokeColor: "rgba(237,85,101,1)",
+                        pointColor: "rgba(237,85,101,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(237,85,101,1)",
+                        data: [90, 90, 90, 90]
+                    }
+                ]
+            };
+            var radarOptions = {
+                scaleShowLine: true,
+                angleShowLineOut: true,
+                scaleShowLabels: false,
+                scaleBeginAtZero: true,
+                angleLineColor: "rgba(0,0,0,.1)",
+                angleLineWidth: 1,
+                pointLabelFontFamily: "'open-sans'",
+                pointLabelFontStyle: "normal",
+                pointLabelFontSize: 10,
+                pointLabelFontColor: "#666",
+                pointDot: true,
+                pointDotRadius: 3,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                responsive: true
+            };
+            var finalizeBlendRadarChart = document.getElementById('finalizeBlendRadarChart').getContext("2d");
+            new Chart(finalizeBlendRadarChart).Radar(radarData, radarOptions);
+
+            var doughnutData = [
+                {
+                    value: 20,
+                    color: "#a3e1d4",
+                    highlight: "#1ab394",
+                    label: "Virgin"
+                },
+                {
+                    value: 20,
+                    color: "#dedede",
+                    highlight: "#1ab394",
+                    label: "Regrind"
+                },
+                {
+                    value: 20,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Spec"
+                },
+                {
+                    value: 25,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Spec"
+                },
+                {
+                    value: 4,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Spec"
+                },
+                {
+                    value: 1,
+                    color: "#b5b8cf",
+                    highlight: "#1ab394",
+                    label: "Spec"
+                }
+            ];
+            var doughnutOptions = {
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                percentageInnerCutout: 45, // This is 0 for Pie charts
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+                responsive: true
+            };
+            var blendMaterialsDonutChart = document.getElementById("blendMaterialsDonutChart").getContext("2d");
+            new Chart(blendMaterialsDonutChart).Doughnut(doughnutData, doughnutOptions);
+
+        });
+    </script>
+{{/contentFor}}

@@ -1,0 +1,108 @@
+{
+	"breadcrumbs": [
+		{
+			"href": "create-blend",
+			"title": "Create Blend"
+		},
+		{
+			"href": "select-plant",
+			"title": "Plant: P42"
+		},
+		{
+			"href": "select-blend",
+			"title": "Product: 04AG"
+		},
+		{
+			"href": "lot-preferences",
+			"title": "Lot Preferences"
+		},
+		{
+			"href": "draft-blend",
+			"title": "Draft Blend"
+		}
+	],
+	"alerts": [
+		{
+			"alert": "1 new deviation"
+		}
+	],
+	"bottomLineSpecs": [
+		{
+			"spec": "low",
+			"density": "0.35",
+			"meltIndex": "0.2",
+			"izod": "0.1",
+			"ncls": "0.4"
+		},
+		{
+			"spec": "actual",
+			"density": "0.4",
+			"meltIndex": "0.5",
+			"izod": "0.5",
+			"ncls": "0.5"
+		},
+		{
+			"spec": "high",
+			"density": "0.8",
+			"meltIndex": "0.8",
+			"izod": "0.75",
+			"ncls": "0.99"
+		}
+	],
+	"finalBlend": {
+		"totalWeight": "40000",
+		"materialTypes": [
+			{
+				"type": "V",
+				"sku": "9999E",
+				"lotNumber": "E299311-3",
+				"size": "11978",
+				"price": "0.38",
+				"percentUsed": "25",
+				"poundsUsed": "10000"
+			},
+			{
+				"type": "V",
+				"sku": "9999E",
+				"lotNumber": "E299021",
+				"size": "9203",
+				"price": "0.38",
+				"percentUsed": "25",
+				"poundsUsed": "10000"
+			},
+			{
+				"type": "V",
+				"sku": "9999E",
+				"lotNumber": "E312711",
+				"size": "1947",
+				"price": "0.3",
+				"percentUsed": "25",
+				"poundsUsed": "10000"
+			},
+			{
+				"type": "V",
+				"sku": "9999E",
+				"lotNumber": "E299547",
+				"price": "0.38",
+				"percentUsed": "25",
+				"poundsUsed": "10000"
+			},
+			{
+				"type": "C",
+				"sku": "color",
+				"lotNumber": "CO1234",
+				"price": "0.38",
+				"percentUsed": "4",
+				"poundsUsed": "1000"
+			},
+			{
+				"type": "A",
+				"sku": "additive",
+				"lotNumber": "A1234",
+				"price": "0.38",
+				"percentUsed": "1",
+				"poundsUsed": "200"
+			}
+		]
+	}
+}

@@ -1,18 +1,28 @@
-var DraftBlend = function () {
-	return {
-		render: function () {
-			var deferred = $.Deferred();
+$(document).ready(function () {
 
-			var $contentContainer = $('#content');
-			$.when($.get('templates/draftBlend.mustache.html'), $.get('data/draftBlend.json')).then(function (contentTemplateData, contentJsonData) {
-				var contentTemplate = contentTemplateData[0];
-				var contentJson = contentJsonData[0];
-				$contentContainer.append(Mustache.render($(contentTemplate).filter('#draftBlendTemplate').html(), contentJson));
+	$('.chosen-select').chosen();
 
-				deferred.resolve();
-			});
-
-			return deferred.promise();
+	$('#finalizeBlend').click(function (e) {
+		if (e) {
+			e.preventDefault();
 		}
-	};
-}();
+		window.location.href = 'finalize-blend';
+	});
+
+	var includedLots = document.getElementById('includedLots');
+	Sortable.create(includedLots, {
+		handle: ".lot-header",
+		animation: 0,
+		group: 'availableLots',
+		sort: true
+	});
+
+	var availableLots = document.getElementById('availableLots');
+	Sortable.create(availableLots, {
+		handle: ".lot-header",
+		animation: 0,
+		group: 'availableLots',
+		sort: true
+	});
+
+});

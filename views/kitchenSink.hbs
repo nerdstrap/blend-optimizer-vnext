@@ -1,0 +1,187 @@
+{{> "pageHeader"}}
+
+<div class="row">
+    <div class="col-sm-4">
+        <div class="lot-list-panel">
+            <h3>Available Lots</h3>
+            <h4><i class="fa fa-hand-grab-o"></i> Drag lots between lists</h4>
+            <ul id="availableLots" class="lot-list">
+				{{#availableLots}}
+                    <li id="id" class="lot-list-item">
+                        <div class="lot border-bottom">
+                            <div class="lot-title">
+                                <div class="lot-badge">
+                                    <span class="badge badge-{{type}}">{{type}}</span>
+                                </div>
+                                <div class="lot-header">
+                                    <div><span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}}</span>
+                                    </div>
+                                    <div><span class="lot-number">{{lotNumber}}</span>
+                                        <i class="fa {{commentsIcon}}"></i></div>
+                                    <div>
+                                        <span class="lot-density"><strong>{{label.densityAbbreviation}}</strong> {{density}}</span>
+                                        <span class="lot-melt"><strong>{{label.meltIndexAbbreviation}}</strong> {{meltIndex}}</span>
+                                        <span class="lot-izod"><strong>{{label.izodAbbreviation}}</strong> {{izod}}</span>
+                                        <span class="lot-ncls"><strong>{{label.nclsAbbreviation}}</strong> {{ncls}}</span>
+                                    </div>
+                                </div>
+                                <div class="lot-tools">
+                                    <a class="collapse-link"><i class="fa {{closeCollapsibleIcon}}"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa {{dropdownMenuIcon}}"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-lot">
+                                        <li><a href="#">Clear Reservations</a></li>
+                                        <li><a href="#">View Quality Reports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lot-content" style="display:none;">
+                                <div class="lot-info">
+                                    <div><span class="lot-supplier">{{supplier}}</span></div>
+                                    <div><span class="lot-price">{{price}}</span></div>
+                                    <div><span class="lot-comments">{{comments}}</span></div>
+                                    <div><span class="lot-age text-{{age}}">{{receivedDate}}</span></div>
+                                    <div>
+                                        <span class="lot-mh"><strong>{{meltHighAbbreviation}}</strong> {{meltHigh}}</span>
+                                        <span class="lot-h1"><strong>{{halfLifeAbbreviation}}</strong> {{halfLife}}</span>
+                                        <span class="lot-v"><strong>{{label.viscosityAbbreviation}}</strong> {{viscosity}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="lot-ir"><strong>{{label.infraredAbbreviation}}</strong> {{infrared}}</span>
+                                        <span class="lot-sf"><strong>{{label.sinkFloatAbbreviation}}</strong> {{sinkFloat}}</span>
+                                        <span class="lot-co"><strong>{{label.contaminationAbbreviation}}</strong> {{contamination}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+				{{/availableLots}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="lot-list-panel">
+            <h3>Excluded Lots</h3>
+            <h4><i class="fa fa-hand-grab-o"></i> Drag lots between lists</h4>
+            <ul id="excludedLots" class="lot-list">
+				{{#excludedLots}}
+                    <li id="id" class="lot-list-item">
+                        <div class="lot border-bottom">
+                            <div class="lot-title">
+                                <div class="lot-badge">
+                                    <span class="badge badge-{{type}}">{{type}}</span>
+                                </div>
+                                <div class="lot-header">
+                                    <div><span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}}</span>
+                                    </div>
+                                    <div><span class="lot-number">{{lotNumber}}</span>
+                                        <i class="fa {{commentsIcon}}"></i>
+                                    </div>
+                                    <div>
+                                        <span class="lot-density"><strong>{{label.densityAbbreviation}}</strong> {{density}}</span>
+                                        <span class="lot-melt"><strong>{{label.meltIndexAbbreviation}}</strong> {{meltIndex}}</span>
+                                        <span class="lot-izod"><strong>{{label.izodAbbreviation}}</strong> {{izod}}</span>
+                                        <span class="lot-ncls"><strong>{{label.nclsAbbreviation}}</strong> {{ncls}}</span>
+                                    </div>
+                                </div>
+                                <div class="lot-tools">
+                                    <a class="collapse-link"><i class="fa {{closeCollapsibleIcon}}"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa {{dropdownMenuIcon}}"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-lot">
+                                        <li><a href="#">Clear Reservations</a></li>
+                                        <li><a href="#">View Quality Reports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lot-content" style="display:none;">
+                                <div class="lot-info">
+                                    <div><span class="lot-supplier">{{supplier}}</span></div>
+                                    <div><span class="lot-price">{{price}}</span></div>
+                                    <div><span class="lot-comments">{{comments}}</span></div>
+                                    <div><span class="lot-age text-{{age}}">{{receivedDate}}</span></div>
+                                    <div>
+                                        <span class="lot-mh"><strong>{{meltHighAbbreviation}}</strong> {{meltHigh}}</span>
+                                        <span class="lot-h1"><strong>{{halfLifeAbbreviation}}</strong> {{halfLife}}</span>
+                                        <span class="lot-v"><strong>{{label.viscosityAbbreviation}}</strong> {{viscosity}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="lot-ir"><strong>{{label.infraredAbbreviation}}</strong> {{infrared}}</span>
+                                        <span class="lot-sf"><strong>{{label.sinkFloatAbbreviation}}</strong> {{sinkFloat}}</span>
+                                        <span class="lot-co"><strong>{{label.contaminationAbbreviation}}</strong> {{contamination}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+				{{/excludedLots}}
+            </ul>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="lot-list-panel">
+            <h3>Ineligible Lots</h3>
+            <h4><i class="fa fa-hand-grab-o"></i> Drag lots between lists</h4>
+            <ul id="ineligibleLots" class="lot-list">
+				{{#ineligibleLots}}
+                    <li id="id" class="lot-list-item">
+                        <div class="lot border-bottom">
+                            <div class="lot-title">
+                                <div class="lot-badge">
+                                    <span class="badge badge-{{type}}">{{type}}</span>
+                                </div>
+                                <div class="lot-header">
+                                    <div><span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}}</span>
+                                    </div>
+                                    <div><span class="lot-number">{{lotNumber}}</span>
+                                        <i class="fa {{commentsIcon}}"></i>
+                                    </div>
+                                    <div>
+                                        <span class="lot-density"><strong>{{label.densityAbbreviation}}</strong> {{density}}</span>
+                                        <span class="lot-melt"><strong>{{label.meltIndexAbbreviation}}</strong> {{meltIndex}}</span>
+                                        <span class="lot-izod"><strong>{{label.izodAbbreviation}}</strong> {{izod}}</span>
+                                        <span class="lot-ncls"><strong>{{label.nclsAbbreviation}}</strong> {{ncls}}</span>
+                                    </div>
+                                </div>
+                                <div class="lot-tools">
+                                    <a class="collapse-link"><i class="fa {{closeCollapsibleIcon}}"></i></a>
+                                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                        <i class="fa {{dropdownMenuIcon}}"></i>
+                                    </a>
+                                    <ul class="dropdown-menu dropdown-lot">
+                                        <li><a href="#">Clear Reservations</a></li>
+                                        <li><a href="#">View Quality Reports</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="lot-content" style="display:none;">
+                                <div class="lot-info">
+                                    <div><span class="lot-supplier">{{supplier}}</span></div>
+                                    <div><span class="lot-price">{{price}}</span></div>
+                                    <div><span class="lot-comments">{{comments}}</span></div>
+                                    <div><span class="lot-age text-{{age}}">{{receivedDate}}</span></div>
+                                    <div>
+                                        <span class="lot-mh"><strong>{{meltHighAbbreviation}}</strong> {{meltHigh}}</span>
+                                        <span class="lot-h1"><strong>{{halfLifeAbbreviation}}</strong> {{halfLife}}</span>
+                                        <span class="lot-v"><strong>{{label.viscosityAbbreviation}}</strong> {{viscosity}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="lot-ir"><strong>{{label.infraredAbbreviation}}</strong> {{infrared}}</span>
+                                        <span class="lot-sf"><strong>{{label.sinkFloatAbbreviation}}</strong> {{sinkFloat}}</span>
+                                        <span class="lot-co"><strong>{{label.contaminationAbbreviation}}</strong> {{contamination}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+				{{/ineligibleLots}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/kitchenSink.js"></script>
+{{/contentFor}}

@@ -1,6 +1,16 @@
-/* Only demo */
-@media (max-width: 1000px) {
-  .welcome-message {
-    display: none;
-  }
+.select-blend-form .form-control,
+.select-blend-form .chosen-select,
+.blend-size-form .form-control,
+.blend-size-form .chosen-select,
+.excluded-lots-form .form-control,
+.excluded-lots-form .chosen-select,
+.finalize-blend-form .form-control,
+.finalize-blend-form .chosen-select,
+.save-blend-form .form-control,
+.save-blend-form .chosen-select {
+	width: 270px;
+}
+
+.margin-bottom-20 {
+	margin-bottom: 20px;
 }

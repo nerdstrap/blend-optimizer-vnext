@@ -1,0 +1,145 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.createBlend.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.lotPreferences.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row margin-bottom-20">
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.excludeAvailableLots.title"}}</h3>
+                <form id="excludedLotsForm" class="excluded-lots-form">
+                    <div class="form-group">
+                        <label class="control-label" for="excludedMaterialTypes">{{i18n "label.excludedMaterialTypes"}}</label>
+                        <div class="input-group">
+                            <select id="excludedMaterialTypes" name="excludedMaterialTypes" data-placeholder="{{i18n "label.excludedMaterialTypes"}}" class="chosen-select" multiple="">
+								{{#materialTypes}}
+                                    <option value="{{type}}">{{type}}</option>
+								{{/materialTypes}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="excludedSKUs">{{i18n "label.excludedSKUs"}}</label>
+                        <div class="input-group">
+                            <select id="excludedSKUs" name="excludedSKUs" data-placeholder="{{i18n "label.excludedSKUs"}}" class="chosen-select" multiple="">
+								{{#materialItems}}
+                                    <option value="{{code}}">{{code}}</option>
+								{{/materialItems}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="generateDraftBlend" type="button" class="btn btn-primary">{{i18n "button.generateDraftBlend"}}</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.filterAvailableLots.title"}}</h3>
+                <canvas id="availableLotsDonutChart"></canvas>
+                <ul class="list-inline">
+					{{#materialTypes}}
+                        <li>
+							{{type}}
+                        </li>
+					{{/materialTypes}}
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+                <ol>
+					{{#blendSpecRules}}
+                        <li>{{ruleSummary}}</li>
+					{{/blendSpecRules}}
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                    </div>
+                    <ul id="availableLots" class="lot-list-group sortable">
+						{{#availableLots}}
+                            <li id="{{id}}" class="lot-list-group-item">
+								{{> "lot"}}
+                            </li>
+						{{/availableLots}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.excludedLots.title"}}</h3>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                    </div>
+                    <ul id="excludedLots" class="lot-list-group">
+						{{#excludedLots}}
+                            <li id="{{id}}" class="lot-list-group-item sortable">
+								{{> "lot"}}
+                            </li>
+						{{/excludedLots}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.ineligibleLots.title"}}</h3>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.stop"}}"></i> {{i18n "feature.lotMaintenance.description"}}</h6>
+                    </div>
+                    <ul id="ineligibleLots" class="lot-list-group">
+						{{#ineligibleLots}}
+                            <li id="{{id}}" class="lot-list-group-item">
+								{{> "lot"}}
+                            </li>
+						{{/ineligibleLots}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/lotPreferences.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var availableLotsDoughnutData = {{{json availableLotsDoughnutData}}};
+
+            var doughnutOptions = {
+                segmentShowStroke: true,
+                segmentStrokeColor: "#fff",
+                segmentStrokeWidth: 2,
+                percentageInnerCutout: 45,
+                animationSteps: 100,
+                animationEasing: "easeOutBounce",
+                animateRotate: true,
+                animateScale: false,
+                responsive: true
+            };
+            var availableLotsDonutChart = document.getElementById("availableLotsDonutChart").getContext("2d");
+            new Chart(availableLotsDonutChart).Doughnut(availableLotsDoughnutData, doughnutOptions);
+
+        });
+    </script>
+{{/contentFor}}

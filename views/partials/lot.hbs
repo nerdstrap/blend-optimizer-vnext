@@ -1,0 +1,48 @@
+<div class="lot border-bottom">
+    <div class="lot-title">
+        <div class="lot-label">
+            <span class="label label-{{type}}">{{type}}</span>
+        </div>
+		{{> "lot-tools"}}
+        <div class="lot-header">
+            <div>
+                <span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}} lbs</span>
+            </div>
+            <div>
+                <span class="lot-number">{{lotNumber}}</span> <i class="fa {{i18n "icon.comments"}}"></i>
+            </div>
+            <div>
+                <span class="lot-density"><strong>{{i18n "label.densityAbbreviation"}}</strong> {{density}}</span>
+                <span class="lot-melt"><strong>{{i18n "label.meltIndexAbbreviation"}}</strong> {{meltIndex}}</span>
+                <span class="lot-izod"><strong>{{i18n "label.izodAbbreviation"}}</strong> {{izod}}</span>
+                <span class="lot-ncls"><strong>{{i18n "label.nclsAbbreviation"}}</strong> {{ncls}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="lot-content" style="display: none;">
+        <div class="lot-details">
+            <div>
+                <span class="lot-supplier">{{supplier}}</span>
+            </div>
+            <div>
+                <span class="lot-price">{{price}}</span>
+            </div>
+            <div>
+                <span class="lot-comments">{{comments}}</span>
+            </div>
+            <div>
+                <span class="lot-age">{{receivedDate}}</span>
+            </div>
+            <div>
+                <span class="lot-mh"><strong>{{i18n "label.highLowMeltIndexAbbreviation"}}</strong> {{meltHigh}}</span>
+                <span class="lot-h1"><strong>{{i18n "label.h1Abbreviation"}}</strong> {{halfLife}}</span>
+                <span class="lot-v"><strong>{{i18n "label.viscosityAbbreviation"}}</strong> {{viscosity}}</span>
+            </div>
+            <div>
+                <span class="lot-ir"><strong>{{i18n "label.infraredAbbreviation"}}</strong> {{infrared}}</span>
+                <span class="lot-sf"><strong>{{i18n "label.sinkFloatAbbreviation"}}</strong> {{sinkFloat}}</span>
+                <span class="lot-co"><strong>{{i18n "label.contaminationAbbreviation"}}</strong> {{contamination}}</span>
+            </div>
+        </div>
+    </div>
+</div>

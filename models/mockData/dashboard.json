@@ -1,0 +1,18 @@
+{
+	"broadcastMessages": [
+		{
+			"type": "info",
+			"message": "This is an info (blue) type broadcast message. It will show under the page title on every page and can not be dismissed."
+		},
+		{
+			"type": "warning",
+			"message": "This is a warning (yellow) type broadcast message. It will show under the page title on every page and can not be dismissed."
+		}
+	],
+	"breadcrumbs": [],
+	"alerts": [
+		{
+			"alert": "1 new deviation"
+		}
+	]
+}

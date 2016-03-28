@@ -6,6 +6,8 @@ if (!process.env.NODE_ENV) {
 
 var path = require('path');
 var express = require('express');
+var expressHandlebars = require('express-handlebars');
+var i18n = require('i18n');
 var nconf = require('nconf');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -14,14 +16,61 @@ var favicon = require('serve-favicon');
 nconf.argv().env();
 nconf.file({file: path.join(__dirname, 'config', 'global.' + process.env.NODE_ENV + '.json')});
 
+// minimal config
+i18n.configure({
+	locales: ['en', 'fr'],
+	cookie: 'locale',
+	directory: __dirname + "/locales"
+});
+
 var app = express();
+var hbs = expressHandlebars.create({
+	defaultLayout: 'default',
+	extname: 'hbs',
+	helpers: {
+		block: function (name) {
+			var blocks = this._blocks;
+			var content = blocks && blocks[name];
+
+			return content ? content.join('\n') : null;
+		},
+
+		contentFor: function (name, options) {
+			var blocks = this._blocks || (this._blocks = {});
+			var block = blocks[name] || (blocks[name] = []);
+
+			block.push(options.fn(this));
+		},
+
+		json: function (object) {
+			return JSON.stringify(object);
+		}
+	}
+});
+
+app.use(function (req, res, next) {
+	hbs.handlebars.registerHelper('i18n', function () {
+		var args = Array.prototype.slice.call(arguments);
+		var options = args.pop();
+		return i18n.__.apply(options.data.root, args);
+	});
+	next();
+});
+
+app.use(i18n.init);
+
+app.engine('.hbs', hbs.engine);
+app.set('view engine', '.hbs');
+
+app.use(favicon(__dirname + '/img/favicon.png'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 app.use('/css', express.static(__dirname + '/css'));
 app.use('/img', express.static(__dirname + '/img'));
 app.use('/js', express.static(__dirname + '/js'));
-app.use('/data', express.static(__dirname + '/data'));
-app.use('/templates', express.static(__dirname + '/templates'));
-app.use('/', express.static(__dirname + '/views'));
+
+var publicRoutes = require('./middleware/public/publicRoutes')(app);
+var alertRoutes = require('./middleware/alert/alertRoutes')(app);
+var broadcastMessageRoutes = require('./middleware/broadcastMessage/broadcastMessageRoutes')(app);
 
 app.use(morgan('dev'));
 

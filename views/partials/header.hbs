@@ -1,0 +1,31 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#blend-optimizer-navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">{{i18n "app.title"}}</a>
+        </div>
+        <div id="blend-optimizer-navbar-collapse" class="collapse navbar-collapse navbar-top-menu">
+            <ul class="nav navbar-nav navbar-right navbar-top-menu-links ">
+                <li><a href="dashboard">{{i18n "area.dashboard.title"}}</a></li>
+                <li><a href="blend-specs">{{i18n "area.blendSpecs.title"}}</a></li>
+                <li><a href="create-blend">{{i18n "area.createBlend.title"}}</a></li>
+                <li><a href="lot-maintenance">{{i18n "area.lotMaintenance.title"}}</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle count-info" data-toggle="dropdown" href="#"><i class="fa {{i18n "icon.alert"}}"></i> {{alertsCount}}
+                    </a>
+                    <ul class="dropdown-menu dropdown-alerts">
+						{{#alerts}}
+                            <li>
+                                <a href="#">{{alert}}</a>
+                            </li>
+						{{/alerts}}
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

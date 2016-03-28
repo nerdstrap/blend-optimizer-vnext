@@ -1,0 +1,18 @@
+[
+	{
+		"type": "info",
+		"message": "This is an info (blue) broadcast message."
+	},
+	{
+		"type": "success",
+		"message": "This is a success (green) broadcast message."
+	},
+	{
+		"type": "warning",
+		"message": "This is a warning (yellow) broadcast message."
+	},
+	{
+		"type": "danger",
+		"message": "This is a danger (red) broadcast message."
+	}
+]

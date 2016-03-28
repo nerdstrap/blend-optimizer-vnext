@@ -1,0 +1,79 @@
+.ibox {
+	background-color: $ibox-bg;
+
+	border-top: solid 1px $ibox-default-border;
+	border-right: solid 1px $ibox-default-border;
+	border-left: solid 1px $ibox-default-border;
+	border-bottom: none 0;
+	border-radius: $ibox-border-radius;
+
+	.ibox-title {
+		margin: 0;
+		padding: $ibox-title-padding;
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			margin-top: 5px;
+		}
+
+		.ibox-tools {
+			float: right;
+			display: inline-block;
+
+			> ul {
+
+				> li {
+					padding: 0;
+
+					> a {
+						color: $gray-dark;
+
+						&:hover {
+							color: $gray-dark;
+						}
+						&:visited {
+							color: $gray-dark;
+						}
+					}
+				}
+			}
+
+			@media (min-width: 768px) {
+				.dropdown-menu {
+					right: 0;
+					left: auto;
+				}
+			}
+		}
+	}
+
+	.ibox-content {
+		margin: 0;
+		padding: $ibox-content-padding;
+		border-top: solid 1px $ibox-inner-border;
+		border-right: none 0;
+		border-left: none 0;
+		border-bottom: solid 1px $ibox-inner-border;
+		border-radius: $ibox-border-radius;
+
+		&.ibox-heading {
+			background-color: $ibox-heading-bg;
+			border-bottom: none 0;
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5 {
+			margin-top: 5px;
+		}
+	}
+
+	&.border-bottom {
+		border-bottom: solid 1px $ibox-default-border;
+	}
+}

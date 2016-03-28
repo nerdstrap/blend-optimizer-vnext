@@ -1,0 +1,183 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.createBlend.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.draftBlend.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row margin-bottom-20">
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.draftBlendSpecs.title"}}</h3>
+                <canvas id="draftBlendRadarChart"></canvas>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{i18n "label.spec"}}</th>
+                        <th>{{i18n "label.densityAbbreviation"}}</th>
+                        <th>{{i18n "label.meltIndexAbbreviation"}}</th>
+                        <th>{{i18n "label.izodAbbreviation"}}</th>
+                        <th>{{i18n "label.nclsAbbreviation"}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#bottomLineSpecs}}
+                        <tr>
+                            <th>{{spec}}</th>
+                            <td>{{density}}</td>
+                            <td>{{meltIndex}}</td>
+                            <td>{{izod}}</td>
+                            <td>{{ncls}}</td>
+                        </tr>
+					{{/bottomLineSpecs}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="5">&nbsp;</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.finalizeBlend.title"}}</h3>
+                <form id="finalizeBlendForm" class="finalize-blend-form">
+                    <div class="form-group">
+                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
+                        <div class="input-group">
+                            <select id="modificationReason" name="modificationReason" class="form-control chosen-select">
+								{{#modificationReasons}}
+                                    <option id="{{id}}">{{modificationReason}}</option>
+								{{/modificationReasons}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="other" name="other" type="text" class="form-control" value="other" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="finalizeBlend" type="button" class="btn btn-primary">{{i18n "button.finalizeBlend"}}</button>
+                        <button id="reoptimizeBlend" type="button" class="btn btn-warning">{{i18n "button.reoptimizeBlend"}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.includedLots.title"}}</h3>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                    </div>
+                    <ul id="includedLots" class="lot-list-group">
+						{{#includedLots}}
+                            <li id="{{id}}" class="lot-list-group-item sortable">
+								{{> "lot"}}
+                            </li>
+						{{/includedLots}}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                    </div>
+                    <ul id="availableLots" class="lot-list-group sortable">
+						{{#availableLots}}
+                            <li id="{{id}}" class="lot-list-group-item">
+								{{> "lot"}}
+                            </li>
+						{{/availableLots}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/draftBlend.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var radarData = {
+                labels: ["Melt", "IZOD", "Density", "NCLS"],
+                datasets: [
+                    {
+                        label: "low",
+                        fillColor: "rgba(154,157,159,0.4)",
+                        strokeColor: "rgba(154,157,159,1)",
+                        pointColor: "rgba(154,157,159,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(154,157,159,1)",
+                        data: [20, 20, 20, 20]
+                    },
+                    {
+                        label: "actual",
+                        fillColor: "rgba(22,150,224,0.4)",
+                        strokeColor: "rgba(22,150,224,1)",
+                        pointColor: "rgba(22,150,224,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(22,150,224,1)",
+                        data: [60, 60, 60, 60]
+                    },
+                    {
+                        label: "high",
+                        fillColor: "rgba(237,85,101,0.1)",
+                        strokeColor: "rgba(237,85,101,1)",
+                        pointColor: "rgba(237,85,101,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(237,85,101,1)",
+                        data: [90, 90, 90, 90]
+                    }
+                ]
+            };
+            var radarOptions = {
+                scaleShowLine: true,
+                angleShowLineOut: true,
+                scaleShowLabels: false,
+                scaleBeginAtZero: true,
+                angleLineColor: "rgba(0,0,0,.1)",
+                angleLineWidth: 1,
+                pointLabelFontFamily: "'open-sans'",
+                pointLabelFontStyle: "normal",
+                pointLabelFontSize: 10,
+                pointLabelFontColor: "#666",
+                pointDot: true,
+                pointDotRadius: 3,
+                pointDotStrokeWidth: 1,
+                pointHitDetectionRadius: 20,
+                datasetStroke: true,
+                datasetStrokeWidth: 2,
+                datasetFill: true,
+                responsive: true
+            };
+            var ctx = document.getElementById('draftBlendRadarChart').getContext("2d");
+            var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
+
+
+        });
+    </script>
+{{/contentFor}}
