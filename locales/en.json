@@ -110,5 +110,8 @@
 	"feature.excludedLotsEmpty.title": "Drag And Drop Excluded Lots Here",
 	"feature.ineligibleLotsEmpty.title": "Ineligible Lots Can Only Be Modified By A Supervisor",
 	"feature.materialTypeThresholds.title": "Blend Spec Thresholds",
-	"feature.slideRange.description": "Drag Sliders To Low and High Values"
+	"feature.slideRange.description": "Drag Sliders To Low and High Values",
+	"feature.draftBlendModifications.title": "Modifications",
+	"label.current": "Current",
+	"label.totalWeight": "Total Weight"
 }

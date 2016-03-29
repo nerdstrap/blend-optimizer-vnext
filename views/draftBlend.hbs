@@ -20,7 +20,16 @@
         <div class="row">
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
-                <canvas id="draftBlendRadarChart"></canvas>
+                <div class="margin-bottom-20">
+                    <canvas id="draftBlendRadarChart"></canvas>
+                </div>
+                <ul class="list-inline">
+                    <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
+					{{#modifications}}
+                        <li><a href="#">{{id}}</a></li>
+					{{/modifications}}
+                    <li><a href="#">{{i18n "label.current"}}</a></li>
+                </ul>
             </div>
             <div class="col-sm-4">
                 <table class="table table-striped">
@@ -44,7 +53,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th colspan="4">&nbsp;</th>
+                        <td colspan="4"><strong>{{i18n "label.totalWeight"}}</strong> <span class="blend-weight">{{totalWeight}} {{i18n "label.pounds"}}</span></td>
                     </tr>
                     </tfoot>
                 </table>
@@ -129,7 +138,7 @@
 					{{/materialTypes}}
                 </ul>
             </div>
-			<div class="col-sm-4">
+            <div class="col-sm-4">
                 <div class="header-container">
                     <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
                     <a id="blendSpecRules" class="" href="#">{{i18n "feature.blendSpecRules"}}</a>
@@ -139,7 +148,7 @@
                         <li>{{ruleSummary}}</li>
 					{{/blendSpecRules}}
                 </ol>
-			</div>
+            </div>
         </div>
     </div>
 </div>

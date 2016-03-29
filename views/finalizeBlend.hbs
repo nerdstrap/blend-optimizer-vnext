@@ -104,7 +104,10 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th colspan="4">total weight: {{finalBlend.totalWeight}} lbs</th>
+                        <td colspan="4">
+                            <strong>{{i18n "label.totalWeight"}}</strong>
+                            <span class="blend-weight">{{finalBlend.totalWeight}} {{i18n "label.pounds"}}</span>
+                        </td>
                     </tr>
                     </tfoot>
                 </table>

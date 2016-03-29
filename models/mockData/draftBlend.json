@@ -18,6 +18,20 @@
 			"alert": "1 new deviation"
 		}
 	],
+	"modifications": [
+		{
+			"id": "1"
+		},
+		{
+			"id": "2"
+		},
+		{
+			"id": "3"
+		},
+		{
+			"id": "4"
+		}
+	],
 	"modificationReasons": [
 		{
 			"id": "ABCD-1231",
@@ -114,6 +128,7 @@
 			"high": "0.9"
 		}
 	],
+	"totalWeight": "40000",
 	"materialTypes": [
 		{
 			"type": "repro",
