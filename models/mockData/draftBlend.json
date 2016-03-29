@@ -163,6 +163,7 @@
 		{
 			"id": "ABCD-1000",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999E",
 			"lotNumber": "E299311-3",
@@ -189,6 +190,7 @@
 		{
 			"id": "ABCD-1001",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999E",
 			"lotNumber": "E299021",
@@ -215,6 +217,7 @@
 		{
 			"id": "ABCD-1002",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999E",
 			"lotNumber": "E312711",
@@ -241,6 +244,7 @@
 		{
 			"id": "ABCD-1002",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999E",
 			"lotNumber": "E299547",
@@ -269,6 +273,7 @@
 		{
 			"id": "ABCD-1204",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Z",
 			"lotNumber": "Z304512",
@@ -293,6 +298,7 @@
 		{
 			"id": "ABCD-1205",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999NE",
 			"lotNumber": "NEC030816-2",
@@ -317,6 +323,7 @@
 		{
 			"id": "ABCD-1206",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999NE",
 			"lotNumber": "NEC030316-2",
@@ -341,6 +348,7 @@
 		{
 			"id": "ABCD-1207",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999RA",
 			"lotNumber": "0",
@@ -365,6 +373,7 @@
 		{
 			"id": "ABCD-1208",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999L1",
 			"lotNumber": "L1312711",
@@ -389,6 +398,7 @@
 		{
 			"id": "ABCD-1209",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999A",
 			"lotNumber": "A312016",
@@ -413,6 +423,7 @@
 		{
 			"id": "ABCD-1210",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999N",
 			"lotNumber": "80127",
@@ -437,6 +448,7 @@
 		{
 			"id": "ABCD-1211",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999N",
 			"lotNumber": "116515",
@@ -461,6 +473,7 @@
 		{
 			"id": "ABCD-1212",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999N",
 			"lotNumber": "116390",
@@ -485,6 +498,7 @@
 		{
 			"id": "ABCD-1213",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999N",
 			"lotNumber": "116816",
@@ -509,6 +523,7 @@
 		{
 			"id": "ABCD-1214",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SL311467-2",
@@ -533,6 +548,7 @@
 		{
 			"id": "ABCD-1215",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SL307389",
@@ -557,6 +573,7 @@
 		{
 			"id": "ABCD-1216",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SLT021516",
@@ -581,6 +598,7 @@
 		{
 			"id": "ABCD-1217",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SL311467",
@@ -605,6 +623,7 @@
 		{
 			"id": "ABCD-1218",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SL308819",
@@ -629,6 +648,7 @@
 		{
 			"id": "ABCD-1219",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999V",
 			"lotNumber": "V312711",
@@ -653,6 +673,7 @@
 		{
 			"id": "ABCD-1220",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999V",
 			"lotNumber": "V303632",
@@ -677,6 +698,7 @@
 		{
 			"id": "ABCD-1221",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999V",
 			"lotNumber": "V308367",
@@ -701,6 +723,7 @@
 		{
 			"id": "ABCD-1222",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999V",
 			"lotNumber": "VC011816-1",
@@ -725,6 +748,7 @@
 		{
 			"id": "ABCD-1223",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X308826",
@@ -749,6 +773,7 @@
 		{
 			"id": "ABCD-1224",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X302820",
@@ -773,6 +798,7 @@
 		{
 			"id": "ABCD-1225",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X304512",
@@ -797,6 +823,7 @@
 		{
 			"id": "ABCD-1226",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X308367",
@@ -821,6 +848,7 @@
 		{
 			"id": "ABCD-1227",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X309603",
@@ -845,6 +873,7 @@
 		{
 			"id": "ABCD-1228",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X312711",
@@ -869,6 +898,7 @@
 		{
 			"id": "ABCD-1229",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X311467",
@@ -893,6 +923,7 @@
 		{
 			"id": "ABCD-1230",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X305979",
@@ -917,6 +948,7 @@
 		{
 			"id": "ABCD-1232",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X311071",
@@ -941,6 +973,7 @@
 		{
 			"id": "ABCD-1233",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X299202",
@@ -965,6 +998,7 @@
 		{
 			"id": "ABCD-1234",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X311311",
@@ -989,6 +1023,7 @@
 		{
 			"id": "ABCD-1235",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999N",
 			"lotNumber": "116543",
@@ -1013,6 +1048,7 @@
 		{
 			"id": "ABCD-1236",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999S",
 			"lotNumber": "S311311",
@@ -1037,6 +1073,7 @@
 		{
 			"id": "ABCD-1237",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999SL",
 			"lotNumber": "SL312711",
@@ -1061,6 +1098,7 @@
 		{
 			"id": "ABCD-1238",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999X",
 			"lotNumber": "X305978",
@@ -1085,6 +1123,7 @@
 		{
 			"id": "ABCD-1239",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999B",
 			"lotNumber": "B309036",
@@ -1108,6 +1147,7 @@
 		{
 			"id": "ABCD-1240",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Y",
 			"lotNumber": "Y309603",
@@ -1132,6 +1172,7 @@
 		{
 			"id": "ABCD-1241",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Y",
 			"lotNumber": "Y286845",
@@ -1156,6 +1197,7 @@
 		{
 			"id": "ABCD-1242",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999NS",
 			"lotNumber": "116378",
@@ -1180,6 +1222,7 @@
 		{
 			"id": "ABCD-1243",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999ZP",
 			"lotNumber": "ZPC021216-5",
@@ -1204,6 +1247,7 @@
 		{
 			"id": "ABCD-1244",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999ZP",
 			"lotNumber": "ZPC021516-1",
@@ -1228,6 +1272,7 @@
 		{
 			"id": "ABCD-1245",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Z",
 			"lotNumber": "Z312711",
@@ -1252,6 +1297,7 @@
 		{
 			"id": "ABCD-1246",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Z",
 			"lotNumber": "Z306811-3",
@@ -1276,6 +1322,7 @@
 		{
 			"id": "ABCD-1247",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999Z",
 			"lotNumber": "Z108929",
@@ -1300,6 +1347,7 @@
 		{
 			"id": "ABCD-1248",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "99994",
 			"lotNumber": "4310962",
@@ -1324,6 +1372,7 @@
 		{
 			"id": "ABCD-1249",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "99994",
 			"lotNumber": "4307389",
@@ -1348,6 +1397,7 @@
 		{
 			"id": "ABCD-1250",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999B",
 			"lotNumber": "B293307",
@@ -1371,6 +1421,7 @@
 		{
 			"id": "ABCD-1251",
 			"type": "repro",
+			"status": "success",
 			"badge": "P",
 			"sku": "9999A",
 			"lotNumber": "A312018",

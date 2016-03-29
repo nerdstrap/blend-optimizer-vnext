@@ -5295,6 +5295,12 @@ button.close {
         margin-right: 3px; }
   .lot.border-bottom {
     border-bottom: solid 1px #e7eaec; }
+  .lot.lot-success {
+    border-left: solid 5px #16967c; }
+  .lot.lot-warning {
+    border-left: solid 5px #f8ac59; }
+  .lot.lot-danger {
+    border-left: solid 5px #ed5565; }
 
 .lot.included-lot {
   width: 770px;
