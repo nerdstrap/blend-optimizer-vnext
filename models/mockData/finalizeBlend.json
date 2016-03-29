@@ -121,5 +121,58 @@
 				"pounds": "200"
 			}
 		]
-	}
+	},
+	"radarLabels": [
+		"label.density",
+		"label.meltIndex",
+		"label.izod",
+		"label.ncls"
+	],
+	"radarDatasets": [
+		{
+			"label": "label.actual",
+			"fillColor": "rgba(22,150,224,0.4)",
+			"strokeColor": "rgba(22,150,224,1)",
+			"pointColor": "rgba(22,150,224,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(22,150,224,1)",
+			"data": [
+				"30",
+				"30",
+				"30",
+				"30"
+			]
+		},
+		{
+			"label": "label.low",
+			"fillColor": "rgba(255,255,255,1)",
+			"strokeColor": "rgba(154,157,159,1)",
+			"pointColor": "rgba(154,157,159,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(154,157,159,1)",
+			"data": [
+				"10",
+				"10",
+				"10",
+				"10"
+			]
+		},
+		{
+			"label": "label.high",
+			"fillColor": "rgba(255,255,255,0)",
+			"strokeColor": "rgba(237,85,101,1)",
+			"pointColor": "rgba(237,85,101,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(237,85,101,1)",
+			"data": [
+				"70",
+				"70",
+				"70",
+				"70"
+			]
+		}
+	]
 }

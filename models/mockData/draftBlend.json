@@ -50,46 +50,59 @@
 			"modificationReason": "Other"
 		}
 	],
-	"draftBlendRadarData": {
-		"labels": [
-			"Density",
-			"Melt",
-			"IZOD",
-			"NCLS"
-		],
-		"datasets": [
-			{
-				"label": "low",
-				"fillColor": "rgba(255,255,255,0.2)",
-				"strokeColor": "rgba(255,255,255,1)",
-				"pointColor": "rgba(255,255,255,1)",
-				"pointStrokeColor": "#fff",
-				"pointHighlightFill": "#fff",
-				"pointHighlightStroke": "rgba(255,255,255,1)",
-				"data": "[35, 20, 10, 40]"
-			},
-			{
-				"label": "actual",
-				"fillColor": "rgba(0,255,255,0.2)",
-				"strokeColor": "rgba(0,255,255,1)",
-				"pointColor": "rgba(0,255,255,1)",
-				"pointStrokeColor": "#fff",
-				"pointHighlightFill": "#fff",
-				"pointHighlightStroke": "rgba(0,255,255,1)",
-				"data": "[40, 50, 60, 70]"
-			},
-			{
-				"label": "high",
-				"fillColor": "rgba(255,255,0,0.1)",
-				"strokeColor": "rgba(255,255,0,1)",
-				"pointColor": "rgba(255,255,0,1)",
-				"pointStrokeColor": "#fff",
-				"pointHighlightFill": "#fff",
-				"pointHighlightStroke": "rgba(255,255,0,1)",
-				"data": "[80, 80, 75, 99]"
-			}
-		]
-	},
+	"radarLabels": [
+		"label.density",
+		"label.meltIndex",
+		"label.izod",
+		"label.ncls"
+	],
+	"radarDatasets": [
+		{
+			"label": "label.actual",
+			"fillColor": "rgba(22,150,224,0.4)",
+			"strokeColor": "rgba(22,150,224,1)",
+			"pointColor": "rgba(22,150,224,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(22,150,224,1)",
+			"data": [
+				"30",
+				"30",
+				"30",
+				"30"
+			]
+		},
+		{
+			"label": "label.low",
+			"fillColor": "rgba(255,255,255,1)",
+			"strokeColor": "rgba(154,157,159,1)",
+			"pointColor": "rgba(154,157,159,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(154,157,159,1)",
+			"data": [
+				"10",
+				"10",
+				"10",
+				"10"
+			]
+		},
+		{
+			"label": "label.high",
+			"fillColor": "rgba(255,255,255,0)",
+			"strokeColor": "rgba(237,85,101,1)",
+			"pointColor": "rgba(237,85,101,1)",
+			"pointStrokeColor": "#fff",
+			"pointHighlightFill": "#fff",
+			"pointHighlightStroke": "rgba(237,85,101,1)",
+			"data": [
+				"70",
+				"70",
+				"70",
+				"70"
+			]
+		}
+	],
 	"bottomLineSpecs": [
 		{
 			"spec": "label.density",

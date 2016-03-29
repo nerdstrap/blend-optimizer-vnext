@@ -21,7 +21,7 @@
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <div class="margin-bottom-20">
-                    <canvas id="draftBlendRadarChart"></canvas>
+                    <canvas id="draftBlendRadarChart" height="180"></canvas>
                 </div>
                 <ul class="list-inline">
                     <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
@@ -53,7 +53,8 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        <td colspan="4"><strong>{{i18n "label.totalWeight"}}</strong> <span class="blend-weight">{{totalWeight}} {{i18n "label.pounds"}}</span></td>
+                        <td colspan="4"><strong>{{i18n "label.totalWeight"}}</strong>
+                            <span class="blend-weight">{{totalWeight}} {{i18n "label.pounds"}}</span></td>
                     </tr>
                     </tfoot>
                 </table>
@@ -214,62 +215,38 @@
         $(document).ready(function () {
 
             var radarData = {
-                labels: ["Melt", "IZOD", "Density", "NCLS"],
+                labels: [{{#radarLabels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/radarLabels}}],
                 datasets: [
-                    {
-                        label: "actual",
-                        fillColor: "rgba(22,150,224,0.4)",
-                        strokeColor: "rgba(22,150,224,1)",
-                        pointColor: "rgba(22,150,224,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(22,150,224,1)",
-                        data: [60, 60, 60, 60]
-                    },
-                    {
-                        label: "low",
-                        fillColor: "rgba(255,255,255,1.0)",
-                        strokeColor: "rgba(154,157,159,1)",
-                        pointColor: "rgba(154,157,159,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(154,157,159,1)",
-                        data: [20, 20, 20, 20]
-                    },
-                    {
-                        label: "high",
-                        fillColor: "rgba(255,255,255,0.0)",
-                        strokeColor: "rgba(237,85,101,1)",
-                        pointColor: "rgba(237,85,101,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(237,85,101,1)",
-                        data: [90, 90, 90, 90]
-                    }
+					{{#radarDatasets}}
+                        {
+                            label: "{{i18n label}}",
+                            fillColor: "{{fillColor}}",
+                            strokeColor: "{{strokeColor}}",
+                            pointColor: "{{pointColor}}",
+                            pointStrokeColor: "{{pointStrokeColor}}",
+                            pointHighlightFill: "{{pointHighlightFill}}",
+                            pointHighlightStroke: "{{pointHighlightStroke}}",
+                            data: [{{#data}}{{this}}{{#unless @last}},{{/unless}}{{/data}}]
+                        }{{#unless @last}},{{/unless}}
+					{{/radarDatasets}}
                 ]
             };
+
             var radarOptions = {
-                scaleShowLine: true,
-                angleShowLineOut: true,
-                scaleShowLabels: false,
-                scaleBeginAtZero: true,
                 angleLineColor: "rgba(0,0,0,.1)",
                 angleLineWidth: 2,
-                pointLabelFontFamily: "'open-sans'",
+                pointLabelFontFamily: "'open sans'",
                 pointLabelFontStyle: "normal",
-                pointLabelFontSize: 10,
-                pointLabelFontColor: "#666",
-                pointDot: true,
+                pointLabelFontSize: 13,
+                pointLabelFontColor: "#333",
                 pointDotRadius: 3,
                 pointDotStrokeWidth: 1,
-                pointHitDetectionRadius: 20,
-                datasetStroke: true,
                 datasetStrokeWidth: 2,
-                datasetFill: true,
-                responsive: true
+                datasetFill: true
+
             };
-            var ctx = document.getElementById('draftBlendRadarChart').getContext("2d");
-            var myNewChart = new Chart(ctx).Radar(radarData, radarOptions);
+            var draftBlendRadarChart = document.getElementById('draftBlendRadarChart').getContext("2d");
+            new Chart(draftBlendRadarChart).Radar(radarData, radarOptions);
 
 			{{#includedLots}}
                 var includedLot{{@index}}Usage = document.getElementById('includedLot{{@index}}Usage');
