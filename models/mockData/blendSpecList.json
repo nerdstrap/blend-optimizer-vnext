@@ -16,6 +16,18 @@
 			"name": "Blend Spec 1",
 			"description": "description 1",
 			"active": "true"
+		},
+		{
+			"id": "ABCD-1231",
+			"name": "Blend Spec 2",
+			"description": "description 2",
+			"active": "true"
+		},
+		{
+			"id": "ABCD-1232",
+			"name": "Blend Spec 3",
+			"description": "description 3",
+			"active": "false"
 		}
 	]
 }

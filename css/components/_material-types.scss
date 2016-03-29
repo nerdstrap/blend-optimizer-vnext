@@ -1,0 +1,67 @@
+.material-type {
+	width: 770px;
+	min-width: 770px;
+	background-color: $material-type-bg;
+
+	border-top: solid 1px $material-type-default-border;
+	border-right: solid 1px $material-type-default-border;
+	border-left: solid 1px $material-type-default-border;
+	border-bottom: none 0;
+	border-radius: $material-type-border-radius;
+
+	.material-type-content {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		height: $line-height-computed * 8;
+
+		border-top: solid 1px $material-type-inner-border;
+		border-right: none 0;
+		border-left: none 0;
+		border-bottom: solid 1px $material-type-inner-border;
+		border-radius: $material-type-border-radius;
+
+		.material-type-label {
+			position: absolute;
+			top: 10px;
+			left: 10px;
+		}
+		.material-type-details {
+			position: absolute;
+			top: 10px;
+			left: 45px;
+			width: 198px;
+			min-width: 198px;
+			margin-left: 0;
+
+			.material-type-name {
+				font-weight: bold;
+				margin-right: 3px;
+			}
+		}
+
+		.material-type-usage {
+			position: absolute;
+			top: 30px;
+			left: 310px;
+			width: 376px;
+			min-width: 376px;
+
+			> .material-type-slider-snap-value-lower {
+				float: left;
+			}
+
+			> .material-type-slider-snap-value-upper {
+				float: right;
+			}
+
+			> .material-type-slider {
+				margin-top: 30px;
+			}
+		}
+	}
+
+	&.border-bottom {
+		border-bottom: solid 1px $material-type-default-border;
+	}
+}

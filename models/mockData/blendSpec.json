@@ -19,5 +19,95 @@
 		"name": "Blend Spec 1",
 		"description": "description 1",
 		"active": "true"
-	}
+	},
+	"revisions": [
+		{
+			"id": "ABCD-1230",
+			"summary": "fixed everything",
+			"modifiedDate": "03/24/2016 12:34 P.M",
+			"modifiedBy": "mbaltic"
+		},
+		{
+			"id": "ABCD-1231",
+			"summary": "revision 1",
+			"modifiedDate": "03/23/2016 12:34 P.M",
+			"modifiedBy": "rrisner"
+		},
+		{
+			"id": "ABCD-1232",
+			"summary": "initial setup",
+			"modifiedDate": "03/22/2016 12:34 P.M",
+			"modifiedBy": "jhoffman"
+		}
+	],
+	"bottomLineSpecs": [
+		{
+			"id": "ABCD-1230",
+			"property": "density",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		},
+		{
+			"id": "ABCD-1231",
+			"property": "melt index",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		},
+		{
+			"id": "ABCD-1232",
+			"property": "izod",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		}
+	],
+	"materialBuckets": [
+		{
+			"type": "V",
+			"description": "Virgin Resin",
+			"badge": "VIRGIN",
+			"color": "primary",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		}
+	],
+	"materials": [
+		{
+			"type": "V",
+			"description": "9999L2 - Optimized Spec",
+			"badge": "VIRGIN",
+			"color": "primary",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		},
+		{
+			"type": "V",
+			"description": "9999ZS - HMW Scrap",
+			"badge": "VIRGIN",
+			"color": "primary",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		},
+		{
+			"type": "V",
+			"description": "99993 - Compatibilizer",
+			"badge": "VIRGIN",
+			"color": "primary",
+			"deviationLow": "0.1",
+			"low": "0.2",
+			"high": "0.8",
+			"deviationHigh": "0.9"
+		}
+	]
 }

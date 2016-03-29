@@ -10,7 +10,6 @@
 	// No need to set list-style: none; since .lot-list-group-item is block level
 	margin-bottom: (($line-height-computed / 2) - 1);
 	padding: $lot-list-group-padding;
-	min-height: ($line-height-computed * 8);
 
 	&:empty {
 		content: 'drag and drop lots here';

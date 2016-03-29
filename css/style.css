@@ -4235,9 +4235,39 @@ a.label:hover, a.label:focus {
   .label-danger[href]:hover, .label-danger[href]:focus {
     background-color: #e8273b; }
 
-.label-V {
+.label-virgin {
+  background-color: #676a6c; }
+  .label-virgin[href]:hover, .label-virgin[href]:focus {
+    background-color: #4e5052; }
+
+.label-flake {
+  background-color: #1c84c6; }
+  .label-flake[href]:hover, .label-flake[href]:focus {
+    background-color: #166699; }
+
+.label-regrind {
+  background-color: #f8ac59; }
+  .label-regrind[href]:hover, .label-regrind[href]:focus {
+    background-color: #f69428; }
+
+.label-repro {
   background-color: #23c6c8; }
-  .label-V[href]:hover, .label-V[href]:focus {
+  .label-repro[href]:hover, .label-repro[href]:focus {
+    background-color: #1b9b9d; }
+
+.label-color {
+  background-color: #ed5565; }
+  .label-color[href]:hover, .label-color[href]:focus {
+    background-color: #e8273b; }
+
+.label-ocra {
+  background-color: #16967c; }
+  .label-ocra[href]:hover, .label-ocra[href]:focus {
+    background-color: #0f6a57; }
+
+.label-hybrid {
+  background-color: #23c6c8; }
+  .label-hybrid[href]:hover, .label-hybrid[href]:focus {
     background-color: #1b9b9d; }
 
 .badge {
@@ -4682,8 +4712,7 @@ button.list-group-item-danger {
 
 .lot-list-group {
   margin-bottom: 8px;
-  padding: 0 10px;
-  min-height: 144px; }
+  padding: 0 10px; }
   .lot-list-group:empty {
     content: 'drag and drop lots here'; }
     .lot-list-group:empty:after {
@@ -5143,7 +5172,8 @@ button.close {
     .ibox .ibox-title .ibox-tools {
       float: right;
       display: inline-block;
-      margin-left: 20px; }
+      margin-left: 20px;
+      cursor: pointer; }
       .ibox .ibox-title .ibox-tools > ul > li {
         padding: 0; }
         .ibox .ibox-title .ibox-tools > ul > li > a {
@@ -5176,7 +5206,12 @@ button.close {
   .ibox.border-bottom {
     border-bottom: solid 1px #e7eaec; }
 
+.ibox + .ibox {
+  margin-top: 10px; }
+
 .lot {
+  width: 362px;
+  min-width: 362px;
   background-color: #fff;
   border-top: solid 1px #e7eaec;
   border-right: solid 1px #e7eaec;
@@ -5259,6 +5294,97 @@ button.close {
       .lot .lot-content .lot-details .lot-age {
         margin-right: 3px; }
   .lot.border-bottom {
+    border-bottom: solid 1px #e7eaec; }
+
+.lot.included-lot {
+  width: 770px;
+  min-width: 770px; }
+  .lot.included-lot .lot-title .lot-header {
+    width: 198px;
+    min-width: 198px; }
+    .lot.included-lot .lot-title .lot-header .lot-percent-used {
+      font-weight: normal;
+      margin-right: 3px; }
+    .lot.included-lot .lot-title .lot-header .lot-pounds-used {
+      font-style: italic;
+      margin-right: 3px; }
+  .lot.included-lot .lot-title .lot-usage {
+    position: absolute;
+    top: 10px;
+    left: 450px;
+    width: 186px;
+    min-width: 186px; }
+  .lot.included-lot .lot-content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 144px; }
+    .lot.included-lot .lot-content .lot-details {
+      position: absolute;
+      top: 10px;
+      left: 45px;
+      width: 198px;
+      min-width: 198px;
+      margin-left: 0; }
+    .lot.included-lot .lot-content .lot-usage {
+      position: absolute;
+      top: 30px;
+      left: 310px;
+      width: 376px;
+      min-width: 376px; }
+      .lot.included-lot .lot-content .lot-usage > .lot-slider-snap-value-lower {
+        float: left; }
+      .lot.included-lot .lot-content .lot-usage > .lot-slider-snap-value-upper {
+        float: right; }
+      .lot.included-lot .lot-content .lot-usage > .lot-slider {
+        margin-top: 30px; }
+
+.material-type {
+  width: 770px;
+  min-width: 770px;
+  background-color: #fff;
+  border-top: solid 1px #e7eaec;
+  border-right: solid 1px #e7eaec;
+  border-left: solid 1px #e7eaec;
+  border-bottom: none 0;
+  border-radius: 2px; }
+  .material-type .material-type-content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 144px;
+    border-top: solid 1px #e7eaec;
+    border-right: none 0;
+    border-left: none 0;
+    border-bottom: solid 1px #e7eaec;
+    border-radius: 2px; }
+    .material-type .material-type-content .material-type-label {
+      position: absolute;
+      top: 10px;
+      left: 10px; }
+    .material-type .material-type-content .material-type-details {
+      position: absolute;
+      top: 10px;
+      left: 45px;
+      width: 198px;
+      min-width: 198px;
+      margin-left: 0; }
+      .material-type .material-type-content .material-type-details .material-type-name {
+        font-weight: bold;
+        margin-right: 3px; }
+    .material-type .material-type-content .material-type-usage {
+      position: absolute;
+      top: 30px;
+      left: 310px;
+      width: 376px;
+      min-width: 376px; }
+      .material-type .material-type-content .material-type-usage > .material-type-slider-snap-value-lower {
+        float: left; }
+      .material-type .material-type-content .material-type-usage > .material-type-slider-snap-value-upper {
+        float: right; }
+      .material-type .material-type-content .material-type-usage > .material-type-slider {
+        margin-top: 30px; }
+  .material-type.border-bottom {
     border-bottom: solid 1px #e7eaec; }
 
 .modal-open {
@@ -6056,20 +6182,17 @@ button.close {
 .ibox.ui-sortable-placeholder {
   margin: 0 0 23px !important; }
 
-.select-blend-form .form-control,
-.select-blend-form .chosen-select,
-.blend-size-form .form-control,
-.blend-size-form .chosen-select,
-.excluded-lots-form .form-control,
-.excluded-lots-form .chosen-select,
-.finalize-blend-form .form-control,
-.finalize-blend-form .chosen-select,
-.save-blend-form .form-control,
-.save-blend-form .chosen-select {
+.blend-optimizer-form .form-control,
+.blend-optimizer-form .chosen-select {
   width: 270px; }
 
 .margin-bottom-20 {
   margin-bottom: 20px; }
+
+.header-container > h1, .header-container h2, .header-container h3, .header-container h4, .header-container h5, .header-container h6,
+.header-container .h1, .header-container .h2, .header-container .h3, .header-container .h4, .header-container .h5, .header-container .h6 {
+  display: inline-block;
+  margin-right: 15px; }
 
 
 

@@ -1,16 +1,16 @@
-.select-blend-form .form-control,
-.select-blend-form .chosen-select,
-.blend-size-form .form-control,
-.blend-size-form .chosen-select,
-.excluded-lots-form .form-control,
-.excluded-lots-form .chosen-select,
-.finalize-blend-form .form-control,
-.finalize-blend-form .chosen-select,
-.save-blend-form .form-control,
-.save-blend-form .chosen-select {
+.blend-optimizer-form .form-control,
+.blend-optimizer-form .chosen-select {
 	width: 270px;
 }
 
 .margin-bottom-20 {
 	margin-bottom: 20px;
+}
+
+.header-container {
+	> h1, h2, h3, h4, h5, h6,
+	.h1, .h2, .h3, .h4, .h5, .h6 {
+		display: inline-block;
+		margin-right: 15px;
+	}
 }

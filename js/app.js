@@ -26,6 +26,10 @@ $(document).ready(function () {
 		}, 50);
 	});
 
-	$('.chosen-select').chosen();
-	
+	$('.chosen-select').chosen(
+		{
+			'disable_search': true
+		}
+	);
+
 });

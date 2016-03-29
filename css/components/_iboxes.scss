@@ -23,6 +23,7 @@
 			float: right;
 			display: inline-block;
 			margin-left: 20px;
+			cursor: pointer;
 
 			> ul {
 
@@ -77,4 +78,8 @@
 	&.border-bottom {
 		border-bottom: solid 1px $ibox-default-border;
 	}
+}
+
+.ibox + .ibox {
+	margin-top: 10px;
 }

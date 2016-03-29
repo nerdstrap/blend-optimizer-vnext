@@ -1,9 +1,22 @@
-<div class="lot border-bottom">
+<div class="lot included-lot border-bottom">
     <div class="lot-title">
         <div class="lot-label">
             <span class="label label-{{type}}">{{badge}}</span>
         </div>
-		{{> "lot-tools"}}
+        <div class="lot-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-lot-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa {{i18n "icon.dropdownMenu"}}"></i></a>
+                    <ul class="dropdown-menu dropdown-lot">
+                        <li><a href="#">Exclude Lot</a></li>
+                        <li><a href="#">Clear Reservations</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <div class="lot-header">
             <div>
                 <span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}} lbs</span>
@@ -16,6 +29,14 @@
                 <span class="lot-melt"><strong>{{i18n "label.meltIndexAbbreviation"}}</strong> {{meltIndex}}</span>
                 <span class="lot-izod"><strong>{{i18n "label.izodAbbreviation"}}</strong> {{izod}}</span>
                 <span class="lot-ncls"><strong>{{i18n "label.nclsAbbreviation"}}</strong> {{ncls}}</span>
+            </div>
+        </div>
+        <div class="lot-usage">
+            <div>
+                <h4 class="lot-percent-used">{{percentUsed}}{{i18n "label.percentUsed"}}</h4>
+            </div>
+            <div>
+                <h4 class="lot-pounds-used">{{pounds}} {{i18n "label.pounds"}}</h4>
             </div>
         </div>
     </div>
@@ -43,6 +64,15 @@
                 <span class="lot-sf"><strong>{{i18n "label.sinkFloatAbbreviation"}}</strong> {{sinkFloat}}</span>
                 <span class="lot-co"><strong>{{i18n "label.contaminationAbbreviation"}}</strong> {{contamination}}</span>
             </div>
+        </div>
+        <div class="lot-usage">
+            <div class="lot-slider-snap-value-lower">
+                <span><strong>{{i18n "label.low"}}</strong> <span class="slider-value-lower" id="includeLot{{@index}}SnapValueLower">30</span></span>
+            </div>
+            <div class="lot-slider-snap-value-upper">
+                <span><strong>{{i18n "label.high"}}</strong> <span class="slider-value-upper" id="includeLot{{@index}}SnapValueUpper">70</span></span>
+            </div>
+            <div id="includedLot{{@index}}Usage" class="lot-slider"></div>
         </div>
     </div>
 </div>

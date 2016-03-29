@@ -21,8 +21,13 @@ $brand-info:            #23c6c8 !default;
 $brand-warning:         #f8ac59 !default;
 $brand-danger:          #ed5565 !default;
 
-$brand-virgin:          $brand-primary !default;
-$brand-flake:			$brand-primary !default;
+$brand-virgin:			$gray-base !default;
+$brand-flake:			$brand-success !default;
+$brand-regrind:			$brand-warning !default;
+$brand-color:			$brand-danger !default;
+$brand-ocra:			$brand-primary !default;
+$brand-repro:			$brand-info !default;
+$brand-hybrid:			$brand-info !default;
 
 
 //== Scaffolding
@@ -591,6 +596,21 @@ $label-warning-bg:            $brand-warning !default;
 //** Danger label background color
 $label-danger-bg:             $brand-danger !default;
 
+//** Danger label background color
+$label-virgin-bg:			$brand-virgin !default;
+//** Danger label background color
+$label-flake-bg:			$brand-flake !default;
+//** Danger label background color
+$label-regrind-bg:			$brand-regrind !default;
+//** Danger label background color
+$label-repro-bg:			$brand-repro !default;
+//** Danger label background color
+$label-color-bg:			$brand-color !default;
+//** Danger label background color
+$label-ocra-bg:				$brand-ocra !default;
+//** Danger label background color
+$label-hybrid-bg:			$brand-hybrid !default;
+
 //** Default label text color
 $label-color:                 #fff !default;
 //** Default text color of a linked label
@@ -950,3 +970,19 @@ $lot-inner-border:			#e7eaec !default;
 
 $lot-default-text:			$gray-dark !default;
 $lot-default-border:		#e7eaec !default;
+
+//== Material Type widget
+//
+//##
+
+$material-type-bg:					$white-bg !default;
+$material-type-heading-bg:			#f3f6fb !default;
+$material-type-title-padding:			10px 15px !default;
+$material-type-content-padding:		10px 15px !default;
+$material-type-border-radius:			$border-radius-base !default;
+
+//** Border color for elements within material-type
+$material-type-inner-border:			#e7eaec !default;
+
+$material-type-default-text:			$gray-dark !default;
+$material-type-default-border:		#e7eaec !default;

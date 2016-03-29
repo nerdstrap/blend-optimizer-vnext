@@ -23,4 +23,7 @@ $(document).ready(function () {
 		sort: true
 	});
 
+	$('#availableLotsPlaceholderListItem').hide();
+	$('#excludedLotsPlaceholderListItem', '#ineligibleLotsPlaceholderListItem').show();
+
 });

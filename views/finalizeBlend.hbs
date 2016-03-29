@@ -23,38 +23,35 @@
                 <canvas id="finalizeBlendRadarChart"></canvas>
             </div>
             <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <table class="table table-striped">
                     <thead>
                     <tr>
                         <th>{{i18n "label.spec"}}</th>
-                        <th>{{i18n "label.densityAbbreviation"}}</th>
-                        <th>{{i18n "label.meltIndexAbbreviation"}}</th>
-                        <th>{{i18n "label.izodAbbreviation"}}</th>
-                        <th>{{i18n "label.nclsAbbreviation"}}</th>
+                        <th>{{i18n "label.low"}}</th>
+                        <th>{{i18n "label.actual"}}</th>
+                        <th>{{i18n "label.high"}}</th>
                     </tr>
                     </thead>
                     <tbody>
 					{{#bottomLineSpecs}}
                         <tr>
-                            <th>{{spec}}</th>
-                            <td>{{density}}</td>
-                            <td>{{meltIndex}}</td>
-                            <td>{{izod}}</td>
-                            <td>{{ncls}}</td>
+                            <th>{{i18n spec}}</th>
+                            <td>{{low}}</td>
+                            <td>{{actual}}</td>
+                            <td>{{high}}</td>
                         </tr>
 					{{/bottomLineSpecs}}
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th colspan="5">&nbsp;</th>
+                        <th colspan="4">&nbsp;</th>
                     </tr>
                     </tfoot>
                 </table>
             </div>
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.saveBlend.title"}}</h3>
-                <form id="saveBlendForm" class="save-blend-form">
+                <form id="saveBlendForm" class="blend-optimizer-form">
                     <div class="form-group">
                         <label for="comments" class="control-label">{{i18n "label.comments"}}</label>
                         <div class="input-group">
@@ -86,7 +83,6 @@
                 <canvas id="blendMaterialsDonutChart"></canvas>
             </div>
             <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.materials.title"}}</h3>
                 <table class="table table-striped">
                     <thead>
                     <tr>
@@ -126,16 +122,6 @@
                 labels: ["Melt", "IZOD", "Density", "NCLS"],
                 datasets: [
                     {
-                        label: "low",
-                        fillColor: "rgba(154,157,159,0.4)",
-                        strokeColor: "rgba(154,157,159,1)",
-                        pointColor: "rgba(154,157,159,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(154,157,159,1)",
-                        data: [20, 20, 20, 20]
-                    },
-                    {
                         label: "actual",
                         fillColor: "rgba(22,150,224,0.4)",
                         strokeColor: "rgba(22,150,224,1)",
@@ -146,8 +132,18 @@
                         data: [60, 60, 60, 60]
                     },
                     {
+                        label: "low",
+                        fillColor: "rgba(255,255,255,1.0)",
+                        strokeColor: "rgba(154,157,159,1)",
+                        pointColor: "rgba(154,157,159,1)",
+                        pointStrokeColor: "#fff",
+                        pointHighlightFill: "#fff",
+                        pointHighlightStroke: "rgba(154,157,159,1)",
+                        data: [20, 20, 20, 20]
+                    },
+                    {
                         label: "high",
-                        fillColor: "rgba(237,85,101,0.1)",
+                        fillColor: "rgba(255,255,255,0.0)",
                         strokeColor: "rgba(237,85,101,1)",
                         pointColor: "rgba(237,85,101,1)",
                         pointStrokeColor: "#fff",

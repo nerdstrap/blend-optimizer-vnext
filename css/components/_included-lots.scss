@@ -1,0 +1,68 @@
+.lot {
+	&.included-lot {
+		width: 770px;
+		min-width: 770px;
+
+		.lot-title {
+
+			.lot-header {
+				width: 198px;
+				min-width: 198px;
+
+				.lot-percent-used {
+					font-weight: normal;
+					margin-right: 3px;
+				}
+
+				.lot-pounds-used {
+					font-style: italic;
+					margin-right: 3px;
+				}			}
+
+			.lot-usage {
+				position: absolute;
+				top: 10px;
+				left: 450px;
+				width: 186px;
+				min-width: 186px;
+			}
+		}
+
+		.lot-content {
+			position: relative;
+			margin: 0;
+			padding: 0;
+			height: $line-height-computed * 8;
+
+			.lot-details {
+				position: absolute;
+				top: 10px;
+				left: 45px;
+				width: 198px;
+				min-width: 198px;
+				margin-left: 0;
+			}
+
+			.lot-usage {
+				position: absolute;
+				top: 30px;
+				left: 310px;
+				width: 376px;
+				min-width: 376px;
+
+				> .lot-slider-snap-value-lower {
+					float: left;
+				}
+
+				> .lot-slider-snap-value-upper {
+					float: right;
+				}
+
+				> .lot-slider {
+					margin-top: 30px;
+				}
+			}
+		}
+	}
+
+}

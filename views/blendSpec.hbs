@@ -1,3 +1,228 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.blendSpec.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.blendSpecSummary.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.displayDetails.title"}}</h3>
+                <form id="blendSpecDescriptionForm" class="blend-optimizer-form">
+                    <div class="form-group">
+                        <label class="control-label" for="blendName">{{i18n "label.blendName"}}</label>
+                        <div class="input-group">
+                            <input id="blendName" name="blendName" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="blendDescription">{{i18n "label.blendDescription"}}</label>
+                        <div class="input-group">
+                            <input id="blendDescription" name="blendDescription" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="comments">{{i18n "label.comments"}}</label>
+                        <div class="input-group">
+                            <input id="comments" name="comments" type="text" class="form-control">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="saveBlendSpec" type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-8">
+                <h3>{{i18n "feature.blendSpecHistory.title"}}</h3>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{i18n "label.revision"}}</th>
+                        <th>{{i18n "label.date"}}</th>
+                        <th>{{i18n "label.username"}}</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#revisions}}
+                        <tr id="{{id}}">
+                            <td>{{summary}}</td>
+                            <td>{{modifiedDate}}</td>
+                            <td>{{modifiedBy}}</td>
+                        </tr>
+					{{/revisions}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <th colspan="3">&nbsp;</th>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.bottomLineSpecs.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table id="bottomLineSpecsTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.property"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#bottomLineSpecs}}
+                <tr id="{{id}}">
+                    <td>{{property}}</td>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                </tr>
+			{{/bottomLineSpecs}}
+            <tr id="ABCD-1234" class="warning">
+                <td>ncls</td>
+                <td>0.1</td>
+                <td><input type="text" class="form-control" value="0.2"></td>
+                <td>0.8</td>
+                <td>0.9</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">
+                    <div class="pull-right">
+                        <button id="uploadCsv" type="button" class="btn btn-success">{{i18n "button.uploadCsv"}}</button>
+                        <button id="downloadCsv" type="button" class="btn btn-default">{{i18n "button.downloadCsv"}}</button>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <div class="pull-right">
+            <button id="newMaterialBucket" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+        </div>
+        <h5>{{i18n "feature.materialBuckets.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table id="materialBucketsTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.description"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#materialBuckets}}
+                <tr id="{{id}}">
+                    <td><span class="label label-{{type}}">{{type}}</span> {{description}}</td>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                </tr>
+			{{/materialBuckets}}
+            <tr id="WXYZ-1234" class="warning">
+                <td><span class="label label-V">V</span> Regrind</td>
+                <td>0.1</td>
+                <td><input type="text" class="form-control" value="0.2"></td>
+                <td>0.8</td>
+                <td>0.9</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">
+                    <div class="pull-right">
+                        <button id="uploadCsv" type="button" class="btn btn-success">{{i18n "button.uploadCsv"}}</button>
+                        <button id="downloadCsv" type="button" class="btn btn-default">{{i18n "button.downloadCsv"}}</button>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <div class="pull-right">
+            <button id="newMaterial" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+        </div>
+        <h5>{{i18n "feature.materials.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table id="materialsTable" class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.description"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#materials}}
+                <tr id="{{id}}">
+                    <td><span class="label label-{{type}}">{{type}}</span> {{description}}</td>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                </tr>
+			{{/materials}}
+            <tr id="WXYZ-1234" class="warning">
+                <td>99996 - Post Consumer Flake (washed)</td>
+                <td>0.1</td>
+                <td><input type="text" class="form-control" value="0.2"></td>
+                <td>0.8</td>
+                <td>0.9</td>
+            </tr>
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">
+                    <div class="pull-right">
+                        <button id="uploadCsv" type="button" class="btn btn-success">{{i18n "button.uploadCsv"}}</button>
+                        <button id="downloadCsv" type="button" class="btn btn-default">{{i18n "button.downloadCsv"}}</button>
+                    </div>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 
 {{#contentFor "pageScripts"}}
     <script src="js/blendSpec.js"></script>

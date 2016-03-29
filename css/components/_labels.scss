@@ -65,6 +65,30 @@ a.label {
 	@include label-variant($label-danger-bg);
 }
 
-.label-V {
-	@include label-variant($label-info-bg);
+.label-virgin {
+	@include label-variant($label-virgin-bg);
+}
+
+.label-flake {
+	@include label-variant($label-flake-bg);
+}
+
+.label-regrind {
+	@include label-variant($label-regrind-bg);
+}
+
+.label-repro {
+	@include label-variant($label-repro-bg);
+}
+
+.label-color {
+	@include label-variant($label-color-bg);
+}
+
+.label-ocra {
+	@include label-variant($label-ocra-bg);
+}
+
+.label-hybrid {
+	@include label-variant($label-hybrid-bg);
 }

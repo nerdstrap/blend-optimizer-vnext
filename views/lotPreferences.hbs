@@ -14,13 +14,16 @@
 <div class="ibox">
     <div class="ibox-title">
 		{{> "ibox-tools"}}
+        <div class="pull-right">
+            <button id="resinMixGuidelines" class="btn btn-xs btn-default">{{i18n "button.resinMixGuidelines"}}</button>
+        </div>
         <h5>{{i18n "feature.lotPreferences.title"}}</h5>
     </div>
     <div class="ibox-content">
         <div class="row margin-bottom-20">
             <div class="col-sm-4">
                 <h3>{{i18n "feature.excludeAvailableLots.title"}}</h3>
-                <form id="excludedLotsForm" class="excluded-lots-form">
+                <form id="excludedLotsForm" class="blend-optimizer-form">
                     <div class="form-group">
                         <label class="control-label" for="materialTypes">{{i18n "label.materialTypes"}}</label>
                         <div class="input-group">
@@ -51,14 +54,15 @@
                 <canvas id="availableLotsDonutChart"></canvas>
                 <ul class="list-inline">
 					{{#materialTypes}}
-                        <li>
-							{{type}}
-                        </li>
+                        <li><a href="#"><label class="label label-{{type}}">{{type}}</label></a></li>
 					{{/materialTypes}}
                 </ul>
             </div>
             <div class="col-sm-4">
-                <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+                <div class="header-container">
+                    <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+                    <a id="blendSpecRules" class="" href="#">{{i18n "feature.blendSpecRules"}}</a>
+                </div>
                 <ol>
 					{{#blendSpecRules}}
                         <li>{{ruleSummary}}</li>
@@ -75,6 +79,13 @@
                             <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
                     </div>
                     <ul id="availableLots" class="lot-list-group sortable">
+                        <li id="availableLotsPlaceholderListItem" class="lot-list-group-item sortable-ghost">
+                            <div class="lot">
+                                <div class="lot-title">
+                                    <div class="lot-header">{{i18n "feature.availableLotsEmpty.title"}}</div>
+                                </div>
+                            </div>
+                        </li>
 						{{#availableLots}}
                             <li id="{{id}}" class="lot-list-group-item">
 								{{> "lot"}}
@@ -91,6 +102,13 @@
                             <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
                     </div>
                     <ul id="excludedLots" class="lot-list-group">
+                        <li id="excludedLotsPlaceholderListItem" class="lot-list-group-item sortable-ghost">
+                            <div class="lot">
+                                <div class="lot-title">
+                                    <div class="lot-header">{{i18n "feature.excludedLotsEmpty.title"}}</div>
+                                </div>
+                            </div>
+                        </li>
 						{{#excludedLots}}
                             <li id="{{id}}" class="lot-list-group-item sortable">
 								{{> "lot"}}
@@ -107,6 +125,13 @@
                             <i class="fa {{i18n "icon.stop"}}"></i> {{i18n "feature.lotMaintenance.description"}}</h6>
                     </div>
                     <ul id="ineligibleLots" class="lot-list-group">
+                        <li id="ineligibleLotsPlaceholderListItem" class="lot-list-group-item sortable-ghost">
+                            <div class="lot">
+                                <div class="lot-title">
+                                    <div class="lot-header">{{i18n "feature.ineligibleLotsEmpty.title"}}</div>
+                                </div>
+                            </div>
+                        </li>
 						{{#ineligibleLots}}
                             <li id="{{id}}" class="lot-list-group-item">
 								{{> "lot"}}

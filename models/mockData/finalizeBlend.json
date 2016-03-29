@@ -2,11 +2,11 @@
 	"breadcrumbs": [
 		{
 			"href": "select-plant",
-			"title": "Plant: P42"
+			"title": "P42"
 		},
 		{
-			"href": "select-blend",
-			"title": "Product: 04AG"
+			"href": "create-blend",
+			"title": "04AG - Mix 160"
 		},
 		{
 			"href": "lot-preferences",
@@ -24,32 +24,48 @@
 	],
 	"bottomLineSpecs": [
 		{
-			"spec": "low",
-			"density": "0.35",
-			"meltIndex": "0.2",
-			"izod": "0.1",
-			"ncls": "0.4"
+			"spec": "label.density",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
 		},
 		{
-			"spec": "actual",
-			"density": "0.4",
-			"meltIndex": "0.5",
-			"izod": "0.5",
-			"ncls": "0.5"
+			"spec": "label.meltIndex",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
 		},
 		{
-			"spec": "high",
-			"density": "0.8",
-			"meltIndex": "0.8",
-			"izod": "0.75",
-			"ncls": "0.99"
+			"spec": "label.izod",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
+		},
+		{
+			"spec": "label.ncls",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
+		},
+		{
+			"spec": "label.sinkFloat",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
+		},
+		{
+			"spec": "label.infrared",
+			"low": "0.1",
+			"actual": "0.5",
+			"high": "0.9"
 		}
 	],
 	"finalBlend": {
 		"totalWeight": "40000",
 		"materialTypes": [
 			{
-				"type": "V",
+				"type": "virgin",
+				"badge": "V",
 				"sku": "9999E",
 				"lotNumber": "E299311-3",
 				"size": "11978",
@@ -58,7 +74,8 @@
 				"pounds": "10000"
 			},
 			{
-				"type": "V",
+				"type": "repro",
+				"badge": "P",
 				"sku": "9999E",
 				"lotNumber": "E299021",
 				"size": "9203",
@@ -67,7 +84,8 @@
 				"pounds": "10000"
 			},
 			{
-				"type": "V",
+				"type": "hybrid",
+				"badge": "Y",
 				"sku": "9999E",
 				"lotNumber": "E312711",
 				"size": "1947",
@@ -76,7 +94,8 @@
 				"pounds": "10000"
 			},
 			{
-				"type": "V",
+				"type": "regrind",
+				"badge":"R",
 				"sku": "9999E",
 				"lotNumber": "E299547",
 				"price": "0.38",
@@ -84,7 +103,8 @@
 				"pounds": "10000"
 			},
 			{
-				"type": "C",
+				"type": "color",
+				"badge": "C",
 				"sku": "color",
 				"lotNumber": "CO1234",
 				"price": "0.38",
@@ -92,7 +112,8 @@
 				"pounds": "1000"
 			},
 			{
-				"type": "A",
+				"type": "ocra",
+				"badge": "A",
 				"sku": "additive",
 				"lotNumber": "A1234",
 				"price": "0.38",

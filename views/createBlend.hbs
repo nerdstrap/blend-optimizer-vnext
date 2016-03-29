@@ -17,7 +17,7 @@
         <h5>{{i18n "feature.selectBlend.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="selectBlendForm" class="select-blend-form">
+        <form id="selectBlendForm" class="blend-optimizer-form">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
@@ -68,13 +68,13 @@
         <h5>{{i18n "feature.blendSize.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="blendSizeForm" class="blend-size-form">
+        <form id="blendSizeForm" class="blend-optimizer-form">
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label for="minimumBlendSize" class="control-label">{{i18n "label.minimumBlendSize"}}</label>
                         <div class="input-group">
-                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control">
+                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control" value="{{minimumBlendSize}}">
                         </div>
                     </div>
                 </div>
