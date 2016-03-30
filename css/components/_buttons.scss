@@ -88,6 +88,34 @@ a.btn {
   @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border);
 }
 
+.btn-virgin {
+	@include button-variant($btn-virgin-color, $btn-virgin-bg, $btn-virgin-border);
+}
+
+.btn-flake {
+	@include button-variant($btn-flake-color, $btn-flake-bg, $btn-flake-border);
+}
+
+.btn-regrind {
+	@include button-variant($btn-regrind-color, $btn-regrind-bg, $btn-regrind-border);
+}
+
+.btn-repro {
+	@include button-variant($btn-repro-color, $btn-repro-bg, $btn-repro-border);
+}
+
+.btn-color {
+	@include button-variant($btn-color-color, $btn-color-bg, $btn-color-border);
+}
+
+.btn-ocra {
+	@include button-variant($btn-ocra-color, $btn-ocra-bg, $btn-ocra-border);
+}
+
+.btn-hybrid {
+	@include button-variant($btn-hybrid-color, $btn-hybrid-bg, $btn-hybrid-border);
+}
+
 
 // Link buttons
 // -------------------------

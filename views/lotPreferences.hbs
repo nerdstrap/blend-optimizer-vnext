@@ -30,11 +30,11 @@
                         <h6 class="lot-panel-title">{{i18n "feature.filterMaterialTypes.title"}}</h6>
                     </div>
                     <div class="lot-panel-body">
-                        <ul class="list-inline">
+                        <div class="btn-group" role="group">
 							{{#materialTypes}}
-                                <li><a href="#"><label class="label label-{{type}}">{{type}}</label></a></li>
+                                <button type="button" role="button" class="btn btn-{{type}}">{{type}}</button>
 							{{/materialTypes}}
-                        </ul>
+                        </div>
                     </div>
                     <div class="lot-panel-heading">
                         <h6 class="lot-panel-title">

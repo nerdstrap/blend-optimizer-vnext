@@ -186,6 +186,34 @@ $btn-danger-color:               #fff !default;
 $btn-danger-bg:                  $brand-danger !default;
 $btn-danger-border:              darken($btn-danger-bg, 5%) !default;
 
+$btn-virgin-color:               #fff !default;
+$btn-virgin-bg:                  $brand-virgin !default;
+$btn-virgin-border:              darken($btn-virgin-bg, 5%) !default;
+
+$btn-flake-color:               #fff !default;
+$btn-flake-bg:                  $brand-flake !default;
+$btn-flake-border:              darken($btn-flake-bg, 5%) !default;
+
+$btn-regrind-color:               #fff !default;
+$btn-regrind-bg:                  $brand-regrind !default;
+$btn-regrind-border:              darken($btn-regrind-bg, 5%) !default;
+
+$btn-repro-color:               #fff !default;
+$btn-repro-bg:                  $brand-repro !default;
+$btn-repro-border:              darken($btn-repro-bg, 5%) !default;
+
+$btn-color-color:               #fff !default;
+$btn-color-bg:                  $brand-color !default;
+$btn-color-border:              darken($btn-color-bg, 5%) !default;
+
+$btn-ocra-color:               #fff !default;
+$btn-ocra-bg:                  $brand-ocra !default;
+$btn-ocra-border:              darken($btn-ocra-bg, 5%) !default;
+
+$btn-hybrid-color:               #fff !default;
+$btn-hybrid-bg:                  $brand-hybrid !default;
+$btn-hybrid-border:              darken($btn-hybrid-bg, 5%) !default;
+
 $btn-link-disabled-color:        $gray-light !default;
 
 // Allows for customizing button radius independently from global border radius
