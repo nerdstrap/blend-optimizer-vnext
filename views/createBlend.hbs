@@ -3,6 +3,9 @@
         <div class="container-fluid">
             <h3>{{i18n "area.createBlend.title"}}</h3>
             <ol class="breadcrumb">
+                <li>
+					{{> "changeSelectedPlant"}}
+                </li>
 				{{#breadcrumbs}}
                     <li><a href="{{href}}">{{title}}</a></li>
 				{{/breadcrumbs}}

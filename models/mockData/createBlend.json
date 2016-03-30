@@ -1,10 +1,24 @@
 {
-	"breadcrumbs": [
+	"selectedPlant": "P42",
+	"plants": [
 		{
-			"href": "select-plant",
-			"title": "P42"
+			"id": "ABCD-1230",
+			"plantName": "P37"
+		},
+		{
+			"id": "ABCD-1231",
+			"plantName": "P39"
+		},
+		{
+			"id": "ABCD-1232",
+			"plantName": "P41"
+		},
+		{
+			"id": "ABCD-1233",
+			"plantName": "P44"
 		}
 	],
+	"breadcrumbs": [],
 	"alerts": [
 		{
 			"alert": "1 new deviation"

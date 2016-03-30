@@ -17,6 +17,7 @@ mockData['createBlend'] = require('./mockData/createBlend.json');
 mockData['lotPreferences'] = require('./mockData/lotPreferences.json');
 mockData['draftBlend'] = require('./mockData/draftBlend.json');
 mockData['finalizeBlend'] = require('./mockData/finalizeBlend.json');
+mockData['saveBlend'] = require('./mockData/saveBlend.json');
 
 module.exports = {
 
@@ -83,6 +84,12 @@ module.exports = {
 	finalizeBlend: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['finalizeBlend']);
+		}
+	},
+
+	saveBlend: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['saveBlend']);
 		}
 	}
 };

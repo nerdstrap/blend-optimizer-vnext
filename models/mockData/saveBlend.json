@@ -15,6 +15,10 @@
 		{
 			"href": "draft-blend",
 			"title": "Draft Blend"
+		},
+		{
+			"href": "finalize-blend",
+			"title": "Finalize Blend"
 		}
 	],
 	"alerts": [
@@ -101,6 +105,24 @@
 				"price": "0.38",
 				"percentUsed": "25",
 				"pounds": "10000"
+			},
+			{
+				"type": "color",
+				"badge": "C",
+				"sku": "color",
+				"lotNumber": "CO1234",
+				"price": "0.38",
+				"percentUsed": "4",
+				"pounds": "1000"
+			},
+			{
+				"type": "ocra",
+				"badge": "A",
+				"sku": "additive",
+				"lotNumber": "A1234",
+				"price": "0.38",
+				"percentUsed": "1",
+				"pounds": "200"
 			}
 		]
 	},
@@ -155,56 +177,6 @@
 				"70",
 				"70"
 			]
-		}
-	],
-	"availableAdditiveLots": [
-		{
-			"id": "ABCD-1239",
-			"type": "color",
-			"badge": "C",
-			"sku": "9999B",
-			"lotNumber": "B309036",
-			"size": 41666,
-			"price": 0,
-			"vendorName": "SOUCY TECHNO INC",
-			"density": 0,
-			"meltIndex": 0,
-			"highLowMeltIndex": 0,
-			"izod": 0,
-			"ncls": 0,
-			"h1": 0,
-			"viscosity": 0,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": 0,
-			"received": 20160301
-		},
-		{
-			"id": "ABCD-1250",
-			"type": "color",
-			"badge": "C",
-			"sku": "9999B",
-			"lotNumber": "B293307",
-			"size": 3424,
-			"price": 0,
-			"vendorName": "SOUCY TECHNO INC",
-			"density": 0,
-			"meltIndex": 0,
-			"highLowMeltIndex": 0,
-			"izod": 0,
-			"ncls": 0,
-			"h1": 0,
-			"viscosity": 0,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": 0,
-			"received": 20151026
 		}
 	]
 }

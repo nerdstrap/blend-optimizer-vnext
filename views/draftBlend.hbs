@@ -181,8 +181,8 @@
                             <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
                     </div>
 					{{#includedLots}}
-                        <ul id="includedLots{{@index}}" class="lot-list-group">
-                            <li id="{{id}}" class="lot-list-group-item sortable">
+                        <ul id="includedLots{{@index}}" class="lot-list-group included-lot-list-group">
+                            <li id="{{id}}" class="lot-list-group-item sortable original">
 								{{> "includedLot"}}
                             </li>
                         </ul>
@@ -248,30 +248,6 @@
             var draftBlendRadarChart = document.getElementById('draftBlendRadarChart').getContext("2d");
             new Chart(draftBlendRadarChart).Radar(radarData, radarOptions);
 
-			{{#includedLots}}
-                var includedLot{{@index}}Usage = document.getElementById('includedLot{{@index}}Usage');
-
-                noUiSlider.create(includedLot{{@index}}Usage, {
-                    start: [30, 70],
-                    behaviour: 'drag',
-                    connect: true,
-                    range: {
-                        'min': 0,
-                        'max': 100
-                    },
-                    pips: {
-                        mode: 'values',
-                        values: [20, 80],
-                        density: 4
-                    },
-                    format: wNumb({
-                        decimals: 0,
-                        postfix: ' %'
-                    })
-                });
-
-			{{/includedLots}}
-
 			{{#materialTypes}}
                 var materialType{{@index}}Usage = document.getElementById('materialType{{@index}}Usage');
 
@@ -295,6 +271,55 @@
                 });
 
 			{{/materialTypes}}
+
+			{{#includedLots}}
+                var includedLots{{@index}} = document.getElementById('includedLots{{@index}}');
+                Sortable.create(includedLots{{@index}}, {
+                    handle: ".lot-header",
+                    animation: 0,
+                    group: 'availableLots',
+                    sort: true,
+
+                    onAdd: function (evt) {
+                        var itemEl = evt.item;
+                        var toList = evt.to;
+                        var toListItems = $(toList).children('li.original').remove();
+                        var fromList = evt.from;
+                    }
+                });
+			{{/includedLots}}
+
+            var availableLots = document.getElementById('availableLots');
+            Sortable.create(availableLots, {
+                handle: ".lot-header",
+                animation: 0,
+                group: 'availableLots',
+                sort: true
+            });
+
+			{{#includedLots}}
+                var includedLot{{@index}}Usage = document.getElementById('includedLot{{@index}}Usage');
+
+                noUiSlider.create(includedLot{{@index}}Usage, {
+                    start: [30, 70],
+                    behaviour: 'drag',
+                    connect: true,
+                    range: {
+                        'min': 0,
+                        'max': 100
+                    },
+                    pips: {
+                        mode: 'values',
+                        values: [20, 80],
+                        density: 4
+                    },
+                    format: wNumb({
+                        decimals: 0,
+                        postfix: ' %'
+                    })
+                });
+
+			{{/includedLots}}
 
         });
     </script>

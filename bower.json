@@ -14,6 +14,7 @@
 		"Chart.js": "latest",
 		"Sortable": "latest",
 		"wnumb": "latest",
-		"toastr": "latest"
+		"toastr": "latest",
+		"switchery": "latest"
 	}
 }

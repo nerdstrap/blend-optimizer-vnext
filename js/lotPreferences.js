@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	$('#draftBlend').click(function (e) {
+	$('#generateDraftBlend').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}
@@ -20,7 +20,14 @@ $(document).ready(function () {
 		handle: ".lot-header",
 		animation: 0,
 		group: 'availableLots',
-		sort: true
+		sort: true,
+
+		onAdd: function (evt) {
+			var itemEl = evt.item;
+			var toList = evt.to;
+			var toListItems = $(toList).children('li.sortable-placeholder').remove();
+			var fromList = evt.from;
+		}
 	});
 
 	$('#availableLotsPlaceholderListItem').hide();

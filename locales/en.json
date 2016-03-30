@@ -113,5 +113,21 @@
 	"label.spec": "Spec",
 	"label.totalWeight": "Total Weight",
 	"label.username": "Username",
-	"label.viscosityAbbreviation": "V"
+	"label.viscosityAbbreviation": "V",
+	"button.close": "Close",
+	"area.changeSelectedPlant.title": "Change Selected Plant",
+	"area.changeSelectedPlant.description": "Change Selected Plant description",
+	"label.selectedPlant": "Selected Plant",
+	"button.change": "Change",
+	"button.viewBlendSpecRules": "View Blend Spec Rules",
+	"area.viewBlendSpecRules.title": "area.viewBlendSpecRules.title",
+	"area.viewBlendSpecRules.description": "area.viewBlendSpecRules.description",
+	"button.addBlendAdditive": "button.addBlendAdditive",
+	"area.addBlendAdditive.title": "area.addBlendAdditive.title",
+	"area.addBlendAdditive.description": "area.addBlendAdditive.description",
+	"button.add": "Add",
+	"feature.filterMaterialTypes.title": "Filter Lots by Material Type",
+	"feature.excludeSKUs.title": "Manually Exclude SKUs",
+	"label.excludedSKUs": "Excluded SKUs",
+	"button.generateDraftBlend": "Generate Draft Blend"
 }

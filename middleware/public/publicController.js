@@ -63,6 +63,10 @@ module.exports = function (app) {
 
 		finalizeBlend: function (req, res, next) {
 			_renderView('finalizeBlend', req, res, next);
+		},
+
+		saveBlend: function (req, res, next) {
+			_renderView('saveBlend', req, res, next);
 		}
 	};
 
