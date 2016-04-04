@@ -2,6 +2,10 @@
 
 var mockData = [];
 
+mockData['appSettings'] = require('./mockData/appSettings.json');
+mockData['alerts'] = require('./mockData/alerts.json');
+mockData['plants'] = require('./mockData/plants.json');
+
 mockData['index'] = require('./mockData/index.json');
 mockData['kitchenSink'] = require('./mockData/kitchenSink.json');
 
@@ -15,11 +19,32 @@ mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
 
 mockData['createBlend'] = require('./mockData/createBlend.json');
 mockData['lotPreferences'] = require('./mockData/lotPreferences.json');
-mockData['draftBlend'] = require('./mockData/draftBlend.json');
+mockData['draftBlend'] = require('./mockData/draftBlend/draftBlend.json');
+mockData['draftBlend_v1'] = require('./mockData/draftBlend/draftBlend_v1.json');
+mockData['draftBlend_v2'] = require('./mockData/draftBlend/draftBlend_v2.json');
+mockData['draftBlend_v3'] = require('./mockData/draftBlend/draftBlend_v3.json');
 mockData['finalizeBlend'] = require('./mockData/finalizeBlend.json');
-mockData['saveBlend'] = require('./mockData/saveBlend.json');
+mockData['blendSummary'] = require('./mockData/blendSummary.json');
 
 module.exports = {
+
+	appSettings: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['appSettings']);
+		}
+	},
+
+	alerts: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['alerts']);
+		}
+	},
+
+	plants: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['plants']);
+		}
+	},
 
 	index: function (options, callback) {
 		if (callback) {
@@ -77,7 +102,7 @@ module.exports = {
 
 	draftBlend: function (options, callback) {
 		if (callback) {
-			callback(null, mockData['draftBlend']);
+			callback(null, mockData[options.dataSetName]);
 		}
 	},
 
@@ -87,9 +112,9 @@ module.exports = {
 		}
 	},
 
-	saveBlend: function (options, callback) {
+	blendSummary: function (options, callback) {
 		if (callback) {
-			callback(null, mockData['saveBlend']);
+			callback(null, mockData['blendSummary']);
 		}
 	}
 };

@@ -30,7 +30,11 @@
                     <div class="form-group">
                         <label class="control-label" for="blendDescription">{{i18n "label.blendDescription"}}</label>
                         <div class="input-group">
-                            <input id="blendDescription" name="blendDescription" type="text" class="form-control">
+                            <select id="blendDescription" name="blendDescription" class="form-control chosen-select" multiple="">
+								{{#plannerCodes}}
+                                    <option value="{{id}}">{{plannerCode}}</option>
+								{{/plannerCodes}}
+							</select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -100,7 +104,7 @@
                     <td>{{deviationHigh}}</td>
                 </tr>
 			{{/bottomLineSpecs}}
-            <tr id="ABCD-1234" class="warning">
+            <tr id="ABCD-1234" class="info">
                 <td>ncls</td>
                 <td>0.1</td>
                 <td><input type="text" class="form-control" value="0.2"></td>
@@ -151,7 +155,7 @@
                     <td>{{deviationHigh}}</td>
                 </tr>
 			{{/materialBuckets}}
-            <tr id="WXYZ-1234" class="warning">
+            <tr id="WXYZ-1234" class="info">
                 <td><span class="label label-V">V</span> Regrind</td>
                 <td>0.1</td>
                 <td><input type="text" class="form-control" value="0.2"></td>
@@ -202,7 +206,7 @@
                     <td>{{deviationHigh}}</td>
                 </tr>
 			{{/materials}}
-            <tr id="WXYZ-1234" class="warning">
+            <tr id="WXYZ-1234" class="info">
                 <td>99996 - Post Consumer Flake (washed)</td>
                 <td>0.1</td>
                 <td><input type="text" class="form-control" value="0.2"></td>
@@ -226,4 +230,5 @@
 
 {{#contentFor "pageScripts"}}
     <script src="js/blendSpec.js"></script>
+
 {{/contentFor}}

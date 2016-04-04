@@ -1,13 +1,22 @@
 {
+	"selectedPlant": "P42 - Ennis",
+	"header": "area.createBlend.title",
 	"breadcrumbs": [
 		{
-			"href": "select-plant",
-			"title": "P42"
-		}
-	],
-	"alerts": [
+			"status": "active",
+			"title": "feature.selectBlend.title"
+		},
 		{
-			"alert": "1 new deviation"
+			"status": "disabled",
+			"title": "feature.lotPreferences.title"
+		},
+		{
+			"status": "disabled",
+			"title": "feature.draftBlend.title"
+		},
+		{
+			"status": "disabled",
+			"title": "feature.finalizeBlend.title"
 		}
 	],
 	"blendSpecs": [

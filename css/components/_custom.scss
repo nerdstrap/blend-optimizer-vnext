@@ -18,3 +18,19 @@
 .blend-weight {
 	font-style: italic;
 }
+
+.hidden {
+	display: none;
+}
+
+.btn-data-toggle-material-category {
+	> i {
+		display: none;
+	}
+
+	&.active {
+		> i {
+			display: inline;
+		}
+	}
+}

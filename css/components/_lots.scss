@@ -25,7 +25,7 @@
 		.lot-header {
 			position: absolute;
 			top: 10px;
-			left: 45px;
+			left: 35px;
 
 			.lot-sku {
 				font-weight: bold;
@@ -113,10 +113,9 @@
 		}
 
 		.lot-details {
-			margin-left: 35px;
+			margin-left: 25px;
 
 			.lot-supplier {
-				font-weight: bold;
 				margin-right: 3px;
 			}
 
@@ -140,15 +139,19 @@
 		border-bottom: solid 1px $lot-default-border;
 	}
 
+	&.lot-prioritized {
+		background-color: $lot-info-bg;
+	}
+
 	&.lot-success {
-		border-left: solid 5px $brand-primary;
+		border-left: solid 7px $brand-primary;
 	}
 
 	&.lot-warning {
-		border-left: solid 5px $brand-warning;
+		border-left: solid 7px $brand-warning;
 	}
 
 	&.lot-danger {
-		border-left: solid 5px $brand-danger;
+		border-left: solid 7px $brand-danger;
 	}
 }

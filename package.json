@@ -27,7 +27,8 @@
 		"nconf": "latest",
 		"serve-favicon": "latest",
 		"bower": "latest",
-		"express-handlebars": "latest"
+		"express-handlebars": "latest",
+		"handlebars-intl": "latest"
 	},
 	"devDependencies": {
 		"gulp": "latest",

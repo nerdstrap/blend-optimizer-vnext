@@ -1,7 +1,9 @@
-<div>
-    <span>{{selectedPlant}}</span>
-    <a id="changeSelectedPlant" data-toggle="modal" data-target="#changeSelectedPlantModal" href="#">{{i18n "button.change"}}</a>
-</div>
+<ul class="nav navbar-nav">
+    <li class="active">
+        <a id="changeSelectedPlant" data-toggle="modal" data-target="#changeSelectedPlantModal" href="#"><i class="fa {{i18n "icon.change"}}"></i> {{selectedPlant}}
+        </a>
+    </li>
+</ul>
 <div class="modal inmodal" id="changeSelectedPlantModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated flipInY">
@@ -19,7 +21,7 @@
                         <div class="input-group">
                             <select id="selectedPlant" name="selectedPlant" class="form-control">
 								{{#plants}}
-                                    <option value="{{id}}">{{plantName}}</option>
+                                    <option value="{{id}}" data-description="{{description}}" data-departments="{{json departments}}">{{plant}}</option>
 								{{/plants}}
                             </select>
                         </div>

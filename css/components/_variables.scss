@@ -992,6 +992,7 @@ $lot-heading-bg:			#f3f6fb !default;
 $lot-title-padding:			10px 15px !default;
 $lot-content-padding:		10px 15px !default;
 $lot-border-radius:			$border-radius-base !default;
+$lot-info-bg:				$state-info-bg !default;
 
 //** Border color for elements within lot
 $lot-inner-border:			#e7eaec !default;
@@ -999,18 +1000,18 @@ $lot-inner-border:			#e7eaec !default;
 $lot-default-text:			$gray-dark !default;
 $lot-default-border:		#e7eaec !default;
 
-//== Material Type widget
+//== Material Category widget
 //
 //##
 
-$material-type-bg:					$white-bg !default;
-$material-type-heading-bg:			#f3f6fb !default;
-$material-type-title-padding:			10px 15px !default;
-$material-type-content-padding:		10px 15px !default;
-$material-type-border-radius:			$border-radius-base !default;
+$material-category-bg:					$white-bg !default;
+$material-category-heading-bg:			#f3f6fb !default;
+$material-category-title-padding:		10px 15px !default;
+$material-category-content-padding:		10px 15px !default;
+$material-category-border-radius:		$border-radius-base !default;
 
-//** Border color for elements within material-type
-$material-type-inner-border:			#e7eaec !default;
+//** Border color for elements within material-category
+$material-category-inner-border:		#e7eaec !default;
 
-$material-type-default-text:			$gray-dark !default;
-$material-type-default-border:		#e7eaec !default;
+$material-category-default-text:		$gray-dark !default;
+$material-category-default-border:		#e7eaec !default;

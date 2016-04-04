@@ -1,0 +1,10 @@
+{
+	"alerts": [
+		{
+			"id": "ABCD-1230",
+			"type": "warning",
+			"alert": "alert",
+			"details": "alert details"
+		}
+	]
+}

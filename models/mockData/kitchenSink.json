@@ -1,4 +1,5 @@
 {
+	"selectedPlant": "P42 - Ennis",
 	"breadcrumbs": [
 		{
 			"href": "create-blend",
@@ -15,11 +16,6 @@
 		{
 			"href": "lot-preferences",
 			"title": "Lot Preferences"
-		}
-	],
-	"alerts": [
-		{
-			"alert": "1 new deviation"
 		}
 	],
 	"departments": [

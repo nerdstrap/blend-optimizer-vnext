@@ -5,9 +5,11 @@ if (!process.env.NODE_ENV) {
 }
 
 var path = require('path');
+var glob = require('glob');
 var express = require('express');
 var expressHandlebars = require('express-handlebars');
 var i18n = require('i18n');
+var handlebarsIntl = require('handlebars-intl');
 var nconf = require('nconf');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
@@ -24,6 +26,14 @@ i18n.configure({
 });
 
 var app = express();
+var availableLocales = glob.sync('*.json', {
+	cwd: './locales/'
+}).map(function (file) {
+	return path.basename(file, '.json');
+});
+app.set('available locales', availableLocales);
+app.set('default locale', 'en');
+
 var hbs = expressHandlebars.create({
 	defaultLayout: 'default',
 	extname: 'hbs',
@@ -61,6 +71,9 @@ app.use(i18n.init);
 
 app.engine('.hbs', hbs.engine);
 app.set('view engine', '.hbs');
+
+handlebarsIntl.registerWith(hbs.handlebars);
+app.use(require('./middleware/intl/intl'));
 
 app.use(favicon(__dirname + '/img/favicon.png'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));

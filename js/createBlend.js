@@ -6,5 +6,5 @@ $(document).ready(function () {
 		}
 		window.location.href = 'lot-preferences';
 	});
-
+	
 });

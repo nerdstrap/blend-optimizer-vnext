@@ -1,27 +1,24 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.createBlend.title"}}</h3>
-            <ol class="breadcrumb">
-				{{#breadcrumbs}}
-                    <li><a href="{{href}}">{{title}}</a></li>
-				{{/breadcrumbs}}
-            </ol>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
 <div class="ibox">
     <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h5>{{i18n "feature.finalizeBlend.title"}}</h5>
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.finalizeBlend.title"}}
+            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span>
+		</h5>
     </div>
     <div class="ibox-content">
         <div class="row margin-bottom-20">
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <div class="margin-bottom-20">
-                    <canvas id="finalizeBlendRadarChart" height="180"></canvas>
+                    <canvas id="radarChart" height="200"></canvas>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -29,24 +26,36 @@
                     <thead>
                     <tr>
                         <th>{{i18n "label.spec"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationLow"}}</th>
+						{{/if}}
                         <th>{{i18n "label.low"}}</th>
                         <th>{{i18n "label.actual"}}</th>
                         <th>{{i18n "label.high"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationHigh"}}</th>
+						{{/if}}
                     </tr>
                     </thead>
                     <tbody>
-					{{#bottomLineSpecs}}
+					{{#draftBlend.bottomLineSpecs}}
                         <tr>
                             <th>{{i18n spec}}</th>
+							{{#if deviationLow}}
+                                <td>{{deviationLow}}</td>
+							{{/if}}
                             <td>{{low}}</td>
                             <td>{{actual}}</td>
                             <td>{{high}}</td>
+							{{#if deviationHigh}}
+                                <td>{{deviationHigh}}</td>
+							{{/if}}
                         </tr>
-					{{/bottomLineSpecs}}
+					{{/draftBlend.bottomLineSpecs}}
                     </tbody>
                     <tfoot>
                     <tr>
-                        <th colspan="4">&nbsp;</th>
+                        <td {{#if deviation}}colspan="6" {{else}}colspan="4"{{/if}}></td>
                     </tr>
                     </tfoot>
                 </table>
@@ -73,8 +82,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <button id="saveBlend" type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
-                        <button id="printBlend" type="button" class="btn btn-default">{{i18n "button.print"}}</button>
+                        <button id="blendSummary" type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
                     </div>
                 </form>
             </div>
@@ -82,7 +90,6 @@
         <div class="row">
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.materials.title"}}</h3>
-                <canvas id="blendMaterialsDonutChart"></canvas>
             </div>
             <div class="col-sm-4">
                 <table class="table table-striped">
@@ -95,25 +102,20 @@
                     </tr>
                     </thead>
                     <tbody>
-					{{#finalBlend.materialTypes}}
+					{{#draftBlend.includedLots}}
                         <tr>
                             <th>{{percentUsed}}</th>
-                            <td><span class="label label-{{type}}">{{type}}</span> {{sku}}</td>
+                            <td><span class="label label-{{type}}">{{badge}}</span> {{sku}}</td>
                             <td>{{lotNumber}}</td>
                             <td>{{pounds}}</td>
                         </tr>
-					{{/finalBlend.materialTypes}}
-                    <tr>
-                        <td colspan="4">
-							{{> "addBlendAdditive"}}
-                        </td>
-                    </tr>
+					{{/draftBlend.includedLots}}
                     </tbody>
                     <tfoot>
                     <tr>
                         <td colspan="4">
-                            <strong>{{i18n "label.totalWeight"}}</strong>
-                            <span class="blend-weight">{{finalBlend.totalWeight}} {{i18n "label.pounds"}}</span>
+                            <strong>{{i18n "label.blendSize"}}</strong>
+                            <span class="blend-weight">{{draftBlend.size}} {{i18n "label.pounds"}}</span>
                         </td>
                     </tr>
                     </tfoot>
@@ -128,11 +130,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var radarData = {
-                labels: [{{#radarLabels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/radarLabels}}],
+            var radarChartData = {
+                labels: [{{#draftBlend.radarChart.labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.labels}}],
                 datasets: [
-					{{#radarDatasets}}
-                        {
+                    {
+						{{#with radarChart.datasets.current}}
                             label: "{{i18n label}}",
                             fillColor: "{{fillColor}}",
                             strokeColor: "{{strokeColor}}",
@@ -140,79 +142,53 @@
                             pointStrokeColor: "{{pointStrokeColor}}",
                             pointHighlightFill: "{{pointHighlightFill}}",
                             pointHighlightStroke: "{{pointHighlightStroke}}",
-                            data: [{{#data}}{{this}}{{#unless @last}},{{/unless}}{{/data}}]
-                        }{{#unless @last}},{{/unless}}
-					{{/radarDatasets}}
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.current}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.current}}]
+                    },
+                    {
+						{{#with radarChart.datasets.low}}
+                            label: "{{i18n label}}",
+                            fillColor: "{{fillColor}}",
+                            strokeColor: "{{strokeColor}}",
+                            pointColor: "{{pointColor}}",
+                            pointStrokeColor: "{{pointStrokeColor}}",
+                            pointHighlightFill: "{{pointHighlightFill}}",
+                            pointHighlightStroke: "{{pointHighlightStroke}}",
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.low}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.low}}]
+                    },
+                    {
+						{{#with radarChart.datasets.high}}
+                            label: "{{i18n label}}",
+                            fillColor: "{{fillColor}}",
+                            strokeColor: "{{strokeColor}}",
+                            pointColor: "{{pointColor}}",
+                            pointStrokeColor: "{{pointStrokeColor}}",
+                            pointHighlightFill: "{{pointHighlightFill}}",
+                            pointHighlightStroke: "{{pointHighlightStroke}}",
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.high}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.high}}]
+                    }
                 ]
             };
 
-            var radarOptions = {
-                angleLineColor: "rgba(0,0,0,.1)",
-                angleLineWidth: 2,
-                pointLabelFontFamily: "'open sans'",
-                pointLabelFontStyle: "normal",
-                pointLabelFontSize: 13,
-                pointLabelFontColor: "#333",
-                pointDotRadius: 3,
-                pointDotStrokeWidth: 1,
-                datasetStrokeWidth: 2,
-                datasetFill: true
+			{{#with radarChart.options}}
+                var radarChartOptions = {
+                    angleLineColor: "{{angleLineColor}}",
+                    angleLineWidth: {{angleLineWidth}},
+                    pointLabelFontFamily: "{{{pointLabelFontFamily}}}",
+                    pointLabelFontStyle: "{{pointLabelFontStyle}}",
+                    pointLabelFontSize: {{pointLabelFontSize}},
+                    pointLabelFontColor: "{{pointLabelFontColor}}",
+                    pointDotRadius: {{pointDotRadius}},
+                    pointDotStrokeWidth: {{pointDotStrokeWidth}},
+                    datasetStrokeWidth: {{datasetStrokeWidth}},
+                    datasetFill: {{datasetFill}}
+                };
+			{{/with}}
 
-            };
-            var finalizeBlendRadarChart = document.getElementById('finalizeBlendRadarChart').getContext("2d");
-            new Chart(finalizeBlendRadarChart).Radar(radarData, radarOptions);
-
-            var doughnutData = [
-                {
-                    value: 20,
-                    color: "#a3e1d4",
-                    highlight: "#1ab394",
-                    label: "Virgin"
-                },
-                {
-                    value: 20,
-                    color: "#dedede",
-                    highlight: "#1ab394",
-                    label: "Regrind"
-                },
-                {
-                    value: 20,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Spec"
-                },
-                {
-                    value: 25,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Spec"
-                },
-                {
-                    value: 4,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Spec"
-                },
-                {
-                    value: 1,
-                    color: "#b5b8cf",
-                    highlight: "#1ab394",
-                    label: "Spec"
-                }
-            ];
-            var doughnutOptions = {
-                segmentShowStroke: true,
-                segmentStrokeColor: "#fff",
-                segmentStrokeWidth: 2,
-                percentageInnerCutout: 45, // This is 0 for Pie charts
-                animationSteps: 100,
-                animationEasing: "easeOutBounce",
-                animateRotate: true,
-                animateScale: false,
-                responsive: true
-            };
-            var blendMaterialsDonutChart = document.getElementById("blendMaterialsDonutChart").getContext("2d");
-            new Chart(blendMaterialsDonutChart).Doughnut(doughnutData, doughnutOptions);
+            var _radarChart = document.getElementById('radarChart').getContext("2d");
+            new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
 
         });
     </script>

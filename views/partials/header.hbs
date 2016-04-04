@@ -9,7 +9,8 @@
             <a class="navbar-brand" href="#">{{i18n "app.title"}}</a>
         </div>
         <div id="blend-optimizer-navbar-collapse" class="collapse navbar-collapse navbar-top-menu">
-            <ul class="nav navbar-nav navbar-right navbar-top-menu-links ">
+			{{> "changeSelectedPlant"}}
+            <ul class="nav navbar-nav navbar-right navbar-top-menu-links">
                 <li><a href="dashboard">{{i18n "area.dashboard.title"}}</a></li>
                 <li><a href="blend-spec-list">{{i18n "area.blendSpecList.title"}}</a></li>
                 <li><a href="create-blend">{{i18n "area.createBlend.title"}}</a></li>

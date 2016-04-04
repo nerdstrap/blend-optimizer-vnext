@@ -17,7 +17,7 @@ module.exports = function (app) {
 	app.get('/lot-preferences', controller.lotPreferences);
 	app.get('/draft-blend', controller.draftBlend);
 	app.get('/finalize-blend', controller.finalizeBlend);
-	app.get('/save-blend', controller.saveBlend);
+	app.get('/blend-summary', controller.blendSummary);
 	
 	app.get('/lot-maintenance', controller.lotMaintenance);
 };

@@ -57,3 +57,7 @@
 		}
 	}
 }
+
+.breadcrumb + .breadcrumb {
+	margin-top: (($line-height-computed / 2) - 1);
+}

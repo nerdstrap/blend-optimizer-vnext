@@ -1,73 +1,144 @@
 {
-	"selectedPlant": "P42",
-	"plants": [
+	"selectedPlant": "P42 - Ennis",
+	"header": "area.createBlend.title",
+	"breadcrumbs": [
 		{
-			"id": "ABCD-1230",
-			"plantName": "P37"
+			"status": "active",
+			"title": "feature.selectBlend.title"
 		},
 		{
-			"id": "ABCD-1231",
-			"plantName": "P39"
+			"status": "disabled",
+			"title": "feature.lotPreferences.title"
 		},
 		{
-			"id": "ABCD-1232",
-			"plantName": "P41"
+			"status": "disabled",
+			"title": "feature.draftBlend.title"
 		},
 		{
-			"id": "ABCD-1233",
-			"plantName": "P44"
-		}
-	],
-	"breadcrumbs": [],
-	"alerts": [
-		{
-			"alert": "1 new deviation"
+			"status": "disabled",
+			"title": "feature.finalizeBlend.title"
 		}
 	],
 	"departments": [
 		{
-			"id": "3030",
-			"department": "3030"
+			"id": "ABCD-1230",
+			"department": "3030",
+			"description": "3030 Description",
+			"plannerCodes": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
 		},
 		{
-			"id": "3130",
-			"department": "3130"
+			"id": "ABCD-1231",
+			"department": "3130",
+			"description": "3130",
+			"plannerCodes": [
+				"ABCD-2340",
+				"ABCD-2340"
+			]
 		}
 	],
 	"plannerCodes": [
 		{
-			"id": "04AG",
-			"plannerCode": "04AG"
+			"id": "ABCD-1230",
+			"plannerCode": "04AG",
+			"description": "(04AG) 4&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
+			"blendSpecs": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
 		},
 		{
-			"id": "04CM",
-			"department": "04CM"
+			"id": "ABCD-1231",
+			"plannerCode": "04CM",
+			"description": "04CM description",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
+			"blendSpecs": [
+				"ABCD-2340",
+				"ABCD-2340"
+			]
+		},
+		{
+			"id": "ABCD-2340",
+			"plannerCode": "04AG",
+			"description": "(04AG) 4&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
+			"blendSpecs": [
+				"ABCD-3450",
+				"ABCD-3451"
+			]
+		},
+		{
+			"id": "ABCD-2341",
+			"plannerCode": "04CM",
+			"description": "04CM description",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
+			"blendSpecs": [
+				"ABCD-4560",
+				"ABCD-4561"
+			]
 		}
 	],
-	"plannerCodeDescription": "(04AG) 4&quot; Ag Singlewall Pipe",
 	"blendSpecs": [
 		{
-			"id": "Mix140",
-			"blendSpecs": "Mix 140"
+			"id": "ABCD-1230",
+			"blendSpec": "MIX 100",
+			"description": "MIX 100 description"
 		},
 		{
-			"id": "Mix160",
-			"blendSpec": "Mix 160"
+			"id": "ABCD-1231",
+			"blendSpec": "MIX 101",
+			"description": "MIX 101 description"
+		},
+		{
+			"id": "ABCD-2340",
+			"blendSpec": "MIX 102",
+			"description": "MIX 102 description"
+		},
+		{
+			"id": "ABCD-2341",
+			"blendSpec": "MIX 103",
+			"description": "MIX 103 description"
+		},
+		{
+			"id": "ABCD-3450",
+			"blendSpec": "MIX 104",
+			"description": "MIX 104 description"
+		},
+		{
+			"id": "ABCD-3451",
+			"blendSpec": "MIX 105",
+			"description": "MIX 105 description"
+		},
+		{
+			"id": "ABCD-4560",
+			"blendSpec": "MIX 106",
+			"description": "MIX 106 description"
+		},
+		{
+			"id": "ABCD-4561",
+			"blendSpec": "MIX 107",
+			"description": "04CM description"
 		}
 	],
 	"numberOfComponents": [
 		{
-			"id": "4",
+			"id": "ABCD-1233",
+			"number": "5"
+		},
+		{
+			"id": "ABCD-1232",
 			"number": "4"
 		},
 		{
-			"id": "3",
+			"id": "ABCD-1231",
 			"number": "3"
 		},
 		{
-			"id": "2",
+			"id": "ABCD-1230",
 			"number": "2"
 		}
-	],
-	"minimumBlendSize": "10000"
+	]
 }

@@ -15,39 +15,59 @@
     <div class="ibox-title">
 		{{> "ibox-tools"}}
         <div class="pull-right">
-            <button id="newBlendSpec" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+            <button id="newBlendSpec" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
         </div>
         <h5 class="ibox-header">{{i18n "feature.selectBlend.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Active</th>
-                <th>Action</th>
-            </tr>
-            </thead>
-            <tbody>
-			{{#blendSpecs}}
-                <tr id="{{id}}">
-                    <td>{{name}}</td>
-                    <td>{{description}}</td>
-                    <td>{{active}}</td>
-                    <td>
-                        <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
-                    </td>
-                </tr>
-			{{/blendSpecs}}
-            </tbody>
-            <tfoot>
-            <tr>
-                <th colspan="5">&nbsp;</th>
-            </tr>
-            </tfoot>
-        </table>
+        <form id="blendSpecSearchForm" class="form-inline blend-optimizer-form">
+            <div class="row margin-bottom-20">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <label for="blendSpecName" class="control-label">{{i18n "label.blendSpecName"}}</label>
+                        <div class="input-group">
+                            <input id="blendSpecName" name="blendSpecName" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label for="filterBlendSpecList" class="control-label">&nbsp;</label>
+                        <div class="input-group">
+                            <button id="filterBlendSpecList" type="button" class="btn btn-primary">{{i18n "button.search"}}</button>
+                        </div>
+                    </div>
+                </div>
+        </form>
     </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Active</th>
+            <th>Action</th>
+        </tr>
+        </thead>
+        <tbody>
+		{{#blendSpecs}}
+            <tr id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{description}}</td>
+                <td>{{active}}</td>
+                <td>
+                    <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
+                </td>
+            </tr>
+		{{/blendSpecs}}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="5">&nbsp;</th>
+        </tr>
+        </tfoot>
+    </table>
+</div>
 </div>
 
 {{#contentFor "pageScripts"}}

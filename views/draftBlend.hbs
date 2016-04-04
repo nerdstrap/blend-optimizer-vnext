@@ -1,93 +1,6 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.createBlend.title"}}</h3>
-            <ol class="breadcrumb">
-				{{#breadcrumbs}}
-                    <li><a href="{{href}}">{{title}}</a></li>
-				{{/breadcrumbs}}
-            </ol>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
 <div class="ibox">
-    <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h5>{{i18n "feature.draftBlend.title"}}</h5>
-    </div>
-    <div class="ibox-content">
-        <div class="row margin-bottom-20">
-            <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
-                <div class="margin-bottom-20">
-                    <canvas id="draftBlendRadarChart" height="180"></canvas>
-                </div>
-                <ul class="list-inline">
-                    <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
-					{{#modifications}}
-                        <li><a href="#">{{id}}</a></li>
-					{{/modifications}}
-                    <li><a href="#">{{i18n "label.current"}}</a></li>
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>{{i18n "label.spec"}}</th>
-                        <th>{{i18n "label.low"}}</th>
-                        <th>{{i18n "label.actual"}}</th>
-                        <th>{{i18n "label.high"}}</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-					{{#bottomLineSpecs}}
-                        <tr>
-                            <th>{{i18n spec}}</th>
-                            <td>{{low}}</td>
-                            <td>{{actual}}</td>
-                            <td>{{high}}</td>
-                        </tr>
-					{{/bottomLineSpecs}}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="4"><strong>{{i18n "label.totalWeight"}}</strong>
-                            <span class="blend-weight">{{totalWeight}} {{i18n "label.pounds"}}</span></td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-sm-4">
-                <h3 class="">{{i18n "feature.finalizeBlend.title"}}</h3>
-                <form id="finalizeBlendForm" class="blend-optimizer-form">
-                    <div class="form-group">
-                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
-                        <div class="input-group">
-                            <select id="modificationReason" name="modificationReason" class="form-control chosen-select">
-								{{#modificationReasons}}
-                                    <option id="{{id}}">{{modificationReason}}</option>
-								{{/modificationReasons}}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input id="other" name="other" type="text" class="form-control" value="other" disabled>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button id="finalizeBlend" type="button" class="btn btn-primary">{{i18n "button.finalizeBlend"}}</button>
-                        <button id="reoptimizeBlend" type="button" class="btn btn-warning">{{i18n "button.reoptimizeBlend"}}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ibox border-bottom">
     <div class="ibox-title">
         <div class="ibox-tools">
             <ul class="list-inline">
@@ -102,51 +15,157 @@
                 </li>
             </ul>
         </div>
+		{{#if draftBlend.infeasible}}
+            <div class="pull-right">
+                <button type="button" class="btn btn-xs btn-default">{{i18n "button.deviate"}}</button>
+            </div>
+		{{/if}}
+        <h5>{{i18n "feature.draftBlend.title"}}
+            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span></h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
+                <div class="margin-bottom-20">
+                    <canvas id="radarChart" height="200"></canvas>
+                </div>
+				{{#if draftBlend.modifications}}
+                    <ul class="list-inline">
+                        <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
+						{{#draftBlend.modifications}}
+                            <li>
+                                <input type="checkbox" {{#if checked}}checked{{/if}}>
+                                <a href="{{href}}">{{i18n title}}</a>
+                            </li>
+						{{/draftBlend.modifications}}
+                    </ul>
+				{{/if}}
+            </div>
+            <div class="col-sm-4">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>{{i18n "label.spec"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationLow"}}</th>
+						{{/if}}
+                        <th>{{i18n "label.low"}}</th>
+                        <th>{{i18n "label.actual"}}</th>
+                        <th>{{i18n "label.high"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationHigh"}}</th>
+						{{/if}}
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#draftBlend.bottomLineSpecs}}
+                        <tr class="{{status}}">
+                            <th>{{i18n spec}}</th>
+							{{#if deviationLow}}
+                                <td>{{deviationLow}}</td>
+							{{/if}}
+                            <td>{{low}}</td>
+                            <td>{{actual}}</td>
+                            <td>{{high}}</td>
+							{{#if deviationHigh}}
+                                <td>{{deviationHigh}}</td>
+							{{/if}}
+                        </tr>
+					{{/draftBlend.bottomLineSpecs}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td {{#if deviation}}colspan="6" {{else}}colspan="4"{{/if}}>
+                            <strong>{{i18n "label.blendSize"}}</strong>
+                            <span class="blend-weight">{{draftBlend.size}} {{i18n "label.pounds"}}</span>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <h3 class="">{{i18n "feature.finalizeBlend.title"}}</h3>
+                <form id="finalizeBlendForm" class="blend-optimizer-form">
+                    <div class="form-group modification-reason hidden">
+                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
+                        <div class="input-group">
+                            <select id="modificationReason" name="modificationReason" class="form-control chosen-select">
+								{{#modificationReasons}}
+                                    <option id="{{id}}">{{modificationReason}}</option>
+								{{/modificationReasons}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group modification-reason hidden">
+                        <div class="input-group">
+                            <input id="other" name="other" type="text" class="form-control" value="other" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="finalizeBlend" type="button" class="btn btn-primary {{#if infeasible}}hidden{{/if}}">{{i18n "button.finalizeBlend"}}</button>
+                        <button id="reoptimizeBlend" type="button" class="btn btn-warning modification-reason hidden">{{i18n "button.reoptimizeBlend"}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <h5>{{i18n "feature.materialTypeUsage.title"}}</h5>
+<div class="ibox border-bottom">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.materialCategoryUsage.title"}}</h5>
     </div>
     <div class="ibox-content" style="display: none;">
         <div class="row">
             <div class="col-sm-8">
-                <h3 class="lot-panel-title">{{i18n "feature.materialTypeThresholds.title"}}</h3>
+                <h3 class="lot-panel-title">{{i18n "feature.materialCategoryThresholds.title"}}</h3>
                 <h6 class="lot-panel-title">
-                    <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.slideRange.description"}}</h6>
-                <ul id="materialTypes" class="lot-list-group">
-					{{#materialTypes}}
+                    <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.slideRange.description"}}
+                </h6>
+                <ul id="materialCategories" class="lot-list-group">
+					{{#draftBlend.materialCategories}}
                         <li id="{{id}}" class="lot-list-group-item sortable">
-                            <div class="material-type">
-                                <div class="material-type-content">
-                                    <div class="material-type-label">
+                            <div class="material-category">
+                                <div class="material-category-content">
+                                    <div class="material-category-label">
                                         <span class="label label-{{type}}">{{badge}}</span>
                                     </div>
-                                    <div class="material-type-details">
+                                    <div class="material-category-details">
                                         <div>
-                                            <span class="material-type-name">{{type}}</span>
+                                            <span class="material-category-name">{{type}}</span>
                                         </div>
                                     </div>
-                                    <div class="material-type-usage">
-                                        <div class="material-type-slider-snap-value-lower">
-                                            <span><strong>{{i18n "label.low"}}</strong> <span class="slider-value-lower" id="materialType{{@index}}SnapValueLower">30</span></span>
+                                    <div class="material-category-usage">
+                                        <div class="material-category-slider-snap-value-lower">
+                                            <span><strong>{{i18n "label.low"}}</strong> <span class="slider-value-lower" id="materialCategory{{@index}}SnapValueLower">{{low}}</span></span>
                                         </div>
-                                        <div class="material-type-slider-snap-value-upper">
-                                            <span><strong>{{i18n "label.high"}}</strong> <span class="slider-value-upper" id="materialType{{@index}}SnapValueUpper">70</span></span>
+                                        <div class="material-category-slider-snap-value-upper">
+                                            <span><strong>{{i18n "label.high"}}</strong> <span class="slider-value-upper" id="materialCategory{{@index}}SnapValueUpper">{{high}}</span></span>
                                         </div>
-                                        <div id="materialType{{@index}}Usage" class="material-type-slider"></div>
+                                        <div id="materialCategory{{@index}}Usage" class="material-category-slider"></div>
                                     </div>
                                 </div>
                             </div>
                         </li>
-					{{/materialTypes}}
+					{{/draftBlend.materialCategories}}
                 </ul>
             </div>
             <div class="col-sm-4">
                 <div class="header-container">
                     <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
-                    <a id="blendSpecRules" class="" href="#">{{i18n "feature.blendSpecRules"}}</a>
+					{{> "viewBlendSpecRules"}}
                 </div>
                 <ol>
 					{{#blendSpecRules}}
-                        <li>{{ruleSummary}}</li>
+                        <li>{{blendSpecRule}}</li>
 					{{/blendSpecRules}}
                 </ol>
             </div>
@@ -161,12 +180,6 @@
                 <li>
                     <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
                 </li>
-                <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa {{i18n "icon.dropdownMenu"}}"></i></a>
-                    <ul class="dropdown-menu dropdown-ibox">
-                        <li><a href="#">Deviate</a></li>
-                    </ul>
-                </li>
             </ul>
         </div>
         <h5>{{i18n "feature.includedLots.title"}}</h5>
@@ -178,7 +191,8 @@
                     <div class="lot-panel-heading">
                         <h3 class="lot-panel-title">{{i18n "feature.includedLots.title"}}</h3>
                         <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
+                        </h6>
                     </div>
 					{{#includedLots}}
                         <ul id="includedLots{{@index}}" class="lot-list-group included-lot-list-group">
@@ -194,7 +208,8 @@
                     <div class="lot-panel-heading">
                         <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
                         <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
+                        </h6>
                     </div>
                     <ul id="availableLots" class="lot-list-group sortable">
 						{{#availableLots}}
@@ -214,11 +229,11 @@
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var radarData = {
-                labels: [{{#radarLabels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/radarLabels}}],
+            var radarChartData = {
+                labels: [{{#draftBlend.radarChart.labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.labels}}],
                 datasets: [
-					{{#radarDatasets}}
-                        {
+                    {
+						{{#with radarChart.datasets.current}}
                             label: "{{i18n label}}",
                             fillColor: "{{fillColor}}",
                             strokeColor: "{{strokeColor}}",
@@ -226,32 +241,72 @@
                             pointStrokeColor: "{{pointStrokeColor}}",
                             pointHighlightFill: "{{pointHighlightFill}}",
                             pointHighlightStroke: "{{pointHighlightStroke}}",
-                            data: [{{#data}}{{this}}{{#unless @last}},{{/unless}}{{/data}}]
-                        }{{#unless @last}},{{/unless}}
-					{{/radarDatasets}}
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.current}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.current}}]
+                    },
+					{{#if draftBlend.radarChart.datasets.previous}}
+                        {
+							{{#with radarChart.datasets.previous}}
+                                label: "{{i18n label}}",
+                                fillColor: "{{fillColor}}",
+                                strokeColor: "{{strokeColor}}",
+                                pointColor: "{{pointColor}}",
+                                pointStrokeColor: "{{pointStrokeColor}}",
+                                pointHighlightFill: "{{pointHighlightFill}}",
+                                pointHighlightStroke: "{{pointHighlightStroke}}",
+							{{/with}}
+                            data: [{{#draftBlend.radarChart.datasets.previous}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.previous}}]
+                        },
+					{{/if}}
+                    {
+						{{#with radarChart.datasets.low}}
+                            label: "{{i18n label}}",
+                            fillColor: "{{fillColor}}",
+                            strokeColor: "{{strokeColor}}",
+                            pointColor: "{{pointColor}}",
+                            pointStrokeColor: "{{pointStrokeColor}}",
+                            pointHighlightFill: "{{pointHighlightFill}}",
+                            pointHighlightStroke: "{{pointHighlightStroke}}",
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.low}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.low}}]
+                    },
+                    {
+						{{#with radarChart.datasets.high}}
+                            label: "{{i18n label}}",
+                            fillColor: "{{fillColor}}",
+                            strokeColor: "{{strokeColor}}",
+                            pointColor: "{{pointColor}}",
+                            pointStrokeColor: "{{pointStrokeColor}}",
+                            pointHighlightFill: "{{pointHighlightFill}}",
+                            pointHighlightStroke: "{{pointHighlightStroke}}",
+						{{/with}}
+                        data: [{{#draftBlend.radarChart.datasets.high}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.high}}]
+                    }
                 ]
             };
 
-            var radarOptions = {
-                angleLineColor: "rgba(0,0,0,.1)",
-                angleLineWidth: 2,
-                pointLabelFontFamily: "'open sans'",
-                pointLabelFontStyle: "normal",
-                pointLabelFontSize: 13,
-                pointLabelFontColor: "#333",
-                pointDotRadius: 3,
-                pointDotStrokeWidth: 1,
-                datasetStrokeWidth: 2,
-                datasetFill: true
+			{{#with radarChart.options}}
+                var radarChartOptions = {
+                    angleLineColor: "{{angleLineColor}}",
+                    angleLineWidth: {{angleLineWidth}},
+                    pointLabelFontFamily: "{{{pointLabelFontFamily}}}",
+                    pointLabelFontStyle: "{{pointLabelFontStyle}}",
+                    pointLabelFontSize: {{pointLabelFontSize}},
+                    pointLabelFontColor: "{{pointLabelFontColor}}",
+                    pointDotRadius: {{pointDotRadius}},
+                    pointDotStrokeWidth: {{pointDotStrokeWidth}},
+                    datasetStrokeWidth: {{datasetStrokeWidth}},
+                    datasetFill: {{datasetFill}}
+                };
+			{{/with}}
 
-            };
-            var draftBlendRadarChart = document.getElementById('draftBlendRadarChart').getContext("2d");
-            new Chart(draftBlendRadarChart).Radar(radarData, radarOptions);
+            var _radarChart = document.getElementById('radarChart').getContext("2d");
+            new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
 
-			{{#materialTypes}}
-                var materialType{{@index}}Usage = document.getElementById('materialType{{@index}}Usage');
+			{{#draftBlend.materialCategories}}
+                var materialCategory{{@index}}Usage = document.getElementById('materialCategory{{@index}}Usage');
 
-                noUiSlider.create(materialType{{@index}}Usage, {
+                noUiSlider.create(materialCategory{{@index}}Usage, {
                     start: [30, 70],
                     behaviour: 'drag',
                     connect: true,
@@ -261,7 +316,7 @@
                     },
                     pips: {
                         mode: 'values',
-                        values: [20, 80],
+                        values: [{{low}}, {{high}}],
                         density: 4
                     },
                     format: wNumb({
@@ -269,10 +324,9 @@
                         postfix: ' %'
                     })
                 });
+			{{/draftBlend.materialCategories}}
 
-			{{/materialTypes}}
-
-			{{#includedLots}}
+			{{#draftBlend.includedLots}}
                 var includedLots{{@index}} = document.getElementById('includedLots{{@index}}');
                 Sortable.create(includedLots{{@index}}, {
                     handle: ".lot-header",
@@ -285,9 +339,10 @@
                         var toList = evt.to;
                         var toListItems = $(toList).children('li.original').remove();
                         var fromList = evt.from;
+                        $('.modification-reason').removeClass('hidden');
                     }
                 });
-			{{/includedLots}}
+			{{/draftBlend.includedLots}}
 
             var availableLots = document.getElementById('availableLots');
             Sortable.create(availableLots, {
@@ -297,7 +352,7 @@
                 sort: true
             });
 
-			{{#includedLots}}
+			{{#draftBlend.includedLots}}
                 var includedLot{{@index}}Usage = document.getElementById('includedLot{{@index}}Usage');
 
                 noUiSlider.create(includedLot{{@index}}Usage, {
@@ -319,7 +374,14 @@
                     })
                 });
 
-			{{/includedLots}}
+			{{/draftBlend.includedLots}}
+
+            $('#reoptimizeBlend').click(function (e) {
+                if (e) {
+                    e.preventDefault();
+                }
+                window.location.href = 'draft-blend?v=2';
+            });
 
         });
     </script>

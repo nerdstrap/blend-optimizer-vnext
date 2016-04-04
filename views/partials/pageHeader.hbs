@@ -1,12 +1,25 @@
 {{#contentFor "pageHeader"}}
     <div class="page-header">
         <div class="container-fluid">
-            <h3>{{i18n "area.createBlend.title"}}</h3>
-            <ol class="breadcrumb">
-				{{#breadcrumbs}}
-                    <li><a href="{{href}}">{{title}}</a></li>
-				{{/breadcrumbs}}
-            </ol>
+            <h3>{{i18n header}}</h3>
+			{{#if breadcrumbs}}
+                <ol class="breadcrumb">
+					{{#breadcrumbs}}
+						{{#if href}}
+                            <li class="{{status}}"><a href="{{href}}">{{i18n title}}</a></li>
+						{{else}}
+                            <li class="{{status}}">{{i18n title}}</li>
+						{{/if}}
+					{{/breadcrumbs}}
+                </ol>
+			{{/if}}
+			{{#if datacrumbs}}
+                <ol class="breadcrumb">
+					{{#datacrumbs}}
+                        <li class="disabled">{{datacrumb}}</li>
+					{{/datacrumbs}}
+                </ol>
+			{{/if}}
         </div>
     </div>
 {{/contentFor}}

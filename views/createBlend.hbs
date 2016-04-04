@@ -1,18 +1,4 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.createBlend.title"}}</h3>
-            <ol class="breadcrumb">
-                <li>
-					{{> "changeSelectedPlant"}}
-                </li>
-				{{#breadcrumbs}}
-                    <li><a href="{{href}}">{{title}}</a></li>
-				{{/breadcrumbs}}
-            </ol>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
 <div class="ibox">
     <div class="ibox-title">
@@ -27,8 +13,9 @@
                         <label for="department" class="control-label">{{i18n "label.department"}}</label>
                         <div class="input-group">
                             <select id="department" name="department" class="form-control chosen-select">
+                                <option value="" selected="true" disabled="disabled">{{i18n "label.department"}}</option>
 								{{#departments}}
-                                    <option value="{{id}}">{{department}}</option>
+                                    <option value="{{id}}" data-description="{{{description}}}" data-plannercodes="{{json plannerCodes}}">{{department}}</option>
 								{{/departments}}
                             </select>
                         </div>
@@ -39,9 +26,7 @@
                         <label for="plannerCode" class="control-label">{{i18n "label.plannerCode"}}</label>
                         <div class="input-group">
                             <select id="plannerCode" name="plannerCode" class="form-control chosen-select">
-								{{#plannerCodes}}
-                                    <option value="{{id}}">{{plannerCode}}</option>
-								{{/plannerCodes}}
+                                <option value="" selected="true" disabled="disabled">{{i18n "label.plannerCode"}}</option>
                             </select>
                         </div>
                     </div>
@@ -50,19 +35,24 @@
                     <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
                     <div class="input-group">
                         <select id="blendSpec" name="blendSpec" class="form-control chosen-select">
-							{{#blendSpecs}}
-                                <option value="{{id}}">{{blendSpec}}</option>
-							{{/blendSpecs}}
+                            <option value="" selected="true" disabled="disabled">{{i18n "label.blendSpec"}}</option>
                         </select>
                     </div>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-4">&nbsp;</div>
-                <div id="plannerCodeDescriptionContainer" class="col-sm-4">
-                    <h4>{{{plannerCodeDescription}}}</h4>
+                <div class="col-sm-4">
+                    <h4 id="departmentDescription"></h4>
                 </div>
-                <div id="productSkusContainer" class="col-sm-4"></div>
+                <div class="col-sm-4">
+                    <h4 id="plannerCodeDescription"></h4>
+                    <div class="hidden">
+                        <strong>{{i18n "label.productSKUs"}}</strong> <span id="productSKUs"></span>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <h4 id="blendSpecDescription"></h4>
+                </div>
             </div>
         </form>
     </div>
@@ -79,7 +69,7 @@
                     <div class="form-group">
                         <label for="minimumBlendSize" class="control-label">{{i18n "label.minimumBlendSize"}}</label>
                         <div class="input-group">
-                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control" value="{{minimumBlendSize}}">
+                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control" value="{{defaultBlendSize}}">
                         </div>
                     </div>
                 </div>
@@ -110,4 +100,78 @@
 
 {{#contentFor "pageScripts"}}
     <script src="js/createBlend.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var _plannerCodes = {{{json plannerCodes}}};
+            var _blendSpecs = {{{json blendSpecs}}};
+
+            function getPlannerCodeOption(id, plannerCode, description, blendSpecs, productSKUs) {
+                var plannerCodeOption = '<option value="' + id + '" data-description="' + description + '" data-blendspecs=\'' + JSON.stringify(blendSpecs) + '\' data-productskus="' + productSKUs + '">' + plannerCode + '</option>';
+                return plannerCodeOption;
+            }
+
+            function department_onChange(departmentId) {
+                var $selectedDepartment = $('#department').find('option:selected');
+                var departmentDescription = $selectedDepartment.attr('data-description');
+                var departmentPlannerCodes = JSON.parse($selectedDepartment.attr('data-plannercodes'));
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return departmentPlannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+
+                $('#departmentDescription').text(departmentDescription);
+                $('#plannerCodeDescription').text('');
+                $('#productSKUs').text('').parent().addClass('hidden');
+
+                var plannerCodeOptions = '<option value="" selected="true" disabled="disabled">{{i18n "label.plannerCode"}}</option>';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.blendSpecs, plannerCode.productSKUs);
+                });
+                $('#plannerCode').html(plannerCodeOptions).trigger("chosen:updated");
+            }
+
+            function getBlendSpecOption(id, blendSpec, description) {
+                var blendSpecOption = '<option value="' + id + '" data-description="' + description + '">' + blendSpec + '</option>';
+                return blendSpecOption;
+            }
+
+            function plannerCode_onChange(plannerCodeId) {
+                var $selectedPlannerCode = $('#plannerCode').find('option:selected');
+                var plannerCodeDescription = $selectedPlannerCode.attr('data-description');
+                var productSKUs = $selectedPlannerCode.attr('data-productskus');
+                var plannerCodeBlendSpecs = JSON.parse($selectedPlannerCode.attr('data-blendspecs'));
+                var blendSpecs = _.filter(_blendSpecs, function (_blendSpec) {
+                    return plannerCodeBlendSpecs.indexOf(_blendSpec.id) !== -1;
+                });
+
+                $('#plannerCodeDescription').text(plannerCodeDescription);
+                $('#productSKUs').text(productSKUs).parent().removeClass('hidden');
+                $('#blendSpecDescription').text('');
+
+                var blendSpecOptions = '<option value="" selected="true" disabled="disabled">{{i18n "label.blendSpec"}}</option>';
+                _.forEach(blendSpecs, function (blendSpec) {
+                    blendSpecOptions += getBlendSpecOption(blendSpec.id, blendSpec.blendSpec, blendSpec.description);
+                });
+                $('#blendSpec').html(blendSpecOptions).trigger("chosen:updated");
+            }
+
+            function blendSpec_onChange(blendSpecId) {
+                var $selectedBlendSpec = $('#blendSpec').find('option:selected');
+                var blendSpecDescription = $selectedBlendSpec.attr('data-description');
+
+                $('#blendSpecDescription').text(blendSpecDescription);
+            }
+
+            $('#department').on('change', function (evt, params) {
+                department_onChange();
+            });
+
+            $('#plannerCode').on('change', function (evt, params) {
+                plannerCode_onChange();
+            });
+
+            $('#blendSpec').on('change', function (evt, params) {
+                blendSpec_onChange();
+            });
+        });
+    </script>
 {{/contentFor}}

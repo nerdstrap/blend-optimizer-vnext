@@ -3,23 +3,24 @@
 	"header": "area.createBlend.title",
 	"breadcrumbs": [
 		{
-			"status": "active",
-			"title": "feature.selectBlend.title",
-			"href": "create-blend"
+			"status": "disabled",
+			"title": "feature.selectBlend.title"
 		},
 		{
-			"status": "active",
-			"title": "feature.lotPreferences.title",
-			"href": "lot-preferences"
+			"status": "disabled",
+			"title": "feature.lotPreferences.title"
 		},
 		{
-			"status": "active",
-			"title": "feature.draftBlend.title",
-			"href": "draft-blend"
+			"status": "disabled",
+			"title": "feature.draftBlend.title"
 		},
 		{
-			"status": "active",
+			"status": "disabled",
 			"title": "feature.finalizeBlend.title"
+		},
+		{
+			"status": "active",
+			"title": "feature.saveBlend.title"
 		}
 	],
 	"datacrumbs": [
@@ -94,7 +95,7 @@
 				"badge": "F",
 				"sku": "9999ZP",
 				"lotNumber": "ZPC021516-1",
-				"percentUsed": "25",
+				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
 				"high": "80"
@@ -105,7 +106,7 @@
 				"badge": "P",
 				"sku": "9999NE",
 				"lotNumber": "NEC030816-2",
-				"percentUsed": "25",
+				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
 				"high": "80"
@@ -116,7 +117,7 @@
 				"badge": "R",
 				"sku": "9999RA",
 				"lotNumber": 0,
-				"percentUsed": "25",
+				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
 				"high": "80"
@@ -127,7 +128,7 @@
 				"badge": "V",
 				"sku": "9999A",
 				"lotNumber": "A312016",
-				"percentUsed": "25",
+				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
 				"high": "80"
@@ -144,33 +145,8 @@
 				"high": "80"
 			}
 		],
-		"radarChart": {
-			"labels": [
-				"label.density",
-				"label.meltIndex",
-				"label.izod",
-				"label.ncls"
-			],
-			"datasets": {
-				"current": [
-					"40",
-					"50",
-					"60",
-					"70"
-				],
-				"low": [
-					"20",
-					"20",
-					"20",
-					"20"
-				],
-				"high": [
-					"90",
-					"90",
-					"90",
-					"90"
-				]
-			}
-		}
+		"comments": "this is a really good blend"
 	}
+
+
 }

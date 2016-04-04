@@ -1,4 +1,4 @@
-<div class="lot lot-{{status}} border-bottom">
+<div class="lot lot-{{status}} {{#if priority}}lot-prioritized{{/if}} border-bottom">
     <div class="lot-title">
         <div class="lot-label">
             <span class="label label-{{type}}">{{badge}}</span>
@@ -22,16 +22,17 @@
     <div class="lot-content" style="display: none;">
         <div class="lot-details">
             <div>
-                <span class="lot-supplier">{{supplier}}</span>
+                <strong>{{i18n "label.supplier"}}</strong> <span class="lot-supplier">{{vendorName}}</span>
             </div>
             <div>
-                <span class="lot-price">{{price}}</span>
+                <strong>{{i18n "label.price"}}</strong>
+                <span class="lot-price">{{formatNumber price style="currency" currency="USD"}}</span>
             </div>
             <div>
-                <span class="lot-comments">{{comments}}</span>
+                <strong>{{i18n "label.comments"}}</strong> <span class="lot-comments">{{comments}}</span>
             </div>
             <div>
-                <span class="lot-age">{{receivedDate}}</span>
+                <strong>{{i18n "label.receivedDate"}}</strong> <span class="lot-age">{{received}}</span>
             </div>
             <div>
                 <span class="lot-mh"><strong>{{i18n "label.highLowMeltIndexAbbreviation"}}</strong> {{meltHigh}}</span>

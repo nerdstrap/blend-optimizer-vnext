@@ -1,0 +1,84 @@
+{
+	"materialSKUs": [
+		{
+			"id": "ABCD-1230",
+			"code": "9999E",
+			"description": "9999E description"
+		},
+		{
+			"id": "ABCD-1231",
+			"code": "9999Z",
+			"description": "9999Z description"
+		},
+		{
+			"id": "ABCD-1232",
+			"code": "9999NE",
+			"description": "9999NE description"
+		},
+		{
+			"id": "ABCD-1233",
+			"code": "9999RA",
+			"description": "9999RA description"
+		},
+		{
+			"id": "ABCD-1234",
+			"code": "9999L1",
+			"description": "9999L1 description"
+		},
+		{
+			"id": "ABCD-1235",
+			"code": "9999A",
+			"description": "9999A description"
+		},
+		{
+			"id": "ABCD-1236",
+			"code": "9999N",
+			"description": "9999N description"
+		},
+		{
+			"id": "ABCD-1237",
+			"code": "9999SL",
+			"description": "9999SL description"
+		},
+		{
+			"id": "ABCD-1238",
+			"code": "9999V",
+			"description": "9999V description"
+		},
+		{
+			"id": "ABCD-1239",
+			"code": "9999X",
+			"description": "9999X description"
+		},
+		{
+			"id": "ABCD-1240",
+			"code": "9999S",
+			"description": "9999S description"
+		},
+		{
+			"id": "ABCD-1241",
+			"code": "9999B",
+			"description": "9999B description"
+		},
+		{
+			"id": "ABCD-1242",
+			"code": "9999Y",
+			"description": "9999Y description"
+		},
+		{
+			"id": "ABCD-1243",
+			"code": "9999NS",
+			"description": "9999NS description"
+		},
+		{
+			"id": "ABCD-1244",
+			"code": "9999ZP",
+			"description": "9999ZP description"
+		},
+		{
+			"id": "ABCD-1245",
+			"code": "99994",
+			"description": "99994 description"
+		}
+	]
+}

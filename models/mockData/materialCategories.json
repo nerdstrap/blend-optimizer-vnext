@@ -1,0 +1,46 @@
+{
+	"materialTypes": [
+		{
+			"id": "ABCD-1230",
+			"type": "virgin",
+			"badge": "V",
+			"description": "Virgin Resin"
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "flake",
+			"badge": "F",
+			"description": "Flake Resin"
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "regrind",
+			"badge": "R",
+			"description": "Regrind (internal)"
+		},
+		{
+			"id": "ABCD-1233",
+			"type": "repro",
+			"badge": "P",
+			"description": "Reprocessed (internal)"
+		},
+		{
+			"id": "ABCD-1234",
+			"type": "color",
+			"badge": "C",
+			"description": "Color resin"
+		},
+		{
+			"id": "ABCD-1235",
+			"type": "ocra",
+			"badge": "O",
+			"description": "Other"
+		},
+		{
+			"id": "ABCD-1236",
+			"type": "hybrid",
+			"badge": "Y",
+			"description": "Hybrid flake / spec resin"
+		}
+	]
+}

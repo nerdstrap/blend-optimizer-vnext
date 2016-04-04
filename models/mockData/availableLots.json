@@ -1,6 +1,7 @@
 [
 	{
 		"id": "ABCD-1239",
+		"status": "success",
 		"type": "color",
 		"badge": "C",
 		"sku": "9999B",
@@ -25,6 +26,7 @@
 	},
 	{
 		"id": "ABCD-1250",
+		"status": "success",
 		"type": "color",
 		"badge": "C",
 		"sku": "9999B",
@@ -49,6 +51,7 @@
 	},
 	{
 		"id": "ABCD-1248",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": 99994,
@@ -73,6 +76,7 @@
 	},
 	{
 		"id": "ABCD-1249",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": 99994,
@@ -97,6 +101,7 @@
 	},
 	{
 		"id": "ABCD-1200",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999E",
@@ -121,6 +126,7 @@
 	},
 	{
 		"id": "ABCD-1201",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999E",
@@ -145,6 +151,7 @@
 	},
 	{
 		"id": "ABCD-1202",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999E",
@@ -169,6 +176,7 @@
 	},
 	{
 		"id": "ABCD-1203",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999E",
@@ -193,6 +201,7 @@
 	},
 	{
 		"id": "ABCD-1208",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999L1",
@@ -217,6 +226,7 @@
 	},
 	{
 		"id": "ABCD-1210",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999N",
@@ -241,6 +251,7 @@
 	},
 	{
 		"id": "ABCD-1211",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999N",
@@ -265,6 +276,7 @@
 	},
 	{
 		"id": "ABCD-1212",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999N",
@@ -289,6 +301,7 @@
 	},
 	{
 		"id": "ABCD-1213",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999N",
@@ -313,6 +326,7 @@
 	},
 	{
 		"id": "ABCD-1235",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999N",
@@ -337,6 +351,7 @@
 	},
 	{
 		"id": "ABCD-1214",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -361,6 +376,7 @@
 	},
 	{
 		"id": "ABCD-1215",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -385,6 +401,7 @@
 	},
 	{
 		"id": "ABCD-1216",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -409,6 +426,7 @@
 	},
 	{
 		"id": "ABCD-1217",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -433,6 +451,7 @@
 	},
 	{
 		"id": "ABCD-1218",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -457,6 +476,7 @@
 	},
 	{
 		"id": "ABCD-1237",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999SL",
@@ -481,6 +501,7 @@
 	},
 	{
 		"id": "ABCD-1223",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -505,6 +526,7 @@
 	},
 	{
 		"id": "ABCD-1224",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -529,6 +551,7 @@
 	},
 	{
 		"id": "ABCD-1225",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -553,6 +576,7 @@
 	},
 	{
 		"id": "ABCD-1226",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -577,6 +601,7 @@
 	},
 	{
 		"id": "ABCD-1227",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -601,6 +626,7 @@
 	},
 	{
 		"id": "ABCD-1228",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -625,6 +651,7 @@
 	},
 	{
 		"id": "ABCD-1229",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -649,6 +676,7 @@
 	},
 	{
 		"id": "ABCD-1230",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -673,6 +701,7 @@
 	},
 	{
 		"id": "ABCD-1232",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -697,6 +726,7 @@
 	},
 	{
 		"id": "ABCD-1233",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -721,6 +751,7 @@
 	},
 	{
 		"id": "ABCD-1234",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -745,6 +776,7 @@
 	},
 	{
 		"id": "ABCD-1238",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999X",
@@ -769,6 +801,7 @@
 	},
 	{
 		"id": "ABCD-1204",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999Z",
@@ -793,6 +826,7 @@
 	},
 	{
 		"id": "ABCD-1245",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999Z",
@@ -817,6 +851,7 @@
 	},
 	{
 		"id": "ABCD-1246",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999Z",
@@ -841,6 +876,7 @@
 	},
 	{
 		"id": "ABCD-1247",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999Z",
@@ -865,6 +901,7 @@
 	},
 	{
 		"id": "ABCD-1243",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999ZP",
@@ -889,6 +926,7 @@
 	},
 	{
 		"id": "ABCD-1244",
+		"status": "success",
 		"type": "flake",
 		"badge": "F",
 		"sku": "9999ZP",
@@ -913,6 +951,7 @@
 	},
 	{
 		"id": "ABCD-1205",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999NE",
@@ -937,6 +976,7 @@
 	},
 	{
 		"id": "ABCD-1206",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999NE",
@@ -961,6 +1001,7 @@
 	},
 	{
 		"id": "ABCD-1242",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999NS",
@@ -985,6 +1026,7 @@
 	},
 	{
 		"id": "ABCD-1236",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999S",
@@ -1009,6 +1051,7 @@
 	},
 	{
 		"id": "ABCD-1219",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999V",
@@ -1033,6 +1076,7 @@
 	},
 	{
 		"id": "ABCD-1220",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999V",
@@ -1057,6 +1101,7 @@
 	},
 	{
 		"id": "ABCD-1221",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999V",
@@ -1081,6 +1126,7 @@
 	},
 	{
 		"id": "ABCD-1222",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999V",
@@ -1105,6 +1151,7 @@
 	},
 	{
 		"id": "ABCD-1240",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999Y",
@@ -1129,6 +1176,7 @@
 	},
 	{
 		"id": "ABCD-1241",
+		"status": "success",
 		"type": "repro",
 		"badge": "P",
 		"sku": "9999Y",
@@ -1153,6 +1201,7 @@
 	},
 	{
 		"id": "ABCD-1207",
+		"status": "success",
 		"type": "regrind",
 		"badge": "R",
 		"sku": "9999RA",
@@ -1177,6 +1226,7 @@
 	},
 	{
 		"id": "ABCD-1209",
+		"status": "success",
 		"type": "virgin",
 		"badge": "V",
 		"sku": "9999A",
@@ -1201,6 +1251,7 @@
 	},
 	{
 		"id": "ABCD-1251",
+		"status": "success",
 		"type": "virgin",
 		"badge": "V",
 		"sku": "9999A",

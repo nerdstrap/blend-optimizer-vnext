@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	$('#generateDraftBlend').click(function (e) {
+	$('#draftBlend').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}

@@ -1,0 +1,20 @@
+{
+	"plants": [
+		{
+			"id": "ABCD-1230",
+			"plant": "P37",
+			"description": "P37 description",
+			"departments": [
+				"ABCD-1230"
+			]
+		},
+		{
+			"id": "ABCD-1231",
+			"plant": "P39",
+			"description": "P39 description",
+			"departments": [
+				"ABCD-1231"
+			]
+		}
+	]
+}
