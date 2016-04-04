@@ -35,7 +35,7 @@
                         <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
 						{{#draftBlend.modifications}}
                             <li>
-                                <input type="checkbox" {{#if checked}}checked{{/if}}>
+                                <input id="{{id}}" type="checkbox" {{#if checked}}checked{{/if}}>
                                 <a href="{{href}}">{{i18n title}}</a>
                             </li>
 						{{/draftBlend.modifications}}
@@ -375,6 +375,12 @@
                 });
 
 			{{/draftBlend.includedLots}}
+
+			{{#draftBlend.modifications}}
+                $('#{{id}}').on('click', function (evt, params) {
+                    console.log('checkbox clicked');
+                });
+			{{/draftBlend.modifications}}
 
             $('#reoptimizeBlend').click(function (e) {
                 if (e) {

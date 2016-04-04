@@ -350,6 +350,32 @@
 			"percentAsh": 0,
 			"comments": 0,
 			"received": 20160309
+		},
+		{
+			"id": "ABCD-1239",
+			"status": "success",
+			"priority": "manual",
+			"type": "color",
+			"badge": "C",
+			"sku": "9999B",
+			"lotNumber": "B309036",
+			"size": 41666,
+			"price": 0,
+			"vendorName": "SOUCY TECHNO INC",
+			"density": 0,
+			"meltIndex": 0,
+			"highLowMeltIndex": 0,
+			"izod": 0,
+			"ncls": 0,
+			"h1": 0,
+			"viscosity": 0,
+			"contamination": 0,
+			"infrared": 0,
+			"sinkFloat": 0,
+			"percentBlack": 0,
+			"percentAsh": 0,
+			"comments": 0,
+			"received": 20160301
 		}
 	],
 	"availableLots": [
