@@ -141,6 +141,11 @@
 
 	&.lot-prioritized {
 		background-color: $lot-info-bg;
+		border-color: $lot-info-border;
+
+		> .lot-content {
+			border-color: $lot-info-border;
+		}
 	}
 
 	&.lot-success {

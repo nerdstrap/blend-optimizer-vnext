@@ -5512,7 +5512,10 @@ button.close {
   .lot.border-bottom {
     border-bottom: solid 1px #e7eaec; }
   .lot.lot-prioritized {
-    background-color: #d9edf7; }
+    background-color: #d9edf7;
+    border-color: #bce8f1; }
+    .lot.lot-prioritized > .lot-content {
+      border-color: #bce8f1; }
   .lot.lot-success {
     border-left: solid 7px #16967c; }
   .lot.lot-warning {
