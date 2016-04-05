@@ -30,7 +30,22 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#availableLotsPlaceholderListItem').hide();
-	$('#excludedLotsPlaceholderListItem', '#ineligibleLotsPlaceholderListItem').show();
+	$('#availableLotsPlaceholderListItem').addClass('hidden');
+	$('#excludedLotsPlaceholderListItem', '#ineligibleLotsPlaceholderListItem').addClass('hidden');
+
+
+	$('#skus').on('change', function (evt, params) {
+		var $availableLotsList = $('#availableLots');
+		var $excludedLotsList = $('#excludedLots');
+
+		if (params.selected) {
+			$availableLotsList.find("." + params.selected).appendTo($excludedLotsList);
+			$availableLotsList.sortable().sort();
+		}
+
+		if (params.deselected) {
+			$excludedLotsList.find("." + params.deselected).appendTo($availableLotsList);
+		}
+	});
 
 });

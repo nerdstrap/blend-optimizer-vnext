@@ -16,7 +16,9 @@
                         <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
                     </div>
                     <div class="lot-panel-heading">
-                        <h6 class="lot-panel-title">{{i18n "feature.filterMaterialTypes.title"}}</h6>
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.pointClick"}}"></i> {{i18n "feature.filterMaterialTypes.title"}}
+                        </h6>
                     </div>
                     <div class="lot-panel-body">
                         <div id="materialCategoriesFilter" data-toggle="buttons-checkbox" class="btn-group" role="group">
@@ -29,11 +31,15 @@
                     </div>
                     <div class="lot-panel-heading">
                         <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}</h6>
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
+                        </h6>
                     </div>
                     <ul id="availableLots" class="lot-list-group sortable">
+                        <li id="availableLotsPlaceholderListItem" class="lot-list-group-item sortable-placeholder hidden">
+                            <div class="lot">{{i18n "feature.availableLotsEmpty.title"}}</div>
+                        </li>
 						{{#availableLots}}
-                            <li id="{{id}}" class="lot-list-group-item {{type}}">
+                            <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
 								{{> "lot"}}
                             </li>
 						{{/availableLots}}
@@ -48,7 +54,9 @@
                                 <h3 class="lot-panel-title">{{i18n "feature.excludedLots.title"}}</h3>
                             </div>
                             <div class="lot-panel-heading">
-                                <h6 class="lot-panel-title">{{i18n "feature.excludeSKUs.title"}}</h6>
+                                <h6 class="lot-panel-title">
+                                    <i class="fa {{i18n "icon.quickSelect"}}"></i> {{i18n "feature.excludeSKUs.title"}}
+                                </h6>
                             </div>
                             <div class="lot-panel-body">
                                 <form id="exludeSKUsForm" class="blend-optimizer-form">
@@ -64,12 +72,12 @@
                                     <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
                                 </h6>
                             </div>
-                            <ul id="excludedLots" class="lot-list-group">
+                            <ul id="excludedLots" class="lot-list-group sortable">
                                 <li id="excludedLotsPlaceholderListItem" class="lot-list-group-item sortable-placeholder">
                                     <div class="lot">{{i18n "feature.excludedLotsEmpty.title"}}</div>
                                 </li>
 								{{#excludedLots}}
-                                    <li id="{{id}}" class="lot-list-group-item sortable">
+                                    <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
 										{{> "lot"}}
                                     </li>
 								{{/excludedLots}}
@@ -82,12 +90,14 @@
                         <div class="lot-panel">
                             <div class="lot-panel-heading">
                                 <h3 class="lot-panel-title">{{i18n "feature.ineligibleLots.title"}}</h3>
+                            </div>
+                            <div class="lot-panel-heading">
                                 <h6 class="lot-panel-title">
                                     <i class="fa {{i18n "icon.stop"}}"></i> {{i18n "feature.lotMaintenance.description"}}
                                 </h6>
                             </div>
                             <ul id="ineligibleLots" class="lot-list-group">
-                                <li id="ineligibleLotsPlaceholderListItem" class="lot-list-group-item sortable-ghost">
+                                <li id="ineligibleLotsPlaceholderListItem" class="lot-list-group-item sortable-ghost hidden">
                                     <div class="lot">
                                         <div class="lot-title">
                                             <div class="lot-header">{{i18n "feature.ineligibleLotsEmpty.title"}}</div>
@@ -95,7 +105,7 @@
                                     </div>
                                 </li>
 								{{#ineligibleLots}}
-                                    <li id="{{id}}" class="lot-list-group-item">
+                                    <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
 										{{> "lot"}}
                                     </li>
 								{{/ineligibleLots}}
@@ -139,8 +149,8 @@
                 }
 
                 var activeMaterialCategories = [];
-				var $target = $(e.target);
-				if ($target.is('.focus') && !$target.is('.active')) {
+                var $target = $(e.target);
+                if ($target.is('.focus') && !$target.is('.active')) {
                     activeMaterialCategories.push($target.attr('data-materialcategory'));
                 }
 
@@ -148,7 +158,7 @@
                     var $element = $(element);
                     if ($element.is('.active') && !$element.is('.focus')) {
                         activeMaterialCategories.push($element.attr('data-materialcategory'));
-					}
+                    }
                 });
 
                 if (activeMaterialCategories.length) {

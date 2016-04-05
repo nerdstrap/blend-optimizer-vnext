@@ -4928,7 +4928,8 @@ button.list-group-item-danger {
 
 .lot-list-group {
   margin-bottom: 8px;
-  padding: 0 10px; }
+  padding: 0 10px;
+  min-height: 75px; }
   .lot-list-group:empty {
     content: 'drag and drop lots here'; }
     .lot-list-group:empty:after {

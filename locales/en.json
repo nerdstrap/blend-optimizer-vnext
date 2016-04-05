@@ -148,6 +148,7 @@
 	"label.versionCurrent": "Current",
 	"feature.blendSummary.title": "feature.blendSummary.title",
 	"icon.change": "fa-exchange",
+	"icon.pointClick": "fa-hand-pointer-o",
 	"label.optimal": "Optimal",
 	"label.blendSize": "Blend Size",
 	"feature.materialCategoryUsage.title": "Material Usage",
@@ -155,8 +156,5 @@
 	"label.previous": "Previous",
 	"label.modification": "Modification",
 	"label.infeasible": "Infeasible",
-	"Create Blend": "Create Blend",
-	"P42": "P42",
-	"04AG - Mix 160": "04AG - Mix 160",
-	"Lot Preferences": "Lot Preferences"
+	"icon.quickSelect": "fa-hand-scissors-o"
 }
