@@ -202,7 +202,7 @@
                     </div>
 					{{#includedLots}}
                         <ul id="includedLots{{@index}}" class="lot-list-group included-lot-list-group">
-                            <li id="{{id}}" class="lot-list-group-item sortable original">
+                            <li id="{{id}}" class="lot-list-group-item sortable original {{type}} {{sku}}">
 								{{> "includedLot"}}
                             </li>
                         </ul>
@@ -235,7 +235,7 @@
                     </div>
                     <ul id="availableLots" class="lot-list-group sortable">
 						{{#availableLots}}
-                            <li id="{{id}}" class="lot-list-group-item">
+                            <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
 								{{> "lot"}}
                             </li>
 						{{/availableLots}}
@@ -250,6 +250,33 @@
     <script src="js/draftBlend.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $('.btn-data-toggle-material-category').click(function (e) {
+                if (e) {
+                    e.preventDefault();
+                }
+
+                var activeMaterialCategories = [];
+                var $target = $(e.target);
+                if ($target.is('.focus') && !$target.is('.active')) {
+                    activeMaterialCategories.push($target.attr('data-materialcategory'));
+                }
+
+                $('#materialCategoriesFilter').children('button.active').each(function (index, element) {
+                    var $element = $(element);
+                    if ($element.is('.active') && !$element.is('.focus')) {
+                        activeMaterialCategories.push($element.attr('data-materialcategory'));
+                    }
+                });
+
+                if (activeMaterialCategories.length) {
+                    var filter = "." + activeMaterialCategories.join(',.');
+                    $('#availableLots').children('li').hide().filter(filter).show();
+                } else {
+                    $('#availableLots').children('li').show()
+                }
+
+            });
 
             var radarChartData = {
                 labels: [{{#draftBlend.radarChart.labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.labels}}],
