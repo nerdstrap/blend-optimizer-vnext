@@ -62,7 +62,6 @@
 			"modificationReason": "Other"
 		}
 	],
-	"deviation": "true",
 	"infeasible": "true",
 	"draftBlend": {
 		"status": "label.infeasible",
@@ -71,52 +70,39 @@
 			{
 				"status": "warning",
 				"spec": "label.density",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.99",
-				"high": "0.9",
-				"deviationHigh": "0.9"
-
+				"high": "0.9"
 			},
 			{
 				"spec": "label.meltIndex",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.5",
-				"high": "0.9",
-				"deviationHigh": "0.9"
+				"high": "0.9"
 			},
 			{
 				"spec": "label.izod",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.5",
-				"high": "0.9",
-				"deviationHigh": "0.9"
+				"high": "0.9"
 			},
 			{
 				"spec": "label.ncls",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.5",
-				"high": "0.9",
-				"deviationHigh": "0.9"
+				"high": "0.9"
 			},
 			{
 				"spec": "label.sinkFloat",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.5",
-				"high": "0.9",
-				"deviationHigh": "0.9"
+				"high": "0.9"
 			},
 			{
 				"spec": "label.infrared",
-				"deviationLow": "0.1",
 				"low": "0.1",
 				"actual": "0.5",
-				"high": "0.9",
-				"deviationHigh": "0.9"
+				"high": "0.9"
 			}
 		],
 		"size": "45000",

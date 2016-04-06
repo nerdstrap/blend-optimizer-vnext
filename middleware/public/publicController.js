@@ -186,6 +186,65 @@ module.exports = function (app) {
 			});
 		},
 
+		draftBlend2: function (req, res, next) {
+			var options = {};
+
+			mockRepository['appSettings2'](options, function (errAppSettings, dataAppSettings) {
+				if (errAppSettings) {
+					throw errAppSettings;
+				}
+
+				mockRepository['alerts'](options, function (errAlerts, dataAlerts) {
+					if (errAlerts) {
+						throw errAlerts;
+					}
+
+					mockRepository['plants'](options, function (errPlants, dataPlants) {
+						if (errPlants) {
+							throw errPlants;
+						}
+
+						var dataSetName = 'draftBlend2';
+						if (req.query.v) {
+							dataSetName += '_v' + req.query.v
+						}
+						options.dataSetName = dataSetName;
+
+						mockRepository['draftBlend2'](options, function (errDraftBlend, dataDraftBlend) {
+							if (errDraftBlend) {
+								throw errDraftBlend;
+							}
+
+							var materialCategories = _.uniqBy(_.map(dataDraftBlend.availableLots, function (availableLot) {
+								return {
+									'type': availableLot.type,
+									'badge': availableLot.badge
+								};
+							}), function (materialCategory) {
+								return materialCategory.type;
+							});
+
+							var materialTypes = _.uniqBy(_.map(dataDraftBlend.availableLots, function (availableLot) {
+								return {
+									'sku': availableLot.sku
+								};
+							}), function (materialType) {
+								return materialType.sku;
+							});
+
+							var context = _.extend(
+								{
+									'materialCategories': materialCategories,
+									'materialTypes': materialTypes
+								},
+								dataAppSettings, dataAlerts, dataPlants, dataDraftBlend);
+							res.render('draftBlend2', context);
+						});
+					});
+				});
+			});
+		},
+
 		finalizeBlend: function (req, res, next) {
 			_renderView('finalizeBlend', req, res, next);
 		},

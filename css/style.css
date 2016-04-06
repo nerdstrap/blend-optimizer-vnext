@@ -5601,16 +5601,24 @@ button.close {
         margin-right: 3px; }
     .material-category .material-category-content .material-category-usage {
       position: absolute;
-      top: 30px;
+      top: 10px;
       left: 310px;
       width: 376px;
       min-width: 376px; }
-      .material-category .material-category-content .material-category-usage > .material-category-slider-snap-value-lower {
+      .material-category .material-category-content .material-category-usage > .slider-value-lower {
         float: left; }
-      .material-category .material-category-content .material-category-usage > .material-category-slider-snap-value-upper {
+        .material-category .material-category-content .material-category-usage > .slider-value-lower input.slider-snap-value-control {
+          margin-left: 10px;
+          width: 60px !important;
+          display: inline-block; }
+      .material-category .material-category-content .material-category-usage > .slider-value-upper {
         float: right; }
+        .material-category .material-category-content .material-category-usage > .slider-value-upper input.slider-snap-value-control {
+          margin-left: 10px;
+          width: 60px !important;
+          display: inline-block; }
       .material-category .material-category-content .material-category-usage > .material-category-slider {
-        margin-top: 30px; }
+        margin-top: 60px; }
   .material-category.border-bottom {
     border-bottom: solid 1px #e7eaec; }
 
@@ -6431,6 +6439,32 @@ button.close {
   display: none; }
 .btn-data-toggle-material-category.active > i {
   display: inline; }
+
+th > .radio, th .checkbox {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+  th > .radio > label, th .checkbox > label {
+    padding-left: 0; }
+
+td > .radio, td .checkbox {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important; }
+  td > .radio > label, td .checkbox > label {
+    padding-left: 0; }
+
+.radar-chart-legend {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px; }
+  .radar-chart-legend.radar-chart-current {
+    background-color: #16967c; }
+  .radar-chart-legend.radar-chart-previous {
+    background-color: #f8ac59; }
+  .radar-chart-legend.radar-chart-low {
+    background-color: #f3f3f4; }
+  .radar-chart-legend.radar-chart-high {
+    background-color: #ed5565; }
 
 
 

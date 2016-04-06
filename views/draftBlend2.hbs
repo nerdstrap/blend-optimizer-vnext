@@ -1,0 +1,463 @@
+{{> "pageHeader"}}
+
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa {{i18n "icon.dropdownMenu"}}"></i></a>
+                    <ul class="dropdown-menu dropdown-ibox">
+                        <li><a href="#">Deviate</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+		{{#if infeasible}}
+            <div class="pull-right">
+                <button type="button" class="btn btn-xs btn-default">{{i18n "button.deviate"}}</button>
+            </div>
+		{{/if}}
+        <h5>{{i18n "feature.draftBlend.title"}}
+            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span>
+        </h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
+                <div class="margin-bottom-20">
+                    <canvas id="radarChart" height="200"></canvas>
+                </div>
+                <div class="margin-bottom-20">
+                    <ul class="list-inline">
+                        <li>
+                            <div class="radar-chart-legend radar-chart-low"></div>{{i18n "label.low"}}
+                        </li>
+						{{#if modifications}}
+                            <li>
+                                <div class="radar-chart-legend radar-chart-current"></div>{{i18n "label.current"}}
+                            </li>
+                            <li>
+                                <div class="radar-chart-legend radar-chart-previous"></div>{{i18n "label.previous"}}
+                            </li>
+						{{else}}
+                            <li>
+                                <div class="radar-chart-legend radar-chart-current"></div>{{i18n "label.actual"}}
+                            </li>
+						{{/if}}
+                        <li>
+                            <div class="radar-chart-legend radar-chart-high"></div>{{i18n "label.high"}}
+                        </li>
+                    </ul>
+                </div>
+                <div>
+					{{#if draftBlend.modifications}}
+                        <ul class="list-inline">
+                            <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
+							{{#draftBlend.modifications}}
+                                <li>
+									<label for="{{id}}"></label>
+                                    <input id="{{id}}" type="checkbox" {{#if checked}}checked{{/if}} data-key="{{key}}">
+                                    <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
+                                </li>
+							{{/draftBlend.modifications}}
+                        </ul>
+					{{/if}}
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+						{{#if deviation}}
+                            <th>
+                                <div class="checkbox checkbox-warning">
+                                    <input id="deviateAllSpecs" type="checkbox" class="styled">
+                                    <label for="deviateAllSpecs"></label>
+                                </div>
+                            </th>
+						{{/if}}
+                        <th>{{i18n "label.spec"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationLow"}}</th>
+						{{/if}}
+                        <th>{{i18n "label.low"}}</th>
+                        <th>{{i18n "label.actual"}}</th>
+                        <th>{{i18n "label.high"}}</th>
+						{{#if deviation}}
+                            <th>{{i18n "label.deviationHigh"}}</th>
+						{{/if}}
+                    </tr>
+                    </thead>
+                    <tbody>
+					{{#draftBlend.bottomLineSpecs}}
+                        <tr class="{{status}}">
+							{{#if @root.deviation}}
+                                <td>
+                                    <div class="checkbox checkbox-warning">
+                                        <input id="deviateSpec{{@index}}" type="checkbox" class="styled">
+                                        <label for="deviateSpec{{@index}}"></label>
+                                    </div>
+                                </td>
+							{{/if}}
+                            <th>{{i18n spec}}</th>
+							{{#if @root.deviation}}
+                                <td>{{deviationLow}}</td>
+							{{/if}}
+                            <td>{{low}}</td>
+                            <td>{{actual}}</td>
+                            <td>{{high}}</td>
+							{{#if @root.deviation}}
+                                <td>{{deviationHigh}}</td>
+							{{/if}}
+                        </tr>
+					{{/draftBlend.bottomLineSpecs}}
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td {{#if deviation}}colspan="7" {{else}}colspan="4"{{/if}}>
+                            &nbsp;
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm-4">
+                <form id="deviateBlendForm" name="deviateBlendForm" class="blend-optimizer-form {{#if infeasible}}infeasible{{else}}hidden{{/if}}">
+                    <div class="form-group">
+                        <label for="deviationReason" class="control-label">{{i18n "label.deviationReason"}}</label>
+                        <div class="input-group">
+                            <select id="deviationReason" name="deviationReason" class="form-control">
+								{{#deviationReasons}}
+                                    <option id="{{id}}">{{deviationReason}}</option>
+								{{/deviationReasons}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deviationReasonOther" class="control-label">{{i18n "label.deviationReasonOther"}}</label>
+                        <div class="input-group">
+                            <input id="deviationReasonOther" name="deviationReasonOther" type="text" class="form-control" value="other">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="deviateBlend" type="button" class="btn btn-warning">{{i18n "button.deviateBlend"}}</button>
+                    </div>
+                </form>
+                <form id="reoptimizeBlendForm" name="reoptimizeBlendForm" class="blend-optimizer-form hidden">
+                    <div class="form-group">
+                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
+                        <div class="input-group">
+                            <select id="modificationReason" name="modificationReason" class="form-control">
+								{{#modificationReasons}}
+                                    <option id="{{id}}">{{modificationReason}}</option>
+								{{/modificationReasons}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="modificationReasonOther" class="control-label">{{i18n "label.modificationReasonOther"}}</label>
+                        <div class="input-group">
+                            <input id="modificationReasonOther" name="modificationReasonOther" type="text" class="form-control" value="other">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="reoptimizeBlend" type="button" class="btn btn-warning">{{i18n "button.reoptimizeBlend"}}</button>
+                        <button id="resetBlend" type="button" class="btn btn-default">{{i18n "button.reset"}}</button>
+                    </div>
+                </form>
+                <form id="finalizeBlendForm" class="blend-optimizer-form {{#if infeasible}}hidden{{else}}optimal{{/if}}">
+                    <div class="form-group {{#if modification}}modification{{else}}hidden{{/if}}">
+                        <label for="modificationReasonReadOnly" class="control-label">{{i18n "label.modificationReason"}}</label>
+                        <div class="input-group">
+                            <input id="modificationReasonReadOnly" name="modificationReasonReadOnly" type="text" class="form-control" value="{{modificationReason}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group {{#if modification}}modification{{else}}hidden{{/if}}">
+                        <label for="modificationReasonOtherReadOnly" class="control-label">{{i18n "label.modificationReasonOtherReadOnly"}}</label>
+                        <div class="input-group">
+                            <input id="modificationReasonOtherReadOnly" name="modificationReasonOtherReadOnly" type="text" class="form-control" value="{{modificationReasonOther}}" readonly>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="finalizeBlend" type="button" class="btn btn-primary">{{i18n "button.finalizeBlend"}}</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ibox border-bottom">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.materialCategoryUsage.title"}}</h5>
+    </div>
+    <div class="ibox-content" style="display: none;">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="lot-panel-heading">
+                    <h3 class="lot-panel-title">{{i18n "feature.materialCategoryThresholds.title"}}</h3>
+                </div>
+                <div class="lot-panel-heading">
+                    <h6 class="lot-panel-title">
+                        <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.slideRange.description"}}
+                    </h6>
+                </div>
+                <ul id="materialCategories" class="lot-list-group">
+					{{#materialCategories}}
+                        <li id="{{id}}" class="lot-list-group-item">
+                            {{> "materialCategory"}}
+                        </li>
+					{{/materialCategories}}
+                </ul>
+            </div>
+            <div class="col-sm-4">
+                <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+                <div class="pull-right">
+                    <ul class="list-unstyled">
+                        <li>{{> "viewBlendSpecRules"}}</li>
+                        <li>{{> "viewResinMixGuidelines"}}</li>
+                    </ul>
+                </div>
+                <ol>
+					{{#blendSpecRules}}
+                        <li>{{blendSpecRule}}</li>
+					{{/blendSpecRules}}
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.includedLots.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-8">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.includedLots.title"}}</h3>
+                    </div>
+                    <div class="lot-panel-heading">
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
+                        </h6>
+                    </div>
+					{{#includedLots}}
+                        <ul id="includedLots{{@index}}" class="lot-list-group included-lot-list-group">
+                            <li id="{{id}}" class="lot-list-group-item sortable original {{type}} {{sku}}">
+								{{> "includedLot"}}
+                            </li>
+                        </ul>
+					{{/includedLots}}
+                    <div class="lot-panel-footer">
+
+                        <div class="lot-usage">
+                            <strong>{{i18n "label.percentUsed"}}</strong>
+                            <span class="blend-weight">{{draftBlend.percentUsed}}{{i18n "label.percent"}}</span>
+
+                            <strong>{{i18n "label.blendSize"}}</strong>
+                            <span class="blend-weight">{{draftBlend.pounds}} {{i18n "label.pounds"}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="lot-panel">
+                    <div class="lot-panel-heading">
+                        <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
+                    </div>
+                    <div class="lot-panel-heading">
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.pointClick"}}"></i> {{i18n "feature.filterMaterialTypes.title"}}
+                        </h6>
+                    </div>
+                    <div class="lot-panel-body">
+                        <div id="materialCategoriesFilter" data-toggle="buttons-checkbox" class="btn-group" role="group">
+							{{#materialCategories}}
+                                <button type="button" role="button" data-materialcategory="{{type}}" class="btn btn-data-toggle-material-category btn-{{type}}">
+                                    <i class="fa {{i18n "icon.check"}}"></i> {{type}}
+                                </button>
+							{{/materialCategories}}
+                        </div>
+                    </div>
+                    <div class="lot-panel-heading">
+                        <h6 class="lot-panel-title">
+                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
+                        </h6>
+                    </div>
+                    <ul id="availableLots" class="lot-list-group sortable">
+						{{#availableLots}}
+                            <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
+								{{> "lot"}}
+                            </li>
+						{{/availableLots}}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/draftBlend2.js"></script>
+    <script type="text/javascript">
+
+        var _datasets = {{{json datasets}}};
+
+        var _labels = [{{#labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/labels}}];
+
+			{{#with radarChart}}
+            var _options = {
+                angleLineColor: "{{options.angleLineColor}}",
+                angleLineWidth: {{options.angleLineWidth}},
+                pointLabelFontFamily: "{{{options.pointLabelFontFamily}}}",
+                pointLabelFontStyle: "{{options.pointLabelFontStyle}}",
+                pointLabelFontSize: {{options.pointLabelFontSize}},
+                pointLabelFontColor: "{{options.pointLabelFontColor}}",
+                pointDotRadius: {{options.pointDotRadius}},
+                pointDotStrokeWidth: {{options.pointDotStrokeWidth}},
+                datasetStrokeWidth: {{options.datasetStrokeWidth}},
+                datasetFill: {{options.datasetFill}}
+            };
+
+            var _datasetOptions = {
+                current: {
+                    label: "{{i18n options.current.label}}",
+                    fillColor: "{{options.current.fillColor}}",
+                    strokeColor: "{{options.current.strokeColor}}",
+                    pointColor: "{{options.current.pointColor}}",
+                    pointStrokeColor: "{{options.current.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.current.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.current.pointHighlightStroke}}"
+                },
+                previous: {
+                    label: "{{i18n options.previous.label}}",
+                    fillColor: "{{options.previous.fillColor}}",
+                    strokeColor: "{{options.previous.strokeColor}}",
+                    pointColor: "{{options.previous.pointColor}}",
+                    pointStrokeColor: "{{options.previous.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.previous.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.previous.pointHighlightStroke}}"
+                },
+                deviationLow: {
+                    label: "{{i18n options.deviationLow.label}}",
+                    fillColor: "{{options.deviationLow.fillColor}}",
+                    strokeColor: "{{options.deviationLow.strokeColor}}",
+                    pointColor: "{{options.deviationLow.pointColor}}",
+                    pointStrokeColor: "{{options.deviationLow.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.deviationLow.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.deviationLow.pointHighlightStroke}}"
+                },
+                low: {
+                    label: "{{i18n options.low.label}}",
+                    fillColor: "{{options.low.fillColor}}",
+                    strokeColor: "{{options.low.strokeColor}}",
+                    pointColor: "{{options.low.pointColor}}",
+                    pointStrokeColor: "{{options.low.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.low.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.low.pointHighlightStroke}}"
+                },
+                high: {
+                    label: "{{i18n options.high.label}}",
+                    fillColor: "{{options.high.fillColor}}",
+                    strokeColor: "{{options.high.strokeColor}}",
+                    pointColor: "{{options.high.pointColor}}",
+                    pointStrokeColor: "{{options.high.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.high.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.high.pointHighlightStroke}}"
+                },
+                deviationHigh: {
+                    label: "{{i18n options.deviationHigh.label}}",
+                    fillColor: "{{options.deviationHigh.fillColor}}",
+                    strokeColor: "{{options.deviationHigh.strokeColor}}",
+                    pointColor: "{{options.deviationHigh.pointColor}}",
+                    pointStrokeColor: "{{options.deviationHigh.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.deviationHigh.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.deviationHigh.pointHighlightStroke}}"
+                }
+            };
+			{{/with}}
+
+        $(document).ready(function () {
+
+			{{#draftBlend.modifications}}
+                $('#{{id}}').on('click', function (evt, params) {
+                    var $target = $(evt.target);
+                    var key = $target.attr('data-key');
+                    var _filteredDatasets = _.filter(radarChartData.datasets, function (dataset) {
+                        return dataset.key !== key;
+                    });
+                    myRadarChart.destroy();
+                    radarChartData.datasets = _filteredDatasets;
+
+                    myRadarChart = new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
+                });
+			{{/draftBlend.modifications}}
+
+
+			{{#draftBlend.includedLots}}
+                var includedLots{{@index}} = document.getElementById('includedLots{{@index}}');
+                Sortable.create(includedLots{{@index}}, {
+                    handle: ".lot-header",
+                    animation: 0,
+                    group: 'availableLots',
+                    sort: true,
+
+                    onAdd: function (evt) {
+                        var itemEl = evt.item;
+                        var toList = evt.to;
+                        var toListItems = $(toList).children('li.original').remove();
+                        var fromList = evt.from;
+                        $('#deviateBlendForm, #finalizeBlendForm').addClass('hidden');
+                        $('#reoptimizeBlendForm').removeClass('hidden');
+                    }
+                });
+
+                $('#{{id}}').find('.lot-percent-used').html('{{percentUsed}}{{{i18n 'label.percent'}}} {{i18n 'label.percentUsed'}}');
+                $('#{{id}}').find('.lot-pounds-used').html('{{pounds}} {{i18n 'label.pounds'}}');
+
+                var includedLot{{@index}}Usage = document.getElementById('includedLot{{@index}}Usage');
+
+                noUiSlider.create(includedLot{{@index}}Usage, {
+                    start: [30, 70],
+                    behaviour: 'drag',
+                    connect: true,
+                    range: {
+                        'min': 0,
+                        'max': 100
+                    },
+                    pips: {
+                        mode: 'values',
+                        values: [20, 80],
+                        density: 4
+                    },
+                    format: wNumb({
+                        decimals: 0,
+                        postfix: ' %'
+                    })
+                });
+			{{/draftBlend.includedLots}}
+
+        });
+    </script>
+{{/contentFor}}

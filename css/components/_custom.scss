@@ -34,3 +34,48 @@
 		}
 	}
 }
+
+th {
+	> .radio, .checkbox {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+
+		> label {
+			padding-left: 0;
+		}
+	}
+}
+
+td {
+	> .radio, .checkbox {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+
+		> label {
+			padding-left: 0;
+		}
+	}
+}
+
+.radar-chart-legend {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 5px;
+
+	&.radar-chart-current {
+		background-color: $brand-primary;
+	}
+
+	&.radar-chart-previous {
+		background-color: $brand-warning;
+	}
+
+	&.radar-chart-low {
+		background-color: $gray-bg;
+	}
+
+	&.radar-chart-high {
+		background-color: $brand-danger;
+	}
+}

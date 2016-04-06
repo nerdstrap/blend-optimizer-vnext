@@ -42,21 +42,33 @@
 
 		.material-category-usage {
 			position: absolute;
-			top: 30px;
+			top: 10px;
 			left: 310px;
 			width: 376px;
 			min-width: 376px;
 
-			> .material-category-slider-snap-value-lower {
+			> .slider-value-lower {
 				float: left;
+
+				input.slider-snap-value-control {
+					margin-left: 10px;
+					width: 60px !important;
+					display: inline-block;
+				}
 			}
 
-			> .material-category-slider-snap-value-upper {
+			> .slider-value-upper {
 				float: right;
+
+				input.slider-snap-value-control {
+					margin-left: 10px;
+					width: 60px !important;
+					display: inline-block;
+				}
 			}
 
 			> .material-category-slider {
-				margin-top: 30px;
+				margin-top: 60px;
 			}
 		}
 	}

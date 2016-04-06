@@ -15,13 +15,14 @@
                 </li>
             </ul>
         </div>
-		{{#if draftBlend.infeasible}}
+		{{#if infeasible}}
             <div class="pull-right">
-                <button type="button" class="btn btn-xs btn-default">{{i18n "button.deviate"}}</button>
+                <button id="deviateBlend" type="button" class="btn btn-xs btn-default">{{i18n "button.deviate"}}</button>
             </div>
 		{{/if}}
         <h5>{{i18n "feature.draftBlend.title"}}
-            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span></h5>
+            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span>
+		</h5>
     </div>
     <div class="ibox-content">
         <div class="row">
@@ -35,8 +36,8 @@
                         <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
 						{{#draftBlend.modifications}}
                             <li>
-                                <input id="{{id}}" type="checkbox" {{#if checked}}checked{{/if}}>
-                                <a href="{{href}}">{{i18n title}}</a>
+                                <input id="{{id}}" type="checkbox" {{#if checked}}checked{{/if}} data-key="{{key}}">
+                                <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
                             </li>
 						{{/draftBlend.modifications}}
                     </ul>
@@ -46,6 +47,9 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
+						{{#if deviation}}
+                            <th><input type="checkbox"></th>
+						{{/if}}
                         <th>{{i18n "label.spec"}}</th>
 						{{#if deviation}}
                             <th>{{i18n "label.deviationLow"}}</th>
@@ -61,6 +65,9 @@
                     <tbody>
 					{{#draftBlend.bottomLineSpecs}}
                         <tr class="{{status}}">
+							{{#if deviationLow}}
+                                <th><input type="checkbox"></th>
+							{{/if}}
                             <th>{{i18n spec}}</th>
 							{{#if deviationLow}}
                                 <td>{{deviationLow}}</td>
@@ -77,8 +84,7 @@
                     <tfoot>
                     <tr>
                         <td {{#if deviation}}colspan="6" {{else}}colspan="4"{{/if}}>
-                            <strong>{{i18n "label.blendSize"}}</strong>
-                            <span class="blend-weight">{{draftBlend.size}} {{i18n "label.pounds"}}</span>
+                            &nbsp;
                         </td>
                     </tr>
                     </tfoot>
@@ -86,8 +92,8 @@
             </div>
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.finalizeBlend.title"}}</h3>
-                <form id="finalizeBlendForm" class="blend-optimizer-form">
-                    <div class="form-group modification-reason hidden">
+                <form id="reoptimizeBlendForm" class="blend-optimizer-form hidden">
+                    <div class="form-group">
                         <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
                         <div class="input-group">
                             <select id="modificationReason" name="modificationReason" class="form-control chosen-select">
@@ -97,14 +103,34 @@
                             </select>
                         </div>
                     </div>
-                    <div class="form-group modification-reason hidden">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="other" name="other" type="text" class="form-control" value="other" disabled>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button id="reoptimizeBlend" type="button" class="btn btn-warning">{{i18n "button.reoptimizeBlend"}}</button>
+                        <button id="resetBlend" type="button" class="btn btn-default">{{i18n "button.reset"}}</button>
+                    </div>
+                </form>
+                <form id="finalizeBlendForm" class="blend-optimizer-form {{#if infeasible}}hidden{{else}}optimal{{/if}} ">
+                    <div class="form-group {{#if modification}}modification{{else}}hidden{{/if}}">
+                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
+                        <div class="input-group">
+                            <select id="modificationReason" name="modificationReason" class="form-control chosen-select">
+								{{#modificationReasons}}
+                                    <option id="{{id}}">{{modificationReason}}</option>
+								{{/modificationReasons}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group {{#if modification}}modification{{else}}hidden{{/if}}">
                         <div class="input-group">
                             <input id="other" name="other" type="text" class="form-control" value="other" disabled>
                         </div>
                     </div>
                     <div class="form-group">
                         <button id="finalizeBlend" type="button" class="btn btn-primary {{#if infeasible}}hidden{{/if}}">{{i18n "button.finalizeBlend"}}</button>
-                        <button id="reoptimizeBlend" type="button" class="btn btn-warning modification-reason hidden">{{i18n "button.reoptimizeBlend"}}</button>
                     </div>
                 </form>
             </div>
@@ -120,6 +146,9 @@
                     <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
                 </li>
             </ul>
+        </div>
+        <div class="pull-right">
+            <button id="resinMixGuidelines" class="btn btn-xs btn-default">{{i18n "button.resinMixGuidelines"}}</button>
         </div>
         <h5>{{i18n "feature.materialCategoryUsage.title"}}</h5>
     </div>
@@ -207,6 +236,18 @@
                             </li>
                         </ul>
 					{{/includedLots}}
+                    <div class="lot-panel-heading">
+                        <h6 class="lot-panel-title">
+                            <div class="total-lot-usage">
+                                <div class="header-container">
+                                    <h4 class="total-lot-percent-used">{{percentUsed}}</h4>
+                                </div>
+                                <div class="header-container">
+                                    <h4 class="total-lot-pounds-used">{{pounds}}</h4>
+                                </div>
+                            </div>
+                        </h6>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-4">
@@ -350,7 +391,7 @@
 			{{/with}}
 
             var _radarChart = document.getElementById('radarChart').getContext("2d");
-            new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
+            var myRadarChart = new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
 
 			{{#draftBlend.materialCategories}}
                 var materialCategory{{@index}}Usage = document.getElementById('materialCategory{{@index}}Usage');
@@ -388,7 +429,8 @@
                         var toList = evt.to;
                         var toListItems = $(toList).children('li.original').remove();
                         var fromList = evt.from;
-                        $('.modification-reason').removeClass('hidden');
+                        $('#finalizeBlendForm').addClass('hidden');
+                        $('#reoptimizeBlendForm').removeClass('hidden');
                     }
                 });
 			{{/draftBlend.includedLots}}
@@ -429,7 +471,15 @@
 
 			{{#draftBlend.modifications}}
                 $('#{{id}}').on('click', function (evt, params) {
-                    console.log('checkbox clicked');
+                    var $target = $(evt.target);
+                    var key = $target.attr('data-key');
+                    myRadarChart.destroy();
+                    var seg1 = radarChartData.datasets.slice(0, 1);
+                    var seg2 = radarChartData.datasets.slice(2, 4);
+                    var seg3 = seg1.concat(seg2);
+                    radarChartData.datasets = seg3;
+
+                    myRadarChart = new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
                 });
 			{{/draftBlend.modifications}}
 
@@ -438,6 +488,13 @@
                     e.preventDefault();
                 }
                 window.location.href = 'draft-blend?v=2';
+            });
+
+            $('#deviateBlend').click(function (e) {
+                if (e) {
+                    e.preventDefault();
+                }
+                window.location.href = 'draft-blend?v=4';
             });
 
         });

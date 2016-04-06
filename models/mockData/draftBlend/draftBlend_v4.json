@@ -62,10 +62,11 @@
 			"modificationReason": "Other"
 		}
 	],
-	"modification": "true",
+	"deviation": "true",
+	"infeasible": "true",
 	"draftBlend": {
-		"status": "label.modification",
-		"label": "info",
+		"status": "label.infeasible",
+		"label": "warning",
 		"bottomLineSpecs": [
 			{
 				"status": "warning",
@@ -74,7 +75,7 @@
 				"low": "0.1",
 				"actual": "0.99",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "1.0"
 
 			},
 			{
@@ -216,12 +217,6 @@
 					"60",
 					"70"
 				],
-				"previous": [
-					"40",
-					"50",
-					"60",
-					"70"
-				],
 				"low": [
 					"20",
 					"20",
@@ -235,21 +230,7 @@
 					"90"
 				]
 			}
-		},
-		"modifications": [
-			{
-				"id": "ABCD-1230",
-				"checked": "checked",
-				"title": "label.versionOne",
-				"href": "draft-blend?v=1"
-			},
-			{
-				"id": "ABCD-1233",
-				"checked": "checked",
-				"title": "label.versionCurrent",
-				"href": "draft-blend?v=2"
-			}
-		]
+		}
 	},
 	"blendSpecRules": [
 		{
