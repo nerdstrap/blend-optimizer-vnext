@@ -34,7 +34,7 @@
 								{{#plannerCodes}}
                                     <option value="{{id}}">{{plannerCode}}</option>
 								{{/plannerCodes}}
-							</select>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group">
@@ -130,7 +130,7 @@
     <div class="ibox-title">
 		{{> "ibox-tools"}}
         <div class="pull-right">
-            <button id="newMaterialBucket" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+            <button id="newMaterialBucket" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
         </div>
         <h5>{{i18n "feature.materialBuckets.title"}}</h5>
     </div>
@@ -181,7 +181,7 @@
     <div class="ibox-title">
 		{{> "ibox-tools"}}
         <div class="pull-right">
-            <button id="newMaterial" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+            <button id="newMaterial" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
         </div>
         <h5>{{i18n "feature.materials.title"}}</h5>
     </div>
@@ -225,6 +225,36 @@
             </tr>
             </tfoot>
         </table>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.globalRules.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <h3>Global Rules</h3>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.blendSpecPlants.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <h3>Plants</h3>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h5>{{i18n "feature.activation.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <h3>Activation</h3>
     </div>
 </div>
 

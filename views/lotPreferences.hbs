@@ -3,9 +3,6 @@
 <div class="ibox">
     <div class="ibox-title">
 		{{> "ibox-tools"}}
-        <div class="pull-right">
-            <button id="resinMixGuidelines" class="btn btn-xs btn-default">{{i18n "button.resinMixGuidelines"}}</button>
-        </div>
         <h5>{{i18n "feature.lotPreferences.title"}}</h5>
     </div>
     <div class="ibox-content">
@@ -122,9 +119,12 @@
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
-                        <div class="header-container">
-                            <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
-							{{> "viewBlendSpecRules"}}
+                        <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+                        <div class="pull-right">
+                            <ul class="list-unstyled">
+                                <li>{{> "viewBlendSpecRules"}}</li>
+                                <li>{{> "viewResinMixGuidelines"}}</li>
+                            </ul>
                         </div>
                         <ol>
 							{{#blendSpecRules}}

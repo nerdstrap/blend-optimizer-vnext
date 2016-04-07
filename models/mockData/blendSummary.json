@@ -1,5 +1,5 @@
 {
-	"selectedPlant": "P42 - Ennis",
+	"selectedPlant": "P30 - Owosso",
 	"header": "area.createBlend.title",
 	"breadcrumbs": [
 		{
@@ -25,7 +25,7 @@
 	],
 	"datacrumbs": [
 		{
-			"datacrumb": "P42"
+			"datacrumb": "P30"
 		},
 		{
 			"datacrumb": "3030"

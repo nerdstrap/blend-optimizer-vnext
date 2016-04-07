@@ -16,6 +16,7 @@
 	"area.index.title": "Index",
 	"area.kitchenSink.title": "Kitchen Sink",
 	"area.lotMaintenance.title": "Lot Maintenance",
+	"area.optimizerMaintenance.title": "BOG Maintenance",
 	"area.viewBlendSpecRules.description": "area.viewBlendSpecRules.description",
 	"area.viewBlendSpecRules.title": "area.viewBlendSpecRules.title",
 	"button.add": "Add",
@@ -193,5 +194,12 @@
 	"label.hybrid": "Hybrid",
 	"label.no": "No",
 	"label.yes": "Yes",
-	"label.totals": "Totals"
+	"label.totals": "Totals",
+	"button.plants": "View/Edit Plants",
+	"button.copy": "Copy",
+	"area.viewBlendSpecPlants.title": "View/Edit Plants",
+	"area.viewBlendSpecPlants.description": "area.viewBlendSpecPlants.description",
+	"feature.globalRules.title": "feature.globalRules.title",
+	"feature.blendSpecPlants.title": "feature.blendSpecPlants.title",
+	"feature.activation.title": "feature.activation.title"
 }

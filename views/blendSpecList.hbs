@@ -38,6 +38,7 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </form>
     </div>
     <table class="table table-striped">
@@ -57,6 +58,8 @@
                 <td>{{active}}</td>
                 <td>
                     <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
+                    <button id="viewBlendSpecPlants" type="button" class="btn btn-success" data-toggle="modal" data-target="#viewBlendSpecPlantsModal" href="#">{{i18n "button.plants"}}</button>
+                    <button id="copyBlendSpec" type="button" class="btn btn-warning">{{i18n "button.copy"}}</button>
                 </td>
             </tr>
 		{{/blendSpecs}}
@@ -68,7 +71,8 @@
         </tfoot>
     </table>
 </div>
-</div>
+
+{{> "viewBlendSpecPlantsModal"}}
 
 {{#contentFor "pageScripts"}}
     <script src="js/blendSpecList.js"></script>

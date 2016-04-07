@@ -13,6 +13,7 @@ mockData['dashboard'] = require('./mockData/dashboard.json');
 
 mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
 
+mockData['optimizerMaintenance'] = require('./mockData/optimizerMaintenance.json');
 mockData['blendSpecList'] = require('./mockData/blendSpecList.json');
 mockData['blendSpec'] = require('./mockData/blendSpec.json');
 mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
@@ -70,6 +71,12 @@ module.exports = {
 	lotMaintenance: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['lotMaintenance']);
+		}
+	},
+
+	optimizerMaintenance: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['optimizerMaintenance']);
 		}
 	},
 

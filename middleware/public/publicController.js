@@ -40,6 +40,10 @@ module.exports = function (app) {
 
 	return {
 
+		optimizerMaintenance: function (req, res, next) {
+			_renderView('optimizerMaintenance', req, res, next);
+		},
+
 		blendSpecList: function (req, res, next) {
 			_renderView('blendSpecList', req, res, next);
 		},
