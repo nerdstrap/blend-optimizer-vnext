@@ -17,7 +17,8 @@
 				.lot-pounds-used {
 					font-style: italic;
 					margin-right: 3px;
-				}			}
+				}
+			}
 
 			.lot-usage {
 				position: absolute;
@@ -32,7 +33,7 @@
 			position: relative;
 			margin: 0;
 			padding: 0;
-			height: $line-height-computed * 8;
+			height: $line-height-computed * 9;
 
 			.lot-details {
 				position: absolute;
@@ -45,21 +46,33 @@
 
 			.lot-usage {
 				position: absolute;
-				top: 30px;
+				top: 20px;
 				left: 310px;
 				width: 376px;
 				min-width: 376px;
 
-				> .lot-slider-snap-value-lower {
+				> .slider-value-lower {
 					float: left;
+
+					input.slider-snap-value-control {
+						margin-left: 10px;
+						width: 60px !important;
+						display: inline-block;
+					}
 				}
 
-				> .lot-slider-snap-value-upper {
+				> .slider-value-upper {
 					float: right;
+
+					input.slider-snap-value-control {
+						margin-left: 10px;
+						width: 60px !important;
+						display: inline-block;
+					}
 				}
 
-				> .lot-slider {
-					margin-top: 30px;
+				> .included-lot-slider {
+					margin-top: 60px;
 				}
 			}
 		}

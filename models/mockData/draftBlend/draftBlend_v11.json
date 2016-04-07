@@ -44,6 +44,7 @@
 			"datacrumb": "Excluded Lots +"
 		}
 	],
+	"reoptimizeDataset": "12",
 	"modificationReasons": [
 		{
 			"id": "ABCD-1231",
@@ -62,6 +63,24 @@
 			"modificationReason": "Other"
 		}
 	],
+	"deviationReasons": [
+		{
+			"id": "ABCD-1231",
+			"deviationReason": "Lot Size"
+		},
+		{
+			"id": "ABCD-1232",
+			"deviationReason": "Location Unavailable"
+		},
+		{
+			"id": "ABCD-1233",
+			"deviationReason": "Quality Hold"
+		},
+		{
+			"id": "ABCD-1234",
+			"deviationReason": "Other"
+		}
+	],
 	"labels": [
 		"label.density",
 		"label.meltIndex",
@@ -71,13 +90,12 @@
 	"datasets": [
 		{
 			"id": "ABCD-1230",
-			"status": "optimal",
+			"status": "infeasible",
 			"key": "current",
-			"deviation": "true",
 			"data": [
 				"80",
 				"80",
-				"80",
+				"105",
 				"80"
 			]
 		},
@@ -149,9 +167,11 @@
 			"deviationHigh": "95"
 		}
 	],
+	"infeasible": "true",
+	"deviation": "true",
 	"draftBlend": {
-		"status": "label.optimal",
-		"label": "primary",
+		"status": "label.infeasible",
+		"label": "warning",
 		"bottomLineSpecs": [
 			{
 				"spec": "label.density",
@@ -171,9 +191,10 @@
 			},
 			{
 				"spec": "label.izod",
+				"status": "warning",
 				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.8",
+				"actual": "1.05",
 				"high": "0.9",
 				"deviationHigh": "0.95"
 			},

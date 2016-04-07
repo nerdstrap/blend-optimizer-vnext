@@ -33,10 +33,10 @@
         </div>
         <div class="lot-usage">
             <div class="header-container">
-                <h4 class="lot-percent-used">{{percentUsed}}</h4>
+                <h4 class="lot-percent-used">{{percentUsed}}{{{i18n "label.percent"}}}</h4>
             </div>
             <div class="header-container">
-                <h4 class="lot-pounds-used">{{pounds}}</h4>
+                <h4 class="lot-pounds-used">{{pounds}} {{i18n "label.pounds"}}</h4>
             </div>
         </div>
     </div>
@@ -66,23 +66,15 @@
             </div>
         </div>
         <div class="lot-usage">
-            <div class="lot-slider-snap-value-lower">
-                <div class="form-group">
-                    <label for="includeLot{{@index}}SnapValueLower" class="control-label">{{i18n "label.low"}}</label>
-                    <div class="input-group">
-                        <input id="includeLot{{@index}}SnapValueLower" name="includeLot{{@index}}SnapValueLower" type="text" class="form-control slider-snap-value-control" value="{{low}}">
-                    </div>
-                </div>
+            <div class="slider-value-lower">
+                <label for="includeLot{{@index}}SnapValueLower" class="control-label">{{i18n "label.low"}}</label>
+                <input id="includeLot{{@index}}SnapValueLower" name="includeLot{{@index}}SnapValueLower" type="text" class="form-control slider-snap-value-control" value="{{low}}">
             </div>
-            <div class="lot-slider-snap-value-upper">
-                <div class="form-group">
-                    <label for="includeLot{{@index}}SnapValueUpper" class="control-label">{{i18n "label.high"}}</label>
-                    <div class="input-group">
-                        <input id="includeLot{{@index}}SnapValueUpper" name="includeLot{{@index}}SnapValueUpper" type="text" class="form-control slider-snap-value-control" value="{{high}}">
-                    </div>
-                </div>
+            <div class="slider-value-upper">
+                <label for="includeLot{{@index}}SnapValueUpper" class="control-label">{{i18n "label.high"}}</label>
+                <input id="includeLot{{@index}}SnapValueUpper" name="includeLot{{@index}}SnapValueUpper" type="text" class="form-control slider-snap-value-control" value="{{high}}">
             </div>
-            <div id="includedLot{{@index}}Usage" class="lot-slider" data-low="{{low}}" data-high="{{high}}"></div>
+            <div id="includedLot{{@index}}Usage" class="included-lot-slider" data-low="{{low}}" data-high="{{high}}" data-snapvaluelower="includeLot{{@index}}SnapValueLower" data-snapvalueupper="includeLot{{@index}}SnapValueUpper"></div>
         </div>
     </div>
 </div>

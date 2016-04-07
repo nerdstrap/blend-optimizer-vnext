@@ -10,16 +10,14 @@
             </ul>
         </div>
         <h5>{{i18n "feature.finalizeBlend.title"}}
-            <span id="draftBlendLabel" class="label label-{{draftBlend.label}}">{{i18n draftBlend.status}}</span>
-		</h5>
+            <span id="draftBlendLabel" class="label label-{{draftBlend.type}}">{{i18n draftBlend.status}}</span>
+        </h5>
     </div>
     <div class="ibox-content">
         <div class="row margin-bottom-20">
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.bottomLineSpecs.title"}}</h3>
-                <div class="margin-bottom-20">
-                    <canvas id="radarChart" height="200"></canvas>
-                </div>
+                <canvas id="radarChart" width="315px" height="315px"></canvas>
             </div>
             <div class="col-sm-4">
                 <table class="table table-striped">
@@ -39,15 +37,15 @@
                     </thead>
                     <tbody>
 					{{#draftBlend.bottomLineSpecs}}
-                        <tr>
+                        <tr class="{{status}}">
                             <th>{{i18n spec}}</th>
-							{{#if deviationLow}}
+							{{#if @root.deviation}}
                                 <td>{{deviationLow}}</td>
 							{{/if}}
                             <td>{{low}}</td>
                             <td>{{actual}}</td>
                             <td>{{high}}</td>
-							{{#if deviationHigh}}
+							{{#if @root.deviation}}
                                 <td>{{deviationHigh}}</td>
 							{{/if}}
                         </tr>
@@ -66,19 +64,21 @@
                     <div class="form-group">
                         <label for="comments" class="control-label">{{i18n "label.comments"}}</label>
                         <div class="input-group">
-                            <input id="comments" name="comments" type="text" class="form-control">
+                            <input id="comments" name="comments" type="text" class="form-control" value="{{draftBlend.comments}}">
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="addReservation" class="control-label">{{i18n "label.addReservation"}}</label>
                         <div class="input-group">
+                            <span class="js-switch-label">{{i18n "label.no"}}</span>
                             <input id="addReservation" name="addReservation" type="checkbox" class="js-switch" checked>
+                            <span class="js-switch-label checked">{{i18n "label.yes"}}</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="reservationSize" class="control-label">{{i18n "label.reservationSize"}}</label>
                         <div class="input-group">
-                            <input id="reservationSize" name="reservationSize" type="text" class="form-control">
+                            <input id="reservationSize" name="reservationSize" type="text" class="form-control" value="{{draftBlend.pounds}}">
                         </div>
                     </div>
                     <div class="form-group">
@@ -90,6 +90,9 @@
         <div class="row">
             <div class="col-sm-4">
                 <h3 class="">{{i18n "feature.materials.title"}}</h3>
+                <div class="margin-left-60">
+                    <canvas id="doughnutChart" width="200px" height="200px"></canvas>
+                </div>
             </div>
             <div class="col-sm-4">
                 <table class="table table-striped">
@@ -115,7 +118,7 @@
                     <tr>
                         <td colspan="4">
                             <strong>{{i18n "label.blendSize"}}</strong>
-                            <span class="blend-weight">{{draftBlend.size}} {{i18n "label.pounds"}}</span>
+                            <span class="blend-weight">{{draftBlend.pounds}} {{i18n "label.pounds"}}</span>
                         </td>
                     </tr>
                     </tfoot>
@@ -128,67 +131,137 @@
 {{#contentFor "pageScripts"}}
     <script src="js/finalizeBlend.js"></script>
     <script type="text/javascript">
-        $(document).ready(function () {
+        var _datasets = {{{json datasets}}};
 
-            var radarChartData = {
-                labels: [{{#draftBlend.radarChart.labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.labels}}],
-                datasets: [
-                    {
-						{{#with radarChart.datasets.current}}
-                            label: "{{i18n label}}",
-                            fillColor: "{{fillColor}}",
-                            strokeColor: "{{strokeColor}}",
-                            pointColor: "{{pointColor}}",
-                            pointStrokeColor: "{{pointStrokeColor}}",
-                            pointHighlightFill: "{{pointHighlightFill}}",
-                            pointHighlightStroke: "{{pointHighlightStroke}}",
-						{{/with}}
-                        data: [{{#draftBlend.radarChart.datasets.current}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.current}}]
-                    },
-                    {
-						{{#with radarChart.datasets.low}}
-                            label: "{{i18n label}}",
-                            fillColor: "{{fillColor}}",
-                            strokeColor: "{{strokeColor}}",
-                            pointColor: "{{pointColor}}",
-                            pointStrokeColor: "{{pointStrokeColor}}",
-                            pointHighlightFill: "{{pointHighlightFill}}",
-                            pointHighlightStroke: "{{pointHighlightStroke}}",
-						{{/with}}
-                        data: [{{#draftBlend.radarChart.datasets.low}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.low}}]
-                    },
-                    {
-						{{#with radarChart.datasets.high}}
-                            label: "{{i18n label}}",
-                            fillColor: "{{fillColor}}",
-                            strokeColor: "{{strokeColor}}",
-                            pointColor: "{{pointColor}}",
-                            pointStrokeColor: "{{pointStrokeColor}}",
-                            pointHighlightFill: "{{pointHighlightFill}}",
-                            pointHighlightStroke: "{{pointHighlightStroke}}",
-						{{/with}}
-                        data: [{{#draftBlend.radarChart.datasets.high}}{{this}}{{#unless @last}},{{/unless}}{{/draftBlend.radarChart.datasets.high}}]
-                    }
-                ]
+        var _labels = [{{#labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/labels}}];
+
+			{{#with radarChart}}
+            var _options = {
+                angleLineColor: "{{options.angleLineColor}}",
+                angleLineWidth: {{options.angleLineWidth}},
+                pointLabelFontFamily: "{{{options.pointLabelFontFamily}}}",
+                pointLabelFontStyle: "{{options.pointLabelFontStyle}}",
+                pointLabelFontSize: {{options.pointLabelFontSize}},
+                pointLabelFontColor: "{{options.pointLabelFontColor}}",
+                pointDotRadius: {{options.pointDotRadius}},
+                pointDotStrokeWidth: {{options.pointDotStrokeWidth}},
+                datasetStrokeWidth: {{options.datasetStrokeWidth}},
+                datasetFill: {{options.datasetFill}}
             };
 
-			{{#with radarChart.options}}
-                var radarChartOptions = {
-                    angleLineColor: "{{angleLineColor}}",
-                    angleLineWidth: {{angleLineWidth}},
-                    pointLabelFontFamily: "{{{pointLabelFontFamily}}}",
-                    pointLabelFontStyle: "{{pointLabelFontStyle}}",
-                    pointLabelFontSize: {{pointLabelFontSize}},
-                    pointLabelFontColor: "{{pointLabelFontColor}}",
-                    pointDotRadius: {{pointDotRadius}},
-                    pointDotStrokeWidth: {{pointDotStrokeWidth}},
-                    datasetStrokeWidth: {{datasetStrokeWidth}},
-                    datasetFill: {{datasetFill}}
-                };
+            var _datasetOptions = {
+                default: {
+                    label: "{{i18n options.default.label}}",
+                    fillColor: "{{options.default.fillColor}}",
+                    strokeColor: "{{options.default.strokeColor}}",
+                    pointColor: "{{options.default.pointColor}}",
+                    pointStrokeColor: "{{options.default.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.default.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.default.pointHighlightStroke}}"
+                },
+                primary: {
+                    label: "{{i18n options.primary.label}}",
+                    fillColor: "{{options.primary.fillColor}}",
+                    strokeColor: "{{options.primary.strokeColor}}",
+                    pointColor: "{{options.primary.pointColor}}",
+                    pointStrokeColor: "{{options.primary.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.primary.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.primary.pointHighlightStroke}}"
+                },
+                success: {
+                    label: "{{i18n options.success.label}}",
+                    fillColor: "{{options.success.fillColor}}",
+                    strokeColor: "{{options.success.strokeColor}}",
+                    pointColor: "{{options.success.pointColor}}",
+                    pointStrokeColor: "{{options.success.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.success.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.success.pointHighlightStroke}}"
+                },
+                info: {
+                    label: "{{i18n options.info.label}}",
+                    fillColor: "{{options.info.fillColor}}",
+                    strokeColor: "{{options.info.strokeColor}}",
+                    pointColor: "{{options.info.pointColor}}",
+                    pointStrokeColor: "{{options.info.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.info.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.info.pointHighlightStroke}}"
+                },
+                warning: {
+                    label: "{{i18n options.warning.label}}",
+                    fillColor: "{{options.warning.fillColor}}",
+                    strokeColor: "{{options.warning.strokeColor}}",
+                    pointColor: "{{options.warning.pointColor}}",
+                    pointStrokeColor: "{{options.warning.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.warning.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.warning.pointHighlightStroke}}"
+                },
+                danger: {
+                    label: "{{i18n options.danger.label}}",
+                    fillColor: "{{options.danger.fillColor}}",
+                    strokeColor: "{{options.danger.strokeColor}}",
+                    pointColor: "{{options.danger.pointColor}}",
+                    pointStrokeColor: "{{options.danger.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.danger.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.danger.pointHighlightStroke}}"
+                }
+            };
 			{{/with}}
 
-            var _radarChart = document.getElementById('radarChart').getContext("2d");
-            new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
+        var _doughnutDataset = {{{json doughnutDataset}}};
+
+			{{#with doughnutChart}}
+            var _doughnutOptions = {
+                segmentShowStroke: {{options.segmentShowStroke}},
+                segmentStrokeColor: "{{options.segmentStrokeColor}}",
+                segmentStrokeWidth: {{options.segmentStrokeWidth}},
+                percentageInnerCutout: {{options.percentageInnerCutout}},
+                animationSteps: {{options.animationSteps}},
+                animationEasing: "{{options.animationEasing}}",
+                animateRotate: {{options.animateRotate}},
+                animateScale: {{options.animateScale}},
+                responsive: {{options.responsive}}
+            };
+
+            var _doughnutDatasetOptions = {
+                virgin: {
+                    label: "{{i18n options.virgin.label}}",
+                    color: "{{options.virgin.color}}",
+                    highlight: "{{options.virgin.highlight}}"
+                },
+                flake: {
+                    label: "{{i18n options.flake.label}}",
+                    color: "{{options.flake.color}}",
+                    highlight: "{{options.flake.highlight}}"
+                },
+                regrind: {
+                    label: "{{i18n options.regrind.label}}",
+                    color: "{{options.regrind.color}}",
+                    highlight: "{{options.regrind.highlight}}"
+                },
+                color: {
+                    label: "{{i18n options.color.label}}",
+                    color: "{{options.color.color}}",
+                    highlight: "{{options.color.highlight}}"
+                },
+                ocra: {
+                    label: "{{i18n options.ocra.label}}",
+                    color: "{{options.ocra.color}}",
+                    highlight: "{{options.ocra.highlight}}"
+                },
+                repro: {
+                    label: "{{i18n options.repro.label}}",
+                    color: "{{options.repro.color}}",
+                    highlight: "{{options.repro.highlight}}"
+                },
+                hybrid: {
+                    label: "{{i18n options.hybrid.label}}",
+                    color: "{{options.hybrid.color}}",
+                    highlight: "{{options.hybrid.highlight}}"
+                }
+            };
+			{{/with}}
+
+        $(document).ready(function () {
 
         });
     </script>

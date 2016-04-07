@@ -3,7 +3,6 @@
 var mockData = [];
 
 mockData['appSettings'] = require('./mockData/appSettings.json');
-mockData['appSettings2'] = require('./mockData/appSettings2.json');
 mockData['alerts'] = require('./mockData/alerts.json');
 mockData['plants'] = require('./mockData/plants.json');
 
@@ -20,12 +19,13 @@ mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
 
 mockData['createBlend'] = require('./mockData/createBlend.json');
 mockData['lotPreferences'] = require('./mockData/lotPreferences.json');
-mockData['draftBlend2'] = require('./mockData/draftBlend2.json');
 mockData['draftBlend'] = require('./mockData/draftBlend/draftBlend.json');
 mockData['draftBlend_v1'] = require('./mockData/draftBlend/draftBlend_v1.json');
 mockData['draftBlend_v2'] = require('./mockData/draftBlend/draftBlend_v2.json');
 mockData['draftBlend_v3'] = require('./mockData/draftBlend/draftBlend_v3.json');
-mockData['draftBlend_v4'] = require('./mockData/draftBlend/draftBlend_v4.json');
+mockData['draftBlend_v10'] = require('./mockData/draftBlend/draftBlend_v10.json');
+mockData['draftBlend_v11'] = require('./mockData/draftBlend/draftBlend_v11.json');
+mockData['draftBlend_v12'] = require('./mockData/draftBlend/draftBlend_v12.json');
 mockData['finalizeBlend'] = require('./mockData/finalizeBlend.json');
 mockData['blendSummary'] = require('./mockData/blendSummary.json');
 
@@ -34,12 +34,6 @@ module.exports = {
 	appSettings: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['appSettings']);
-		}
-	},
-
-	appSettings2: function (options, callback) {
-		if (callback) {
-			callback(null, mockData['appSettings2']);
 		}
 	},
 
@@ -112,12 +106,6 @@ module.exports = {
 	draftBlend: function (options, callback) {
 		if (callback) {
 			callback(null, mockData[options.dataSetName]);
-		}
-	},
-
-	draftBlend2: function (options, callback) {
-		if (callback) {
-			callback(null, mockData['draftBlend2']);
 		}
 	},
 

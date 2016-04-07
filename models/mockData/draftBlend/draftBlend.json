@@ -1,6 +1,7 @@
 {
 	"selectedPlant": "P42 - Ennis",
 	"header": "area.createBlend.title",
+	"reoptimizeDataset": "2",
 	"breadcrumbs": [
 		{
 			"status": "active",
@@ -46,71 +47,193 @@
 	],
 	"modificationReasons": [
 		{
-			"id": "ABCD-1231",
+			"id": "ABCD-1230",
 			"modificationReason": "Lot Size"
 		},
 		{
-			"id": "ABCD-1232",
+			"id": "ABCD-1231",
 			"modificationReason": "Location Unavailable"
 		},
 		{
-			"id": "ABCD-1233",
+			"id": "ABCD-1232",
 			"modificationReason": "Quality Hold"
 		},
 		{
-			"id": "ABCD-1234",
-			"modificationReason": "Other"
+			"id": "ABCD-1233",
+			"modificationReason": "Scrap"
 		}
 	],
+	"deviationReasons": [
+		{
+			"id": "ABCD-1230",
+			"deviationReason": "Increase Regrind"
+		},
+		{
+			"id": "ABCD-1231",
+			"deviationReason": "Decrease Contamination"
+		},
+		{
+			"id": "ABCD-1232",
+			"deviationReason": "Scrap"
+		},
+		{
+			"id": "ABCD-1233",
+			"deviationReason": "Increase Virgin"
+		}
+	],
+	"labels": [
+		"label.density",
+		"label.meltIndex",
+		"label.izod"
+	],
+	"datasets": [
+		{
+			"id": "ABCD-1230",
+			"type": "primary",
+			"status": "optimal",
+			"data": [
+				"0.725",
+				"0.7307",
+				"0.5849"
+			]
+		}
+	],
+	"materialCategories": [
+		{
+			"id": "ABCD-1230",
+			"type": "virgin",
+			"badge": "V",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "flake",
+			"badge": "F",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "regrind",
+			"badge": "R",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1233",
+			"type": "repro",
+			"badge": "P",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1234",
+			"type": "color",
+			"badge": "C",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		}
+	],
+	"optimal": "true",
 	"draftBlend": {
+		"type": "primary",
 		"status": "label.optimal",
-		"label": "success",
 		"bottomLineSpecs": [
 			{
 				"spec": "label.density",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "0.95",
+				"low": "0.95",
+				"actual": "0.9529",
+				"high": "0.954",
+				"deviationHigh": "0.954"
 			},
 			{
 				"spec": "label.meltIndex",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "0.18",
+				"low": "0.18",
+				"actual": "0.34076",
+				"high": "0.4",
+				"deviationHigh": "0.4"
 			},
 			{
 				"spec": "label.izod",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "1.5",
+				"low": "3",
+				"actual": "4.16998",
+				"high": "5",
+				"deviationHigh": "6"
 			},
 			{
 				"spec": "label.ncls",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "0",
+				"low": "0",
+				"actual": "0",
+				"high": "0",
+				"deviationHigh": "0"
 			},
 			{
 				"spec": "label.sinkFloat",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "0",
+				"low": "0",
+				"actual": "0",
+				"high": "0",
+				"deviationHigh": "0"
 			},
 			{
 				"spec": "label.infrared",
-				"low": "0.1",
-				"actual": "0.5",
-				"high": "0.9"
+				"deviationLow": "0",
+				"low": "0",
+				"actual": "0",
+				"high": "0",
+				"deviationHigh": "0"
+			},
+			{
+				"spec": "label.contaminationOther",
+				"deviationLow": "0",
+				"low": "0",
+				"actual": "0",
+				"high": "0",
+				"deviationHigh": "0"
 			}
 		],
-		"size": "44000",
+		"percentUsed": "100",
+		"pounds": "44000",
 		"includedLots": [
 			{
 				"id": "ABCD-1244",
+				"status": "success",
 				"type": "flake",
 				"badge": "F",
 				"sku": "9999ZP",
 				"lotNumber": "ZPC021516-1",
+				"size": 22733,
+				"price": 0.47,
+				"vendorName": 0,
+				"density": 0.9468,
+				"meltIndex": 0.103,
+				"highLowMeltIndex": 0,
+				"izod": 5.55,
+				"ncls": 800,
+				"h1": 4.66,
+				"viscosity": 3901,
+				"contamination": 0,
+				"infrared": 0,
+				"sinkFloat": 0,
+				"percentBlack": 0,
+				"percentAsh": 0,
+				"comments": "QA results copied from P71  Copied from P47",
+				"received": 20160311,
 				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
@@ -118,10 +241,28 @@
 			},
 			{
 				"id": "ABCD-1205",
+				"status": "success",
 				"type": "repro",
 				"badge": "P",
 				"sku": "9999NE",
 				"lotNumber": "NEC030816-2",
+				"size": 33362,
+				"price": 0.53,
+				"vendorName": 0,
+				"density": 0.9536,
+				"meltIndex": 0.4,
+				"highLowMeltIndex": 0,
+				"izod": 0.8,
+				"ncls": 6.8,
+				"h1": 4.41,
+				"viscosity": 2193,
+				"contamination": 0,
+				"infrared": 3.5,
+				"sinkFloat": 0,
+				"percentBlack": 0,
+				"percentAsh": 0,
+				"comments": ";1200 - 1400  Copied from P71",
+				"received": 20160309,
 				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
@@ -129,10 +270,28 @@
 			},
 			{
 				"id": "ABCD-1207",
+				"status": "success",
 				"type": "regrind",
 				"badge": "R",
 				"sku": "9999RA",
 				"lotNumber": 0,
+				"size": 6952,
+				"price": 0.66,
+				"vendorName": 0,
+				"density": 0.9532,
+				"meltIndex": 0.23,
+				"highLowMeltIndex": 0,
+				"izod": 2.1,
+				"ncls": 12,
+				"h1": 3.1,
+				"viscosity": 3078,
+				"contamination": 0,
+				"infrared": 0,
+				"sinkFloat": 0,
+				"percentBlack": 2,
+				"percentAsh": 0,
+				"comments": 0,
+				"received": 0,
 				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
@@ -140,10 +299,28 @@
 			},
 			{
 				"id": "ABCD-1209",
+				"status": "success",
 				"type": "virgin",
 				"badge": "V",
 				"sku": "9999A",
 				"lotNumber": "A312016",
+				"size": 50511,
+				"price": 0.49,
+				"vendorName": "CHEVRON PHILLIPS CHEMICAL CO LP",
+				"density": 0.9525,
+				"meltIndex": 0.279,
+				"highLowMeltIndex": 0,
+				"izod": 3.1,
+				"ncls": 5,
+				"h1": 4.74,
+				"viscosity": 2555,
+				"contamination": 0,
+				"infrared": 0,
+				"sinkFloat": 0,
+				"percentBlack": 0,
+				"percentAsh": 0,
+				"comments": 0,
+				"received": 20160309,
 				"percentUsed": "24",
 				"pounds": "10000",
 				"low": "20",
@@ -151,70 +328,35 @@
 			},
 			{
 				"id": "ABCD-1239",
+				"status": "success",
+				"priority": "manual",
 				"type": "color",
 				"badge": "C",
 				"sku": "9999B",
 				"lotNumber": "B309036",
+				"size": 41666,
+				"price": 0,
+				"vendorName": "SOUCY TECHNO INC",
+				"density": 0,
+				"meltIndex": 0,
+				"highLowMeltIndex": 0,
+				"izod": 0,
+				"ncls": 0,
+				"h1": 0,
+				"viscosity": 0,
+				"contamination": 0,
+				"infrared": 0,
+				"sinkFloat": 0,
+				"percentBlack": 0,
+				"percentAsh": 0,
+				"comments": 0,
+				"received": 20160301,
 				"percentUsed": "4",
 				"pounds": "4000",
 				"low": "20",
 				"high": "80"
 			}
-		],
-		"materialCategories": [
-			{
-				"type": "virgin",
-				"badge": "V",
-				"low": "20",
-				"high": "80"
-			},
-			{
-				"type": "flake",
-				"badge": "F",
-				"low": "20",
-				"high": "80"
-			},
-			{
-				"type": "regrind",
-				"badge": "R",
-				"low": "20",
-				"high": "80"
-			},
-			{
-				"type": "repro",
-				"badge": "P",
-				"low": "20",
-				"high": "80"
-			}
-		],
-		"radarChart": {
-			"labels": [
-				"label.density",
-				"label.meltIndex",
-				"label.izod",
-				"label.ncls"
-			],
-			"datasets": {
-				"current": [
-					"40",
-					"50",
-					"60",
-					"70"
-				],
-				"low": [
-					"20",
-					"20",
-					"20",
-					"20"
-				],
-				"high": [
-					"90",
-					"90",
-					"90",
-					"90"
-				]
-			}
-		}
+		]
 	},
 	"blendSpecRules": [
 		{
@@ -232,134 +374,6 @@
 		{
 			"id": "ABCD-1233",
 			"blendSpecRule": "summary rule"
-		}
-	],
-	"includedLots": [
-		{
-			"id": "ABCD-1244",
-			"status": "success",
-			"type": "flake",
-			"badge": "F",
-			"sku": "9999ZP",
-			"lotNumber": "ZPC021516-1",
-			"size": 22733,
-			"price": 0.47,
-			"vendorName": 0,
-			"density": 0.9468,
-			"meltIndex": 0.103,
-			"highLowMeltIndex": 0,
-			"izod": 5.55,
-			"ncls": 800,
-			"h1": 4.66,
-			"viscosity": 3901,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": "QA results copied from P71  Copied from P47",
-			"received": 20160311
-		},
-		{
-			"id": "ABCD-1205",
-			"status": "success",
-			"type": "repro",
-			"badge": "P",
-			"sku": "9999NE",
-			"lotNumber": "NEC030816-2",
-			"size": 33362,
-			"price": 0.53,
-			"vendorName": 0,
-			"density": 0.9536,
-			"meltIndex": 0.4,
-			"highLowMeltIndex": 0,
-			"izod": 0.8,
-			"ncls": 6.8,
-			"h1": 4.41,
-			"viscosity": 2193,
-			"contamination": 0,
-			"infrared": 3.5,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": ";1200 - 1400  Copied from P71",
-			"received": 20160309
-		},
-		{
-			"id": "ABCD-1207",
-			"status": "success",
-			"type": "regrind",
-			"badge": "R",
-			"sku": "9999RA",
-			"lotNumber": 0,
-			"size": 6952,
-			"price": 0.66,
-			"vendorName": 0,
-			"density": 0.9532,
-			"meltIndex": 0.23,
-			"highLowMeltIndex": 0,
-			"izod": 2.1,
-			"ncls": 12,
-			"h1": 3.1,
-			"viscosity": 3078,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 2,
-			"percentAsh": 0,
-			"comments": 0,
-			"received": 0
-		},
-		{
-			"id": "ABCD-1209",
-			"status": "success",
-			"type": "virgin",
-			"badge": "V",
-			"sku": "9999A",
-			"lotNumber": "A312016",
-			"size": 50511,
-			"price": 0.49,
-			"vendorName": "CHEVRON PHILLIPS CHEMICAL CO LP",
-			"density": 0.9525,
-			"meltIndex": 0.279,
-			"highLowMeltIndex": 0,
-			"izod": 3.1,
-			"ncls": 5,
-			"h1": 4.74,
-			"viscosity": 2555,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": 0,
-			"received": 20160309
-		},
-		{
-			"id": "ABCD-1239",
-			"status": "success",
-			"priority": "manual",
-			"type": "color",
-			"badge": "C",
-			"sku": "9999B",
-			"lotNumber": "B309036",
-			"size": 41666,
-			"price": 0,
-			"vendorName": "SOUCY TECHNO INC",
-			"density": 0,
-			"meltIndex": 0,
-			"highLowMeltIndex": 0,
-			"izod": 0,
-			"ncls": 0,
-			"h1": 0,
-			"viscosity": 0,
-			"contamination": 0,
-			"infrared": 0,
-			"sinkFloat": 0,
-			"percentBlack": 0,
-			"percentAsh": 0,
-			"comments": 0,
-			"received": 20160301
 		}
 	],
 	"availableLots": [

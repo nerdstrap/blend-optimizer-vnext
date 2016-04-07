@@ -44,6 +44,7 @@
 			"datacrumb": "Excluded Lots +"
 		}
 	],
+	"reoptimizeDataset": "5",
 	"modificationReasons": [
 		{
 			"id": "ABCD-1231",
@@ -62,64 +63,201 @@
 			"modificationReason": "Other"
 		}
 	],
-	"deviation": "true",
+	"deviationReasons": [
+		{
+			"id": "ABCD-1231",
+			"deviationReason": "Lot Size"
+		},
+		{
+			"id": "ABCD-1232",
+			"deviationReason": "Location Unavailable"
+		},
+		{
+			"id": "ABCD-1233",
+			"deviationReason": "Quality Hold"
+		},
+		{
+			"id": "ABCD-1234",
+			"deviationReason": "Other"
+		}
+	],
+	"deviationReason": "Increased Regrind",
+	"modifications": [
+		{
+			"id": "ABCD-1230",
+			"checked": "checked",
+			"title": "label.versionOne",
+			"href": "draft-blend?v=3"
+		},
+		{
+			"id": "ABCD-1233",
+			"checked": "checked",
+			"title": "label.versionCurrent",
+			"href": "draft-blend?v=4"
+		}
+	],
+	"labels": [
+		"label.density",
+		"label.meltIndex",
+		"label.izod",
+		"label.ncls"
+	],
+	"datasets": [
+		{
+			"id": "ABCD-1230",
+			"status": "infeasible",
+			"key": "previous",
+			"data": [
+				"80",
+				"80",
+				"105",
+				"80"
+			]
+		},
+		{
+			"id": "ABCD-1233",
+			"status": "deviation",
+			"key": "current",
+			"data": [
+				"80",
+				"80",
+				"80",
+				"80"
+			]
+		},
+		{
+			"id": "LOW-0000",
+			"key": "low",
+			"data": [
+				"10",
+				"10",
+				"10",
+				"10"
+			]
+		},
+		{
+			"id": "HIGH-9999",
+			"key": "high",
+			"data": [
+				"90",
+				"90",
+				"90",
+				"90"
+			]
+		}
+	],
+	"materialCategories": [
+		{
+			"id": "ABCD-1230",
+			"type": "virgin",
+			"badge": "V",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "flake",
+			"badge": "F",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "regrind",
+			"badge": "R",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1233",
+			"type": "repro",
+			"badge": "P",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		},
+		{
+			"id": "ABCD-1234",
+			"type": "color",
+			"badge": "C",
+			"deviationLow": "5",
+			"low": "10",
+			"high": "90",
+			"deviationHigh": "95"
+		}
+	],
 	"infeasible": "true",
+	"deviation": "true",
 	"draftBlend": {
-		"status": "label.infeasible",
-		"label": "warning",
+		"status": "label.deviation",
+		"label": "info",
 		"bottomLineSpecs": [
 			{
-				"status": "warning",
 				"spec": "label.density",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.99",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "1.0"
-
+				"deviationHigh": "0.95"
 			},
 			{
 				"spec": "label.meltIndex",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.5",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "0.95"
 			},
 			{
 				"spec": "label.izod",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.5",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "0.95"
 			},
 			{
 				"spec": "label.ncls",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.5",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "0.95"
 			},
 			{
 				"spec": "label.sinkFloat",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.5",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "0.95"
 			},
 			{
 				"spec": "label.infrared",
-				"deviationLow": "0.1",
+				"deviationLow": "0.05",
 				"low": "0.1",
-				"actual": "0.5",
+				"actual": "0.8",
 				"high": "0.9",
-				"deviationHigh": "0.9"
+				"deviationHigh": "0.95"
+			},
+			{
+				"spec": "label.contaminationOther",
+				"deviationLow": "0.05",
+				"low": "0.1",
+				"actual": "0.8",
+				"high": "0.9",
+				"deviationHigh": "0.95"
 			}
 		],
-		"size": "45000",
+		"percentUsed": "100",
+		"pounds": "44000",
 		"includedLots": [
 			{
 				"id": "ABCD-1244",
@@ -179,28 +317,49 @@
 		],
 		"materialCategories": [
 			{
+				"id": "ABCD-1230",
 				"type": "virgin",
 				"badge": "V",
-				"low": "20",
-				"high": "80"
+				"deviationLow": "5",
+				"low": "10",
+				"high": "90",
+				"deviationHigh": "95"
 			},
 			{
+				"id": "ABCD-1231",
 				"type": "flake",
 				"badge": "F",
-				"low": "20",
-				"high": "80"
+				"deviationLow": "5",
+				"low": "10",
+				"high": "90",
+				"deviationHigh": "95"
 			},
 			{
+				"id": "ABCD-1232",
 				"type": "regrind",
 				"badge": "R",
-				"low": "20",
-				"high": "80"
+				"deviationLow": "5",
+				"low": "10",
+				"high": "90",
+				"deviationHigh": "95"
 			},
 			{
+				"id": "ABCD-1233",
 				"type": "repro",
 				"badge": "P",
-				"low": "20",
-				"high": "80"
+				"deviationLow": "5",
+				"low": "10",
+				"high": "90",
+				"deviationHigh": "95"
+			},
+			{
+				"id": "ABCD-1234",
+				"type": "color",
+				"badge": "C",
+				"deviationLow": "5",
+				"low": "10",
+				"high": "90",
+				"deviationHigh": "95"
 			}
 		],
 		"radarChart": {
@@ -211,24 +370,46 @@
 				"label.ncls"
 			],
 			"datasets": {
-				"current": [
-					"99",
-					"50",
-					"60",
-					"70"
-				],
-				"low": [
-					"20",
-					"20",
-					"20",
-					"20"
-				],
-				"high": [
-					"90",
-					"90",
-					"90",
-					"90"
-				]
+				"current": {
+					"id": "ABCD-1233",
+					"key": "current",
+					"status": "infeasibile",
+					"data": [
+						"99",
+						"50",
+						"60",
+						"70"
+					]
+				},
+				"previous": {
+					"id": "ABCD-1230",
+					"key": "previous",
+					"status": "optimal",
+					"data": [
+						"40",
+						"50",
+						"60",
+						"70"
+					]
+				},
+				"low": {
+					"key": "low",
+					"data": [
+						"20",
+						"20",
+						"20",
+						"20"
+					]
+				},
+				"high": {
+					"key": "high",
+					"data": [
+						"90",
+						"90",
+						"90",
+						"90"
+					]
+				}
 			}
 		}
 	},

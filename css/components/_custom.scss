@@ -7,6 +7,14 @@
 	margin-bottom: 20px;
 }
 
+.margin-top-negative-60 {
+	margin-top: -60px;
+}
+
+.margin-left-60 {
+	margin-left: 60px;
+}
+
 .header-container {
 	> h1, h2, h3, h4, h5, h6,
 	.h1, .h2, .h3, .h4, .h5, .h6 {
@@ -57,25 +65,53 @@ td {
 	}
 }
 
+li {
+	> .radio, .checkbox {
+		display: inline-block;
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+
+		> label {
+			padding-left: 0;
+		}
+	}
+}
+
 .radar-chart-legend {
 	width: 10px;
 	height: 10px;
 	display: inline-block;
 	margin-right: 5px;
 
-	&.radar-chart-current {
-		background-color: $brand-primary;
-	}
-
-	&.radar-chart-previous {
-		background-color: $brand-warning;
-	}
-
-	&.radar-chart-low {
+	&.radar-chart-default {
 		background-color: $gray-bg;
 	}
 
-	&.radar-chart-high {
+	&.radar-chart-primary {
+		background-color: $brand-primary;
+	}
+
+	&.radar-chart-success {
+		background-color: $brand-success;
+	}
+
+	&.radar-chart-info {
+		background-color: $brand-info;
+	}
+
+	&.radar-chart-warning {
+		background-color: $brand-warning;
+	}
+
+	&.radar-chart-danger {
 		background-color: $brand-danger;
+	}
+}
+
+.js-switch-label {
+	margin: 0 5px;
+
+	&.checked {
+		font-weight: bold;
 	}
 }

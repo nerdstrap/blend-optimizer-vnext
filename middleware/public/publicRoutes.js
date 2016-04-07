@@ -16,7 +16,6 @@ module.exports = function (app) {
 	app.get('/create-blend', controller.createBlend);
 	app.get('/lot-preferences', controller.lotPreferences);
 	app.get('/draft-blend', controller.draftBlend);
-	app.get('/draft-blend2', controller.draftBlend2);
 	app.get('/finalize-blend', controller.finalizeBlend);
 	app.get('/blend-summary', controller.blendSummary);
 

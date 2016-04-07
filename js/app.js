@@ -34,7 +34,14 @@ $(document).ready(function () {
 
 	var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 	elems.forEach(function (html) {
-		var switchery = new Switchery(html);
+		var switchery = new Switchery(html, {
+			color: '#16967c',
+			size: 'small'
+		});
+
+		html.onchange = function () {
+			$(html).next().next().toggleClass('checked').prev().prev().prev().toggleClass('checked');
+		};
 	});
 
 });

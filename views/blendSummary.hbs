@@ -59,15 +59,15 @@
                     </thead>
                     <tbody>
 					{{#draftBlend.bottomLineSpecs}}
-                        <tr>
+                        <tr class="{{status}}">
                             <th>{{i18n spec}}</th>
-							{{#if deviationLow}}
+							{{#if @root.deviation}}
                                 <td>{{deviationLow}}</td>
 							{{/if}}
                             <td>{{low}}</td>
                             <td>{{actual}}</td>
                             <td>{{high}}</td>
-							{{#if deviationHigh}}
+							{{#if @root.deviation}}
                                 <td>{{deviationHigh}}</td>
 							{{/if}}
                         </tr>
