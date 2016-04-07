@@ -25,7 +25,7 @@
                 <h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <canvas id="radarChart" width="315px" height="315px"></canvas>
 				{{#if datasets}}
-                    <ul class="list-inline margin-top-negative-60 margin-bottom-20">
+                    <ul class="list-inline margin-bottom-20">
                         <li><span>{{i18n "feature.radarChartLegend.title"}}</span></li>
 						{{#datasets}}
                             <li>
@@ -40,8 +40,8 @@
 						{{#modifications}}
                             <li>
                                 <div class="checkbox checkbox-{{type}}">
-                                    <input id="{{id}}" type="checkbox" class="styled" {{#if checked}}checked{{/if}} data-key="{{key}}">
-                                    <label for="{{id}}"></label>
+                                    <input id="toggleRadarDataset{{@index}}" name="toggleRadarDataset{{@index}}" type="checkbox" class="styled toggle-radar-dataset" {{#if checked}}checked{{/if}} data-id="{{id}}">
+                                    <label for="toggleRadarDataset{{@index}}"></label>
                                 </div>
                                 <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
                             </li>
@@ -393,20 +393,6 @@
 			{{/with}}
 
         $(document).ready(function () {
-
-			{{#draftBlend.modifications}}
-                $('#{{id}}').on('click', function (evt, params) {
-                    var $target = $(evt.target);
-                    var key = $target.attr('data-key');
-                    var _filteredDatasets = _.filter(radarChartData.datasets, function (dataset) {
-                        return dataset.key !== key;
-                    });
-                    myRadarChart.destroy();
-                    radarChartData.datasets = _filteredDatasets;
-
-                    myRadarChart = new Chart(_radarChart).Radar(radarChartData, radarChartOptions);
-                });
-			{{/draftBlend.modifications}}
 
         });
     </script>

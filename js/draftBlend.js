@@ -15,6 +15,38 @@ $(document).ready(function () {
 	var _radarChart = document.getElementById('radarChart').getContext("2d");
 	var myRadarChart = new Chart(_radarChart).Radar(radarChartData, _options);
 
+	$('.toggle-radar-dataset').on('click', function (evt, params) {
+		var checkedDatasetIds = $('.toggle-radar-dataset:checked').map(function () {
+			return $(this).attr('data-id');
+		}).get();
+
+		if (checkedDatasetIds.length < 1) {
+			$('.toggle-radar-dataset').prop('checked', true);
+			checkedDatasetIds = $('.toggle-radar-dataset:checked').map(function () {
+				return $(this).attr('data-id');
+			}).get();
+		}
+
+		var _filteredDatasets = _.filter(_datasets, function (_dataset) {
+			return checkedDatasetIds.indexOf(_dataset.id) !== -1;
+		});
+
+		var _newRadarChartData = {};
+
+		_newRadarChartData.labels = _labels;
+
+		_newRadarChartData.datasets = _.map(_filteredDatasets, function (_filteredDataset) {
+			var type = _filteredDataset.type;
+			if (!_datasetOptions.hasOwnProperty(type)) {
+				type = 'default';
+			}
+			return _.extend({}, _filteredDataset, _datasetOptions[type]);
+		});
+
+		myRadarChart.destroy();
+		myRadarChart = new Chart(_radarChart).Radar(_newRadarChartData, _options);
+	});
+
 	$('#finalizeBlend').click(function (e) {
 		if (e) {
 			e.preventDefault();
