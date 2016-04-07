@@ -17,7 +17,7 @@
                 <label for="{{type}}SnapValueUpper" class="control-label">{{i18n "label.high"}}</label>
                 <input id="{{type}}SnapValueUpper" name="{{type}}SnapValueUpper" type="text" class="form-control slider-snap-value-control" value="{{high}}">
             </div>
-            <div id="{{type}}Slider" class="material-category-slider" data-low="{{low}}" data-high="{{high}}" {{#if deviation}}data-deviationlow="{{deviationLow}}" data-deviationhigh="{{deviationHigh}}"{{/if}} data-snapvaluelower="{{type}}SnapValueLower" data-snapvalueupper="{{type}}SnapValueUpper"></div>
+            <div id="{{type}}Slider" class="material-category-slider" data-low="{{low}}" data-high="{{high}}" {{#if @root.deviation}}data-deviationlow="{{deviationLow}}" data-deviationhigh="{{deviationHigh}}"{{/if}} data-snapvaluelower="{{type}}SnapValueLower" data-snapvalueupper="{{type}}SnapValueUpper"></div>
         </div>
     </div>
 </div>

@@ -26,7 +26,7 @@ $(document).ready(function () {
 		if (e) {
 			e.preventDefault();
 		}
-		window.location.href = 'draft-blend?v=4';
+		window.location.href = 'draft-blend?v=11';
 	});
 
 	$('#reoptimizeBlend').click(function (e) {
@@ -56,14 +56,17 @@ $(document).ready(function () {
 		var deviationHigh = parseInt($element.attr('data-deviationhigh'), 10);
 
 		var pipsValues;
+		var startValues;
 		if (deviationLow && deviationHigh) {
 			pipsValues = [deviationLow, low, high, deviationHigh];
+			startValues = [deviationLow, deviationHigh];
 		} else {
 			pipsValues = [low, high];
+			startValues = [low, high];
 		}
 
 		var slider = noUiSlider.create(element, {
-			start: [low, high],
+			start: startValues,
 			behaviour: 'drag',
 			connect: true,
 			range: {
@@ -88,13 +91,25 @@ $(document).ready(function () {
 
 		element.noUiSlider.on('change', function (values, handle) {
 			if (handle === 0) {
-				if (values[handle] < low) {
-					element.noUiSlider.set([low, values[1]]);
+				if (deviationLow) {
+					if (values[handle] < deviationLow) {
+						element.noUiSlider.set([deviationLow, values[1]]);
+					}
+				} else {
+					if (values[handle] < low) {
+						element.noUiSlider.set([low, values[1]]);
+					}
 				}
 			}
 			if (handle === 1) {
-				if (values[handle] > high) {
-					element.noUiSlider.set([values[0], high]);
+				if (deviationHigh) {
+					if (values[handle] > deviationHigh) {
+						element.noUiSlider.set([values[0], deviationHigh]);
+					}
+				} else {
+					if (values[handle] > high) {
+						element.noUiSlider.set([values[0], high]);
+					}
 				}
 			}
 			$('#deviateBlendForm, #finalizeBlendForm').addClass('hidden');

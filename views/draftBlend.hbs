@@ -24,15 +24,17 @@
             <div class="col-sm-4">
                 <h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <canvas id="radarChart" width="315px" height="315px"></canvas>
-				{{#if modifications}}
+				{{#if datasets}}
                     <ul class="list-inline margin-top-negative-60 margin-bottom-20">
                         <li><span>{{i18n "feature.radarChartLegend.title"}}</span></li>
-						{{#modifications}}
+						{{#datasets}}
                             <li>
                                 <div class="radar-chart-legend radar-chart-{{type}}"></div>{{i18n status}}
                             </li>
-						{{/modifications}}
+						{{/datasets}}
                     </ul>
+				{{/if}}
+				{{#if modifications}}
                     <ul class="list-inline">
                         <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
 						{{#modifications}}
@@ -105,7 +107,7 @@
                         <button id="deviateBlend" type="button" class="btn btn-warning">{{i18n "button.deviateBlend"}}</button>
                     </div>
                 </form>
-                <form id="reoptimizeBlendForm" name="reoptimizeBlendForm" class="blend-optimizer-form {{#if deviation}}deviation{{else}}hidden{{/if}}">
+                <form id="reoptimizeBlendForm" name="reoptimizeBlendForm" class="blend-optimizer-form {{#if deviation}}{{#if modification}}hidden{{else}}reoptimize{{/if}}{{else}}hidden{{/if}}">
                     <div class="form-group {{#if deviation}}deviation{{else}}hidden{{/if}}">
                         <label for="deviationReason" class="control-label">{{i18n "label.deviationReason"}}</label>
                         <div class="input-group">
@@ -257,13 +259,18 @@
                         </ul>
 					{{/draftBlend.includedLots}}
                     <div class="lot-panel-footer">
-
-                        <div class="lot-usage">
-                            <strong>{{i18n "label.percentUsed"}}</strong>
-                            <span class="blend-weight">{{draftBlend.percentUsed}}{{i18n "label.percent"}}</span>
-
-                            <strong>{{i18n "label.blendSize"}}</strong>
-                            <span class="blend-weight">{{draftBlend.pounds}} {{i18n "label.pounds"}}</span>
+                        <div class="lot-panel-content">
+                            <div class="lot-header">
+                                <h4>{{i18n "label.totals"}}</h4>
+                            </div>
+                            <div class="lot-usage">
+                                <div class="header-container">
+                                    <h4>{{draftBlend.percentUsed}}{{{i18n "label.percent"}}}</h4>
+                                </div>
+                                <div class="header-container">
+                                    <h4>{{draftBlend.pounds}} {{i18n "label.pounds"}}</h4>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -115,3 +115,30 @@ li {
 		font-weight: bold;
 	}
 }
+
+.lot-panel-footer {
+	padding: 0 10px;
+	padding-left: 17px;
+
+	> .lot-panel-content {
+		position: relative;
+		margin: 0;
+		padding: 0;
+		height: $line-height-computed * 5;
+
+
+		> .lot-header {
+			position: absolute;
+			top: 10px;
+			left: 35px;
+		}
+
+		> .lot-usage {
+			position: absolute;
+			top: 0;
+			left: 310px;
+			width: 376px;
+			min-width: 376px;
+		}
+	}
+}

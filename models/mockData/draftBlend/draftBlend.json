@@ -90,7 +90,7 @@
 		{
 			"id": "ABCD-1230",
 			"type": "primary",
-			"status": "optimal",
+			"status": "label.optimal",
 			"data": [
 				"0.725",
 				"0.7307",

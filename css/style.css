@@ -5538,7 +5538,7 @@ button.close {
   .lot.included-lot .lot-title .lot-usage {
     position: absolute;
     top: 10px;
-    left: 450px;
+    left: 310px;
     width: 186px;
     min-width: 186px; }
   .lot.included-lot .lot-content {
@@ -6748,6 +6748,25 @@ li > .radio, li .checkbox {
   margin: 0 5px; }
   .js-switch-label.checked {
     font-weight: bold; }
+
+.lot-panel-footer {
+  padding: 0 10px;
+  padding-left: 17px; }
+  .lot-panel-footer > .lot-panel-content {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    height: 90px; }
+    .lot-panel-footer > .lot-panel-content > .lot-header {
+      position: absolute;
+      top: 10px;
+      left: 35px; }
+    .lot-panel-footer > .lot-panel-content > .lot-usage {
+      position: absolute;
+      top: 0;
+      left: 310px;
+      width: 376px;
+      min-width: 376px; }
 
 
 
