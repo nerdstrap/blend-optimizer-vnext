@@ -1,0 +1,94 @@
+<form id="addMaterialCategoryRuleForm" class="blend-optimizer-form">
+    <div class="row">
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="addMaterialCategoryRule" class="control-label">{{i18n "label.materialCategory"}}</label>
+                <div class="input-group">
+                    <select id="addMaterialCategoryRule" name="addMaterialCategoryRule" class="form-control chosen-select">
+						{{#materialCategories}}
+                            <option id="{{id}}">{{i18n materialCategory}}</option>
+						{{/materialCategories}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
+                <div class="input-group">
+                    <input id="addMaterialCategoryRuleDeviationLow" name="addMaterialCategoryRuleDeviationLow" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleLow" class="control-label">{{i18n "label.low"}}</label>
+                <div class="input-group">
+                    <input id="addMaterialCategoryRuleLow" name="addMaterialCategoryRuleLow" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleHigh" class="control-label">{{i18n "label.high"}}</label>
+                <div class="input-group">
+                    <input id="addMaterialCategoryRuleHigh" name="addMaterialCategoryRuleHigh" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
+                <div class="input-group">
+                    <input id="addMaterialCategoryRuleDeviationHigh" name="addMaterialCategoryRuleDeviationHigh" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleConsumptionFactor" class="control-label">{{i18n "label.consumptionFactor"}}</label>
+                <div class="input-group">
+                    <select id="addMaterialCategoryRuleConsumptionFactor" name="addMaterialCategoryRuleConsumptionFactor" class="form-control chosen-select">
+						{{#consumptionFactors}}
+                            <option id="id">{{consumptionFactor}}</option>
+						{{/consumptionFactors}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleDeviationConsumptionFactor" class="control-label">{{i18n "label.deviationConsumptionFactor"}}</label>
+                <div class="input-group">
+                    <select id="addMaterialCategoryRuleDeviationConsumptionFactor" name="addMaterialCategoryRuleDeviationConsumptionFactor" class="form-control chosen-select">
+						{{#consumptionFactors}}
+                            <option id="id">{{consumptionFactor}}</option>
+						{{/consumptionFactors}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="addMaterialCategoryRuleGlobalRules" class="control-label">{{i18n "label.globalRules"}}</label>
+                <div class="input-group">
+                    <select id="addMaterialCategoryRuleGlobalRules" name="addMaterialCategoryRuleGlobalRules" class="form-control chosen-select" multiple="">
+						{{#globalRules}}
+                            <option id="id">{{globalRule}}</option>
+						{{/globalRules}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label class="control-label">&nbsp;</label>
+                <div class="input-group">
+                    <button type="button" class="btn btn-warning">{{i18n "button.add"}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

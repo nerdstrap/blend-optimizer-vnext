@@ -1,5 +1,104 @@
 {{> "pageHeader"}}
 
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.globalRules.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+        <div class="row row-header">
+            <div class="col-sm-3">
+                <span>{{i18n "label.name"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.summary"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.data"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.details"}}</span>
+            </div>
+        </div>
+        <div id="globalRules" class="row-striped">
+			{{#globalRules}}
+                <div id="{{id}}" class="row row-master-rule">
+                    <div class="col-sm-3">
+                        <span class="fa {{i18n "icon.dragHandle"}}"></span>
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{summary}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{{data}}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span class="fa {{i18n "icon.info"}}"></span>
+                    </div>
+                </div>
+			{{/globalRules}}
+        </div>
+        <div class="row row-footer">
+            <div class="col-sm-3">
+				{{> "addGlobalRule"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.masterRules.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+        <div class="row row-header">
+            <div class="col-sm-3">
+                <span>{{i18n "label.name"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.summary"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.data"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.details"}}</span>
+            </div>
+        </div>
+        <div id="masterRules" class="row-striped">
+			{{#masterRules}}
+                <div id="{{id}}" class="row row-master-rule">
+                    <div class="col-sm-3">
+                        <span class="fa {{i18n "icon.dragHandle"}}"></span>
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{summary}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{{data}}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span class="fa {{i18n "icon.info"}}"></span>
+                    </div>
+                </div>
+			{{/masterRules}}
+        </div>
+        <div class="row row-footer">
+            <div class="col-sm-3">
+				{{> "addMasterRule"}}
+            </div>
+        </div>
+    </div>
+</div>
+
 {{#contentFor "pageScripts"}}
     <script src="js/optimizerMaintenance.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#addMaterialTypeCategoryColor').colorpicker();
+        });
+    </script>
 {{/contentFor}}

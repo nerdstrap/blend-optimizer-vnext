@@ -14,9 +14,6 @@
 <div class="ibox">
     <div class="ibox-title">
 		{{> "ibox-tools"}}
-        <div class="pull-right">
-            <button id="newBlendSpec" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
-        </div>
         <h5 class="ibox-header">{{i18n "feature.selectBlend.title"}}</h5>
     </div>
     <div class="ibox-content">
@@ -66,7 +63,9 @@
         </tbody>
         <tfoot>
         <tr>
-            <th colspan="5">&nbsp;</th>
+            <th colspan="5">
+                <button id="newBlendSpec" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
+            </th>
         </tr>
         </tfoot>
     </table>

@@ -1,6 +1,76 @@
-.blend-optimizer-form .form-control,
-.blend-optimizer-form .chosen-select {
-	width: 270px;
+.col-sm-2 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 75px;
+			}
+		}
+	}
+}
+
+.col-sm-3 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 156px;
+			}
+		}
+	}
+}
+
+.col-sm-4 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 237px;
+			}
+		}
+	}
+}
+
+.col-sm-5 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 399px;
+			}
+		}
+	}
+	.form-group-4 {
+		.form-group {
+			.input-group {
+				.form-control, .chosen-select {
+					width: 75px;
+				}
+			}
+		}
+	}
+}
+
+.col-sm-6 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 480px;
+			}
+		}
+	}
+}
+
+.col-sm-8 {
+	.form-group {
+		.input-group {
+			.form-control, .chosen-select {
+				width: 642px;
+			}
+		}
+	}
+}
+
+.form-group-4 {
+	> .form-group {
+		display: inline-block;
+	}
 }
 
 .margin-bottom-20 {
@@ -126,7 +196,6 @@ li {
 		padding: 0;
 		height: $line-height-computed * 5;
 
-
 		> .lot-header {
 			position: absolute;
 			top: 10px;
@@ -141,4 +210,85 @@ li {
 			min-width: 376px;
 		}
 	}
+}
+
+.row-header {
+}
+
+.row-striped {
+	> .row:nth-of-type(odd) {
+		background-color: $table-bg-accent;
+	}
+}
+
+.row-footer {
+}
+
+.row-master-rule {
+	margin: 5px 0;
+	padding: 10px;
+	border: solid 1px $ibox-default-border;
+
+	.sortable-chosen {
+		cursor: move;
+	}
+
+	.sortable-ghost {
+		opacity: 0.3;
+		border: 1px dashed $lot-list-group-item-border !important;
+		border-radius: $lot-list-group-item-border-radius;
+		visibility: visible !important;
+		background: $gray-bg;
+	}
+}
+
+.colorpicker.colorpicker-visible {
+	z-index: 1099;
+}
+
+/* Rule list */
+
+.rule-item {
+	padding: 20px 25px;
+	background: #ffffff;
+	border-top: 1px solid $ibox-default-border;
+	border-bottom: 1px solid $ibox-default-border;
+}
+
+.rule-actions {
+	float: left;
+	width: 30px;
+	margin-right: 15px;
+	text-align: center;
+
+}
+
+.rule-actions a {
+	color: $link-color;
+	font-weight: 600;
+}
+
+.rule-actions {
+	font-weight: 600;
+}
+
+.rule-title {
+	display: block;
+	color: inherit;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 5px;
+	margin-bottom: 2px;
+}
+
+.rule-title:hover, .rule-title:focus {
+	color: inherit;
+}
+
+.rule-title, .rule-info {
+	margin-left: 45px;
+}
+
+.rule-info {
+	font-size: 16px;
 }

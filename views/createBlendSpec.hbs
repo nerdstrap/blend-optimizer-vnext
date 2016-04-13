@@ -1,3 +1,243 @@
+{{#contentFor "pageHeader"}}
+    <div class="page-header">
+        <div class="container-fluid">
+            <h3>{{i18n "area.createBlendSpec.title"}}</h3>
+            <ol class="breadcrumb">
+				{{#breadcrumbs}}
+                    <li><a href="{{href}}">{{title}}</a></li>
+				{{/breadcrumbs}}
+            </ol>
+        </div>
+    </div>
+{{/contentFor}}
+
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.mixDetails.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <form id="mixDetailsForm" class="blend-optimizer-form">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label class="control-label" for="blendName">{{i18n "label.blendName"}}</label>
+                        <div class="input-group">
+                            <span class="input-group-addon">{{blendNamePrefix}}</span>
+                            <input id="blendName" name="blendName" type="text" class="form-control" value="{{blendName}}">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div class="form-group">
+                        <label class="control-label" for="blendNameFormatted">&nbsp;</label>
+                        <div class="input-group">
+                            <h3 id="blendNameFormatted">
+                                <span class="fa {{i18n "icon.transformRight"}}"></span> {{blendNamePrefix}}{{blendName}}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label" for="plannerSeries">{{i18n "label.plannerSeries"}}</label>
+                        <div class="input-group">
+                            <select id="plannerSeries" name="plannerSeries" class="form-control chosen-select">
+								{{#plannerSeries}}
+                                    <option id="{{id}}">{{plannerSeries}}</option>
+								{{/plannerSeries}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="productCodes">{{i18n "label.productCodes"}}</label>
+                        <div class="input-group">
+                            <select id="productCodes" name="productCodes" class="form-control chosen-select">
+								{{#productCodes}}
+                                    <option id="{{id}}">{{productCode}}</option>
+								{{/productCodes}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="productLines">{{i18n "label.productLines"}}</label>
+                        <div class="input-group">
+                            <select id="productLines" name="productLines" class="form-control chosen-select">
+								{{#productLines}}
+                                    <option id="{{id}}">{{productLine}}</option>
+								{{/productLines}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="plannerCodes">{{i18n "label.plannerCodes"}}</label>
+                        <div class="input-group">
+                            <select id="plannerCodes" name="plannerCodes" class="form-control chosen-select" multiple="">
+								{{#plannerCodes}}
+                                    <option id="{{id}}" selected="selected">{{plannerCode}}</option>
+								{{/plannerCodes}}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <h4>(04AG) 4" Ag Singlewall Pipe, (04CM) 4" Cm Singlewall Pipe</h4>
+                    </div>
+                    <div class="form-group">
+                        <h4>{{i18n "label.productSKUs"}}</h4>
+                        <span>ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230,ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230</span>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <button class="btn btn-primary">{{i18n "button.save"}}</button>
+                    <button class="btn btn-default">{{i18n "button.reset"}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.bottomLineSpecs.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table id="bottomLineSpecs" class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.spec"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+                <th>{{i18n "label.notify"}}</th>
+                <th>{{i18n "label.notificationRecipients"}}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#bottomLineSpecs}}
+                <tr id="{{id}}">
+                    <th>{{i18n spec}}</th>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                    <td>
+                        <div class="checkbox checkbox-warning">
+                            <input id="notify{{@index}}" name="notify{{@index}}" type="checkbox" class="styled" {{#if notify}}checked{{/if}}>
+                            <label for="notify{{@index}}"></label>
+                        </div>
+                    </td>
+                    <td>
+						{{#notificationRecipients}}
+                            <a data-toggle="popover" data-placement="left" data-content="{{fullName}}">{{initials}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/notificationRecipients}}
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
+						{{#if optional}}
+                            <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
+						{{/if}}
+                    </td>
+                </tr>
+			{{/bottomLineSpecs}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="8">
+					{{> "addBottomLineSpecModal"}}
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+<div class="ibox margin-bottom-20">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.materialCategoryRules.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <table id="materialCategoryRules" class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.materialCategory"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+                <th>{{i18n "label.consumptionFactor"}}</th>
+                <th>{{i18n "label.deviationConsumptionFactor"}}</th>
+                <th>{{i18n "label.globalRules"}}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#materialCategoryRules}}
+                <tr id="{{id}}">
+                    <th><span class="label label-{{type}}">{{badge}}</span> {{i18n materialCategory}}</th>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                    <td>{{consumptionFactor}}</td>
+                    <td>{{deviationConsumptionFactor}}</td>
+                    <td>
+						{{#globalRules}}
+                            <a data-toggle="popover" data-placement="left" data-content="{{summary}}">{{title}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/globalRules}}
+                    </td>
+                    <td>
+                        <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
+                        <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
+                    </td>
+                </tr>
+			{{/materialCategoryRules}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="9">
+                    <button class="btn btn-xs btn-warning">{{i18n "button.add"}}</button>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+		{{> "addMaterialCategoryRuleForm"}}
+    </div>
+</div>
+
 {{#contentFor "pageScripts"}}
     <script src="js/createBlendSpec.js"></script>
+
 {{/contentFor}}

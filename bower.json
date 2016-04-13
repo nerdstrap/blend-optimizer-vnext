@@ -16,6 +16,7 @@
 		"wnumb": "latest",
 		"toastr": "latest",
 		"switchery": "latest",
-		"awesome-bootstrap-checkbox": "latest"
+		"awesome-bootstrap-checkbox": "latest",
+		"bootstrap-colorpicker":"latest"
 	}
 }

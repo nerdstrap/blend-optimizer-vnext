@@ -57,11 +57,15 @@
                             </div>
                             <div class="lot-panel-body">
                                 <form id="exludeSKUsForm" class="blend-optimizer-form">
-                                    <select id="skus" name="skus" data-placeholder="{{i18n "label.excludedSKUs"}}" class="chosen-select" multiple="">
-										{{#materialTypes}}
-                                            <option value="{{sku}}">{{sku}}</option>
-										{{/materialTypes}}
-                                    </select>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <select id="skus" name="skus" data-placeholder="{{i18n "label.excludedSKUs"}}" class="form-control chosen-select" multiple="">
+												{{#materialTypes}}
+                                                    <option value="{{sku}}">{{sku}}</option>
+												{{/materialTypes}}
+                                            </select>
+                                        </div>
+                                    </div>
                                 </form>
                             </div>
                             <div class="lot-panel-heading">

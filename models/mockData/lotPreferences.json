@@ -75,6 +75,7 @@
 			"sku": 99994,
 			"lotNumber": 4310962,
 			"size": 15797,
+			"reservation": 75000,
 			"price": 0.42,
 			"vendorName": "BERRY PLASTICS CORPORATION",
 			"density": 0.9519,
@@ -94,7 +95,7 @@
 		},
 		{
 			"id": "ABCD-1249",
-			"status": "success",
+			"status": "danger",
 			"type": "flake",
 			"badge": "F",
 			"sku": 99994,
@@ -119,7 +120,7 @@
 		},
 		{
 			"id": "ABCD-1200",
-			"status": "success",
+			"status": "warning",
 			"type": "flake",
 			"badge": "F",
 			"sku": "9999E",

@@ -1,30 +1,236 @@
 {
 	"selectedPlant": "P30 - Owosso",
-	"header": "area.createBlend.title",
-	"breadcrumbs": [
-		{
-			"status": "active",
-			"title": "feature.selectBlend.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.lotPreferences.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.draftBlend.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.finalizeBlend.title"
-		}
-	],
-	"blendSpecs": [
+	"header": "area.createBlendSpec.title",
+	"plannerSeries": [
 		{
 			"id": "ABCD-1230",
-			"name": "Blend Spec 1",
-			"description": "description 1",
-			"active": "true"
+			"plannerSeries": "planner series 1"
+		},
+		{
+			"id": "ABCD-1231",
+			"plannerSeries": "planner series 2"
+		},
+		{
+			"id": "ABCD-1232",
+			"plannerSeries": "planner series 3"
+		}
+	],
+	"productCodes": [
+		{
+			"id": "ABCD-1230",
+			"productCode": "product code 1"
+		},
+		{
+			"id": "ABCD-1231",
+			"productCode": "product code 2"
+		},
+		{
+			"id": "ABCD-1232",
+			"productCode": "product code 3"
+		}
+	],
+	"productLines": [
+		{
+			"id": "ABCD-1230",
+			"productLine": "product line 1"
+		},
+		{
+			"id": "ABCD-1231",
+			"productLine": "product line 2"
+		},
+		{
+			"id": "ABCD-1232",
+			"productLine": "product line 3"
+		}
+	],
+	"plannerCodes": [
+		{
+			"id": "ABCD-1230",
+			"plannerCode": "04AG",
+			"description": "(04AG) 4&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1231",
+			"plannerCode": "04CM",
+			"description": "04CM description",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		}
+	],
+	"specs": [
+		{
+			"id": "ABCD-1230",
+			"spec": "label.density"
+		},
+		{
+			"id": "ABCD-1231",
+			"spec": "label.meltIndex"
+		},
+		{
+			"id": "ABCD-1232",
+			"spec": "label.izod"
+		},
+		{
+			"id": "ABCD-1233",
+			"spec": "label.ncls"
+		},
+		{
+			"id": "ABCD-1234",
+			"spec": "label.sinkFloat"
+		},
+		{
+			"id": "ABCD-1235",
+			"spec": "label.infrared"
+		},
+		{
+			"id": "ABCD-1236",
+			"spec": "label.contaminationOther"
+		}
+	],
+	"notificationRecipients": [
+		{
+			"initials": "JB",
+			"fullName": "Jeff Biesenburger"
+		},
+		{
+			"initials": "MB",
+			"fullName": "Mike Brooks"
+		}
+	],
+	"materialCategories": [
+		{
+			"id": "ABCD-1230",
+			"materialCategory": "material category 1"
+		}
+	],
+	"consumptionFactors": [
+		{
+			"id": "ABCD-1230",
+			"consumptionFactor": "MIN"
+		},
+		{
+			"id": "ABCD-1231",
+			"consumptionFactor": "MAX"
+		},
+		{
+			"id": "ABCD-1232",
+			"consumptionFactor": "N"
+		}
+	],
+	"globalRules": [
+		{
+			"id": "ABCD-1230",
+			"globalRule": "H1"
+		},
+		{
+			"id": "ABCD-1231",
+			"globalRule": "EQ1"
+		},
+		{
+			"id": "ABCD-1232",
+			"globalRule": "GEO2"
+		}
+	],
+	"blendName": "345",
+	"bottomLineSpecs": [
+		{
+			"id": "ABCD-1230",
+			"spec": "label.density",
+			"deviationLow": "0.95",
+			"low": "0.95",
+			"high": "0.9529",
+			"deviationHigh": "0.954",
+			"notify": "true",
+			"notificationRecipients": [
+				{
+					"initials": "JB",
+					"fullName": "Jeff Biesenburger"
+				},
+				{
+					"initials": "MB",
+					"fullName": "Mike Brooks"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1231",
+			"spec": "label.meltIndex",
+			"deviationLow": "0.18",
+			"low": "0.18",
+			"high": "0.4",
+			"deviationHigh": "0.4"
+		},
+		{
+			"id": "ABCD-1232",
+			"spec": "label.izod",
+			"deviationLow": "1.5",
+			"low": "3",
+			"high": "5",
+			"deviationHigh": "6"
+		},
+		{
+			"id": "ABCD-1233",
+			"optional": "true",
+			"spec": "label.ncls",
+			"deviationLow": "0",
+			"low": "0",
+			"high": "0",
+			"deviationHigh": "0"
+		}
+	],
+	"materialCategoryRules": [
+		{
+			"id": "ABCD-1230",
+			"type": "repro",
+			"badge": "H",
+			"materialCategory": "HMW",
+			"deviationLow": "20",
+			"low": "20",
+			"high": "30",
+			"deviationHigh": "30",
+			"consumptionFactor": "MIN",
+			"deviationConsumptionFactor": "MIN",
+			"globalRules": [
+				{
+					"title": "H1",
+					"summary": "HMW > 20% && < 30%"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "regrind",
+			"badge": "R",
+			"materialCategory": "Regrind",
+			"deviationLow": "0",
+			"low": "0",
+			"high": "10",
+			"deviationHigh": "50",
+			"consumptionFactor": "N",
+			"deviationConsumptionFactor": "N",
+			"globalRules": []
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "hybrid",
+			"badge": "L",
+			"materialCategory": "Low Cost",
+			"deviationLow": "40",
+			"low": "40",
+			"high": "80",
+			"deviationHigh": "80",
+			"consumptionFactor": "MAX",
+			"deviationConsumptionFactor": "MAX",
+			"globalRules": [
+				{
+					"title": "GS1",
+					"summary": "SEQ H: ZP > Z > HX"
+				},
+				{
+					"title": "E1",
+					"summary": "Fill w/ low cost flake"
+				}
+			]
 		}
 	]
 }

@@ -1,0 +1,87 @@
+<div>
+    <a id="addMaterialTypeCategory" class="btn btn-warning" data-toggle="modal" data-target="#addMaterialTypeCategoryModal" href="#">{{i18n "button.addMaterialTypeCategory"}}</a>
+</div>
+<div class="modal inmodal" id="addMaterialTypeCategoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa {{i18n "icon.close"}}"></i>
+                </button>
+                <h4 class="modal-title">{{i18n "area.addMaterialTypeCategory.title"}}</h4>
+                <small class="font-bold">{{i18n "area.addMaterialTypeCategory.description"}}</small>
+            </div>
+            <div class="modal-body">
+                <form id="addMaterialTypeCategoryForm" class="blend-optimizer-form">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryName" class="control-label">{{i18n "label.name"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryName" name="addMaterialTypeCategoryName" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryBadge" class="control-label">{{i18n "label.badge"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryBadge" name="addMaterialTypeCategoryBadge" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryColor" class="control-label">{{i18n "label.color"}}</label>
+                                <div class="input-group">
+                                    <div id="addMaterialTypeCategoryColor" class="input-group colorpicker-component form-control-sm">
+                                        <input type="text" value="" class="form-control form-control-sm"/>
+                                        <span class="input-group-addon"><i></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryDeviationLow" name="addMaterialTypeCategoryDeviationLow" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryLow" class="control-label">{{i18n "label.low"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryLow" name="addMaterialTypeCategoryLow" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryHigh" class="control-label">{{i18n "label.high"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryHigh" name="addMaterialTypeCategoryHigh" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addMaterialTypeCategoryDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialTypeCategoryDeviationHigh" name="addMaterialTypeCategoryDeviationHigh" class="form-control form-control-sm">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">{{i18n "button.close"}}</button>
+                <button type="button" class="btn btn-primary">{{i18n "button.add"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -13,7 +13,7 @@
                         <label for="department" class="control-label">{{i18n "label.department"}}</label>
                         <div class="input-group">
                             <select id="department" name="department" class="form-control chosen-select">
-                                <option value="" selected="true" disabled="disabled">{{i18n "label.department"}}</option>
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.department"}}</option>
 								{{#departments}}
                                     <option value="{{id}}" data-description="{{{description}}}" data-plannercodes="{{json plannerCodes}}">{{department}}</option>
 								{{/departments}}
@@ -26,17 +26,19 @@
                         <label for="plannerCode" class="control-label">{{i18n "label.plannerCode"}}</label>
                         <div class="input-group">
                             <select id="plannerCode" name="plannerCode" class="form-control chosen-select">
-                                <option value="" selected="true" disabled="disabled">{{i18n "label.plannerCode"}}</option>
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerCode"}}</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
-                    <div class="input-group">
-                        <select id="blendSpec" name="blendSpec" class="form-control chosen-select">
-                            <option value="" selected="true" disabled="disabled">{{i18n "label.blendSpec"}}</option>
-                        </select>
+                    <div class="form-group">
+                        <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
+                        <div class="input-group">
+                            <select id="blendSpec" name="blendSpec" class="form-control chosen-select">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.blendSpec"}}</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>

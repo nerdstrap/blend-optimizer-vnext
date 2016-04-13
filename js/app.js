@@ -1,5 +1,7 @@
 $(document).ready(function () {
 
+	$("[data-toggle=popover]").popover();
+
 	$('.collapse-ibox-link').click(function (e) {
 		var ibox = $(e.target).closest('div.ibox');
 		var button = $(e.target).closest('i');

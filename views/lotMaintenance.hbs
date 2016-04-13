@@ -1,5 +1,43 @@
 {{> "pageHeader"}}
 
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.materialTypeCategories.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.description"}}</th>
+                <th>{{i18n "label.deviationLow"}}</th>
+                <th>{{i18n "label.low"}}</th>
+                <th>{{i18n "label.high"}}</th>
+                <th>{{i18n "label.deviationHigh"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#materialTypeCategories}}
+                <tr id="{{id}}">
+                    <td><span class="label label-{{type}}">{{badge}}</span>{{description}}</td>
+                    <td>{{deviationLow}}</td>
+                    <td>{{low}}</td>
+                    <td>{{high}}</td>
+                    <td>{{deviationHigh}}</td>
+                </tr>
+			{{/materialTypeCategories}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">
+					{{> "addMaterialTypeCategory"}}
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
 {{#contentFor "pageScripts"}}
     <script src="js/lotMaintenance.js"></script>
 {{/contentFor}}
