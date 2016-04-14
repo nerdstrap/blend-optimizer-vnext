@@ -246,5 +246,8 @@
 	"feature.mixDetails.title": "Mix Details",
 	"label.notificationRecipients": "To",
 	"button.delete": "Delete",
-	"material category 1": "material category 1"
+	"material category 1": "material category 1",
+	"feature.blendSpecDetails.title": "Blend Spec Details",
+	"label.productCode": "Product Code",
+	"label.productLine": "Product Line"
 }

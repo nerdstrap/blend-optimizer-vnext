@@ -4,43 +4,48 @@
 	"plannerSeries": [
 		{
 			"id": "ABCD-1230",
-			"plannerSeries": "planner series 1"
-		},
-		{
-			"id": "ABCD-1231",
-			"plannerSeries": "planner series 2"
-		},
-		{
-			"id": "ABCD-1232",
-			"plannerSeries": "planner series 3"
+			"plannerSeries": "Series 1",
+			"description": "description",
+			"productCodes": [
+				"ABCD-1230"
+			],
+			"plannerCodes": [
+				"ABCD-1230",
+				"ABCD-1231",
+				"ABCD-1232",
+				"ABCD-1233",
+				"ABCD-1234",
+				"ABCD-1235",
+				"ABCD-1236",
+				"ABCD-1237"
+			]
 		}
 	],
 	"productCodes": [
 		{
 			"id": "ABCD-1230",
-			"productCode": "product code 1"
-		},
-		{
-			"id": "ABCD-1231",
-			"productCode": "product code 2"
-		},
-		{
-			"id": "ABCD-1232",
-			"productCode": "product code 3"
+			"productCode": "Code 1",
+			"description": "description",
+			"productLines": [
+				"ABCD-1230"
+			],
+			"plannerCodes": [
+				"ABCD-1234",
+				"ABCD-1235",
+				"ABCD-1236",
+				"ABCD-1237"
+			]
 		}
 	],
 	"productLines": [
 		{
 			"id": "ABCD-1230",
-			"productLine": "product line 1"
-		},
-		{
-			"id": "ABCD-1231",
-			"productLine": "product line 2"
-		},
-		{
-			"id": "ABCD-1232",
-			"productLine": "product line 3"
+			"productLine": "Line 1",
+			"description": "description",
+			"plannerCodes": [
+				"ABCD-1236",
+				"ABCD-1237"
+			]
 		}
 	],
 	"plannerCodes": [
@@ -53,7 +58,43 @@
 		{
 			"id": "ABCD-1231",
 			"plannerCode": "04CM",
-			"description": "04CM description",
+			"description": "(04CM) 4&quot; Cm Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1232",
+			"plannerCode": "05AG",
+			"description": "(05AG) 5&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1233",
+			"plannerCode": "05CM",
+			"description": "(05CM) 5&quot; Cm Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1234",
+			"plannerCode": "06AG",
+			"description": "(06AG) 6&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1235",
+			"plannerCode": "06CM",
+			"description": "(06CM) 6&quot; Cm Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1236",
+			"plannerCode": "07AG",
+			"description": "(07AG) 7&quot; Ag Singlewall Pipe",
+			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+		},
+		{
+			"id": "ABCD-1237",
+			"plannerCode": "07CM",
+			"description": "(07CM) 7&quot; Ag Singlewall Pipe",
 			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
 		}
 	],
@@ -131,7 +172,7 @@
 			"globalRule": "GEO2"
 		}
 	],
-	"blendName": "345",
+	"blendSpecName": "345",
 	"bottomLineSpecs": [
 		{
 			"id": "ABCD-1230",

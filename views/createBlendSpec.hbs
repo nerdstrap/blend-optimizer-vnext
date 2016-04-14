@@ -20,26 +20,26 @@
                 </li>
             </ul>
         </div>
-        <h5>{{i18n "feature.mixDetails.title"}}</h5>
+        <h5>{{i18n "feature.blendSpecDetails.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="mixDetailsForm" class="blend-optimizer-form">
+        <form id="blendSpecDetailsForm" class="blend-optimizer-form">
             <div class="row">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label class="control-label" for="blendName">{{i18n "label.blendName"}}</label>
+                        <label class="control-label" for="blendSpecName">{{i18n "label.blendSpecName"}}</label>
                         <div class="input-group">
-                            <span class="input-group-addon">{{blendNamePrefix}}</span>
-                            <input id="blendName" name="blendName" type="text" class="form-control" value="{{blendName}}">
+                            <span class="input-group-addon">{{blendSpecNamePrefix}}</span>
+                            <input id="blendSpecName" name="blendSpecName" type="text" class="form-control" value="{{blendSpecName}}">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label class="control-label" for="blendNameFormatted">&nbsp;</label>
+                        <label class="control-label" for="blendSpecNameFormatted">&nbsp;</label>
                         <div class="input-group">
-                            <h3 id="blendNameFormatted">
-                                <span class="fa {{i18n "icon.transformRight"}}"></span> {{blendNamePrefix}}{{blendName}}
+                            <h3 id="blendSpecNameFormatted">
+                                <span class="fa {{i18n "icon.transformRight"}}"></span> {{blendSpecNamePrefix}}{{blendSpecName}}
                             </h3>
                         </div>
                     </div>
@@ -50,30 +50,27 @@
                     <div class="form-group">
                         <label class="control-label" for="plannerSeries">{{i18n "label.plannerSeries"}}</label>
                         <div class="input-group">
-                            <select id="plannerSeries" name="plannerSeries" class="form-control chosen-select">
+                            <select id="plannerSeries" name="plannerSeries" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerSeries"}}</option>
 								{{#plannerSeries}}
-                                    <option id="{{id}}">{{plannerSeries}}</option>
+                                    <option value="{{id}}" data-description="{{{description}}}" data-productcodes="{{json productCodes}}" data-plannercodes="{{json plannerCodes}}">{{plannerSeries}}</option>
 								{{/plannerSeries}}
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="productCodes">{{i18n "label.productCodes"}}</label>
+                        <label class="control-label" for="productCode">{{i18n "label.productCode"}}</label>
                         <div class="input-group">
-                            <select id="productCodes" name="productCodes" class="form-control chosen-select">
-								{{#productCodes}}
-                                    <option id="{{id}}">{{productCode}}</option>
-								{{/productCodes}}
+                            <select id="productCode" name="productCode" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productCode"}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="productLines">{{i18n "label.productLines"}}</label>
+                        <label class="control-label" for="productLine">{{i18n "label.productLine"}}</label>
                         <div class="input-group">
-                            <select id="productLines" name="productLines" class="form-control chosen-select">
-								{{#productLines}}
-                                    <option id="{{id}}">{{productLine}}</option>
-								{{/productLines}}
+                            <select id="productLine" name="productLine" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productLine"}}</option>
                             </select>
                         </div>
                     </div>
@@ -83,18 +80,15 @@
                         <label class="control-label" for="plannerCodes">{{i18n "label.plannerCodes"}}</label>
                         <div class="input-group">
                             <select id="plannerCodes" name="plannerCodes" class="form-control chosen-select" multiple="">
-								{{#plannerCodes}}
-                                    <option id="{{id}}" selected="selected">{{plannerCode}}</option>
-								{{/plannerCodes}}
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <h4>(04AG) 4" Ag Singlewall Pipe, (04CM) 4" Cm Singlewall Pipe</h4>
+                        <h4 id="plannerCodeDescription"></h4>
                     </div>
                     <div class="form-group">
                         <h4>{{i18n "label.productSKUs"}}</h4>
-                        <span>ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230,ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230</span>
+                        <span id="productSKUs"></span>
                     </div>
                 </div>
                 <div class="col-sm-2">
@@ -239,5 +233,128 @@
 
 {{#contentFor "pageScripts"}}
     <script src="js/createBlendSpec.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
 
+            var _plannerSeries = {{{json plannerSeries}}};
+            var _productCodes = {{{json productCodes}}};
+            var _productLines = {{{json productLines}}};
+            var _plannerCodes = {{{json plannerCodes}}};
+
+            function getPlannerCodeOption(id, plannerCode, description, productSKUs) {
+                var plannerCodeOption = '<option value="' + id + '" selected="selected">' + plannerCode + '</option>';
+                return plannerCodeOption;
+            }
+
+            function getProductCodeOption(id, productCode) {
+                var productCodeOption = '<option value="' + id + '">' + productCode + '</option>';
+                return productCodeOption;
+            }
+
+            function getProductLineOption(id, productLine, description, plannerCodes) {
+                var productLineOption = '<option value="' + id + '">' + productLine + '</option>';
+                return productLineOption;
+            }
+
+            function plannerSeries_onChange(plannerSeriesId) {
+                var $selectedPlannerSeries = $('#plannerSeries').find('option:selected');
+                var _selectedPlannerSeries = _.find(_plannerSeries, {'id': $selectedPlannerSeries.val()});
+
+                var productCodes = _.filter(_productCodes, function (_productCode) {
+                    return _selectedPlannerSeries.productCodes.indexOf(_productCode.id) !== -1;
+                });
+                var productCodeOptions = '<option value="" selected="true">{{i18n "label.productCode"}}</option>';
+                _.forEach(productCodes, function (productCode) {
+                    productCodeOptions += getProductCodeOption(productCode.id, productCode.productCode);
+                });
+                $('#productCode').html(productCodeOptions);
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedPlannerSeries.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function productCode_onChange(productCodeId) {
+                var $selectedProductCode = $('#productCode').find('option:selected');
+                var _selectedProductCode = _.find(_productCodes, {'id': $selectedProductCode.val()});
+
+                var productLines = _.filter(_productLines, function (_productLine) {
+                    return _selectedProductCode.productLines.indexOf(_productLine.id) !== -1;
+                });
+                var productLineOptions = '<option value="" selected="true">{{i18n "label.productLine"}}</option>';
+                _.forEach(productLines, function (productLine) {
+                    productLineOptions += getProductLineOption(productLine.id, productLine.productLine);
+                });
+                $('#productLine').html(productLineOptions);
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedProductCode.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function productLine_onChange(productLineId) {
+                var $selectedProductLine = $('#productLine').find('option:selected');
+                var _selectedProductLine = _.find(_productLines, {'id': $selectedProductLine.val()});
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedProductLine.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function plannerCodes_onChange() {
+                var _selectedPlannerCodeIds = $('#plannerCodes').find('option:selected').map(function () {
+                    return this.value;
+                }).get();
+
+                var selectedPlannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedPlannerCodeIds.indexOf(_plannerCode.id) !== -1;
+                });
+
+                var plannerCodeDescription = '';
+                var productSKUs = '';
+                _.forEach(selectedPlannerCodes, function (value, key) {
+                    plannerCodeDescription = plannerCodeDescription + value.description + ', ';
+                    productSKUs = productSKUs + value.productSKUs + ', ';
+                });
+
+                $('#plannerCodeDescription').text(plannerCodeDescription);
+                $('#productSKUs').text(productSKUs);
+            }
+
+            $('#plannerSeries').on('change', function (evt, params) {
+                plannerSeries_onChange();
+            });
+
+            $('#productCode').on('change', function (evt, params) {
+                productCode_onChange();
+            });
+
+            $('#productLine').on('change', function (evt, params) {
+                productLine_onChange();
+            });
+
+            $('#plannerCodes').on('change', function (evt, params) {
+                plannerCodes_onChange();
+            });
+
+        });
+    </script>
 {{/contentFor}}
