@@ -29,7 +29,7 @@
                     <div class="form-group">
                         <label class="control-label" for="blendSpecName">{{i18n "label.blendSpecName"}}</label>
                         <div class="input-group">
-                            <span class="input-group-addon">{{blendSpecNamePrefix}}</span>
+                            <span id="blendSpecNamePrefix" class="input-group-addon">{{blendSpecNamePrefix}}</span>
                             <input id="blendSpecName" name="blendSpecName" type="text" class="form-control" value="{{blendSpecName}}">
                         </div>
                     </div>
@@ -38,8 +38,9 @@
                     <div class="form-group">
                         <label class="control-label" for="blendSpecNameFormatted">&nbsp;</label>
                         <div class="input-group">
-                            <h3 id="blendSpecNameFormatted">
-                                <span class="fa {{i18n "icon.transformRight"}}"></span> {{blendSpecNamePrefix}}{{blendSpecName}}
+                            <h3>
+                                <span class="fa {{i18n "icon.transformRight"}}"></span>
+                                <span id="blendSpecNameFormatted">{{blendSpecNamePrefix}}{{blendSpecName}}</span>
                             </h3>
                         </div>
                     </div>
@@ -227,7 +228,7 @@
             </tr>
             </tfoot>
         </table>
-		{{> "addMaterialCategoryRuleForm"}}
+
     </div>
 </div>
 
@@ -353,6 +354,11 @@
 
             $('#plannerCodes').on('change', function (evt, params) {
                 plannerCodes_onChange();
+            });
+
+            $('#blendSpecName').on('input', function (evt, params) {
+                var blendSpecNameFormatted = $('#blendSpecNamePrefix').text() + $('#blendSpecName').val();
+                $('#blendSpecNameFormatted').text(blendSpecNameFormatted);
             });
 
         });
