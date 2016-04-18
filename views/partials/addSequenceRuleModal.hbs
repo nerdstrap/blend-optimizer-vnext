@@ -1,0 +1,75 @@
+<div>
+    <a id="addSequenceRule" class="btn btn-warning" data-toggle="modal" data-target="#addSequenceRuleModal" href="#">{{i18n "button.add"}}</a>
+</div>
+<div class="modal inmodal" id="addSequenceRuleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa {{i18n "icon.close"}}"></i>
+                </button>
+                <h4 class="modal-title">{{i18n "area.addSequenceRule.title"}}</h4>
+                <small class="font-bold">{{i18n "area.addSequenceRule.description"}}</small>
+            </div>
+            <div class="modal-body">
+                <form id="addSequenceRuleForm" class="blend-optimizer-form">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addSequenceRuleMaterialTypeCategory" class="control-label">{{i18n "label.materialTypeCategory"}}</label>
+                                <div class="input-group">
+                                    <select id="addSequenceRuleMaterialTypeCategory" name="addSequenceRuleMaterialTypeCategory" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.materialTypeCategory"}}</option>
+										{{#materialTypeCategories}}
+                                            <option value="{{id}}">{{type}}</option>
+										{{/materialTypeCategories}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addSequenceRuleSKUs" class="control-label">{{i18n "label.skus"}}</label>
+                                <div class="input-group">
+                                    <select id="addSequenceRuleSKUs" name="addSequenceRuleSKUs" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.skus"}}</option>
+										{{#skus}}
+                                            <option value="{{id}}">{{code}}</option>
+										{{/skus}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">&nbsp;</label>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-primary">{{i18n "button.add"}}
+                                        <span class="fa {{i18n "icon.transformRight"}}"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <ul id="sequencedSKUs" class="list-group sku-list-group sortable">
+								{{#sequencedSKUs}}
+                                    <li id="{{id}}" class="list-group-item sku-list-group-item">
+                                        <div class="sortable-item">
+											{{code}}
+                                            <div class="pull-right">
+                                                <a href="#"><span class="fa {{i18n "icon.close"}}"></span></a>
+                                            </div>
+                                        </div>
+                                    </li>
+								{{/sequencedSKUs}}
+                            </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">{{i18n "button.close"}}</button>
+                <button type="button" class="btn btn-primary">{{i18n "button.add"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

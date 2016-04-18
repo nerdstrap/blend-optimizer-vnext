@@ -7046,6 +7046,16 @@ li > .radio, li .checkbox {
   max-height: 500px;
   overflow-y: auto; }
 
+.sku-list-group > li {
+  margin: 10px 0; }
+.sku-list-group .sortable-chosen {
+  cursor: move; }
+.sku-list-group .sortable-ghost {
+  opacity: 0.3;
+  border: 1px dashed #e7eaec !important;
+  border-radius: 2px;
+  visibility: visible !important; }
+
 
 
 /*# sourceMappingURL=maps/style.css.map */

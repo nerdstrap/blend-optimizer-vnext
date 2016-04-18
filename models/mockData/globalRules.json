@@ -8,125 +8,283 @@
 			"href": "optimizer-maintenance"
 		}
 	],
-	"colors": [
-		{
-			"id": "ABCD-1230",
-			"name": "default"
-		},
-		{
-			"id": "ABCD-1231",
-			"name": "primary"
-		},
-		{
-			"id": "ABCD-1232",
-			"name": "success"
-		},
-		{
-			"id": "ABCD-1233",
-			"name": "info"
-		},
-		{
-			"id": "ABCD-1234",
-			"name": "warning"
-		},
-		{
-			"id": "ABCD-1235",
-			"name": "danger"
-		}
-	],
 	"materialTypeCategories": [
 		{
 			"id": "ABCD-1230",
 			"type": "virgin",
 			"badge": "V",
 			"description": "Virgin Resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1231",
 			"type": "flake",
 			"badge": "F",
 			"description": "Flake Resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1232",
 			"type": "regrind",
 			"badge": "R",
 			"description": "Regrind (internal)",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1233",
 			"type": "repro",
 			"badge": "P",
 			"description": "Reprocessed (internal)",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1234",
 			"type": "color",
 			"badge": "C",
 			"description": "Color resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1235",
 			"type": "ocra",
 			"badge": "O",
 			"description": "Other",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1236",
 			"type": "hybrid",
 			"badge": "Y",
 			"description": "Hybrid flake / spec resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "100",
+			"deviationHigh": "100"
 		}
 	],
-	"globalRules": [
+	"skus": [
 		{
 			"id": "ABCD-1230",
-			"type":"sequence",
-			"name": "SEQ-H-1",
-			"summary":"Sequence H materials",
-			"data": "mat:#H,seq[#ZP,#Z,#HX,#H]"
+			"code": "9999E",
+			"description": "9999E description"
 		},
 		{
 			"id": "ABCD-1231",
-			"type":"equipment",
-			"name": "EQUIP-30-1",
-			"summary":"class 30 don't use flake",
-			"data": "class:#30,bucket[#flake:0],"
+			"code": "9999Z",
+			"description": "9999Z description"
 		},
 		{
 			"id": "ABCD-1232",
-			"type":"geographic",
+			"code": "9999NE",
+			"description": "9999NE description"
+		},
+		{
+			"id": "ABCD-1233",
+			"code": "9999RA",
+			"description": "9999RA description"
+		},
+		{
+			"id": "ABCD-1234",
+			"code": "9999L1",
+			"description": "9999L1 description"
+		},
+		{
+			"id": "ABCD-1235",
+			"code": "9999A",
+			"description": "9999A description"
+		},
+		{
+			"id": "ABCD-1236",
+			"code": "9999N",
+			"description": "9999N description"
+		},
+		{
+			"id": "ABCD-1237",
+			"code": "9999SL",
+			"description": "9999SL description"
+		},
+		{
+			"id": "ABCD-1238",
+			"code": "9999V",
+			"description": "9999V description"
+		},
+		{
+			"id": "ABCD-1239",
+			"code": "9999X",
+			"description": "9999X description"
+		},
+		{
+			"id": "ABCD-1240",
+			"code": "9999S",
+			"description": "9999S description"
+		},
+		{
+			"id": "ABCD-1241",
+			"code": "9999B",
+			"description": "9999B description"
+		},
+		{
+			"id": "ABCD-1242",
+			"code": "9999Y",
+			"description": "9999Y description"
+		},
+		{
+			"id": "ABCD-1243",
+			"code": "9999NS",
+			"description": "9999NS description"
+		},
+		{
+			"id": "ABCD-1244",
+			"code": "9999ZP",
+			"description": "9999ZP description"
+		},
+		{
+			"id": "ABCD-1245",
+			"code": "99994",
+			"description": "99994 description"
+		}
+	],
+	"sequenceRules": [
+		{
+			"id": "ABCD-1230",
+			"type": "sequence",
+			"name": "SEQ-H-1",
+			"summary": "Sequence H materials",
+			"data": "mat:#H,seq[#ZP,#Z,#HX,#H]",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX130"
+				},
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX160"
+				},
+				{
+					"id": "ABCD-1232",
+					"blendSpecName": "MIX190"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P30 - Owosso"
+				}
+			]
+		}
+	],
+	"equipmentRules": [
+		{
+			"id": "ABCD-1231",
+			"type": "equipment",
+			"name": "EQUIP-30-1",
+			"summary": "class 30 don't use flake",
+			"data": "class:#30,bucket[#flake:0],",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX130"
+				},
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX160"
+				},
+				{
+					"id": "ABCD-1232",
+					"blendSpecName": "MIX190"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P30 - Owosso"
+				}
+			]
+		}
+	],
+	"geographicRules": [
+		{
+			"id": "ABCD-1232",
+			"type": "geographic",
 			"name": "GEO-NE-1",
-			"summary":"northern plants use ZX",
-			"data": "plant[#30,#31,#32],mat[#ZX:max]"
+			"summary": "northern plants use ZX",
+			"data": "plant[#30,#31,#32],mat[#ZX:max]",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX130"
+				},
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX160"
+				},
+				{
+					"id": "ABCD-1232",
+					"blendSpecName": "MIX190"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P30 - Owosso"
+				}
+			]
+		}
+	],
+	"equipmentRuleTypes": [
+		{
+			"id": "ABCD-1230",
+			"equipmentRuleType": "Class"
+		},
+		{
+			"id": "ABCD-1231",
+			"equipmentRuleType": "Melt Pump"
+		}
+	],
+	"classes": [
+		{
+			"id": "ABCD-1230",
+			"class": "30"
+		},
+		{
+			"id": "ABCD-1231",
+			"class": "31"
+		}
+	],
+	"sequencedSKUs": [
+		{
+			"id": "ABCD-1230",
+			"code": "9999Z"
+		},
+		{
+			"id": "ABCD-1231",
+			"code": "9999ZP"
+		},
+		{
+			"id": "ABCD-1232",
+			"code": "9999ZK"
+		},
+		{
+			"id": "ABCD-1233",
+			"code": "9999H"
 		}
 	]
 }

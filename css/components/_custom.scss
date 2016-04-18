@@ -538,10 +538,30 @@ li {
 		}
 	}
 }
-.modal-dialog{
+
+.modal-dialog {
 	overflow-y: initial !important
 }
-.modal-body{
+
+.modal-body {
 	max-height: 500px;
 	overflow-y: auto;
+}
+
+.sku-list-group {
+	> li {
+		margin: 10px 0;
+	}
+
+	.sortable-chosen {
+		cursor: move;
+	}
+
+	.sortable-ghost {
+		opacity: 0.3;
+		border: 1px dashed $lot-list-group-item-border !important;
+		border-radius: $lot-list-group-item-border-radius;
+		visibility: visible !important;
+
+	}
 }

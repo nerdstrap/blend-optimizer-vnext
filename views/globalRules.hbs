@@ -6,6 +6,58 @@
         <h3>{{i18n "feature.equipmentRules.title"}}</h3>
     </div>
     <div class="ibox-content">
+        <div class="row row-header">
+            <h1>insert filter controls here...</h1>
+        </div>
+        <div class="row row-header">
+            <div class="col-sm-2">
+                <span>{{i18n "label.name"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.summary"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.data"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.blendSpecs"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.plants"}}</span>
+            </div>
+        </div>
+        <div id="equipmentRules" class="row-striped">
+			{{#equipmentRules}}
+                <div id="{{id}}" class="row row-master-rule">
+                    <div class="col-sm-2">
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{summary}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{{data}}}</span>
+                    </div>
+                    <div class="col-sm-2">
+						{{#blendSpecs}}
+                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/blendSpecs}}
+                    </div>
+                    <div class="col-sm-2">
+						{{#plants}}
+                            <span>{{name}}</span>
+							{{#unless @last}},{{/unless}}
+						{{/plants}}
+                    </div>
+                </div>
+			{{/equipmentRules}}
+        </div>
+        <div class="row row-footer">
+            <div class="col-sm-3">
+				{{> "addEquipmentRuleModal"}}
+            </div>
+        </div>
     </div>
 </div>
 
@@ -15,9 +67,57 @@
         <h3>{{i18n "feature.geographicRules.title"}}</h3>
     </div>
     <div class="ibox-content">
+        <div class="row row-header">
+            <div class="col-sm-2">
+                <span>{{i18n "label.name"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.summary"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.data"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.blendSpecs"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.plants"}}</span>
+            </div>
+        </div>
+        <div id="geographicRules" class="row-striped">
+			{{#geographicRules}}
+                <div id="{{id}}" class="row row-master-rule">
+                    <div class="col-sm-2">
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{summary}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{{data}}}</span>
+                    </div>
+                    <div class="col-sm-2">
+						{{#blendSpecs}}
+                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/blendSpecs}}
+                    </div>
+                    <div class="col-sm-2">
+						{{#plants}}
+                            <span>{{name}}</span>
+							{{#unless @last}},{{/unless}}
+						{{/plants}}
+                    </div>
+                </div>
+			{{/geographicRules}}
+        </div>
+        <div class="row row-footer">
+            <div class="col-sm-3">
+				{{> "addGeographicRuleModal"}}
+            </div>
+        </div>
     </div>
 </div>
-
 
 <div class="ibox">
     <div class="ibox-title">
@@ -25,6 +125,55 @@
         <h3>{{i18n "feature.sequenceRules.title"}}</h3>
     </div>
     <div class="ibox-content">
+        <div class="row row-header">
+            <div class="col-sm-2">
+                <span>{{i18n "label.name"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.summary"}}</span>
+            </div>
+            <div class="col-sm-3">
+                <span>{{i18n "label.data"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.blendSpecs"}}</span>
+            </div>
+            <div class="col-sm-2">
+                <span>{{i18n "label.plants"}}</span>
+            </div>
+        </div>
+        <div id="sequenceRules" class="row-striped">
+			{{#sequenceRules}}
+                <div id="{{id}}" class="row row-master-rule">
+                    <div class="col-sm-2">
+                        <span>{{name}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{summary}}</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <span>{{{data}}}</span>
+                    </div>
+                    <div class="col-sm-2">
+						{{#blendSpecs}}
+                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/blendSpecs}}
+                    </div>
+                    <div class="col-sm-2">
+						{{#plants}}
+                            <span>{{name}}</span>
+							{{#unless @last}},{{/unless}}
+						{{/plants}}
+                    </div>
+                </div>
+			{{/sequenceRules}}
+        </div>
+        <div class="row row-footer">
+            <div class="col-sm-3">
+				{{> "addSequenceRuleModal"}}
+            </div>
+        </div>
     </div>
 </div>
 
@@ -32,7 +181,14 @@
     <script src="js/optimizerMaintenance.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#addMaterialTypeCategoryColor').colorpicker();
+
+            var sequencedSKUs = document.getElementById('sequencedSKUs');
+            Sortable.create(sequencedSKUs, {
+                animation: 0,
+                group: 'sequencedSKUs',
+                sort: true
+            });
+
         });
     </script>
 {{/contentFor}}
