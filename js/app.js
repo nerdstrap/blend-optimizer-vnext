@@ -28,6 +28,15 @@ $(document).ready(function () {
 		}, 50);
 	});
 
+
+	$('.collapse-row-link').click(function (e) {
+		var row = $(e.target).closest('tr');
+		var button = $(e.target).closest('i');
+		var collapsibleRows = row.nextUntil('[data-toggle="collapse"]');
+		collapsibleRows.slideToggle(200);
+		button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
+	});
+
 	$('.chosen-select').chosen(
 		{
 			'disable_search': true

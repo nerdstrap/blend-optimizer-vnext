@@ -13,56 +13,90 @@
             </div>
             <div class="modal-body">
                 <form id="addBottomLineSpecForm" class="blend-optimizer-form">
-                    <div class="row">
+                    <div class="row margin-bottom-20">
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="addBottomLineSpec" class="control-label">{{i18n "label.spec"}}</label>
+                                <label for="addBottomLineSpecSpec" class="control-label">{{i18n "label.spec"}}</label>
                                 <div class="input-group">
-                                    <select id="addBottomLineSpec" name="addBottomLineSpec" class="form-control chosen-select">
+                                    <select id="addBottomLineSpecSpec" name="addBottomLineSpecSpec" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.spec"}}</option>
 										{{#specs}}
-                                            <option id="{{id}}">{{i18n "spec"}}</option>
+                                            <option value="{{id}}">{{i18n spec}}</option>
 										{{/specs}}
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-5">
-                            <div class="form-group-4">
-                                <div class="form-group">
-                                    <label for="addBottomLineSpecDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
-                                    <div class="input-group">
-                                        <input id="addBottomLineSpecDeviationLow" name="addBottomLineSpecDeviationLow" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addBottomLineSpecLow" class="control-label">{{i18n "label.low"}}</label>
-                                    <div class="input-group">
-                                        <input id="addBottomLineSpecLow" name="addBottomLineSpecLow" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addBottomLineSpecHigh" class="control-label">{{i18n "label.high"}}</label>
-                                    <div class="input-group">
-                                        <input id="addBottomLineSpecHigh" name="addBottomLineSpecHigh" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="addBottomLineSpecDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
-                                    <div class="input-group">
-                                        <input id="addBottomLineSpecDeviationHigh" name="addBottomLineSpecDeviationHigh" class="form-control">
-                                    </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addBottomLineSpecDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
+                                <div class="input-group">
+                                    <input id="addBottomLineSpecDeviationLow" name="addBottomLineSpecDeviationLow" class="form-control">
                                 </div>
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label for="addBottomLineSpecNotify" class="control-label">{{i18n "label.notify"}}</label>
+                                <label for="addBottomLineSpecLow" class="control-label">{{i18n "label.low"}}</label>
                                 <div class="input-group">
-                                    <div class="checkbox checkbox-warning">
-                                        <input id="addBottomLineSpecNotify" name="addBottomLineSpecNotify" type="checkbox" class="styled">
-                                        <label></label>
-                                    </div>
+                                    <input id="addBottomLineSpecLow" name="addBottomLineSpecLow" class="form-control">
                                 </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addBottomLineSpecHigh" class="control-label">{{i18n "label.high"}}</label>
+                                <div class="input-group">
+                                    <input id="addBottomLineSpecHigh" name="addBottomLineSpecHigh" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addBottomLineSpecDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
+                                <div class="input-group">
+                                    <input id="addBottomLineSpecDeviationHigh" name="addBottomLineSpecDeviationHigh" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="addBottomLineSpecNotificationRecipient" class="control-label">{{i18n "label.notify"}}</label>
+                                <div class="input-group">
+                                    <select id="addBottomLineSpecNotificationRecipient" name="addBottomLineSpecNotificationRecipient" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.notificationRecipient"}}</option>
+										{{#notificationRecipients}}
+                                            <option value="{{id}}">{{notificationRecipient}}</option>
+										{{/notificationRecipients}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">&nbsp;</label>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-primary">{{i18n "button.notify"}} <span class="fa {{i18n "icon.transformRight"}}"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <label class="control-label">{{i18n "feature.notificationRecipients.title"}}</label>
+                            <div class="dd">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">
+                                            <span class="fa fa-user"></span> JB<span class="fa fa-close"></span>
+                                        </div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">
+                                            <span class="fa fa-user"></span> MB<span class="fa fa-close"></span>
+                                        </div>
+                                    </li>
+                                </ol>
                             </div>
                         </div>
                     </div>

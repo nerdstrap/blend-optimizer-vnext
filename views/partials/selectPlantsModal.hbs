@@ -1,0 +1,33 @@
+<a id="selectPlants" class="btn btn-success" data-toggle="modal" data-target="#selectPlantsModal" href="#">{{i18n "button.plants"}}</a>
+<div class="modal inmodal" id="selectPlantsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa {{i18n "icon.close"}}"></i>
+                </button>
+                <h4 class="modal-title">{{i18n "area.selectPlants.title"}}</h4>
+                <small class="font-bold">{{i18n "area.selectPlants.description"}}</small>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+					{{#plantGroups}}
+                        <div class="col-sm-4">
+                            <ul class="list-group assigned-plant-group" data-toggle="items">
+								{{#plants}}
+                                    <li id="{{id}}" class="list-group-item assigned-plant-item">
+                                        <span class="fa {{i18n "icon.plus"}}"></span><span class="fa {{i18n "icon.minus"}}"></span> {{name}}-{{description}}
+                                    </li>
+								{{/plants}}
+                            </ul>
+                        </div>
+					{{/plantGroups}}
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">{{i18n "button.close"}}</button>
+                <button type="button" class="btn btn-primary">{{i18n "button.change"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

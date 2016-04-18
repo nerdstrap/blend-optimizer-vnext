@@ -24,7 +24,7 @@
     </div>
     <div class="ibox-content">
         <form id="blendSpecDetailsForm" class="blend-optimizer-form">
-            <div class="row">
+            <div class="row margin-bottom-20">
                 <div class="col-sm-2">
                     <div class="form-group">
                         <label class="control-label" for="blendSpecName">{{i18n "label.blendSpecName"}}</label>
@@ -45,8 +45,16 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="blendSpecDescription">{{i18n "label.blendSpecDescription"}}</label>
+                        <div class="input-group">
+                            <input id="blendSpecDescription" name="blendSpecDescription" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
+            <div class="row margin-bottom-20">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label class="control-label" for="plannerSeries">{{i18n "label.plannerSeries"}}</label>
@@ -54,16 +62,8 @@
                             <select id="plannerSeries" name="plannerSeries" class="form-control">
                                 <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerSeries"}}</option>
 								{{#plannerSeries}}
-                                    <option value="{{id}}" data-description="{{{description}}}" data-productcodes="{{json productCodes}}" data-plannercodes="{{json plannerCodes}}">{{plannerSeries}}</option>
+                                    <option value="{{id}}" data-description="{{{description}}}" data-productLines="{{json productLines}}" data-plannercodes="{{json plannerCodes}}">{{plannerSeries}}</option>
 								{{/plannerSeries}}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label" for="productCode">{{i18n "label.productCode"}}</label>
-                        <div class="input-group">
-                            <select id="productCode" name="productCode" class="form-control">
-                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productCode"}}</option>
                             </select>
                         </div>
                     </div>
@@ -72,6 +72,14 @@
                         <div class="input-group">
                             <select id="productLine" name="productLine" class="form-control">
                                 <option value="" selected="selected" disabled="disabled">{{i18n "label.productLine"}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label" for="productSize">{{i18n "label.productSize"}}</label>
+                        <div class="input-group">
+                            <select id="productSize" name="productSize" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productSize"}}</option>
                             </select>
                         </div>
                     </div>
@@ -92,20 +100,71 @@
                         <span id="productSKUs"></span>
                     </div>
                 </div>
-                <div class="col-sm-2">
-                    &nbsp;
-                </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <button class="btn btn-primary">{{i18n "button.save"}}</button>
-                    <button class="btn btn-default">{{i18n "button.reset"}}</button>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label" for="blendSpecTags">{{i18n "label.blendSpecTags"}}</label>
+                        <div class="input-group">
+                            <select id="blendSpecTags" name="blendSpecTags" class="form-control chosen-select" multiple="">
+								{{#blendSpecTags}}
+                                    <option value="{{id}}">{{blendSpecTag}}</option>
+								{{/blendSpecTags}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="input-group">
+                            <button class="btn btn-primary">{{i18n "button.save"}}</button>
+                            <button class="btn btn-default">{{i18n "button.reset"}}</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
+<div class="ibox border-bottom">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.blendSpecHistory.title"}}</h5>
+    </div>
+    <div class="ibox-content" style="display: none;">
+        <h3>{{i18n "feature.blendSpecHistory.title"}}</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.revision"}}</th>
+                <th>{{i18n "label.date"}}</th>
+                <th>{{i18n "label.username"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#revisions}}
+                <tr id="{{id}}">
+                    <td>{{summary}}</td>
+                    <td>{{modifiedDate}}</td>
+                    <td>{{modifiedBy}}</td>
+                </tr>
+			{{/revisions}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="3">&nbsp;</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 <div class="ibox">
     <div class="ibox-title">
         <div class="ibox-tools">
@@ -127,7 +186,6 @@
                 <th>{{i18n "label.high"}}</th>
                 <th>{{i18n "label.deviationHigh"}}</th>
                 <th>{{i18n "label.notify"}}</th>
-                <th>{{i18n "label.notificationRecipients"}}</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
@@ -139,12 +197,6 @@
                     <td>{{low}}</td>
                     <td>{{high}}</td>
                     <td>{{deviationHigh}}</td>
-                    <td>
-                        <div class="checkbox checkbox-warning">
-                            <input id="notify{{@index}}" name="notify{{@index}}" type="checkbox" class="styled" {{#if notify}}checked{{/if}}>
-                            <label for="notify{{@index}}"></label>
-                        </div>
-                    </td>
                     <td>
 						{{#notificationRecipients}}
                             <a data-toggle="popover" data-placement="left" data-content="{{fullName}}">{{initials}}</a>
@@ -162,7 +214,7 @@
             </tbody>
             <tfoot>
             <tr>
-                <th colspan="8">
+                <th colspan="7">
 					{{> "addBottomLineSpecModal"}}
                 </th>
             </tr>
@@ -183,52 +235,87 @@
         <h5>{{i18n "feature.materialCategoryRules.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <table id="materialCategoryRules" class="table table-striped">
+        <table id="materialCategoryRules" class="table table-striped table-nested">
             <thead>
             <tr>
-                <th>{{i18n "label.materialCategory"}}</th>
+                <th>&nbsp;</th>
+                <th>{{i18n "label.categorySlashItem"}}</th>
                 <th>{{i18n "label.deviationLow"}}</th>
                 <th>{{i18n "label.low"}}</th>
                 <th>{{i18n "label.high"}}</th>
                 <th>{{i18n "label.deviationHigh"}}</th>
                 <th>{{i18n "label.consumptionFactor"}}</th>
                 <th>{{i18n "label.deviationConsumptionFactor"}}</th>
-                <th>{{i18n "label.globalRules"}}</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
 			{{#materialCategoryRules}}
-                <tr id="{{id}}">
-                    <th><span class="label label-{{type}}">{{badge}}</span> {{i18n materialCategory}}</th>
+                <tr id="{{id}}" data-toggle="collapse">
+                    <th>
+                        <a class="collapse-row-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                    </th>
+                    <th>
+                        <span class="label label-{{type}}">{{badge}}</span> {{i18n materialCategory}}</th>
                     <td>{{deviationLow}}</td>
                     <td>{{low}}</td>
                     <td>{{high}}</td>
                     <td>{{deviationHigh}}</td>
-                    <td>{{consumptionFactor}}</td>
-                    <td>{{deviationConsumptionFactor}}</td>
-                    <td>
-						{{#globalRules}}
-                            <a data-toggle="popover" data-placement="left" data-content="{{summary}}">{{title}}</a>
-							{{#unless @last}},{{/unless}}
-						{{/globalRules}}
-                    </td>
+                    <td>{{i18n consumptionFactor}}</td>
+                    <td>{{i18n deviationConsumptionFactor}}</td>
                     <td>
                         <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
                         <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
                     </td>
                 </tr>
+				{{#if globalRules}}
+					{{#globalRules}}
+                        <tr class="info">
+                            <td colspan="2">&nbsp;</td>
+                            <td>{{i18n "label.globalRule"}}</td>
+                            <td colspan="3">{{title}}</td>
+                            <td colspan="3">{{summary}}</td>
+                        </tr>
+					{{/globalRules}}
+				{{/if}}
 			{{/materialCategoryRules}}
             </tbody>
             <tfoot>
             <tr>
                 <th colspan="9">
-                    <button class="btn btn-xs btn-warning">{{i18n "button.add"}}</button>
+					{{> "addMaterialTypeCategoryRuleModal"}}
                 </th>
             </tr>
             </tfoot>
         </table>
+    </div>
+</div>
 
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.assignedPlants.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+			{{#plantGroups}}
+                <div class="col-sm-4">
+                    <ul class="list-group assigned-plant-group" data-toggle="items">
+						{{#plants}}
+                            <li id="{{id}}" class="list-group-item assigned-plant-item">
+                                <span class="fa {{i18n "icon.plus"}}"></span><span class="fa {{i18n "icon.minus"}}"></span> {{name}}-{{description}}
+                            </li>
+						{{/plants}}
+                    </ul>
+                </div>
+			{{/plantGroups}}
+        </div>
     </div>
 </div>
 
@@ -238,8 +325,8 @@
         $(document).ready(function () {
 
             var _plannerSeries = {{{json plannerSeries}}};
-            var _productCodes = {{{json productCodes}}};
             var _productLines = {{{json productLines}}};
+            var _productSizes = {{{json productSizes}}};
             var _plannerCodes = {{{json plannerCodes}}};
 
             function getPlannerCodeOption(id, plannerCode, description, productSKUs) {
@@ -247,46 +334,22 @@
                 return plannerCodeOption;
             }
 
-            function getProductCodeOption(id, productCode) {
-                var productCodeOption = '<option value="' + id + '">' + productCode + '</option>';
-                return productCodeOption;
-            }
-
-            function getProductLineOption(id, productLine, description, plannerCodes) {
+            function getProductLineOption(id, productLine) {
                 var productLineOption = '<option value="' + id + '">' + productLine + '</option>';
                 return productLineOption;
+            }
+
+            function getProductSizeOption(id, productSize, description, plannerCodes) {
+                var productSizeOption = '<option value="' + id + '">' + productSize + '</option>';
+                return productSizeOption;
             }
 
             function plannerSeries_onChange(plannerSeriesId) {
                 var $selectedPlannerSeries = $('#plannerSeries').find('option:selected');
                 var _selectedPlannerSeries = _.find(_plannerSeries, {'id': $selectedPlannerSeries.val()});
 
-                var productCodes = _.filter(_productCodes, function (_productCode) {
-                    return _selectedPlannerSeries.productCodes.indexOf(_productCode.id) !== -1;
-                });
-                var productCodeOptions = '<option value="" selected="true">{{i18n "label.productCode"}}</option>';
-                _.forEach(productCodes, function (productCode) {
-                    productCodeOptions += getProductCodeOption(productCode.id, productCode.productCode);
-                });
-                $('#productCode').html(productCodeOptions);
-
-                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
-                    return _selectedPlannerSeries.plannerCodes.indexOf(_plannerCode.id) !== -1;
-                });
-                var plannerCodeOptions = '';
-                _.forEach(plannerCodes, function (plannerCode) {
-                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
-                });
-                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
-                plannerCodes_onChange();
-            }
-
-            function productCode_onChange(productCodeId) {
-                var $selectedProductCode = $('#productCode').find('option:selected');
-                var _selectedProductCode = _.find(_productCodes, {'id': $selectedProductCode.val()});
-
                 var productLines = _.filter(_productLines, function (_productLine) {
-                    return _selectedProductCode.productLines.indexOf(_productLine.id) !== -1;
+                    return _selectedPlannerSeries.productLines.indexOf(_productLine.id) !== -1;
                 });
                 var productLineOptions = '<option value="" selected="true">{{i18n "label.productLine"}}</option>';
                 _.forEach(productLines, function (productLine) {
@@ -295,7 +358,7 @@
                 $('#productLine').html(productLineOptions);
 
                 var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
-                    return _selectedProductCode.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                    return _selectedPlannerSeries.plannerCodes.indexOf(_plannerCode.id) !== -1;
                 });
                 var plannerCodeOptions = '';
                 _.forEach(plannerCodes, function (plannerCode) {
@@ -309,8 +372,32 @@
                 var $selectedProductLine = $('#productLine').find('option:selected');
                 var _selectedProductLine = _.find(_productLines, {'id': $selectedProductLine.val()});
 
+                var productSizes = _.filter(_productSizes, function (_productSize) {
+                    return _selectedProductLine.productSizes.indexOf(_productSize.id) !== -1;
+                });
+                var productSizeOptions = '<option value="" selected="true">{{i18n "label.productSize"}}</option>';
+                _.forEach(productSizes, function (productSize) {
+                    productSizeOptions += getProductSizeOption(productSize.id, productSize.productSize);
+                });
+                $('#productSize').html(productSizeOptions);
+
                 var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
                     return _selectedProductLine.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function productSize_onChange(productSizeId) {
+                var $selectedProductSize = $('#productSize').find('option:selected');
+                var _selectedProductSize = _.find(_productSizes, {'id': $selectedProductSize.val()});
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedProductSize.plannerCodes.indexOf(_plannerCode.id) !== -1;
                 });
                 var plannerCodeOptions = '';
                 _.forEach(plannerCodes, function (plannerCode) {
@@ -344,12 +431,12 @@
                 plannerSeries_onChange();
             });
 
-            $('#productCode').on('change', function (evt, params) {
-                productCode_onChange();
-            });
-
             $('#productLine').on('change', function (evt, params) {
                 productLine_onChange();
+            });
+
+            $('#productSize').on('change', function (evt, params) {
+                productSize_onChange();
             });
 
             $('#plannerCodes').on('change', function (evt, params) {

@@ -1,0 +1,38 @@
+{{> "pageHeader"}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.equipmentRules.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+    </div>
+</div>
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.geographicRules.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+    </div>
+</div>
+
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.sequenceRules.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/optimizerMaintenance.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#addMaterialTypeCategoryColor').colorpicker();
+        });
+    </script>
+{{/contentFor}}

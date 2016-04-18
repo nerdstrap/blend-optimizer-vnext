@@ -44,6 +44,18 @@ module.exports = function (app) {
 			_renderView('optimizerMaintenance', req, res, next);
 		},
 
+		techAdmin: function (req, res, next) {
+			_renderView('techAdmin', req, res, next);
+		},
+
+		masterRules: function (req, res, next) {
+			_renderView('masterRules', req, res, next);
+		},
+
+		globalRules: function (req, res, next) {
+			_renderView('globalRules', req, res, next);
+		},
+
 		blendSpecList: function (req, res, next) {
 			_renderView('blendSpecList', req, res, next);
 		},

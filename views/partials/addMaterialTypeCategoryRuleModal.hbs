@@ -1,0 +1,152 @@
+<div>
+    <a id="addMaterialCategoryTypeRule" class="btn btn-xs btn-warning" data-toggle="modal" data-target="#addMaterialCategoryTypeRuleModal" href="#">{{i18n "button.add"}}</a>
+</div>
+<div class="modal inmodal" id="addMaterialCategoryTypeRuleModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <i class="fa {{i18n "icon.close"}}"></i>
+                </button>
+                <h4 class="modal-title">{{i18n "area.addMaterialCategoryTypeRule.title"}}</h4>
+                <small class="font-bold">{{i18n "area.addMaterialCategoryTypeRule.description"}}</small>
+            </div>
+            <div class="modal-body">
+                <form id="addMaterialCategoryTypeRuleForm" class="blend-optimizer-form">
+                    <div class="row margin-bottom-20">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleType" class="control-label">{{i18n "label.materialCategoryRuleType"}}</label>
+                                <div class="input-group">
+                                    <select id="addMaterialCategoryTypeRuleType" name="addMaterialCategoryTypeRuleType" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.materialCategoryRuleType"}}</option>
+										{{#materialCategoryRuleTypes}}
+                                            <option value="{{id}}">{{i18n materialCategoryRuleType}}</option>
+										{{/materialCategoryRuleTypes}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleName" class="control-label">{{i18n "label.materialTypeCategory"}}</label>
+                                <div class="input-group">
+                                    <select id="addMaterialCategoryTypeRuleName" name="addMaterialCategoryTypeRuleName" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.materialTypeCategory"}}</option>
+										{{#materialTypeCategories}}
+                                            <option value="{{id}}">{{i18n materialTypeCategory}}</option>
+										{{/materialTypeCategories}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin-bottom-20">
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialCategoryTypeRuleDeviationLow" name="addMaterialCategoryTypeRuleDeviationLow" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleLow" class="control-label">{{i18n "label.low"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialCategoryTypeRuleLow" name="addMaterialCategoryTypeRuleLow" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleHigh" class="control-label">{{i18n "label.high"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialCategoryTypeRuleHigh" name="addMaterialCategoryTypeRuleHigh" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
+                                <div class="input-group">
+                                    <input id="addMaterialCategoryTypeRuleDeviationHigh" name="addMaterialCategoryTypeRuleDeviationHigh" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleConsumptionFactor" class="control-label">{{i18n "label.consumptionFactor"}}</label>
+                                <div class="input-group">
+                                    <select id="addMaterialCategoryTypeRuleConsumptionFactor" name="addMaterialCategoryTypeRuleConsumptionFactor" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.consumptionFactor"}}</option>
+										{{#consumptionFactors}}
+                                            <option value="{{id}}">{{i18n consumptionFactor}}</option>
+										{{/consumptionFactors}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleDeviationConsumptionFactor" class="control-label">{{i18n "label.deviationConsumptionFactor"}}</label>
+                                <div class="input-group">
+                                    <select id="addMaterialCategoryTypeRuleDeviationConsumptionFactor" name="addMaterialCategoryTypeRuleDeviationConsumptionFactor" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.deviationConsumptionFactor"}}</option>
+										{{#consumptionFactors}}
+                                            <option value="{{id}}">{{i18n consumptionFactor}}</option>
+										{{/consumptionFactors}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label for="addMaterialCategoryTypeRuleGlobalRule" class="control-label">{{i18n "label.globalRule"}}</label>
+                                <div class="input-group">
+                                    <select id="addMaterialCategoryTypeRuleGlobalRule" name="addMaterialCategoryTypeRuleGlobalRule" class="form-control">
+                                        <option value="" selected="selected" disabled="disabled">{{i18n "label.globalRule"}}</option>
+										{{#globalRules}}
+                                            <option value="{{id}}">{{globalRule}}</option>
+										{{/globalRules}}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <div class="form-group">
+                                <label class="control-label">&nbsp;</label>
+                                <div class="input-group">
+                                    <button type="button" class="btn btn-primary">{{i18n "button.assign"}} <span class="fa {{i18n "icon.transformRight"}}"></span></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="control-label">{{i18n "feature.globalRules.title"}}</label>
+                            <div class="dd">
+                                <ol class="dd-list">
+                                    <li class="dd-item" data-id="1">
+                                        <div class="dd-handle">
+                                            <span class="fa fa-list-ol"></span> H1<span class="fa fa-close"></span>
+                                        </div>
+                                    </li>
+                                    <li class="dd-item" data-id="2">
+                                        <div class="dd-handle">
+                                            <span class="fa fa-chain-broken"></span> HS2<span class="fa fa-close"></span>
+                                        </div>
+                                    </li>
+                                </ol>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">{{i18n "button.close"}}</button>
+                <button type="button" class="btn btn-primary">{{i18n "button.add"}}</button>
+            </div>
+        </div>
+    </div>
+</div>

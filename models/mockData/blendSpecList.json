@@ -1,42 +1,223 @@
 {
 	"selectedPlant": "P30 - Owosso",
-	"header": "area.createBlend.title",
-	"breadcrumbs": [
-		{
-			"status": "active",
-			"title": "feature.selectBlend.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.lotPreferences.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.draftBlend.title"
-		},
-		{
-			"status": "disabled",
-			"title": "feature.finalizeBlend.title"
-		}
-	],
+	"header": "area.blendSpecList.title",
 	"blendSpecs": [
 		{
 			"id": "ABCD-1230",
-			"name": "Blend Spec 1",
-			"description": "description 1",
-			"active": "true"
+			"name": "MIX130",
+			"description": "3&quot; Ag Sw something",
+			"tags": "ag,sw,hmw"
 		},
 		{
 			"id": "ABCD-1231",
-			"name": "Blend Spec 2",
-			"description": "description 2",
-			"active": "true"
+			"name": "MIX160",
+			"description": "12&quot; Ag Sw something",
+			"tags": "regrind,spec"
 		},
 		{
 			"id": "ABCD-1232",
-			"name": "Blend Spec 3",
-			"description": "description 3",
-			"active": "false"
+			"name": "MIX224",
+			"description": "4&quot; Ag Sw something",
+			"tags": "maxicoil,sw"
+		}
+	],
+	"plantGroups": [
+		{
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P20",
+					"description": "Thorndale (ON)"
+				},
+				{
+					"id": "ABCD-1231",
+					"name": "P21",
+					"description": "Heidelberg (ON)"
+				},
+				{
+					"id": "ABCD-1232",
+					"name": "P22",
+					"description": "St. Germain (QC)"
+				},
+				{
+					"id": "ABCD-1233",
+					"name": "P23",
+					"description": "Carman (MB)"
+				},
+				{
+					"id": "ABCD-1234",
+					"name": "P24",
+					"description": "Winchester (ON)"
+				},
+				{
+					"id": "ABCD-1235",
+					"name": "P25",
+					"description": "Madera"
+				},
+				{
+					"id": "ABCD-1236",
+					"name": "P26",
+					"description": "Napoleon"
+				},
+				{
+					"id": "ABCD-1237",
+					"name": "P27",
+					"description": "Wooster"
+				},
+				{
+					"id": "ABCD-1238",
+					"name": "P29",
+					"description": "Waverly"
+				},
+				{
+					"id": "ABCD-1239",
+					"name": "P30",
+					"description": "Owosso"
+				},
+				{
+					"id": "ABCD-1240",
+					"name": "P31",
+					"description": "North Springfield"
+				},
+				{
+					"id": "ABCD-1241",
+					"name": "P32",
+					"description": "Buena Vista"
+				}
+			]
+		},
+		{
+			"plants": [
+				{
+					"id": "ABCD-1242",
+					"name": "P33",
+					"description": "Washougal"
+				},
+				{
+					"id": "ABCD-1243",
+					"name": "P35",
+					"description": "Perry"
+				},
+				{
+					"id": "ABCD-1244",
+					"name": "P36",
+					"description": "Ludlow"
+				},
+				{
+					"id": "ABCD-1245",
+					"name": "P37",
+					"description": "Findlay"
+				},
+				{
+					"id": "ABCD-1246",
+					"name": "P42",
+					"description": "Ennis"
+				},
+				{
+					"id": "ABCD-1247",
+					"name": "P43",
+					"description": "Bakersfield"
+				},
+				{
+					"id": "ABCD-1248",
+					"name": "P44",
+					"description": "Logan"
+				},
+				{
+					"id": "ABCD-1249",
+					"name": "P45",
+					"description": "Olympia"
+				},
+				{
+					"id": "ABCD-1250",
+					"name": "P46",
+					"description": "Mendota"
+				},
+				{
+					"id": "ABCD-1251",
+					"name": "P47",
+					"description": "Muncy"
+				},
+				{
+					"id": "ABCD-1252",
+					"name": "P48",
+					"description": "Brazil"
+				},
+				{
+					"id": "ABCD-1253",
+					"name": "P49",
+					"description": "Yoakum"
+				}
+			]
+		},
+		{
+			"plants": [
+				{
+					"id": "ABCD-1254",
+					"name": "P50",
+					"description": "Fairmont"
+				},
+				{
+					"id": "ABCD-1255",
+					"name": "P51",
+					"description": "New Miami"
+				},
+				{
+					"id": "ABCD-1256",
+					"name": "P52",
+					"description": "Oelwein"
+				},
+				{
+					"id": "ABCD-1257",
+					"name": "P53",
+					"description": "Charlotte"
+				},
+				{
+					"id": "ABCD-1258",
+					"name": "P55",
+					"description": "Jackson"
+				},
+				{
+					"id": "ABCD-1259",
+					"name": "P58",
+					"description": "Watertown"
+				},
+				{
+					"id": "ABCD-1260",
+					"name": "P59",
+					"description": "Phoenix"
+				},
+				{
+					"id": "ABCD-1261",
+					"name": "P60",
+					"description": "Eagle Grove"
+				},
+				{
+					"id": "ABCD-1262",
+					"name": "P61",
+					"description": "Livermore"
+				},
+				{
+					"id": "ABCD-1263",
+					"name": "P64",
+					"description": "London"
+				},
+				{
+					"id": "ABCD-1264",
+					"name": "P66",
+					"description": "Buxton"
+				},
+				{
+					"id": "ABCD-1265",
+					"name": "P67",
+					"description": "Wintergarden"
+				},
+				{
+					"id": "ABCD-1266",
+					"name": "P69",
+					"description": "Salt Lake City"
+				}
+			]
 		}
 	]
 }

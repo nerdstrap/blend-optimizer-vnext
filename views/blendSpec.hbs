@@ -1,7 +1,7 @@
 {{#contentFor "pageHeader"}}
     <div class="page-header">
         <div class="container-fluid">
-            <h3>{{i18n "area.blendSpec.title"}}</h3>
+            <h3>{{i18n "area.createBlendSpec.title"}}</h3>
             <ol class="breadcrumb">
 				{{#breadcrumbs}}
                     <li><a href="{{href}}">{{title}}</a></li>
@@ -20,60 +20,66 @@
                 </li>
             </ul>
         </div>
-        <h5>{{i18n "feature.mixDetails.title"}}</h5>
+        <h5>{{i18n "feature.blendSpecDetails.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="mixDetailsForm" class="blend-optimizer-form">
-            <div class="row">
+        <form id="blendSpecDetailsForm" class="blend-optimizer-form">
+            <div class="row margin-bottom-20">
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label class="control-label" for="blendName">{{i18n "label.blendName"}}</label>
+                        <label class="control-label" for="blendSpecName">{{i18n "label.blendSpecName"}}</label>
                         <div class="input-group">
-                            <span class="input-group-addon">{{blendNamePrefix}}</span>
-                            <input id="blendName" name="blendName" type="text" class="form-control" value="{{blendName}}">
+                            <span id="blendSpecNamePrefix" class="input-group-addon">{{blendSpecNamePrefix}}</span>
+                            <input id="blendSpecName" name="blendSpecName" type="text" class="form-control" value="{{blendSpecName}}">
                         </div>
                     </div>
                 </div>
                 <div class="col-sm-2">
                     <div class="form-group">
-                        <label class="control-label" for="blendNameFormatted">&nbsp;</label>
+                        <label class="control-label" for="blendSpecNameFormatted">&nbsp;</label>
                         <div class="input-group">
-                            <h3 id="blendNameFormatted">
-                                <span class="fa {{i18n "icon.transformRight"}}"></span> {{blendNamePrefix}}{{blendName}}
+                            <h3>
+                                <span class="fa {{i18n "icon.transformRight"}}"></span>
+                                <span id="blendSpecNameFormatted">{{blendSpecNamePrefix}}{{blendSpecName}}</span>
                             </h3>
                         </div>
                     </div>
                 </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label class="control-label" for="blendSpecDescription">{{i18n "label.blendSpecDescription"}}</label>
+                        <div class="input-group">
+                            <input id="blendSpecDescription" name="blendSpecDescription" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
+            <div class="row margin-bottom-20">
                 <div class="col-sm-4">
                     <div class="form-group">
                         <label class="control-label" for="plannerSeries">{{i18n "label.plannerSeries"}}</label>
                         <div class="input-group">
-                            <select id="plannerSeries" name="plannerSeries" class="form-control chosen-select">
+                            <select id="plannerSeries" name="plannerSeries" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerSeries"}}</option>
 								{{#plannerSeries}}
-                                    <option id="{{id}}">{{plannerSeries}}</option>
+                                    <option value="{{id}}" data-description="{{{description}}}" data-productLines="{{json productLines}}" data-plannercodes="{{json plannerCodes}}">{{plannerSeries}}</option>
 								{{/plannerSeries}}
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="productCodes">{{i18n "label.productCodes"}}</label>
+                        <label class="control-label" for="productLine">{{i18n "label.productLine"}}</label>
                         <div class="input-group">
-                            <select id="productCodes" name="productCodes" class="form-control chosen-select">
-								{{#productCodes}}
-                                    <option id="{{id}}">{{productCode}}</option>
-								{{/productCodes}}
+                            <select id="productLine" name="productLine" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productLine"}}</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="control-label" for="productLines">{{i18n "label.productLines"}}</label>
+                        <label class="control-label" for="productSize">{{i18n "label.productSize"}}</label>
                         <div class="input-group">
-                            <select id="productLines" name="productLines" class="form-control chosen-select">
-								{{#productLines}}
-                                    <option id="{{id}}">{{productLine}}</option>
-								{{/productLines}}
+                            <select id="productSize" name="productSize" class="form-control">
+                                <option value="" selected="selected" disabled="disabled">{{i18n "label.productSize"}}</option>
                             </select>
                         </div>
                     </div>
@@ -83,34 +89,82 @@
                         <label class="control-label" for="plannerCodes">{{i18n "label.plannerCodes"}}</label>
                         <div class="input-group">
                             <select id="plannerCodes" name="plannerCodes" class="form-control chosen-select" multiple="">
-								{{#plannerCodes}}
-                                    <option id="{{id}}" selected="selected">{{plannerCode}}</option>
-								{{/plannerCodes}}
                             </select>
                         </div>
                     </div>
                     <div class="form-group">
-                        <h4>(04AG) 4" Ag Singlewall Pipe, (04CM) 4" Cm Singlewall Pipe</h4>
+                        <h4 id="plannerCodeDescription"></h4>
                     </div>
                     <div class="form-group">
                         <h4>{{i18n "label.productSKUs"}}</h4>
-                        <span>ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230,ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230</span>
+                        <span id="productSKUs"></span>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    &nbsp;
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12">
-                    <button class="btn btn-primary">{{i18n "button.save"}}</button>
-                    <button class="btn btn-default">{{i18n "button.reset"}}</button>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label" for="blendSpecTags">{{i18n "label.blendSpecTags"}}</label>
+                        <div class="input-group">
+                            <select id="blendSpecTags" name="blendSpecTags" class="form-control chosen-select" multiple="">
+								{{#blendSpecTags}}
+                                    <option value="{{id}}">{{blendSpecTag}}</option>
+								{{/blendSpecTags}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <label class="control-label">&nbsp;</label>
+                        <div class="input-group">
+                            <button class="btn btn-primary">{{i18n "button.save"}}</button>
+                            <button class="btn btn-default">{{i18n "button.reset"}}</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </form>
     </div>
 </div>
-
+<div class="ibox border-bottom">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.blendSpecHistory.title"}}</h5>
+    </div>
+    <div class="ibox-content" style="display: none;">
+        <h3>{{i18n "feature.blendSpecHistory.title"}}</h3>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.revision"}}</th>
+                <th>{{i18n "label.date"}}</th>
+                <th>{{i18n "label.username"}}</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#revisions}}
+                <tr id="{{id}}">
+                    <td>{{summary}}</td>
+                    <td>{{modifiedDate}}</td>
+                    <td>{{modifiedBy}}</td>
+                </tr>
+			{{/revisions}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="3">&nbsp;</th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 <div class="ibox">
     <div class="ibox-title">
         <div class="ibox-tools">
@@ -132,24 +186,17 @@
                 <th>{{i18n "label.high"}}</th>
                 <th>{{i18n "label.deviationHigh"}}</th>
                 <th>{{i18n "label.notify"}}</th>
-                <th>{{i18n "label.notificationRecipients"}}</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
 			{{#bottomLineSpecs}}
                 <tr id="{{id}}">
-                    <th>{{#if optional}}<a class="close-link"><i class="fa fa-times"></i></a>{{/if}} {{i18n spec}}</th>
+                    <th>{{i18n spec}}</th>
                     <td>{{deviationLow}}</td>
                     <td>{{low}}</td>
                     <td>{{high}}</td>
                     <td>{{deviationHigh}}</td>
-                    <td>
-                        <div class="checkbox checkbox-warning">
-                            <input id="notify{{@index}}" name="notify{{@index}}" type="checkbox" class="styled" {{#if notify}}checked{{/if}}>
-                            <label for="notify{{@index}}"></label>
-                        </div>
-                    </td>
                     <td>
 						{{#notificationRecipients}}
                             <a data-toggle="popover" data-placement="left" data-content="{{fullName}}">{{initials}}</a>
@@ -158,83 +205,21 @@
                     </td>
                     <td>
                         <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
-                        <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
+						{{#if optional}}
+                            <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
+						{{/if}}
                     </td>
                 </tr>
 			{{/bottomLineSpecs}}
             </tbody>
             <tfoot>
             <tr>
-                <th colspan="8">
+                <th colspan="7">
 					{{> "addBottomLineSpecModal"}}
                 </th>
             </tr>
             </tfoot>
         </table>
-        <h3 class="hidden">{{i18n "feature.addBottomLineSpec.title"}}</h3>
-        <form id="addBottomLineSpecForm" class="blend-optimizer-form hidden">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="addBottomLineSpec" class="control-label">{{i18n "label.spec"}}</label>
-                        <div class="input-group">
-                            <select id="addBottomLineSpec" name="addBottomLineSpec" class="form-control chosen-select">
-								{{#specs}}
-                                    <option id="{{id}}">{{i18n "spec"}}</option>
-								{{/specs}}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group-4">
-                        <div class="form-group">
-                            <label for="addBottomLineSpecDeviationLow" class="control-label">{{i18n "label.deviationLow"}}</label>
-                            <div class="input-group">
-                                <input id="addBottomLineSpecDeviationLow" name="addBottomLineSpecDeviationLow" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="addBottomLineSpecLow" class="control-label">{{i18n "label.low"}}</label>
-                            <div class="input-group">
-                                <input id="addBottomLineSpecLow" name="addBottomLineSpecLow" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="addBottomLineSpecHigh" class="control-label">{{i18n "label.high"}}</label>
-                            <div class="input-group">
-                                <input id="addBottomLineSpecHigh" name="addBottomLineSpecHigh" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="addBottomLineSpecDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
-                            <div class="input-group">
-                                <input id="addBottomLineSpecDeviationHigh" name="addBottomLineSpecDeviationHigh" class="form-control">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-1">
-                    <div class="form-group">
-                        <label for="addBottomLineSpecNotify" class="control-label">{{i18n "label.notify"}}</label>
-                        <div class="input-group">
-                            <div class="checkbox checkbox-warning">
-                                <input id="addBottomLineSpecNotify" name="addBottomLineSpecNotify" type="checkbox" class="styled">
-                                <label></label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="addBottomLineSpecDeviationHigh" class="control-label">{{i18n "label.deviationHigh"}}</label>
-                        <div class="input-group">
-                            <button class="btn btn-xs btn-warning">{{i18n "button.add"}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
     </div>
 </div>
 
@@ -250,47 +235,55 @@
         <h5>{{i18n "feature.materialCategoryRules.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <table id="materialCategoryRules" class="table table-striped">
+        <table id="materialCategoryRules" class="table table-striped table-nested">
             <thead>
             <tr>
-                <th>{{i18n "label.materialCategory"}}</th>
+                <th>&nbsp;</th>
+                <th>{{i18n "label.categorySlashItem"}}</th>
                 <th>{{i18n "label.deviationLow"}}</th>
                 <th>{{i18n "label.low"}}</th>
                 <th>{{i18n "label.high"}}</th>
                 <th>{{i18n "label.deviationHigh"}}</th>
                 <th>{{i18n "label.consumptionFactor"}}</th>
                 <th>{{i18n "label.deviationConsumptionFactor"}}</th>
-                <th>{{i18n "label.globalRules"}}</th>
                 <th>&nbsp;</th>
             </tr>
             </thead>
             <tbody>
 			{{#materialCategoryRules}}
-                <tr id="{{id}}">
-                    <th><span class="label label-{{type}}">{{badge}}</span> {{i18n materialCategory}}</th>
+                <tr id="{{id}}" data-toggle="collapse">
+                    <th>
+                        <a class="collapse-row-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                    </th>
+                    <th>
+                        <span class="label label-{{type}}">{{badge}}</span> {{i18n materialCategory}}</th>
                     <td>{{deviationLow}}</td>
                     <td>{{low}}</td>
                     <td>{{high}}</td>
                     <td>{{deviationHigh}}</td>
-                    <td>{{consumptionFactor}}</td>
-                    <td>{{deviationConsumptionFactor}}</td>
-                    <td>
-						{{#globalRules}}
-                            <a data-toggle="popover" data-placement="left" data-content="{{summary}}">{{title}}</a>
-							{{#unless @last}},{{/unless}}
-						{{/globalRules}}
-                    </td>
+                    <td>{{i18n consumptionFactor}}</td>
+                    <td>{{i18n deviationConsumptionFactor}}</td>
                     <td>
                         <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
                         <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
                     </td>
                 </tr>
+				{{#if globalRules}}
+					{{#globalRules}}
+                        <tr class="info">
+                            <td colspan="2">&nbsp;</td>
+                            <td>{{i18n "label.globalRule"}}</td>
+                            <td colspan="3">{{title}}</td>
+                            <td colspan="3">{{summary}}</td>
+                        </tr>
+					{{/globalRules}}
+				{{/if}}
 			{{/materialCategoryRules}}
             </tbody>
             <tfoot>
             <tr>
                 <th colspan="9">
-                    <button class="btn btn-xs btn-warning">{{i18n "button.add"}}</button>
+					{{> "addMaterialTypeCategoryRuleModal"}}
                 </th>
             </tr>
             </tfoot>
@@ -298,7 +291,163 @@
     </div>
 </div>
 
-{{#contentFor "pageScripts"}}
-    <script src="js/blendSpec.js"></script>
+<div class="ibox">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.assignedPlants.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+			{{#plantGroups}}
+                <div class="col-sm-4">
+                    <ul class="list-group assigned-plant-group" data-toggle="items">
+						{{#plants}}
+                            <li id="{{id}}" class="list-group-item assigned-plant-item">
+                                <span class="fa {{i18n "icon.plus"}}"></span><span class="fa {{i18n "icon.minus"}}"></span> {{name}}-{{description}}
+                            </li>
+						{{/plants}}
+                    </ul>
+                </div>
+			{{/plantGroups}}
+        </div>
+    </div>
+</div>
 
+{{#contentFor "pageScripts"}}
+    <script src="js/createBlendSpec.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            var _plannerSeries = {{{json plannerSeries}}};
+            var _productLines = {{{json productLines}}};
+            var _productSizes = {{{json productSizes}}};
+            var _plannerCodes = {{{json plannerCodes}}};
+
+            function getPlannerCodeOption(id, plannerCode, description, productSKUs) {
+                var plannerCodeOption = '<option value="' + id + '" selected="selected">' + plannerCode + '</option>';
+                return plannerCodeOption;
+            }
+
+            function getProductLineOption(id, productLine) {
+                var productLineOption = '<option value="' + id + '">' + productLine + '</option>';
+                return productLineOption;
+            }
+
+            function getProductSizeOption(id, productSize, description, plannerCodes) {
+                var productSizeOption = '<option value="' + id + '">' + productSize + '</option>';
+                return productSizeOption;
+            }
+
+            function plannerSeries_onChange(plannerSeriesId) {
+                var $selectedPlannerSeries = $('#plannerSeries').find('option:selected');
+                var _selectedPlannerSeries = _.find(_plannerSeries, {'id': $selectedPlannerSeries.val()});
+
+                var productLines = _.filter(_productLines, function (_productLine) {
+                    return _selectedPlannerSeries.productLines.indexOf(_productLine.id) !== -1;
+                });
+                var productLineOptions = '<option value="" selected="true">{{i18n "label.productLine"}}</option>';
+                _.forEach(productLines, function (productLine) {
+                    productLineOptions += getProductLineOption(productLine.id, productLine.productLine);
+                });
+                $('#productLine').html(productLineOptions);
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedPlannerSeries.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function productLine_onChange(productLineId) {
+                var $selectedProductLine = $('#productLine').find('option:selected');
+                var _selectedProductLine = _.find(_productLines, {'id': $selectedProductLine.val()});
+
+                var productSizes = _.filter(_productSizes, function (_productSize) {
+                    return _selectedProductLine.productSizes.indexOf(_productSize.id) !== -1;
+                });
+                var productSizeOptions = '<option value="" selected="true">{{i18n "label.productSize"}}</option>';
+                _.forEach(productSizes, function (productSize) {
+                    productSizeOptions += getProductSizeOption(productSize.id, productSize.productSize);
+                });
+                $('#productSize').html(productSizeOptions);
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedProductLine.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function productSize_onChange(productSizeId) {
+                var $selectedProductSize = $('#productSize').find('option:selected');
+                var _selectedProductSize = _.find(_productSizes, {'id': $selectedProductSize.val()});
+
+                var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedProductSize.plannerCodes.indexOf(_plannerCode.id) !== -1;
+                });
+                var plannerCodeOptions = '';
+                _.forEach(plannerCodes, function (plannerCode) {
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.productSKUs);
+                });
+                $('#plannerCodes').html(plannerCodeOptions).trigger("chosen:updated");
+                plannerCodes_onChange();
+            }
+
+            function plannerCodes_onChange() {
+                var _selectedPlannerCodeIds = $('#plannerCodes').find('option:selected').map(function () {
+                    return this.value;
+                }).get();
+
+                var selectedPlannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
+                    return _selectedPlannerCodeIds.indexOf(_plannerCode.id) !== -1;
+                });
+
+                var plannerCodeDescription = '';
+                var productSKUs = '';
+                _.forEach(selectedPlannerCodes, function (value, key) {
+                    plannerCodeDescription = plannerCodeDescription + value.description + ', ';
+                    productSKUs = productSKUs + value.productSKUs + ', ';
+                });
+
+                $('#plannerCodeDescription').text(plannerCodeDescription);
+                $('#productSKUs').text(productSKUs);
+            }
+
+            $('#plannerSeries').on('change', function (evt, params) {
+                plannerSeries_onChange();
+            });
+
+            $('#productLine').on('change', function (evt, params) {
+                productLine_onChange();
+            });
+
+            $('#productSize').on('change', function (evt, params) {
+                productSize_onChange();
+            });
+
+            $('#plannerCodes').on('change', function (evt, params) {
+                plannerCodes_onChange();
+            });
+
+            $('#blendSpecName').on('input', function (evt, params) {
+                var blendSpecNameFormatted = $('#blendSpecNamePrefix').text() + $('#blendSpecName').val();
+                $('#blendSpecNameFormatted').text(blendSpecNameFormatted);
+            });
+
+        });
+    </script>
 {{/contentFor}}

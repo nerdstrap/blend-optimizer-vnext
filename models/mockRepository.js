@@ -14,6 +14,10 @@ mockData['dashboard'] = require('./mockData/dashboard.json');
 mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
 
 mockData['optimizerMaintenance'] = require('./mockData/optimizerMaintenance.json');
+mockData['techAdmin'] = require('./mockData/techAdmin.json');
+mockData['masterRules'] = require('./mockData/masterRules.json');
+mockData['globalRules'] = require('./mockData/globalRules.json');
+
 mockData['blendSpecList'] = require('./mockData/blendSpecList.json');
 mockData['blendSpec'] = require('./mockData/blendSpec.json');
 mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
@@ -77,6 +81,24 @@ module.exports = {
 	optimizerMaintenance: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['optimizerMaintenance']);
+		}
+	},
+
+	techAdmin: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['techAdmin']);
+		}
+	},
+
+	masterRules: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['masterRules']);
+		}
+	},
+
+	globalRules: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['globalRules']);
 		}
 	},
 

@@ -17,13 +17,13 @@
         <h5 class="ibox-header">{{i18n "feature.selectBlend.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="blendSpecSearchForm" class="form-inline blend-optimizer-form">
+        <form id="blendSpecSearchForm" class="blend-optimizer-form">
             <div class="row margin-bottom-20">
                 <div class="col-sm-8">
                     <div class="form-group">
-                        <label for="blendSpecName" class="control-label">{{i18n "label.blendSpecName"}}</label>
+                        <label for="blendSpecName" class="control-label">{{i18n "label.smartSearch"}}</label>
                         <div class="input-group">
-                            <input id="blendSpecName" name="blendSpecName" type="text" class="form-control">
+                            <input id="blendSpecName" name="blendSpecName" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearch"}}">
                         </div>
                     </div>
                 </div>
@@ -37,41 +37,40 @@
                 </div>
             </div>
         </form>
-    </div>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Active</th>
-            <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-		{{#blendSpecs}}
-            <tr id="{{id}}">
-                <td>{{name}}</td>
-                <td>{{description}}</td>
-                <td>{{active}}</td>
-                <td>
-                    <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
-                    <button id="viewBlendSpecPlants" type="button" class="btn btn-success" data-toggle="modal" data-target="#viewBlendSpecPlantsModal" href="#">{{i18n "button.plants"}}</button>
-                    <button id="copyBlendSpec" type="button" class="btn btn-warning">{{i18n "button.copy"}}</button>
-                </td>
-            </tr>
-		{{/blendSpecs}}
-        </tbody>
-        <tfoot>
-        <tr>
-            <th colspan="5">
-                <button id="newBlendSpec" type="button" class="btn btn-xs btn-warning">{{i18n "button.new"}}</button>
-            </th>
-        </tr>
-        </tfoot>
-    </table>
-</div>
 
-{{> "viewBlendSpecPlantsModal"}}
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.blendSpecName"}}</th>
+                <th>{{i18n "label.description"}}</th>
+                <th>{{i18n "label.tags"}}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#blendSpecs}}
+                <tr id="{{id}}">
+                    <td>{{name}}</td>
+                    <td>{{{description}}}</td>
+                    <td>{{tags}}</td>
+                    <td>
+                        <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
+                        <button id="copyBlendSpec" type="button" class="btn btn-default">{{i18n "button.copy"}}</button>
+						{{> "selectPlantsModal" @root}}
+                    </td>
+                </tr>
+			{{/blendSpecs}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="5">
+                    <button id="newBlendSpec" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
 
 {{#contentFor "pageScripts"}}
     <script src="js/blendSpecList.js"></script>
