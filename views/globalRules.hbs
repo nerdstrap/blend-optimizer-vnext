@@ -1,192 +1,158 @@
 {{> "pageHeader"}}
 
-<div class="ibox">
+<div class="ibox margin-bottom-20">
     <div class="ibox-title">
 		{{> "ibox-tools"}}
-        <h3>{{i18n "feature.equipmentRules.title"}}</h3>
+        <h3>{{i18n "feature.globalRules.title"}}</h3>
     </div>
     <div class="ibox-content">
-        <div class="row row-header">
-            <h1>insert filter controls here...</h1>
-        </div>
-        <div class="row row-header">
-            <div class="col-sm-2">
-                <span>{{i18n "label.name"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.summary"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.data"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.blendSpecs"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.plants"}}</span>
-            </div>
-        </div>
-        <div id="equipmentRules" class="row-striped">
-			{{#equipmentRules}}
-                <div id="{{id}}" class="row row-master-rule">
-                    <div class="col-sm-2">
-                        <span>{{name}}</span>
+        <form id="globalRuleSearchForm" class="blend-optimizer-form">
+            <div class="row margin-bottom-20">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="globalRuleFilter" name="globalRuleFilter" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearch"}}">
+                        </div>
                     </div>
-                    <div class="col-sm-3">
-                        <span>{{summary}}</span>
+                </div>
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <button id="filterGlobalRuleList" type="button" class="btn btn-primary">{{i18n "button.search"}}</button>
+                        </div>
                     </div>
-                    <div class="col-sm-3">
-                        <span>{{{data}}}</span>
-                    </div>
-                    <div class="col-sm-2">
+                </div>
+            </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.name"}}</th>
+                <th>{{i18n "label.summary"}}</th>
+                <th>{{i18n "label.data"}}</th>
+                <th>{{i18n "label.blendSpecs"}}</th>
+                <th>{{i18n "label.plants"}}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#globalRulesData}}
+                <tr id="{{id}}">
+                    <td>{{name}}</td>
+                    <td>{{{summary}}}</td>
+                    <td>{{{data}}}</td>
+                    <td>
 						{{#blendSpecs}}
                             <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
 							{{#unless @last}},{{/unless}}
 						{{/blendSpecs}}
-                    </div>
-                    <div class="col-sm-2">
+                    </td>
+                    <td>
 						{{#plants}}
                             <span>{{name}}</span>
 							{{#unless @last}},{{/unless}}
 						{{/plants}}
-                    </div>
-                </div>
-			{{/equipmentRules}}
-        </div>
-        <div class="row row-footer">
-            <div class="col-sm-3">
-				{{> "addEquipmentRuleModal"}}
-            </div>
-        </div>
+                    </td>
+                    <td>
+                        <button id="editGlobalRule" type="button" class="btn btn-default">{{i18n "button.edit"}}</button>
+                    </td>
+                </tr>
+			{{/globalRulesData}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="6">
+					{{> "addGlobalRuleModal"}}
+                </th>
+            </tr>
+            </tfoot>
+        </table>
     </div>
 </div>
-
-<div class="ibox">
-    <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h3>{{i18n "feature.geographicRules.title"}}</h3>
-    </div>
-    <div class="ibox-content">
-        <div class="row row-header">
-            <div class="col-sm-2">
-                <span>{{i18n "label.name"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.summary"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.data"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.blendSpecs"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.plants"}}</span>
-            </div>
-        </div>
-        <div id="geographicRules" class="row-striped">
-			{{#geographicRules}}
-                <div id="{{id}}" class="row row-master-rule">
-                    <div class="col-sm-2">
-                        <span>{{name}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{summary}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{{data}}}</span>
-                    </div>
-                    <div class="col-sm-2">
-						{{#blendSpecs}}
-                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
-							{{#unless @last}},{{/unless}}
-						{{/blendSpecs}}
-                    </div>
-                    <div class="col-sm-2">
-						{{#plants}}
-                            <span>{{name}}</span>
-							{{#unless @last}},{{/unless}}
-						{{/plants}}
-                    </div>
-                </div>
-			{{/geographicRules}}
-        </div>
-        <div class="row row-footer">
-            <div class="col-sm-3">
-				{{> "addGeographicRuleModal"}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ibox">
-    <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h3>{{i18n "feature.sequenceRules.title"}}</h3>
-    </div>
-    <div class="ibox-content">
-        <div class="row row-header">
-            <div class="col-sm-2">
-                <span>{{i18n "label.name"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.summary"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.data"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.blendSpecs"}}</span>
-            </div>
-            <div class="col-sm-2">
-                <span>{{i18n "label.plants"}}</span>
-            </div>
-        </div>
-        <div id="sequenceRules" class="row-striped">
-			{{#sequenceRules}}
-                <div id="{{id}}" class="row row-master-rule">
-                    <div class="col-sm-2">
-                        <span>{{name}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{summary}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{{data}}}</span>
-                    </div>
-                    <div class="col-sm-2">
-						{{#blendSpecs}}
-                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
-							{{#unless @last}},{{/unless}}
-						{{/blendSpecs}}
-                    </div>
-                    <div class="col-sm-2">
-						{{#plants}}
-                            <span>{{name}}</span>
-							{{#unless @last}},{{/unless}}
-						{{/plants}}
-                    </div>
-                </div>
-			{{/sequenceRules}}
-        </div>
-        <div class="row row-footer">
-            <div class="col-sm-3">
-				{{> "addSequenceRuleModal"}}
-            </div>
-        </div>
-    </div>
 </div>
 
 {{#contentFor "pageScripts"}}
-    <script src="js/optimizerMaintenance.js"></script>
+    <script src="js/globalRules.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
-            var sequencedSKUs = document.getElementById('sequencedSKUs');
-            Sortable.create(sequencedSKUs, {
-                animation: 0,
-                group: 'sequencedSKUs',
-                sort: true
+            var _operands = {{{json operands}}};
+            var _itemOperands = {{{json itemOperands}}};
+            var _categoryOperands = [
+				{{#categoryOperands}}
+                    {
+                        "id": "{{id}}",
+                        "categoryOperand": "{{i18n categoryOperand}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/categoryOperands}}
+            ];
+            var _operators = [
+				{{#operators}}
+                    {
+                        "id": "{{id}}",
+                        "operator": "{{i18n operator}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/operators}}
+            ];
+            var _functions = [
+				{{#functions}}
+                    {
+                        "id": "{{id}}",
+                        "function": "{{i18n function}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/functions}}
+            ];
+
+            function getOperatorOption(id, operator) {
+                var operatorOption = '<option value="' + id + '">' + operator + '</option>';
+                return operatorOption;
+            }
+
+            function getItemOperandOption(id, itemOperand) {
+                var _itemOperandOption = '<option value="' + id + '">' + itemOperand + '</option>';
+                return _itemOperandOption;
+            }
+
+            function getCategoryOperandOption(id, categoryOperand) {
+                var _categoryOperandOption = '<option value="' + id + '">' + categoryOperand + '</option>';
+                return _categoryOperandOption;
+            }
+
+            $('[name="addGlobalRuleOperand"]').on('change', function (evt, params) {
+                var $target = $(evt.target);
+                var $selectedOperand = $target.find('option:selected');
+                var _selectedOperands = _.find(_operands, {'id': $selectedOperand.val()});
+
+                if ($selectedOperand.val() === 'ABCD-1231') {
+                    var _itemOperandOptions = '';
+                    _.forEach(_itemOperands, function (_itemOperand) {
+                        _itemOperandOptions += getItemOperandOption(_itemOperand.id, _itemOperand.itemOperand);
+                    });
+                    _itemOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperand2"]').removeClass('hidden').html(_itemOperandOptions);
+                    $target.addClass('hidden');
+                } else if ($selectedOperand.val() === 'ABCD-1232') {
+                    var _categoryOperandOptions = '';
+                    _.forEach(_categoryOperands, function (_categoryOperand) {
+                        _categoryOperandOptions += getCategoryOperandOption(_categoryOperand.id, _categoryOperand.categoryOperand);
+                    });
+                    _categoryOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperand2"]').removeClass('hidden').html(_categoryOperandOptions);
+                    $target.addClass('hidden');
+                }
+
+                var operators = _.filter(_operators, function (_operator) {
+                    return _selectedOperands.operators.indexOf(_operator.id) !== -1;
+                });
+                var operatorOptions = '';
+                _.forEach(operators, function (operator) {
+                    operatorOptions += getOperatorOption(operator.id, operator.operator);
+                });
+                $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperator"]').html(operatorOptions);
             });
 
         });

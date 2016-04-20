@@ -1,0 +1,48 @@
+<div class="row margin-bottom-20">
+    <div class="col-sm-12">
+        <div class="pull-left">
+            <div class="btn-group">
+				{{#@root.conditions}}
+                    <button type="button" class="btn btn-xs btn-outline btn-primary" data-toggle="buttton" data-id="{{id}}">{{i18n condition}}</button>
+				{{/@root.conditions}}
+            </div>
+        </div>
+        <div class="pull-right">
+            <button type="button" class="btn btn-xs btn-success">
+				{{i18n "button.addGroup"}}
+            </button>
+            <button type="button" class="btn btn-xs btn-warning">
+				{{i18n "button.addRule"}}
+            </button>
+        </div>
+    </div>
+</div>
+{{#predicates}}
+	{{#if group}}
+        <div class="predicate-group">
+            <div class="row margin-bottom-20">
+                <div class="col-sm-12">
+                    <div class="pull-left">
+                        <div class="btn-group">
+							{{#@root.conditions}}
+                                <button type="button" class="btn btn-xs btn-outline btn-primary" data-toggle="buttton" data-id="{{id}}">{{i18n condition}}</button>
+							{{/@root.conditions}}
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-xs btn-warning">
+							{{i18n "button.addRule"}}
+                        </button>
+                    </div>
+                </div>
+            </div>
+			{{#predicates}}
+				{{> "predicate"}}
+			{{/predicates}}
+        </div>
+	{{else}}
+		{{#predicates}}
+			{{> "predicate"}}
+		{{/predicates}}
+	{{/if}}
+{{/predicates}}

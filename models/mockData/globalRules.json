@@ -8,6 +8,275 @@
 			"href": "optimizer-maintenance"
 		}
 	],
+	"conditions": [
+		{
+			"id": "ABCD-1230",
+			"condition": "label.and",
+			"code": "&"
+		},
+		{
+			"id": "ABCD-1231",
+			"condition": "label.or",
+			"code": "|"
+		}
+	],
+	"operands": [
+		{
+			"id": "ABCD-1230",
+			"operand": "Plant",
+			"code": "@P",
+			"operators": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1231",
+			"operand": "Item Usage",
+			"code": "@I",
+			"operators": [
+				"ABCD-1232",
+				"ABCD-1233"
+			]
+		},
+		{
+			"id": "ABCD-1232",
+			"operand": "Category Usage",
+			"code": "@C",
+			"operators": [
+				"ABCD-1232",
+				"ABCD-1233"
+			]
+		},
+		{
+			"id": "ABCD-1233",
+			"operand": "Department Class",
+			"code": "@D",
+			"operators": [
+				"ABCD-1234",
+				"ABCD-1235"
+			]
+		},
+		{
+			"id": "ABCD-1234",
+			"operand": "Feeder Count",
+			"code": "@F",
+			"operators": [
+				"ABCD-1234",
+				"ABCD-1236",
+				"ABCD-1237"
+			]
+		},
+		{
+			"id": "ABCD-1235",
+			"operand": "Melt Pump",
+			"code": "@M",
+			"operators": [
+				"ABCD-1234",
+				"ABCD-1235"
+			]
+		},
+		{
+			"id": "ABCD-1236",
+			"operand": "Screen Changer",
+			"code": "@S",
+			"operators": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1237",
+			"operand": "Deviation",
+			"code": "@DEV",
+			"operators": [
+				"ABCD-1234",
+				"ABCD-1235"
+			]
+		}
+	],
+	"categoryOperands": [
+		{
+			"id": "ABCD-1230",
+			"categoryOperand": "label.highMolecularWeight",
+			"code": "@HMW"
+		},
+		{
+			"id": "ABCD-1231",
+			"categoryOperand": "label.regrind",
+			"code": "@REG"
+		},
+		{
+			"id": "ABCD-1232",
+			"categoryOperand": "label.lowCost",
+			"code": "@LC"
+		},
+		{
+			"id": "ABCD-1233",
+			"categoryOperand": "label.tyvek",
+			"code": "@TY"
+		}
+	],
+	"itemOperands": [
+		{
+			"id": "ABCD-1230",
+			"itemOperand": "9999ZP",
+			"code": "ZP"
+		},
+		{
+			"id": "ABCD-1231",
+			"itemOperand": "9999SL",
+			"code": "ZP"
+		},
+		{
+			"id": "ABCD-1232",
+			"itemOperand": "9999X",
+			"code": "X"
+		},
+		{
+			"id": "ABCD-1233",
+			"itemOperand": "9999SL",
+			"code": "SL"
+		}
+	],
+	"operators": [
+		{
+			"id": "ABCD-1230",
+			"operator": "label.in",
+			"code": "#in"
+		},
+		{
+			"id": "ABCD-1231",
+			"operator": "label.notIn",
+			"code": "#!in"
+		},
+		{
+			"id": "ABCD-1232",
+			"operator": "label.greaterThan",
+			"code": "#gt"
+		},
+		{
+			"id": "ABCD-1233",
+			"operator": "label.lessThan",
+			"code": "#lt"
+		},
+		{
+			"id": "ABCD-1234",
+			"operator": "label.equal",
+			"code": "#eq"
+		},
+		{
+			"id": "ABCD-1235",
+			"operator": "label.notEqual",
+			"code": "#!eq"
+		}
+	],
+	"functions": [
+		{
+			"id": "ABCD-1230",
+			"function": "label.sequence",
+			"code": "%Seq",
+			"target": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1231",
+			"function": "label.include",
+			"code": "%inc",
+			"target": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1232",
+			"function": "label.exclude",
+			"code": "%exc",
+			"target": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1233",
+			"function": "label.setUsage",
+			"code": "%use",
+			"target": [
+				"ABCD-1234",
+				"ABCD-1235"
+			]
+		},
+		{
+			"id": "ABCD-1234",
+			"function": "label.setProperty",
+			"code": "%prop",
+			"target": [
+				"ABCD-1233"
+			]
+		},
+		{
+			"id": "ABCD-1235",
+			"function": "label.setConsumption",
+			"code": "%cons",
+			"target": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1236",
+			"function": "label.sendNotification",
+			"code": "%notif",
+			"target": [
+				"ABCD-1234"
+			]
+		}
+	],
+	"globalRules": [
+		{
+			"and": "true",
+			"predicates": [
+				{
+					"predicates": [
+						{
+							"operand": "Plant",
+							"operator": "In",
+							"values": [
+								"P30",
+								"P31"
+							]
+						}
+					]
+				},
+				{
+					"or": "true",
+					"group": "true",
+					"predicates": [
+						{
+							"group": "true",
+							"operand": "Plant",
+							"operator": "In",
+							"values": [
+								"P30",
+								"P31"
+							]
+						},
+						{
+							"group": "true",
+							"operand": "Plant",
+							"operator": "In",
+							"values": [
+								"P30",
+								"P31"
+							]
+						}
+					]
+				}
+			]
+		}
+	],
 	"materialTypeCategories": [
 		{
 			"id": "ABCD-1230",
@@ -162,13 +431,13 @@
 			"description": "99994 description"
 		}
 	],
-	"sequenceRules": [
+	"globalRulesData": [
 		{
 			"id": "ABCD-1230",
 			"type": "sequence",
 			"name": "SEQ-H-1",
-			"summary": "Sequence H materials",
-			"data": "mat:#H,seq[#ZP,#Z,#HX,#H]",
+			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
+			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -189,15 +458,13 @@
 					"name": "P30 - Owosso"
 				}
 			]
-		}
-	],
-	"equipmentRules": [
+		},
 		{
 			"id": "ABCD-1231",
-			"type": "equipment",
-			"name": "EQUIP-30-1",
-			"summary": "class 30 don't use flake",
-			"data": "class:#30,bucket[#flake:0],",
+			"type": "sequence",
+			"name": "SEQ-H-2",
+			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
+			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -218,15 +485,67 @@
 					"name": "P30 - Owosso"
 				}
 			]
-		}
-	],
-	"geographicRules": [
+		},
 		{
 			"id": "ABCD-1232",
-			"type": "geographic",
-			"name": "GEO-NE-1",
-			"summary": "northern plants use ZX",
-			"data": "plant[#30,#31,#32],mat[#ZX:max]",
+			"type": "sequence",
+			"name": "SEQ-H-3",
+			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
+			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX130"
+				},
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX160"
+				},
+				{
+					"id": "ABCD-1232",
+					"blendSpecName": "MIX190"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1233",
+			"type": "sequence",
+			"name": "SEQ-H-4",
+			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
+			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX130"
+				},
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX160"
+				},
+				{
+					"id": "ABCD-1232",
+					"blendSpecName": "MIX190"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1234",
+			"type": "sequence",
+			"name": "SEQ-H-5",
+			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
+			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",

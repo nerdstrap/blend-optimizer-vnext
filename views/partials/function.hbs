@@ -1,0 +1,15 @@
+<div class="row function">
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="input-group">
+                <select name="addGlobalRuleFunction" class="form-control">
+                    <option disabled="disabled" selected="selected" value="">{{i18n "label.function"}}</option>
+					{{#@root.functions}}
+                        <option value="{{id}}">{{i18n function}}</option>
+					{{/@root.functions}}
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+

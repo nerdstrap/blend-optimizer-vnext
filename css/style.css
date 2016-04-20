@@ -7056,6 +7056,11 @@ li > .radio, li .checkbox {
   border-radius: 2px;
   visibility: visible !important; }
 
+.predicate-group {
+  padding: 10px;
+  border: 1px solid #e7eaec !important;
+  background-color: #f3f3f4 !important; }
+
 
 
 /*# sourceMappingURL=maps/style.css.map */

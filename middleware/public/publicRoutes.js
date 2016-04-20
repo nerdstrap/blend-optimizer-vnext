@@ -15,7 +15,7 @@ module.exports = function (app) {
 	app.get('/tech-admin', controller.techAdmin);
 	app.get('/master-rules', controller.masterRules);
 	app.get('/global-rules', controller.globalRules);
-	
+
 	app.get('/blend-spec-list', controller.blendSpecList);
 	app.get('/blend-spec', controller.blendSpec);
 	app.get('/create-blend-spec', controller.createBlendSpec);

@@ -1,0 +1,43 @@
+<div class="row predicate">
+	{{#if group}}
+        <div class="col-sm-1">
+            &nbsp;
+        </div>
+	{{/if}}
+    <div class="{{#if group}}col-sm-3{{else}}col-sm-4{{/if}}">
+        <div class="form-group">
+            <div class="input-group">
+                <select name="addGlobalRuleOperand" class="form-control">
+                    <option disabled="disabled" selected="selected" value="">{{i18n "label.operand"}}</option>
+					{{#@root.operands}}
+                        <option value="{{id}}">{{operand}}</option>
+					{{/@root.operands}}
+                </select>
+                <select name="addGlobalRuleOperand2" class="form-control hidden">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <div class="form-group">
+            <div class="input-group">
+                <select name="addGlobalRuleOperator" class="form-control">
+                    <option disabled="disabled" selected="selected" value="">{{i18n "label.operator"}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <div class="form-group">
+            <div class="input-group">
+                <input name="addGlobalRuleValue" type="text" class="form-control" placeholder="{{i18n "placeholder.values"}}">
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-2">
+        <button type="button" class="btn btn-danger">
+			{{i18n "button.delete"}}
+        </button>
+    </div>
+</div>
+
