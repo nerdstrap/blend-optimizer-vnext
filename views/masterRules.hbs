@@ -1,104 +1,192 @@
 {{> "pageHeader"}}
 
-<div class="ibox">
-    <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h3>{{i18n "feature.globalRules.title"}}</h3>
-    </div>
-    <div class="ibox-content">
-        <div class="row row-header">
-            <div class="col-sm-3">
-                <span>{{i18n "label.name"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.summary"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.data"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.details"}}</span>
-            </div>
-        </div>
-        <div id="globalRules" class="row-striped">
-			{{#globalRules}}
-                <div id="{{id}}" class="row row-master-rule">
-                    <div class="col-sm-3">
-                        <span class="fa {{i18n "icon.dragHandle"}}"></span>
-                        <span>{{name}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{summary}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{{data}}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span class="fa {{i18n "icon.info"}}"></span>
-                    </div>
-                </div>
-			{{/globalRules}}
-        </div>
-        <div class="row row-footer">
-            <div class="col-sm-3">
-				{{> "addGlobalRule"}}
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="ibox">
+<div class="ibox margin-bottom-20">
     <div class="ibox-title">
 		{{> "ibox-tools"}}
         <h3>{{i18n "feature.masterRules.title"}}</h3>
     </div>
     <div class="ibox-content">
-        <div class="row row-header">
-            <div class="col-sm-3">
-                <span>{{i18n "label.name"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.summary"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.data"}}</span>
-            </div>
-            <div class="col-sm-3">
-                <span>{{i18n "label.details"}}</span>
-            </div>
-        </div>
-        <div id="masterRules" class="row-striped">
-			{{#masterRules}}
-                <div id="{{id}}" class="row row-master-rule">
-                    <div class="col-sm-3">
-                        <span class="fa {{i18n "icon.dragHandle"}}"></span>
-                        <span>{{name}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{summary}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span>{{{data}}}</span>
-                    </div>
-                    <div class="col-sm-3">
-                        <span class="fa {{i18n "icon.info"}}"></span>
+        <form id="masterRuleSearchForm" class="blend-optimizer-form">
+            <div class="row margin-bottom-20">
+                <div class="col-sm-8">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input id="masterRuleFilter" name="masterRuleFilter" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearchRules"}}">
+                        </div>
                     </div>
                 </div>
-			{{/masterRules}}
-        </div>
-        <div class="row row-footer">
-            <div class="col-sm-3">
-				{{> "addMasterRule"}}
+                <div class="col-sm-4">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <button id="filterMasterRuleList" type="button" class="btn btn-primary">{{i18n "button.search"}}</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
+        </form>
+
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>{{i18n "label.name"}}</th>
+                <th>{{i18n "label.summary"}}</th>
+                <th>{{i18n "label.data"}}</th>
+                <th>{{i18n "label.blendSpecs"}}</th>
+                <th>{{i18n "label.plants"}}</th>
+                <th>&nbsp;</th>
+            </tr>
+            </thead>
+            <tbody>
+			{{#masterRulesData}}
+                <tr id="{{id}}">
+                    <td>{{name}}</td>
+                    <td>{{{summary}}}</td>
+                    <td>{{{data}}}</td>
+                    <td>
+						{{#blendSpecs}}
+                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
+							{{#unless @last}},{{/unless}}
+						{{/blendSpecs}}
+                    </td>
+                    <td>
+						{{#plants}}
+                            <span>{{name}}</span>
+							{{#unless @last}},{{/unless}}
+						{{/plants}}
+                    </td>
+                    <td>
+                        <button id="editMasterRule" type="button" class="btn btn-default">{{i18n "button.edit"}}</button>
+                    </td>
+                </tr>
+			{{/masterRulesData}}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="6">
+					{{> "addMasterRuleModal"}}
+                </th>
+            </tr>
+            </tfoot>
+        </table>
     </div>
 </div>
 
 {{#contentFor "pageScripts"}}
-    <script src="js/optimizerMaintenance.js"></script>
+    <script src="js/masterRules.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#addMaterialTypeCategoryColor').colorpicker();
+
+            var _operands = {{{json operands}}};
+            var _itemOperands = {{{json itemOperands}}};
+            var _categoryOperands = [
+				{{#categoryOperands}}
+                    {
+                        "id": "{{id}}",
+                        "categoryOperand": "{{i18n categoryOperand}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/categoryOperands}}
+            ];
+            var _operators = [
+				{{#operators}}
+                    {
+                        "id": "{{id}}",
+                        "operator": "{{i18n operator}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/operators}}
+            ];
+            var _functions = [
+				{{#functions}}
+                    {
+                        "id": "{{id}}",
+                        "function": "{{i18n function}}",
+                        "code": "{{{code}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/functions}}
+            ];
+
+            function getOperatorOption(id, operator) {
+                var operatorOption = '<option value="' + id + '">' + operator + '</option>';
+                return operatorOption;
+            }
+
+            function getItemOperandOption(id, itemOperand) {
+                var _itemOperandOption = '<option value="' + id + '">' + itemOperand + '</option>';
+                return _itemOperandOption;
+            }
+
+            function getCategoryOperandOption(id, categoryOperand) {
+                var _categoryOperandOption = '<option value="' + id + '">' + categoryOperand + '</option>';
+                return _categoryOperandOption;
+            }
+
+            $('[name="addMasterRuleOperand"]').on('change', function (evt, params) {
+                var $target = $(evt.target);
+                var $selectedOperand = $target.find('option:selected');
+                var _selectedOperands = _.find(_operands, {'id': $selectedOperand.val()});
+
+                if ($selectedOperand.val() === 'ABCD-1231') {
+                    var _itemOperandOptions = '';
+                    _.forEach(_itemOperands, function (_itemOperand) {
+                        _itemOperandOptions += getItemOperandOption(_itemOperand.id, _itemOperand.itemOperand);
+                    });
+                    _itemOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addMasterRuleOperand2"]').removeClass('hidden').html(_itemOperandOptions);
+                    $target.addClass('hidden');
+                } else if ($selectedOperand.val() === 'ABCD-1232') {
+                    var _categoryOperandOptions = '';
+                    _.forEach(_categoryOperands, function (_categoryOperand) {
+                        _categoryOperandOptions += getCategoryOperandOption(_categoryOperand.id, _categoryOperand.categoryOperand);
+                    });
+                    _categoryOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addMasterRuleOperand2"]').removeClass('hidden').html(_categoryOperandOptions);
+                    $target.addClass('hidden');
+                }
+
+                var operators = _.filter(_operators, function (_operator) {
+                    return _selectedOperands.operators.indexOf(_operator.id) !== -1;
+                });
+                var operatorOptions = '';
+                _.forEach(operators, function (operator) {
+                    operatorOptions += getOperatorOption(operator.id, operator.operator);
+                });
+                $target.parent().parent().parent().parent().find('[name="addMasterRuleOperator"]').html(operatorOptions);
+            });
+
+            $('[name="addMasterRuleOperand"]').on('change', function (evt, params) {
+                var $target = $(evt.target);
+                var $selectedOperand = $target.find('option:selected');
+                var _selectedOperands = _.find(_operands, {'id': $selectedOperand.val()});
+
+                if ($selectedOperand.val() === 'ABCD-1231') {
+                    var _itemOperandOptions = '';
+                    _.forEach(_itemOperands, function (_itemOperand) {
+                        _itemOperandOptions += getItemOperandOption(_itemOperand.id, _itemOperand.itemOperand);
+                    });
+                    _itemOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addMasterRuleOperand2"]').removeClass('hidden').html(_itemOperandOptions);
+                    $target.addClass('hidden');
+                } else if ($selectedOperand.val() === 'ABCD-1232') {
+                    var _categoryOperandOptions = '';
+                    _.forEach(_categoryOperands, function (_categoryOperand) {
+                        _categoryOperandOptions += getCategoryOperandOption(_categoryOperand.id, _categoryOperand.categoryOperand);
+                    });
+                    _categoryOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addMasterRuleOperand2"]').removeClass('hidden').html(_categoryOperandOptions);
+                    $target.addClass('hidden');
+                }
+
+                var operators = _.filter(_operators, function (_operator) {
+                    return _selectedOperands.operators.indexOf(_operator.id) !== -1;
+                });
+                var operatorOptions = '';
+                _.forEach(operators, function (operator) {
+                    operatorOptions += getOperatorOption(operator.id, operator.operator);
+                });
+                $target.parent().parent().parent().parent().find('[name="addMasterRuleOperator"]').html(operatorOptions);
+            });
+
         });
     </script>
 {{/contentFor}}

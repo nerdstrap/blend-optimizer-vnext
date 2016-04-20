@@ -44,12 +44,12 @@ module.exports = function (app) {
 			_renderView('optimizerMaintenance', req, res, next);
 		},
 
-		oracleCategories: function (req, res, next) {
-			_renderView('oracleCategories', req, res, next);
+		oracleItemCategories: function (req, res, next) {
+			_renderView('oracleItemCategories', req, res, next);
 		},
 
-		departmentAttributes: function (req, res, next) {
-			_renderView('departmentAttributes', req, res, next);
+		oracleDepartmentAttributes: function (req, res, next) {
+			_renderView('oracleDepartmentAttributes', req, res, next);
 		},
 
 		techAdmin: function (req, res, next) {

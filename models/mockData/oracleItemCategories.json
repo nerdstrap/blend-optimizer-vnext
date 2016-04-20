@@ -1,0 +1,352 @@
+{
+	"selectedPlant": "P31 - North Springfield",
+	"header": "area.oracleItemCategories.title",
+	"breadcrumbs": [
+		{
+			"status": "active",
+			"title": "feature.optimizerMaintenance.title",
+			"href": "optimizer-maintenance"
+		}
+	],
+	"oracleItemCategories": [
+		{
+			"id": "ABCD-1230",
+			"sku": "99991",
+			"description": "WHITE/NATURAL FLAKE (SWS)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1231",
+			"sku": "99992",
+			"description": "EVOH TANK FLAKE - GTANK",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1232",
+			"sku": "99993",
+			"description": "MPE COMPATIBLIZER",
+			"inventoryCategory": "15-RAW.MISC.MISC.ADDITIVES.NA",
+			"materialCategoryType": "label.ocra",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1233",
+			"sku": "99994",
+			"description": "HOMOPOLYMER FLAKE - HOM",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1234",
+			"sku": "99996",
+			"description": "POST CONSUMER FLAKE.(WASHED)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1235",
+			"sku": "99994S",
+			"description": "PELLETIZED HDPE HOMOPOLYMER",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1236",
+			"sku": "99996DM",
+			"description": "POST CONSUMER FLAKE - MIXED.(UNWASHED)",
+			"inventoryCategory": "15-RAW.PE.MISC.PC-BALES.NA",
+			"materialCategoryType": "label.flake",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1237",
+			"sku": "9999A",
+			"description": "M252 PELLETS",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1238",
+			"sku": "9999AX",
+			"description": "M252 PELLETS.(NON-GS100 BLENDS)",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1239",
+			"sku": "9999B",
+			"description": "BLACK COLOR CONCENTRATE.(NON-AASHTO)",
+			"inventoryCategory": "15-RAW.PE.MISC.BLACK_COLOR.NA",
+			"materialCategoryType": "label.color",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1240",
+			"sku": "9999BA",
+			"description": "BLACK COLOR CONCENTRATE.(AASHTO)",
+			"inventoryCategory": "15-RAW.PE.MISC.BLACK_COLOR.NA",
+			"materialCategoryType": "label.color",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1241",
+			"sku": "9999E",
+			"description": "MMW HDPE REGRIND",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1242",
+			"sku": "9999G",
+			"description": "GREEN COLOR CONCENTRATE",
+			"inventoryCategory": "15-RAW.PE.MISC.OTHER_COLOR.NA",
+			"materialCategoryType": "label.color",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1243",
+			"sku": "9999H",
+			"description": "VIRGIN HIGH MOLECULAR.(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1244",
+			"sku": "9999HB",
+			"description": "VIRGIN HMW - NON BIMODAL.(NM)",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1245",
+			"sku": "9999HX",
+			"description": "HMW RESIN.(NON-GS100 BLENDS).(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1246",
+			"sku": "9999J",
+			"description": "M-294 PELLETS - NCTL",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1248",
+			"sku": "9999JX",
+			"description": "M-294 PELLETS - NCTL",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1249",
+			"sku": "9999L2",
+			"description": "OPTIMIZED SPEC",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1250",
+			"sku": "9999N",
+			"description": "OPTIMIZED BLEND",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1251",
+			"sku": "9999NE",
+			"description": "INTERNAL REPRO.(ETTLINGER SC)",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1252",
+			"sku": "9999NL",
+			"description": "REPRO FROM CONTAMINATED FLAKE",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1253",
+			"sku": "9999NNS",
+			"description": "OPTIMIZED BLEND.(W/9999NS)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.hybrid",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1254",
+			"sku": "9999NS",
+			"description": "SPEC - ADS PELLETIZED",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1255",
+			"sku": "9999P",
+			"description": "HDB VIRGIN PELLETS.(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1256",
+			"sku": "9999R",
+			"description": "PLANT REGULAR REGRIND.(NON-AASHTO)",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REGRIND.NA",
+			"materialCategoryType": "label.regrind",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1257",
+			"sku": "9999RA",
+			"description": "PLANT REGULAR REGRIND.(AASHTO)",
+			"inventoryCategory": "15-RAW.PE.MISC.INTER_REGRIND.NA",
+			"materialCategoryType": "label.regrind",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1258",
+			"sku": "9999S",
+			"description": "ADS REGULAR SPEC RESIN - PCR",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1259",
+			"sku": "9999V",
+			"description": "TYVEK REPRO - TVK",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.repro",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1260",
+			"sku": "9999W",
+			"description": "WHITE COLOR CONCENTRATE",
+			"inventoryCategory": "15-RAW.PE.MISC.OTHER_COLOR.NA",
+			"materialCategoryType": "label.color",
+			"highCost": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1261",
+			"sku": "9999X",
+			"description": "BOTTLE FLAKE - COP/SWC",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1262",
+			"sku": "9999Y",
+			"description": "HMW SPEC RESIN",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REPRO.NA",
+			"materialCategoryType": "label.repro",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1263",
+			"sku": "9999Z",
+			"description": "HMW REGRIND - HMH.(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1264",
+			"sku": "9999ZK",
+			"description": "MED DENSITY PIPE REGRIND.HIGH NCLS.(WASHED).(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1265",
+			"sku": "9999ZP",
+			"description": "SOLID WALL PIPE REGRIND.(WASHED).(BOHMW)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"highMolecularWeight": "true",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1266",
+			"sku": "9999ZPDM",
+			"description": "SOLID WALL PIPE REGRIND.(UNWASHED)",
+			"inventoryCategory": "15-RAW.PE.MISC.PURCH_REGRIND.NA",
+			"materialCategoryType": "label.flake",
+			"valuable": "true",
+			"notAvailable": "true"
+		},
+		{
+			"id": "ABCD-1267",
+			"sku": "9999ZX",
+			"description": "HMW DRUM VIRGIN",
+			"inventoryCategory": "15-RAW.PE.MISC.VIRGIN.NA",
+			"materialCategoryType": "label.virgin",
+			"valuable": "true",
+			"highCost": "true",
+			"notAvailable": "true"
+		}
+	]
+}

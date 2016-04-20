@@ -14,8 +14,8 @@ mockData['dashboard'] = require('./mockData/dashboard.json');
 mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
 
 mockData['optimizerMaintenance'] = require('./mockData/optimizerMaintenance.json');
-mockData['departmentAttributes'] = require('./mockData/departmentAttributes.json');
-mockData['techAdmin'] = require('./mockData/techAdmin.json');
+mockData['oracleItemCategories'] = require('./mockData/oracleItemCategories.json');
+mockData['oracleDepartmentAttributes'] = require('./mockData/oracleDepartmentAttributes.json');
 mockData['techAdmin'] = require('./mockData/techAdmin.json');
 mockData['masterRules'] = require('./mockData/masterRules.json');
 mockData['globalRules'] = require('./mockData/globalRules.json');
@@ -86,15 +86,15 @@ module.exports = {
 		}
 	},
 
-	oracleCategories: function (options, callback) {
+	oracleItemCategories: function (options, callback) {
 		if (callback) {
-			callback(null, mockData['oracleCategories']);
+			callback(null, mockData['oracleItemCategories']);
 		}
 	},
 
-	departmentAttributes: function (options, callback) {
+	oracleDepartmentAttributes: function (options, callback) {
 		if (callback) {
-			callback(null, mockData['departmentAttributes']);
+			callback(null, mockData['oracleDepartmentAttributes']);
 		}
 	},
 
