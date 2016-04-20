@@ -24,6 +24,10 @@
             <div class="col-sm-4">
                 <h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
                 <canvas id="radarChart" width="315px" height="315px"></canvas>
+                <div class="hidden">
+                    <input id="toggleRadarDatasetHigh" name="toggleRadarDatasetHigh" type="checkbox" class="toggle-radar-dataset hidden" data-id="ABCD-0000" checked>
+                </div>
+                <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
 				{{#if datasets}}
                     <ul class="list-inline margin-bottom-20">
                         <li><span>{{i18n "feature.radarChartLegend.title"}}</span></li>

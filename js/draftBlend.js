@@ -20,7 +20,7 @@ $(document).ready(function () {
 			return $(this).attr('data-id');
 		}).get();
 
-		if (checkedDatasetIds.length < 1) {
+		if (checkedDatasetIds.length === 1 && checkedDatasetIds[0] === 'ABCD-0000') {
 			$('.toggle-radar-dataset').prop('checked', true);
 			checkedDatasetIds = $('.toggle-radar-dataset:checked').map(function () {
 				return $(this).attr('data-id');

@@ -1,5 +1,5 @@
 {
-	"selectedPlant": "P30 - Owosso",
+	"selectedPlant": "P31 - North Springfield",
 	"header": "area.createBlend.title",
 	"breadcrumbs": [
 		{
@@ -22,16 +22,16 @@
 	],
 	"datacrumbs": [
 		{
-			"datacrumb": "P30"
+			"datacrumb": "P31"
 		},
 		{
-			"datacrumb": "3030"
+			"datacrumb": "3150"
 		},
 		{
-			"datacrumb": "04AG"
+			"datacrumb": "08AG"
 		},
 		{
-			"datacrumb": "MIX 100"
+			"datacrumb": "MIX 175"
 		},
 		{
 			"datacrumb": "10,000 lbs"
@@ -1292,9 +1292,7 @@
 			"percentAsh": 0,
 			"comments": 0,
 			"received": 20151026
-		}
-	],
-	"ineligibleLots": [
+		},
 		{
 			"id": "ABCD-1251",
 			"status": "success",
@@ -1320,6 +1318,8 @@
 			"comments": 0,
 			"received": 20160309
 		}
+	],
+	"ineligibleLots": [
 	],
 	"blendSpecRules": [
 		{

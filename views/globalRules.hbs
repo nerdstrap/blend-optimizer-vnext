@@ -11,7 +11,7 @@
                 <div class="col-sm-8">
                     <div class="form-group">
                         <div class="input-group">
-                            <input id="globalRuleFilter" name="globalRuleFilter" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearch"}}">
+                            <input id="globalRuleFilter" name="globalRuleFilter" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearchRules"}}">
                         </div>
                     </div>
                 </div>
@@ -70,7 +70,6 @@
         </table>
     </div>
 </div>
-</div>
 
 {{#contentFor "pageScripts"}}
     <script src="js/globalRules.js"></script>
@@ -121,6 +120,39 @@
                 var _categoryOperandOption = '<option value="' + id + '">' + categoryOperand + '</option>';
                 return _categoryOperandOption;
             }
+
+            $('[name="addGlobalRuleOperand"]').on('change', function (evt, params) {
+                var $target = $(evt.target);
+                var $selectedOperand = $target.find('option:selected');
+                var _selectedOperands = _.find(_operands, {'id': $selectedOperand.val()});
+
+                if ($selectedOperand.val() === 'ABCD-1231') {
+                    var _itemOperandOptions = '';
+                    _.forEach(_itemOperands, function (_itemOperand) {
+                        _itemOperandOptions += getItemOperandOption(_itemOperand.id, _itemOperand.itemOperand);
+                    });
+                    _itemOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperand2"]').removeClass('hidden').html(_itemOperandOptions);
+                    $target.addClass('hidden');
+                } else if ($selectedOperand.val() === 'ABCD-1232') {
+                    var _categoryOperandOptions = '';
+                    _.forEach(_categoryOperands, function (_categoryOperand) {
+                        _categoryOperandOptions += getCategoryOperandOption(_categoryOperand.id, _categoryOperand.categoryOperand);
+                    });
+                    _categoryOperandOptions += '<option value="">{{i18n "label.reset"}}</option>';
+                    $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperand2"]').removeClass('hidden').html(_categoryOperandOptions);
+                    $target.addClass('hidden');
+                }
+
+                var operators = _.filter(_operators, function (_operator) {
+                    return _selectedOperands.operators.indexOf(_operator.id) !== -1;
+                });
+                var operatorOptions = '';
+                _.forEach(operators, function (operator) {
+                    operatorOptions += getOperatorOption(operator.id, operator.operator);
+                });
+                $target.parent().parent().parent().parent().find('[name="addGlobalRuleOperator"]').html(operatorOptions);
+            });
 
             $('[name="addGlobalRuleOperand"]').on('change', function (evt, params) {
                 var $target = $(evt.target);

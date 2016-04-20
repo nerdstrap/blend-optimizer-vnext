@@ -182,7 +182,7 @@
 				"status": "warning",
 				"deviationLow": "1.5",
 				"low": "3",
-				"actual": "7",
+				"actual": "2",
 				"high": "5",
 				"deviationHigh": "6"
 			},

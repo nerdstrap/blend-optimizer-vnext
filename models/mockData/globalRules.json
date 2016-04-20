@@ -1,5 +1,5 @@
 {
-	"selectedPlant": "P30 - Owosso",
+	"selectedPlant": "P31 - North Springfield",
 	"header": "area.globalRules.title",
 	"breadcrumbs": [
 		{
@@ -434,136 +434,134 @@
 	"globalRulesData": [
 		{
 			"id": "ABCD-1230",
-			"type": "sequence",
-			"name": "SEQ-H-1",
-			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
-			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"type": "consumption",
+			"name": "CONS-H1",
+			"summary": "IF HMW usage greater than 20 and HMW usage less than 30, then minimize consumption",
+			"data": "@C@HMW#gt:20&@C@HMW#gt:30$%cons:min",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
-					"blendSpecName": "MIX130"
-				},
-				{
-					"id": "ABCD-1231",
-					"blendSpecName": "MIX160"
-				},
-				{
-					"id": "ABCD-1232",
-					"blendSpecName": "MIX190"
+					"blendSpecName": "MIX175"
 				}
 			],
 			"plants": [
 				{
 					"id": "ABCD-1230",
-					"name": "P30 - Owosso"
+					"name": "P31 - North Springfield"
 				}
 			]
 		},
 		{
 			"id": "ABCD-1231",
 			"type": "sequence",
-			"name": "SEQ-H-2",
-			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
-			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"name": "SEQ-H2",
+			"summary": "if HMW usage greater than 0, then sequence skus",
+			"data": "@C@HMW#gt:0$%seq:[ZP,Z,HX,H]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
-					"blendSpecName": "MIX130"
-				},
-				{
-					"id": "ABCD-1231",
-					"blendSpecName": "MIX160"
-				},
-				{
-					"id": "ABCD-1232",
-					"blendSpecName": "MIX190"
+					"blendSpecName": "MIX175"
 				}
 			],
 			"plants": [
 				{
 					"id": "ABCD-1230",
-					"name": "P30 - Owosso"
+					"name": "P31 - North Springfield"
 				}
 			]
 		},
 		{
 			"id": "ABCD-1232",
-			"type": "sequence",
-			"name": "SEQ-H-3",
-			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
-			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"type": "include",
+			"name": "DEV-AX1",
+			"summary": "if deviation, then include sku",
+			"data": "@DEV#eq:[true]%inc@I@9999AX",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
-					"blendSpecName": "MIX130"
-				},
-				{
-					"id": "ABCD-1231",
-					"blendSpecName": "MIX160"
-				},
-				{
-					"id": "ABCD-1232",
-					"blendSpecName": "MIX190"
+					"blendSpecName": "MIX175"
 				}
 			],
 			"plants": [
 				{
 					"id": "ABCD-1230",
-					"name": "P30 - Owosso"
+					"name": "P31 - North Springfield"
 				}
 			]
 		},
 		{
 			"id": "ABCD-1233",
-			"type": "sequence",
-			"name": "SEQ-H-4",
-			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
-			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"type": "usage",
+			"name": "CONS-RA1",
+			"summary": "if Regrind usage greater than 0, then only allow RA at percentage",
+			"data": "@C@Regrind#gt:[0]%use#DL:0#L:0#H:10#DH:50",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
-					"blendSpecName": "MIX130"
-				},
-				{
-					"id": "ABCD-1231",
-					"blendSpecName": "MIX160"
-				},
-				{
-					"id": "ABCD-1232",
-					"blendSpecName": "MIX190"
+					"blendSpecName": "MIX175"
 				}
 			],
 			"plants": [
 				{
 					"id": "ABCD-1230",
-					"name": "P30 - Owosso"
+					"name": "P31 - North Springfield"
 				}
 			]
 		},
 		{
 			"id": "ABCD-1234",
-			"type": "sequence",
-			"name": "SEQ-H-5",
-			"summary": "if plant in 30,31,32 and if HMW usage greater than 30, then sequence skus ",
-			"data": "@P#in:[30,31,32]&@C@HMW#gt:30",
+			"type": "consumption",
+			"name": "CONS-FL1",
+			"summary": "maximize usage of Flake or Spec",
+			"data": "@C@flake#cons:[max]|@C@Spec#cons:[max]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
-					"blendSpecName": "MIX130"
-				},
-				{
-					"id": "ABCD-1231",
-					"blendSpecName": "MIX160"
-				},
-				{
-					"id": "ABCD-1232",
-					"blendSpecName": "MIX190"
+					"blendSpecName": "MIX175"
 				}
 			],
 			"plants": [
 				{
 					"id": "ABCD-1230",
-					"name": "P30 - Owosso"
+					"name": "P31 - North Springfield"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1235",
+			"type": "sequence",
+			"name": "CONS-TY1",
+			"summary": "if 9999ZP is available, minimize Tyvek usage",
+			"data": "@I@9999ZP#gt:[0]|@I@tyvek#cons:[min,0,15]",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX175"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P31 - North Springfield"
+				}
+			]
+		},
+		{
+			"id": "ABCD-1236",
+			"type": "sequence",
+			"name": "CONS-TY2",
+			"summary": "if 9999HX is available, minimize Tyvek usage",
+			"data": "@I@9999HX#gt:[0]|@C@Tyvek#cons:[min,0,20]",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1230",
+					"blendSpecName": "MIX175"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1230",
+					"name": "P31 - North Springfield"
 				}
 			]
 		}

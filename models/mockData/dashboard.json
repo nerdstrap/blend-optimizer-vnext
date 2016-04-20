@@ -1,4 +1,6 @@
 {
+	"selectedPlant": "P31 - North Springfield",
+	"header": "area.dashboard.title",
 	"broadcastMessages": [
 		{
 			"type": "info",
@@ -7,12 +9,6 @@
 		{
 			"type": "warning",
 			"message": "This is a warning (yellow) type broadcast message. It will show under the page title on every page and can not be dismissed."
-		}
-	],
-	"breadcrumbs": [],
-	"alerts": [
-		{
-			"alert": "1 new deviation"
 		}
 	]
 }

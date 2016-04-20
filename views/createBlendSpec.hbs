@@ -60,6 +60,16 @@
                             <input id="blendSpecDescription" name="blendSpecDescription" type="text" class="form-control">
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="control-label" for="blendSpecTags">{{i18n "label.blendSpecTags"}}</label>
+                        <div class="input-group">
+                            <select id="blendSpecTags" name="blendSpecTags" class="form-control chosen-select" multiple="">
+								{{#blendSpecTags}}
+                                    <option value="{{id}}">{{blendSpecTag}}</option>
+								{{/blendSpecTags}}
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="row margin-bottom-20">
@@ -112,13 +122,19 @@
             <div class="row">
                 <div class="col-sm-4">
                     <div class="form-group">
-                        <label class="control-label" for="blendSpecTags">{{i18n "label.blendSpecTags"}}</label>
+                        <label class="control-label" for="blendSpecComments">{{i18n "label.comments"}}</label>
                         <div class="input-group">
-                            <select id="blendSpecTags" name="blendSpecTags" class="form-control chosen-select" multiple="">
-								{{#blendSpecTags}}
-                                    <option value="{{id}}">{{blendSpecTag}}</option>
-								{{/blendSpecTags}}
-                            </select>
+                            <input id="blendSpecComments" name="blendSpecComments" type="text" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="form-group">
+                        <label for="active" class="control-label">&nbsp;</label>
+                        <div class="input-group">
+                            <span class="js-switch-label">{{i18n "label.inactive"}}</span>
+                            <input id="active" name="active" type="checkbox" class="js-switch" checked>
+                            <span class="js-switch-label checked">{{i18n "label.active"}}</span>
                         </div>
                     </div>
                 </div>
@@ -128,16 +144,6 @@
                         <div class="input-group">
                             <button type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
                             <button type="button" class="btn btn-default">{{i18n "button.cancel"}}</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="form-group">
-                        <label for="active" class="control-label">{{i18n "label.inactive"}}</label>
-                        <div class="input-group">
-                            <span class="js-switch-label">{{i18n "label.inactive"}}</span>
-                            <input id="active" name="active" type="checkbox" class="js-switch" checked>
-                            <span class="js-switch-label checked">{{i18n "label.active"}}</span>
                         </div>
                     </div>
                 </div>
@@ -333,6 +339,49 @@
                     </ul>
                 </div>
 			{{/plantGroups}}
+        </div>
+    </div>
+</div>
+<div class="ibox margin-bottom-20">
+    <div class="ibox-title">
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li>
+                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                </li>
+            </ul>
+        </div>
+        <h5>{{i18n "feature.blendSpecDetails.title"}}</h5>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="form-group">
+                    <label class="control-label" for="blendSpecComments">{{i18n "label.comments"}}</label>
+                    <div class="input-group">
+                        <input id="blendSpecComments" name="blendSpecComments" type="text" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="form-group">
+                    <label class="control-label" for="active2"></label>
+                    <div class="input-group">
+                        <span class="js-switch-label">{{i18n "label.inactive"}}</span>
+                        <input id="active2" name="active" type="checkbox" class="js-switch" checked>
+                        <span class="js-switch-label checked">{{i18n "label.active"}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div class="form-group">
+                    <label class="control-label"></label>
+                    <div class="input-group">
+                        <button type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
+                        <button type="button" class="btn btn-default">{{i18n "button.cancel"}}</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
