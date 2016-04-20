@@ -23,7 +23,7 @@
 		{
 			"id": "ABCD-1230",
 			"department": "3150",
-			"description": "3150 Description",
+			"description": "4.5&#34; MPM(200)-I",
 			"plannerCodes": [
 				"ABCD-1230",
 				"ABCD-1231"
@@ -34,7 +34,7 @@
 		{
 			"id": "ABCD-1230",
 			"plannerCode": "08AG",
-			"description": "(08AG) 8&#34;-24&#34; SW",
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
 			"productSKUs": "08810020",
 			"blendSpecs": [
 				"ABCD-1230"
@@ -45,7 +45,7 @@
 		{
 			"id": "ABCD-1230",
 			"blendSpec": "MIX175",
-			"description": "MIX175"
+			"description": "8&#34;-24&#34; SW AG BLENDING PLANTS"
 		}
 	],
 	"numberOfComponents": [

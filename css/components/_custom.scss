@@ -575,3 +575,12 @@ li {
 .predicate {
 
 }
+
+.lot-panel {
+	overflow-y: initial !important
+}
+
+.lot-list-group {
+	max-height: 600px;
+	overflow-y: auto;
+}

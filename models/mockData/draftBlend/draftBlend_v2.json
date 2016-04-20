@@ -109,16 +109,6 @@
 	],
 	"datasets": [
 		{
-			"id": "ABCD-0000",
-			"type": "inverse",
-			"status": "label.low",
-			"data": [
-				"0.625",
-				"0.18",
-				"0.3"
-			]
-		},
-		{
 			"id": "ABCD-9999",
 			"type": "default",
 			"status": "label.high",

@@ -7061,6 +7061,13 @@ li > .radio, li .checkbox {
   border: 1px solid #e7eaec !important;
   background-color: #f3f3f4 !important; }
 
+.lot-panel {
+  overflow-y: initial !important; }
+
+.lot-list-group {
+  max-height: 600px;
+  overflow-y: auto; }
+
 
 
 /*# sourceMappingURL=maps/style.css.map */
