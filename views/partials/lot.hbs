@@ -6,10 +6,11 @@
 		{{> "lot-tools"}}
         <div class="lot-header">
             <div>
-                <span class="lot-sku">{{sku}}</span> <span class="lot-size">{{size}} {{i18n "label.pounds"}}{{#if reservation}} of {{reservation}} {{i18n "label.pounds"}}{{/if}}</span>
+                <span class="lot-sku">{{sku}}</span>
+                <span class="lot-size">{{size}} {{i18n "label.pounds"}}{{#if reservation}} of {{reservation}} {{i18n "label.pounds"}}{{/if}}</span>
             </div>
             <div>
-                <span class="lot-number">{{lotNumber}}</span> <i class="fa {{i18n "icon.comments"}}"></i>
+                <span class="lot-number">{{lotNumber}}</span> {{#if comments}}<i class="fa {{i18n "icon.comments"}}"></i>{{/if}}
             </div>
             <div>
                 <span class="lot-density"><strong>{{i18n "label.densityAbbreviation"}}</strong> {{density}}</span>

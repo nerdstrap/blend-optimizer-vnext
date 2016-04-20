@@ -22,105 +22,30 @@
 	"departments": [
 		{
 			"id": "ABCD-1230",
-			"department": "3030",
-			"description": "3030 Description",
+			"department": "3150",
+			"description": "3150 Description",
 			"plannerCodes": [
 				"ABCD-1230",
 				"ABCD-1231"
-			]
-		},
-		{
-			"id": "ABCD-1231",
-			"department": "3130",
-			"description": "3130",
-			"plannerCodes": [
-				"ABCD-2340",
-				"ABCD-2340"
 			]
 		}
 	],
 	"plannerCodes": [
 		{
 			"id": "ABCD-1230",
-			"plannerCode": "04AG",
-			"description": "(04AG) 4&quot; Ag Singlewall Pipe",
-			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
+			"plannerCode": "08AG",
+			"description": "(08AG) 8&#34;-24&#34; SW",
+			"productSKUs": "08810020",
 			"blendSpecs": [
-				"ABCD-1230",
-				"ABCD-1231"
-			]
-		},
-		{
-			"id": "ABCD-1231",
-			"plannerCode": "04CM",
-			"description": "04CM description",
-			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
-			"blendSpecs": [
-				"ABCD-2340",
-				"ABCD-2340"
-			]
-		},
-		{
-			"id": "ABCD-2340",
-			"plannerCode": "04AG",
-			"description": "(04AG) 4&quot; Ag Singlewall Pipe",
-			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
-			"blendSpecs": [
-				"ABCD-3450",
-				"ABCD-3451"
-			]
-		},
-		{
-			"id": "ABCD-2341",
-			"plannerCode": "04CM",
-			"description": "04CM description",
-			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230",
-			"blendSpecs": [
-				"ABCD-4560",
-				"ABCD-4561"
+				"ABCD-1230"
 			]
 		}
 	],
 	"blendSpecs": [
 		{
 			"id": "ABCD-1230",
-			"blendSpec": "MIX 100",
-			"description": "MIX 100 description"
-		},
-		{
-			"id": "ABCD-1231",
-			"blendSpec": "MIX 101",
-			"description": "MIX 101 description"
-		},
-		{
-			"id": "ABCD-2340",
-			"blendSpec": "MIX 102",
-			"description": "MIX 102 description"
-		},
-		{
-			"id": "ABCD-2341",
-			"blendSpec": "MIX 103",
-			"description": "MIX 103 description"
-		},
-		{
-			"id": "ABCD-3450",
-			"blendSpec": "MIX 104",
-			"description": "MIX 104 description"
-		},
-		{
-			"id": "ABCD-3451",
-			"blendSpec": "MIX 105",
-			"description": "MIX 105 description"
-		},
-		{
-			"id": "ABCD-4560",
-			"blendSpec": "MIX 106",
-			"description": "MIX 106 description"
-		},
-		{
-			"id": "ABCD-4561",
-			"blendSpec": "MIX 107",
-			"description": "04CM description"
+			"blendSpec": "MIX175",
+			"description": "MIX175"
 		}
 	],
 	"numberOfComponents": [

@@ -349,6 +349,19 @@
 					"summary": "Fill w/ low cost flake"
 				}
 			]
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "virgin",
+			"badge": "Y",
+			"materialCategory": "label.tyvek",
+			"deviationLow": "0",
+			"low": "0",
+			"high": "10",
+			"deviationHigh": "20",
+			"consumptionFactor": "label.min",
+			"deviationConsumptionFactor": "label.min",
+			"rowspan": "1"
 		}
 	],
 	"plantGroups": [
@@ -549,5 +562,6 @@
 				}
 			]
 		}
-	]
+	],
+	"active": "true"
 }
