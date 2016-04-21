@@ -291,15 +291,6 @@
 			"low": "3",
 			"high": "5",
 			"deviationHigh": "6"
-		},
-		{
-			"id": "ABCD-1233",
-			"optional": "true",
-			"spec": "label.ncls",
-			"deviationLow": "0",
-			"low": "0",
-			"high": "0",
-			"deviationHigh": "0"
 		}
 	],
 	"materialCategoryRules": [
@@ -318,7 +309,11 @@
 			"globalRules": [
 				{
 					"title": "H1",
-					"summary": "HMW > 20% && < 30%"
+					"summary": "HMW = |20 < 30| MINIMIZE"
+				},
+				{
+					"title": "H2",
+					"summary": "ZP -> Z -> HX"
 				}
 			]
 		},
@@ -334,7 +329,12 @@
 			"consumptionFactor": "label.none",
 			"deviationConsumptionFactor": "label.none",
 			"rowspan": "1",
-			"globalRules": []
+			"globalRules": [
+				{
+					"title": "CAT-RGR-1",
+					"summary": "Internal Regrind = RA Only"
+				}
+			]
 		},
 		{
 			"id": "ABCD-1232",
@@ -350,12 +350,12 @@
 			"rowspan": "3",
 			"globalRules": [
 				{
-					"title": "GS1",
-					"summary": "SEQ H: ZP > Z > HX"
+					"title": "GR1",
+					"summary": "F->S; ELSE Spec = Flake"
 				},
 				{
-					"title": "E1",
-					"summary": "Fill w/ low cost flake"
+					"title": "I9",
+					"summary": "If Z, Tyvek LAST"
 				}
 			]
 		},
