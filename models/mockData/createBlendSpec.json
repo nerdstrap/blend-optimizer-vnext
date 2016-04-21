@@ -40,16 +40,17 @@
 			"productLine": "SW",
 			"description": "Single Wall",
 			"productSizes": [
-				"ABCD-1230"
+				"ABCD-1234"
 			],
 			"plannerCodes": [
 				"ABCD-1230",
 				"ABCD-1231",
 				"ABCD-1232",
 				"ABCD-1233",
-				"ABCD-1233",
-				"ABCD-1233",
-				"ABCD-1233"
+				"ABCD-1234",
+				"ABCD-1236",
+				"ABCD-1239",
+				"ABCD-1241"
 			]
 		}
 	],
@@ -85,6 +86,14 @@
 			"plannerCodes": [
 				"ABCD-1235"
 			]
+		},
+		{
+			"id": "ABCD-1234",
+			"productSize": "8&quot;-24&quot;",
+			"description": "8-24 inch",
+			"plannerCodes": [
+				"ABCD-1236"
+			]
 		}
 	],
 	"plannerCodes": [
@@ -115,8 +124,8 @@
 		{
 			"id": "ABCD-1236",
 			"plannerCode": "08AG",
-			"description": "(08AG) 8inch Ag Singlewall Pipe",
-			"productSKUs": "ABCD1230, ABCD1230, ABCD1230, ABCD1230, ABCD1230"
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
+			"productSKUs": "08810020"
 		},
 		{
 			"id": "ABCD-1239",

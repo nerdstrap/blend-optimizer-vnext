@@ -577,10 +577,41 @@ li {
 }
 
 .lot-panel {
-	overflow-y: initial !important
+	overflow-y: scroll !important;
 }
 
 .lot-list-group {
 	max-height: 600px;
 	overflow-y: auto;
+}
+
+.bar-chart-legend {
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 5px;
+
+	&.bar-chart-default {
+		background-color: $gray-bg;
+	}
+
+	&.bar-chart-primary {
+		background-color: $brand-primary;
+	}
+
+	&.bar-chart-success {
+		background-color: $brand-success;
+	}
+
+	&.bar-chart-info {
+		background-color: $brand-info;
+	}
+
+	&.bar-chart-warning {
+		background-color: $brand-warning;
+	}
+
+	&.bar-chart-danger {
+		background-color: $brand-danger;
+	}
 }

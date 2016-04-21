@@ -374,5 +374,9 @@
 	"label.blendOptimizerAlert": "Blend Optimizer alert...",
 	"feature.modificationKPI.title": "Modifications",
 	"icon.levelDown": "fa-level-down",
-	"feature.modificationKPI.description": "modifications / blends"
+	"feature.modificationKPI.description": "modifications / blends",
+	"feature.barChartLegend.title": "Legend",
+	"label.onHand": "On Hand",
+	"label.reserved": "Reserved",
+	"feature.rawMaterialsOnHand.title": "Raw Materials"
 }

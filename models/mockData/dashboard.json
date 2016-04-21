@@ -88,7 +88,7 @@
 	"datasets": [
 		{
 			"id": "ABCD-9999",
-			"type": "danger",
+			"type": "primary",
 			"status": "label.onHand",
 			"data": [
 				"200000",
@@ -102,7 +102,7 @@
 		},
 		{
 			"id": "ABCD-1230",
-			"type": "primary",
+			"type": "warning",
 			"status": "label.reserved",
 			"data": [
 				"100000",

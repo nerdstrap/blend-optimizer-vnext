@@ -433,11 +433,147 @@
 	],
 	"globalRulesData": [
 		{
+			"id":"ABCD-1234",
+			"type":"category",
+			"name":"CAT-HMW-1",
+			"data":"if 'BO_ITEM_TYPE = HMW', then use at > 20% & < 30%",
+			"summary":"HMW = |20 < 30|",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1235",
+			"type":"sequence",
+			"name":"SEQ-HMW-1",
+			"data":"if 'BO_ITEM_TYPE = HMW', then use 9999ZP first, 9999Z second, 9999HX third, BALANCE fourth",
+			"summary":"HMW Sequence = ZP, Z, HX, All Others",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1236",
+			"type":"deviation",
+			"name":"DEV-VIR-1",
+			"data":"if 'BO_ITEM_TYPE = VIRGIN', then AX when DEVIATION = YES",
+			"summary":"Deviation = AX only when YES",
+			"blendSpecs/0/id":"ABCD-1231",
+			"blendSpecs/0/blendSpecName":"MIX175",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1237",
+			"type":"sequence",
+			"name":"SEQ-REG-2",
+			"data":"if 'BO_ITEM_TYPE = REGRIND', then use RA at > 0% & < 10%",
+			"summary":"Regrind Sequence = RA Only",
+			"blendSpecs/0/id":"ABCD-1231",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1238",
+			"type":"deviation",
+			"name":"DEV-REG-2",
+			"data":"if 'BO_ITEM_TYPE = REGRIND', then RA when DEVIATION = YES at > 10% & < 50%",
+			"summary":"Deviation = RA 10% - 50%",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1239",
+			"type":"category",
+			"name":"CAT-LOW-2",
+			"data":"if 'BO_ITEM_COST = LC', then use at MAX CONSUMPTION",
+			"summary":"Low Cost = Fill Blend",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
+			"id":"ABCD-1240",
+			"type":"item",
+			"name":"ITE-TYV-1",
+			"data":"if 'ITEM = 9999V', then use at > 0% & < 15% when ZP, use at > 0% & < 20% when HX",
+			"summary":"Item = Tyvek to 15% for ZP, 20% for HX",
+			"blendSpecs": [
+				{
+					"id": "ABCD-1231",
+					"blendSpecName": "MIX131"
+				}
+			],
+			"plants": [
+				{
+					"id": "ABCD-1231",
+					"name": "P30 - Owosso"
+				}
+			]
+		},
+		{
 			"id": "ABCD-1230",
 			"type": "consumption",
 			"name": "CONS-H1",
-			"summary": "IF HMW usage greater than 20 and HMW usage less than 30, then minimize consumption",
-			"data": "@C@HMW#gt:20&@C@HMW#gt:30$%cons:min",
+			"data": "IF HMW usage greater than 20 and HMW usage less than 30, then minimize consumption",
+			"summary": "@C@HMW#gt:20&@C@HMW#gt:30$%cons:min",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -455,8 +591,8 @@
 			"id": "ABCD-1231",
 			"type": "sequence",
 			"name": "SEQ-H2",
-			"summary": "if HMW usage greater than 0, then sequence skus",
-			"data": "@C@HMW#gt:0$%seq:[ZP,Z,HX,H]",
+			"data": "if HMW usage greater than 0, then sequence skus",
+			"summary": "@C@HMW#gt:0$%seq:[ZP,Z,HX,H]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -474,8 +610,8 @@
 			"id": "ABCD-1232",
 			"type": "include",
 			"name": "DEV-AX1",
-			"summary": "if deviation, then include sku",
-			"data": "@DEV#eq:[true]%inc@I@9999AX",
+			"data": "if deviation, then include sku",
+			"summary": "@DEV#eq:[true]%inc@I@9999AX",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -493,8 +629,8 @@
 			"id": "ABCD-1233",
 			"type": "usage",
 			"name": "CONS-RA1",
-			"summary": "if Regrind usage greater than 0, then only allow RA at percentage",
-			"data": "@C@Regrind#gt:[0]%use#DL:0#L:0#H:10#DH:50",
+			"data": "if Regrind usage greater than 0, then only allow RA at percentage",
+			"summary": "@C@Regrind#gt:[0]%use#DL:0#L:0#H:10#DH:50",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -512,8 +648,8 @@
 			"id": "ABCD-1234",
 			"type": "consumption",
 			"name": "CONS-FL1",
-			"summary": "maximize usage of Flake or Spec",
-			"data": "@C@flake#cons:[max]|@C@Spec#cons:[max]",
+			"data": "maximize usage of Flake or Spec",
+			"summary": "@C@flake#cons:[max]|@C@Spec#cons:[max]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -531,8 +667,8 @@
 			"id": "ABCD-1235",
 			"type": "sequence",
 			"name": "CONS-TY1",
-			"summary": "if 9999ZP is available, minimize Tyvek usage",
-			"data": "@I@9999ZP#gt:[0]|@I@tyvek#cons:[min,0,15]",
+			"data": "if 9999ZP is available, minimize Tyvek usage",
+			"summary": "@I@9999ZP#gt:[0]|@I@tyvek#cons:[min,0,15]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",
@@ -550,8 +686,8 @@
 			"id": "ABCD-1236",
 			"type": "sequence",
 			"name": "CONS-TY2",
-			"summary": "if 9999HX is available, minimize Tyvek usage",
-			"data": "@I@9999HX#gt:[0]|@C@Tyvek#cons:[min,0,20]",
+			"data": "if 9999HX is available, minimize Tyvek usage",
+			"summary": "@I@9999HX#gt:[0]|@C@Tyvek#cons:[min,0,20]",
 			"blendSpecs": [
 				{
 					"id": "ABCD-1230",

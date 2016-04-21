@@ -40,7 +40,7 @@
         </div>
     </div>
     <div class="col-sm-8">
-        <div class="row">
+        <div class="row margin-bottom-20">
 			{{#kpis}}
                 <div class="col-md-4">
                     <div class="ibox">
@@ -63,7 +63,17 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
+				<h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
                 <canvas id="barChart" height="240px" width="600px"></canvas>
+				{{#if datasets}}
+                    <ul class="list-inline margin-bottom-20">
+						{{#datasets}}
+                            <li>
+                                <div class="bar-chart-legend bar-chart-{{type}}"></div>{{i18n status}}
+                            </li>
+						{{/datasets}}
+                    </ul>
+				{{/if}}
             </div>
         </div>
     </div>

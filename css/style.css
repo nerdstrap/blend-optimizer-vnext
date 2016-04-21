@@ -7062,11 +7062,29 @@ li > .radio, li .checkbox {
   background-color: #f3f3f4 !important; }
 
 .lot-panel {
-  overflow-y: initial !important; }
+  overflow-y: scroll !important; }
 
 .lot-list-group {
   max-height: 600px;
   overflow-y: auto; }
+
+.bar-chart-legend {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 5px; }
+  .bar-chart-legend.bar-chart-default {
+    background-color: #f3f3f4; }
+  .bar-chart-legend.bar-chart-primary {
+    background-color: #16967c; }
+  .bar-chart-legend.bar-chart-success {
+    background-color: #1c84c6; }
+  .bar-chart-legend.bar-chart-info {
+    background-color: #23c6c8; }
+  .bar-chart-legend.bar-chart-warning {
+    background-color: #f8ac59; }
+  .bar-chart-legend.bar-chart-danger {
+    background-color: #ed5565; }
 
 
 

@@ -274,7 +274,7 @@
 			},
 			{
 				"id": "ABCD-1222",
-				"status": "success",
+				"status": "danger",
 				"priority": "true",
 				"type": "repro",
 				"badge": "P",
@@ -307,7 +307,7 @@
 			},
 			{
 				"id": "ABCD-1233",
-				"status": "success",
+				"status": "warning",
 				"priority": "true",
 				"type": "flake",
 				"badge": "F",
