@@ -364,5 +364,12 @@
 	"VIRGIN": "VIRGIN",
 	"COLOR": "COLOR",
 	"HYBRID": "HYBRID",
-	"REGRIND": "REGRIND"
+	"REGRIND": "REGRIND",
+	"feature.deviationKPI.title": "Deviations",
+	"icon.levelUp": "fa-level-up",
+	"feature.deviationKPI.description": "deviations / blends",
+	"label.rank": "Rank",
+	"icon.alerts": "fa-bell-o",
+	"feature.newAlerts.title": "New Alerts!",
+	"label.blendOptimizerAlert": "Blend Optimizer alert..."
 }

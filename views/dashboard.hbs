@@ -12,7 +12,7 @@
     </div>
 {{/broadcastMessages}}
 
-<div class="row">
+<div class="row margin-bottom-20">
     <div class="col-sm-4">
         <div class="ibox">
             <div class="ibox-title">
@@ -20,297 +20,47 @@
                 <h3>{{i18n "feature.alerts.title"}}</h3>
             </div>
             <div class="ibox-content ibox-heading">
-                <h3><i class="fa fa-bell-o"></i> New Alerts</h3>
-                <small><i class="fa fa-tim"></i> There are 22 new alerts!</small>
+                <h3><i class="fa {{i18n "icon.alerts"}}"></i> {{i18n "feature.newAlerts.title"}}</h3>
+                <small><i class="fa {{i18n "icon.close"}}"></i> {{newAlertsMessage}}</small>
             </div>
             <div class="ibox-content">
                 <div class="feed-activity-list">
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
+					{{#newAlerts}}
+                        <div class="feed-element">
+                            <div>
+                                <small class="pull-right text-primary">{{age}}</small>
+                                <strong>{{i18n title}}</strong>
+                                <div>{{message}}</div>
+                                <p class="text-muted">{{timestamp}}</p>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
-                        </div>
-                    </div>
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
-                        </div>
-                    </div>
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
-                        </div>
-                    </div>
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
-                        </div>
-                    </div>
-
-                    <div class="feed-element">
-                        <div>
-                            <small class="pull-right text-primary">1m ago</small>
-                            <strong>Blend Optimizer Alert</strong>
-                            <div>message content...</div>
-                            <p class="text-muted">Today 5:60 P.M.</p>
-                        </div>
-                    </div>
-
+					{{/newAlerts}}
                 </div>
             </div>
         </div>
     </div>
     <div class="col-sm-8">
-        <div class="row margin-bottom-20">
-            <div class="col-lg-4">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <span class="label label-info pull-right">info</span>
-                        <h4>KPI 1 Title</h4>
-                    </div>
-                    <div class="ibox-content">
-                        <h3>999</h3>
-                        <div class="pull-right text-info">20% <i class="fa fa-level-up"></i></div>
-                        <p class="small">description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <span class="label label-primary pull-right">primary</span>
-                        <h4>KPI 2 Title</h4>
-                    </div>
-                    <div class="ibox-content">
-                        <h3>100</h3>
-                        <div class="pull-right text-primary">44% <i class="fa fa-level-up"></i></div>
-                        <p class="small">description</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <span class="label label-danger pull-right">danger</span>
-                        <h4>KPI 3 Title</h4>
-                    </div>
-                    <div class="ibox-content">
-                        <h3>$80,600</h3>
-                        <div class="pull-right text-danger">38% <i class="fa fa-level-down"></i></div>
-                        <p class="small">description</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row margin-bottom-20">
-            <div class="col-sm-12">
-                <div class="ibox">
-                    <div class="ibox-title">
-                        <div class="pull-right">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-xs btn-default active">Today</button>
-                                <button type="button" class="btn btn-xs btn-default">Monthly</button>
-                                <button type="button" class="btn btn-xs btn-default">Annual</button>
-                            </div>
-                        </div>
-                        <h5>General Report</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <div class="row">
-                            <div class="col-sm-9">
-                                <canvas id="lineChart" height="140"></canvas>
-                            </div>
-                            <div class="col-sm-3">
-                                <ul class="list-unstyled">
-                                    <li>
-                                        <h2 class="margin-zero">2,346</h2>
-                                        <p class="small">Total metric in period</p>
-                                        <div class="stat-percent">48% <i class="fa fa-level-up text-primary"></i></div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 48%;" class="progress-bar"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h2 class="margin-zero ">4,422</h2>
-                                        <p class="small">Metric last month</p>
-                                        <div class="stat-percent">60% <i class="fa fa-level-down text-primary"></i>
-                                        </div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 60%;" class="progress-bar"></div>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <h2 class="margin-zero ">9,180</h2>
-                                        <p class="small">Monthly metric</p>
-                                        <div class="stat-percent">22% <i class="fa fa-bolt text-primary"></i></div>
-                                        <div class="progress progress-mini">
-                                            <div style="width: 22%;" class="progress-bar"></div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-sm-6">
-                <div class="ibox">
-                    <div class="ibox-title">
-						{{> "ibox-tools"}}
-                        <h5>Simple List</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover margin-zero">
-                            <thead>
-                            <tr>
-                                <th>Status</th>
-                                <th>Date</th>
-                                <th>Plant</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>
-                                    <span>Planned</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 11:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="label label-warning">Canceled</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 4:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>In Progress</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 7:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>In Progress</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 11:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span class="label label-primary">Production Entry</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 3:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <span>Scrap</span>
-                                </td>
-                                <td><i class="fa fa-clock-o"></i> 9:20pm</td>
-                                <td>P42</td>
-                            </tr>
-                            </tbody>
-                        </table>
+			{{#kpis}}
+                <div class="col-md-4">
+                    <div class="ibox">
+                        <div class="ibox-title">
+                            <div class="pull-right">
+                                <span>{{i18n "label.rank"}}</span> <span class="label label-{{status}}">{{rank}}</span>
+                            </div>
+                            <h4>{{i18n title}}</h4>
+                        </div>
+                        <div class="ibox-content">
+                            <h2>{{majorData}}</h2>
+                            <div class="pull-right text-{{status}}">{{minorData}}
+                                <i class="fa {{i18n minorDataIcon}}"></i>
+                            </div>
+                            <p class="small">{{i18n description}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="ibox">
-                    <div class="ibox-title">
-						{{> "ibox-tools"}}
-                        <h5>Simple List</h5>
-                    </div>
-                    <div class="ibox-content">
-                        <table class="table table-hover">
-                            <thead>
-                            <tr>
-                                <th style="width: 1%" class="text-center">No.</th>
-                                <th>SKU</th>
-                                <th class="text-center">Date</th>
-                                <th class="text-center">Amount</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td class="text-center">1</td>
-                                <td>99992</td>
-                                <td class="text-center small">16 Jun 2014</td>
-                                <td class="text-center"><span class="label label-primary">$483.00</span></td>
-
-                            </tr>
-                            <tr>
-                                <td class="text-center">2</td>
-                                <td>9999Z</td>
-                                <td class="text-center small">10 Jun 2014</td>
-                                <td class="text-center"><span class="label label-primary">$327.00</span></td>
-
-                            </tr>
-                            <tr>
-                                <td class="text-center">3</td>
-                                <td>Tyvek</td>
-                                <td class="text-center small">12 Jun 2014</td>
-                                <td class="text-center"><span class="label label-warning">$125.00</span></td>
-
-                            </tr>
-                            <tr>
-                                <td class="text-center">4</td>
-                                <td>9999SL</td>
-                                <td class="text-center small">22 Jun 2013</td>
-                                <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">5</td>
-                                <td>9999H</td>
-                                <td class="text-center small">24 Jun 2013</td>
-                                <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                            </tr>
-                            <tr>
-                                <td class="text-center">6</td>
-                                <td>9999HX</td>
-                                <td class="text-center small">26 Jun 2013</td>
-                                <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+			{{/kpis}}
         </div>
-    </div>
-</div>
-
-<div class="row">
-    <div class="col-sm-4">
-    </div>
-    <div class="col-sm-8">
     </div>
 </div>
 

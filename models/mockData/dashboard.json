@@ -10,5 +10,60 @@
 			"type": "warning",
 			"message": "This is a warning (yellow) type broadcast message. It will show under the page title on every page and can not be dismissed."
 		}
+	],
+	"newAlertsMessage": "There are 5 new alerts!",
+	"newAlerts": [
+		{
+			"id": "ABCD-1230",
+			"type": "warning",
+			"age": "1m ago",
+			"title": "label.blendOptimizerAlert",
+			"message": "message content...",
+			"timestamp": "Today - 5:06 P.M."
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "warning",
+			"age": "2m ago",
+			"title": "label.blendOptimizerAlert",
+			"message": "message content...",
+			"timestamp": "Today - 5:07 P.M."
+		},
+		{
+			"id": "ABCD-1232",
+			"type": "warning",
+			"age": "3m ago",
+			"title": "label.blendOptimizerAlert",
+			"message": "message content...",
+			"timestamp": "Today - 5:08 P.M."
+		},
+		{
+			"id": "ABCD-1233",
+			"type": "warning",
+			"age": "4m ago",
+			"title": "label.blendOptimizerAlert",
+			"message": "message content...",
+			"timestamp": "Today - 5:09 P.M."
+		},
+		{
+			"id": "ABCD-1234",
+			"type": "warning",
+			"age": "5m ago",
+			"title": "label.blendOptimizerAlert",
+			"message": "message content...",
+			"timestamp": "Today - 5:10 P.M."
+		}
+	],
+	"kpis": [
+		{
+			"id": "ABCD-1230",
+			"status": "success",
+			"title": "feature.deviationKPI.title",
+			"description": "feature.deviationKPI.description",
+			"rank": "4",
+			"majorData": "5 / 100",
+			"minorData": "5%",
+			"minorDataIcon": "icon.levelUp"
+		}
 	]
 }
