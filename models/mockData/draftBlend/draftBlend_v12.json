@@ -112,9 +112,9 @@
 			"type": "default",
 			"status": "label.high",
 			"data": [
-				"1",
-				"1",
-				"1"
+				"0.675",
+				"0.4",
+				"0.5"
 			]
 		},
 		{
@@ -122,19 +122,19 @@
 			"type": "warning",
 			"status": "label.infeasible",
 			"data": [
-				"0.225",
-				"0.7307",
-				"2"
+				"0.63625",
+				"0.34076",
+				"0.2"
 			]
 		},
 		{
-			"id": "ABCD-1230",
+			"id": "ABCD-1231",
 			"type": "success",
 			"status": "label.deviation",
 			"data": [
-				"0.725",
-				"0.7307",
-				"0.5849"
+				"0.67375",
+				"0.2",
+				"0.49"
 			]
 		}
 	],
@@ -195,7 +195,7 @@
 				"spec": "label.density",
 				"deviationLow": "0.95",
 				"low": "0.95",
-				"actual": "0.9529",
+				"actual": "0.9539",
 				"high": "0.954",
 				"deviationHigh": "0.954"
 			},
@@ -203,7 +203,7 @@
 				"spec": "label.meltIndex",
 				"deviationLow": "0.18",
 				"low": "0.18",
-				"actual": "0.34076",
+				"actual": "0.2",
 				"high": "0.4",
 				"deviationHigh": "0.4"
 			},
@@ -211,7 +211,7 @@
 				"spec": "label.izod",
 				"deviationLow": "1.5",
 				"low": "3",
-				"actual": "4.16998",
+				"actual": "4.9",
 				"high": "5",
 				"deviationHigh": "6"
 			},

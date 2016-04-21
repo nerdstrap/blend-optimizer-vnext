@@ -92,9 +92,9 @@
 			"type": "default",
 			"status": "label.high",
 			"data": [
-				"1",
-				"1",
-				"1"
+				"0.675",
+				"0.4",
+				"0.5"
 			]
 		},
 		{
@@ -102,9 +102,9 @@
 			"type": "warning",
 			"status": "label.infeasible",
 			"data": [
-				"0.225",
-				"0.7307",
-				"2"
+				"0.63625",
+				"0.34076",
+				"0.2"
 			]
 		}
 	],
@@ -172,7 +172,7 @@
 				"status": "warning",
 				"deviationLow": "1.5",
 				"low": "3",
-				"actual": "7",
+				"actual": "2",
 				"high": "5",
 				"deviationHigh": "6"
 			},

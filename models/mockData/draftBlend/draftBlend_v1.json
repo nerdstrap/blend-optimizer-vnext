@@ -126,6 +126,16 @@
 				"0.34076",
 				"0.416998"
 			]
+		},
+		{
+			"id": "ABCD-1231",
+			"type": "warning",
+			"status": "label.infeasible",
+			"data": [
+				"0.63625",
+				"0.34076",
+				"0.2"
+			]
 		}
 	],
 	"materialCategories": [
