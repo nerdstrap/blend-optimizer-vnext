@@ -83,7 +83,8 @@
 		"label.repro",
 		"label.color",
 		"label.ocra",
-		"label.hybrid"
+		"label.hybrid",
+		"label.highCost"
 	],
 	"datasets": [
 		{
@@ -114,5 +115,157 @@
 				"50000"
 			]
 		}
-	]
+	],
+	"doughnutDatasets": {
+		"reserved": [
+			{
+				"id": "ABCD-1230",
+				"type": "virgin",
+				"label": "label.virgin",
+				"value": "35"
+			},
+			{
+				"id": "ABCD-1231",
+				"type": "flake",
+				"label": "label.flake",
+				"value": "25"
+			},
+			{
+				"id": "ABCD-1232",
+				"type": "regrind",
+				"label": "label.regrind",
+				"value": "13"
+			},
+			{
+				"id": "ABCD-1233",
+				"type": "repro",
+				"label": "label.repro",
+				"value": "5"
+			},
+			{
+				"id": "ABCD-1234",
+				"type": "color",
+				"label": "label.color",
+				"value": "4.5"
+			},
+			{
+				"id": "ABCD-1235",
+				"type": "ocra",
+				"label": "label.ocra",
+				"value": "2.5"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.hybrid",
+				"value": "0"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.highCost",
+				"value": "15"
+			}
+		],
+		"actual": [
+			{
+				"id": "ABCD-1230",
+				"type": "virgin",
+				"label": "label.virgin",
+				"value": "33"
+			},
+			{
+				"id": "ABCD-1231",
+				"type": "flake",
+				"label": "label.flake",
+				"value": "15"
+			},
+			{
+				"id": "ABCD-1232",
+				"type": "regrind",
+				"label": "label.regrind",
+				"value": "15"
+			},
+			{
+				"id": "ABCD-1233",
+				"type": "repro",
+				"label": "label.repro",
+				"value": "5"
+			},
+			{
+				"id": "ABCD-1234",
+				"type": "color",
+				"label": "label.color",
+				"value": "4.5"
+			},
+			{
+				"id": "ABCD-1235",
+				"type": "ocra",
+				"label": "label.ocra",
+				"value": "1"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.hybrid",
+				"value": "1.5"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.highCost",
+				"value": "25"
+			}
+		],
+		"target": [
+			{
+				"id": "ABCD-1230",
+				"type": "virgin",
+				"label": "label.virgin",
+				"value": "30"
+			},
+			{
+				"id": "ABCD-1231",
+				"type": "flake",
+				"label": "label.flake",
+				"value": "13"
+			},
+			{
+				"id": "ABCD-1232",
+				"type": "regrind",
+				"label": "label.regrind",
+				"value": "8"
+			},
+			{
+				"id": "ABCD-1233",
+				"type": "repro",
+				"label": "label.repro",
+				"value": "14"
+			},
+			{
+				"id": "ABCD-1234",
+				"type": "color",
+				"label": "label.color",
+				"value": "4.5"
+			},
+			{
+				"id": "ABCD-1235",
+				"type": "ocra",
+				"label": "label.ocra",
+				"value": "0.5"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.hybrid",
+				"value": "0"
+			},
+			{
+				"id": "ABCD-1236",
+				"type": "hybrid",
+				"label": "label.highCost",
+				"value": "30"
+			}
+		]
+	}
 }

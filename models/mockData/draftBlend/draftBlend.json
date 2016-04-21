@@ -114,36 +114,36 @@
 			"type": "color",
 			"badge": "C",
 			"deviationLow": "5",
-			"low": "10",
-			"high": "90",
-			"deviationHigh": "95"
+			"low": "5",
+			"high": "5",
+			"deviationHigh": "5"
 		},
 		{
 			"id": "ABCD-1231",
 			"type": "flake",
 			"badge": "F",
-			"deviationLow": "5",
-			"low": "10",
-			"high": "90",
-			"deviationHigh": "95"
+			"deviationLow": "0",
+			"low": "20",
+			"high": "80",
+			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1233",
 			"type": "repro",
 			"badge": "P",
-			"deviationLow": "5",
-			"low": "10",
-			"high": "90",
-			"deviationHigh": "95"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "40",
+			"deviationHigh": "50"
 		},
 		{
 			"id": "ABCD-1232",
 			"type": "regrind",
 			"badge": "R",
-			"deviationLow": "5",
-			"low": "10",
-			"high": "90",
-			"deviationHigh": "95"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "10",
+			"deviationHigh": "50"
 		}
 	],
 	"optimal": "true",
@@ -240,8 +240,8 @@
 				"pounds": "8800",
 				"deviationLow": "0",
 				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"high": "40",
+				"deviationHigh": "50"
 			},
 			{
 				"id": "ABCD-1222",
@@ -272,9 +272,9 @@
 				"percentUsed": "16",
 				"pounds": "7040",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "17",
+				"high": "35",
+				"deviationHigh": "35"
 			},
 			{
 				"id": "ABCD-1233",
@@ -305,9 +305,9 @@
 				"percentUsed": "39",
 				"pounds": "17160",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "3",
+				"high": "100",
+				"deviationHigh": "100"
 			},
 			{
 				"id": "ABCD-1247",
@@ -337,9 +337,9 @@
 				"percentUsed": "20.5",
 				"pounds": "9020",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "20",
+				"high": "30",
+				"deviationHigh": "35"
 			},
 			{
 				"id": "ABCD-1250",
@@ -367,10 +367,10 @@
 				"reservation": "",
 				"percentUsed": "4.5",
 				"pounds": "1980",
-				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"deviationLow": "4.5",
+				"low": "4.5",
+				"high": "4.5",
+				"deviationHigh": "4.5"
 			}
 		]
 	},

@@ -61,10 +61,49 @@
                 </div>
 			{{/kpis}}
         </div>
+        <h3>{{i18n "feature.materialUsage.title"}}</h3>
+        <div class="row margin-bottom-20">
+            <div class="col-sm-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h4>{{i18n "label.reserved"}}</h4>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="margin-left-15">
+                            <canvas id="reservedDoughnutChart" width="140px" height="140px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h4>{{i18n "label.actual"}}</h4>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="margin-left-15">
+                            <canvas id="actualDoughnutChart" width="140px" height="140px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h4>{{i18n "label.target"}}</h4>
+                    </div>
+                    <div class="ibox-content">
+                        <div class="margin-left-15">
+                            <canvas id="targetDoughnutChart" width="140px" height="140px"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row">
             <div class="col-sm-12">
-				<h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
-                <canvas id="barChart" height="240px" width="600px"></canvas>
+                <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
+                <canvas id="barChart" height="240px" width="800px"></canvas>
 				{{#if datasets}}
                     <ul class="list-inline margin-bottom-20">
 						{{#datasets}}
@@ -84,6 +123,7 @@
     <script type="text/javascript">
 
         var _datasets = {{{json datasets}}};
+        var _doughnutDatasets = {{{json doughnutDatasets}}};
 
         var _labels = [{{#labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/labels}}];
 
@@ -148,6 +188,58 @@
                     pointStrokeColor: "{{options.danger.pointStrokeColor}}",
                     pointHighlightFill: "{{options.danger.pointHighlightFill}}",
                     pointHighlightStroke: "{{options.danger.pointHighlightStroke}}"
+                }
+            };
+			{{/with}}
+
+			{{#with doughnutChart}}
+            var _doughnutOptions = {
+                segmentShowStroke: {{options.segmentShowStroke}},
+                segmentStrokeColor: "{{options.segmentStrokeColor}}",
+                segmentStrokeWidth: {{options.segmentStrokeWidth}},
+                percentageInnerCutout: {{options.percentageInnerCutout}},
+                animationSteps: {{options.animationSteps}},
+                animationEasing: "{{options.animationEasing}}",
+                animateRotate: {{options.animateRotate}},
+                animateScale: {{options.animateScale}},
+                responsive: {{options.responsive}}
+            };
+
+            var _doughnutDatasetOptions = {
+                virgin: {
+                    label: "{{i18n options.virgin.label}}",
+                    color: "{{options.virgin.color}}",
+                    highlight: "{{options.virgin.highlight}}"
+                },
+                flake: {
+                    label: "{{i18n options.flake.label}}",
+                    color: "{{options.flake.color}}",
+                    highlight: "{{options.flake.highlight}}"
+                },
+                regrind: {
+                    label: "{{i18n options.regrind.label}}",
+                    color: "{{options.regrind.color}}",
+                    highlight: "{{options.regrind.highlight}}"
+                },
+                color: {
+                    label: "{{i18n options.color.label}}",
+                    color: "{{options.color.color}}",
+                    highlight: "{{options.color.highlight}}"
+                },
+                ocra: {
+                    label: "{{i18n options.ocra.label}}",
+                    color: "{{options.ocra.color}}",
+                    highlight: "{{options.ocra.highlight}}"
+                },
+                repro: {
+                    label: "{{i18n options.repro.label}}",
+                    color: "{{options.repro.color}}",
+                    highlight: "{{options.repro.highlight}}"
+                },
+                hybrid: {
+                    label: "{{i18n options.hybrid.label}}",
+                    color: "{{options.hybrid.color}}",
+                    highlight: "{{options.hybrid.highlight}}"
                 }
             };
 			{{/with}}

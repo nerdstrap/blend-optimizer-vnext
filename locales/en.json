@@ -378,5 +378,7 @@
 	"feature.barChartLegend.title": "Legend",
 	"label.onHand": "On Hand",
 	"label.reserved": "Reserved",
-	"feature.rawMaterialsOnHand.title": "Raw Materials"
+	"feature.rawMaterialsOnHand.title": "Raw Materials",
+	"label.highCost": "High Cost",
+	"feature.materialUsage.title": "Material Usage"
 }

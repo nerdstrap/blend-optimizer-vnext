@@ -6711,6 +6711,9 @@ input[type="radio"] .styled:checked + label::after {
 .margin-left-60 {
   margin-left: 60px; }
 
+.margin-left-15 {
+  margin-left: 15px; }
+
 .header-container > h1, .header-container h2, .header-container h3, .header-container h4, .header-container h5, .header-container h6,
 .header-container .h1, .header-container .h2, .header-container .h3, .header-container .h4, .header-container .h5, .header-container .h6 {
   display: inline-block;

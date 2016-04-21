@@ -308,10 +308,6 @@
 			"rowspan": "2",
 			"globalRules": [
 				{
-					"title": "H1",
-					"summary": "HMW = |20 < 30| MINIMIZE"
-				},
-				{
 					"title": "H2",
 					"summary": "ZP -> Z -> HX"
 				}
@@ -351,7 +347,7 @@
 			"globalRules": [
 				{
 					"title": "GR1",
-					"summary": "F->S; ELSE Spec = Flake"
+					"summary": "GR1 South = F->S; ELSE Spec = Flake"
 				},
 				{
 					"title": "I9",

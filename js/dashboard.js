@@ -37,4 +37,36 @@ $(document).ready(function () {
 	var _barChart = document.getElementById('barChart').getContext("2d");
 	var myBarChart = new Chart(_barChart).Bar(barChartData, _options);
 
+	var reservedDoughnutChartDataset = _.map(_doughnutDatasets.reserved, function (_dataset) {
+		var type = _dataset.type;
+		if (!_doughnutDatasetOptions.hasOwnProperty(type)) {
+			type = 'default';
+		}
+		return _.extend({}, _dataset, _doughnutDatasetOptions[type]);
+	});
+
+	var _reservedDoughnutChart = document.getElementById('reservedDoughnutChart').getContext("2d");
+	var myReservedDoughnutChart = new Chart(_reservedDoughnutChart).Doughnut(reservedDoughnutChartDataset, _doughnutOptions);
+
+	var actualDoughnutChartDataset = _.map(_doughnutDatasets.actual, function (_dataset) {
+		var type = _dataset.type;
+		if (!_doughnutDatasetOptions.hasOwnProperty(type)) {
+			type = 'default';
+		}
+		return _.extend({}, _dataset, _doughnutDatasetOptions[type]);
+	});
+
+	var _actualDoughnutChart = document.getElementById('actualDoughnutChart').getContext("2d");
+	var myActualDoughnutChart = new Chart(_actualDoughnutChart).Doughnut(actualDoughnutChartDataset, _doughnutOptions);
+
+	var targetDoughnutChartDataset = _.map(_doughnutDatasets.target, function (_dataset) {
+		var type = _dataset.type;
+		if (!_doughnutDatasetOptions.hasOwnProperty(type)) {
+			type = 'default';
+		}
+		return _.extend({}, _dataset, _doughnutDatasetOptions[type]);
+	});
+
+	var _targetDoughnutChart = document.getElementById('targetDoughnutChart').getContext("2d");
+	var myTargetDoughnutChart = new Chart(_targetDoughnutChart).Doughnut(targetDoughnutChartDataset, _doughnutOptions);
 });
