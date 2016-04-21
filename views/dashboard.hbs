@@ -61,9 +61,89 @@
                 </div>
 			{{/kpis}}
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <canvas id="barChart" height="240px" width="600px"></canvas>
+            </div>
+        </div>
     </div>
 </div>
 
 {{#contentFor "pageScripts"}}
     <script src="js/dashboard.js"></script>
+    <script type="text/javascript">
+
+        var _datasets = {{{json datasets}}};
+
+        var _labels = [{{#labels}}"{{i18n this}}"{{#unless @last}},{{/unless}}{{/labels}}];
+
+			{{#with radarChart}}
+            var _options = {
+
+                datasetStrokeWidth: {{options.datasetStrokeWidth}},
+                datasetFill: {{options.datasetFill}}
+            };
+
+            var _datasetOptions = {
+                default: {
+                    label: "{{i18n options.default.label}}",
+                    fillColor: "{{options.default.fillColor}}",
+                    strokeColor: "{{options.default.strokeColor}}",
+                    pointColor: "{{options.default.pointColor}}",
+                    pointStrokeColor: "{{options.default.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.default.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.default.pointHighlightStroke}}"
+                },
+                primary: {
+                    label: "{{i18n options.primary.label}}",
+                    fillColor: "{{options.primary.fillColor}}",
+                    strokeColor: "{{options.primary.strokeColor}}",
+                    pointColor: "{{options.primary.pointColor}}",
+                    pointStrokeColor: "{{options.primary.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.primary.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.primary.pointHighlightStroke}}"
+                },
+                success: {
+                    label: "{{i18n options.success.label}}",
+                    fillColor: "{{options.success.fillColor}}",
+                    strokeColor: "{{options.success.strokeColor}}",
+                    pointColor: "{{options.success.pointColor}}",
+                    pointStrokeColor: "{{options.success.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.success.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.success.pointHighlightStroke}}"
+                },
+                info: {
+                    label: "{{i18n options.info.label}}",
+                    fillColor: "{{options.info.fillColor}}",
+                    strokeColor: "{{options.info.strokeColor}}",
+                    pointColor: "{{options.info.pointColor}}",
+                    pointStrokeColor: "{{options.info.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.info.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.info.pointHighlightStroke}}"
+                },
+                warning: {
+                    label: "{{i18n options.warning.label}}",
+                    fillColor: "{{options.warning.fillColor}}",
+                    strokeColor: "{{options.warning.strokeColor}}",
+                    pointColor: "{{options.warning.pointColor}}",
+                    pointStrokeColor: "{{options.warning.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.warning.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.warning.pointHighlightStroke}}"
+                },
+                danger: {
+                    label: "{{i18n options.danger.label}}",
+                    fillColor: "{{options.danger.fillColor}}",
+                    strokeColor: "{{options.danger.strokeColor}}",
+                    pointColor: "{{options.danger.pointColor}}",
+                    pointStrokeColor: "{{options.danger.pointStrokeColor}}",
+                    pointHighlightFill: "{{options.danger.pointHighlightFill}}",
+                    pointHighlightStroke: "{{options.danger.pointHighlightStroke}}"
+                }
+            };
+			{{/with}}
+
+        $(document).ready(function () {
+
+        });
+    </script>
 {{/contentFor}}

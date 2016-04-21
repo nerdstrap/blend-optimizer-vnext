@@ -371,5 +371,8 @@
 	"label.rank": "Rank",
 	"icon.alerts": "fa-bell-o",
 	"feature.newAlerts.title": "New Alerts!",
-	"label.blendOptimizerAlert": "Blend Optimizer alert..."
+	"label.blendOptimizerAlert": "Blend Optimizer alert...",
+	"feature.modificationKPI.title": "Modifications",
+	"icon.levelDown": "fa-level-down",
+	"feature.modificationKPI.description": "modifications / blends"
 }

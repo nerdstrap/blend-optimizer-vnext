@@ -57,13 +57,62 @@
 	"kpis": [
 		{
 			"id": "ABCD-1230",
-			"status": "success",
+			"status": "info",
 			"title": "feature.deviationKPI.title",
 			"description": "feature.deviationKPI.description",
-			"rank": "4",
-			"majorData": "5 / 100",
-			"minorData": "5%",
+			"rank": "24",
+			"majorData": "5 / 10",
+			"minorData": "50%",
 			"minorDataIcon": "icon.levelUp"
+		},
+		{
+			"id": "ABCD-1230",
+			"status": "warning",
+			"title": "feature.modificationKPI.title",
+			"description": "feature.modificationKPI.description",
+			"rank": "15",
+			"majorData": "4 / 10",
+			"minorData": "40%",
+			"minorDataIcon": "icon.levelDown"
+		}
+	],
+	"labels": [
+		"label.virgin",
+		"label.flake",
+		"label.regrind",
+		"label.repro",
+		"label.color",
+		"label.ocra",
+		"label.hybrid"
+	],
+	"datasets": [
+		{
+			"id": "ABCD-9999",
+			"type": "danger",
+			"status": "label.onHand",
+			"data": [
+				"200000",
+				"200000",
+				"100000",
+				"150000",
+				"100000",
+				"100000",
+				"100000"
+			]
+		},
+		{
+			"id": "ABCD-1230",
+			"type": "primary",
+			"status": "label.reserved",
+			"data": [
+				"100000",
+				"150000",
+				"100000",
+				"100000",
+				"50000",
+				"50000",
+				"50000"
+			]
 		}
 	]
 }
