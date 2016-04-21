@@ -22,6 +22,24 @@
 	"departments": [
 		{
 			"id": "ABCD-1230",
+			"department": "3110",
+			"description": "4.5&#34; MPM(200)-I",
+			"plannerCodes": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1230",
+			"department": "3130",
+			"description": "4.5&#34; MPM(200)-I",
+			"plannerCodes": [
+				"ABCD-1230",
+				"ABCD-1231"
+			]
+		},
+		{
+			"id": "ABCD-1230",
 			"department": "3150",
 			"description": "4.5&#34; MPM(200)-I",
 			"plannerCodes": [
@@ -31,6 +49,42 @@
 		}
 	],
 	"plannerCodes": [
+		{
+			"id": "ABCD-1230",
+			"plannerCode": "0402",
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
+			"productSKUs": "08810020",
+			"blendSpecs": [
+				"ABCD-1230"
+			]
+		},
+		{
+			"id": "ABCD-1230",
+			"plannerCode": "04AG",
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
+			"productSKUs": "08810020",
+			"blendSpecs": [
+				"ABCD-1230"
+			]
+		},
+		{
+			"id": "ABCD-1230",
+			"plannerCode": "05SW",
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
+			"productSKUs": "08810020",
+			"blendSpecs": [
+				"ABCD-1230"
+			]
+		},
+		{
+			"id": "ABCD-1230",
+			"plannerCode": "06AG",
+			"description": "(08AG) 8&#34;-24&#34; SW AG",
+			"productSKUs": "08810020",
+			"blendSpecs": [
+				"ABCD-1230"
+			]
+		},
 		{
 			"id": "ABCD-1230",
 			"plannerCode": "08AG",

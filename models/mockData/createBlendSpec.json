@@ -260,10 +260,10 @@
 		{
 			"id": "ABCD-1230",
 			"spec": "label.density",
-			"deviationLow": "0.95",
-			"low": "0.95",
+			"deviationLow": "0.9500",
+			"low": "0.9500",
 			"high": "0.9529",
-			"deviationHigh": "0.954",
+			"deviationHigh": "0.9540",
 			"notify": "true",
 			"notificationRecipients": [
 				{
@@ -281,8 +281,8 @@
 			"spec": "label.meltIndex",
 			"deviationLow": "0.18",
 			"low": "0.18",
-			"high": "0.4",
-			"deviationHigh": "0.4"
+			"high": "0.40",
+			"deviationHigh": "0.40"
 		},
 		{
 			"id": "ABCD-1232",
@@ -308,8 +308,8 @@
 			"rowspan": "2",
 			"globalRules": [
 				{
-					"title": "H2",
-					"summary": "ZP -> Z -> HX"
+					"title": "SEQ-HMW-2",
+					"summary": "ZP -> Z -> HX -> ALL other"
 				}
 			]
 		},
@@ -346,12 +346,12 @@
 			"rowspan": "3",
 			"globalRules": [
 				{
-					"title": "GR1",
+					"title": "GEO-SOU-1",
 					"summary": "GR1 South = F->S; ELSE Spec = Flake"
 				},
 				{
-					"title": "I9",
-					"summary": "If Z, Tyvek LAST"
+					"title": "EQP-MLP-1",
+					"summary": "If Melt Pump = YES, then Flake ALLOWED"
 				}
 			]
 		},

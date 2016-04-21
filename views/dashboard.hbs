@@ -61,6 +61,21 @@
                 </div>
 			{{/kpis}}
         </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
+                <canvas id="barChart" height="240px" width="800px"></canvas>
+				{{#if datasets}}
+                    <ul class="list-inline margin-bottom-20">
+						{{#datasets}}
+                            <li>
+                                <div class="bar-chart-legend bar-chart-{{type}}"></div>{{i18n status}}
+                            </li>
+						{{/datasets}}
+                    </ul>
+				{{/if}}
+            </div>
+        </div>
         <h3>{{i18n "feature.materialUsage.title"}}</h3>
         <div class="row margin-bottom-20">
             <div class="col-sm-4">
@@ -100,21 +115,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
-                <canvas id="barChart" height="240px" width="800px"></canvas>
-				{{#if datasets}}
-                    <ul class="list-inline margin-bottom-20">
-						{{#datasets}}
-                            <li>
-                                <div class="bar-chart-legend bar-chart-{{type}}"></div>{{i18n status}}
-                            </li>
-						{{/datasets}}
-                    </ul>
-				{{/if}}
-            </div>
-        </div>
+
     </div>
 </div>
 

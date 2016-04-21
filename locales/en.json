@@ -377,7 +377,7 @@
 	"feature.modificationKPI.description": "modifications / blends",
 	"feature.barChartLegend.title": "Legend",
 	"label.onHand": "On Hand",
-	"label.reserved": "Reserved",
+	"label.reserved": "Recommended",
 	"feature.rawMaterialsOnHand.title": "Raw Materials",
 	"label.highCost": "High Cost",
 	"feature.materialUsage.title": "Material Usage"

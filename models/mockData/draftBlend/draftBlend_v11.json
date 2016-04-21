@@ -163,17 +163,17 @@
 		"bottomLineSpecs": [
 			{
 				"spec": "label.density",
-				"deviationLow": "0.95",
-				"low": "0.95",
+				"deviationLow": "0.9500",
+				"low": "0.9500",
 				"actual": "0.9509",
-				"high": "0.954",
-				"deviationHigh": "0.954"
+				"high": "0.9540",
+				"deviationHigh": "0.9540"
 			},
 			{
 				"spec": "label.meltIndex",
 				"deviationLow": "0.18",
 				"low": "0.18",
-				"actual": "0.34076",
+				"actual": "0.34",
 				"high": "0.4",
 				"deviationHigh": "0.4"
 			},

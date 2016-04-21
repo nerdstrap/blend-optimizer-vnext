@@ -103,27 +103,27 @@
 		"bottomLineSpecs": [
 			{
 				"spec": "label.density",
-				"deviationLow": "0.95",
-				"low": "0.95",
+				"deviationLow": "0.9500",
+				"low": "0.9500",
 				"actual": "0.9529",
-				"high": "0.954",
-				"deviationHigh": "0.954"
+				"high": "0.9540",
+				"deviationHigh": "0.9540"
 			},
 			{
 				"spec": "label.meltIndex",
 				"deviationLow": "0.18",
 				"low": "0.18",
-				"actual": "0.34076",
-				"high": "0.4",
-				"deviationHigh": "0.4"
+				"actual": "0.34",
+				"high": "0.40",
+				"deviationHigh": "0.40"
 			},
 			{
 				"spec": "label.izod",
 				"deviationLow": "1.5",
-				"low": "3",
-				"actual": "4.16998",
-				"high": "5",
-				"deviationHigh": "6"
+				"low": "3.0",
+				"actual": "4.2",
+				"high": "5.0",
+				"deviationHigh": "6.0"
 			},
 			{
 				"spec": "label.ncls",
