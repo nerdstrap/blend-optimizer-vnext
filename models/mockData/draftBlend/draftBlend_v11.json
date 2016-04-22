@@ -114,45 +114,45 @@
 			"type": "color",
 			"badge": "C",
 			"deviationLow": "5",
-			"low": "10",
-			"high": "20",
-			"deviationHigh": "25"
+			"low": "5",
+			"high": "5",
+			"deviationHigh": "5"
 		},
 		{
 			"id": "ABCD-1231",
 			"type": "flake",
 			"badge": "F",
-			"deviationLow": "40",
-			"low": "50",
-			"high": "100",
+			"deviationLow": "0",
+			"low": "20",
+			"high": "80",
 			"deviationHigh": "100"
 		},
 		{
 			"id": "ABCD-1233",
 			"type": "repro",
 			"badge": "P",
-			"deviationLow": "5",
-			"low": "10",
-			"high": "90",
-			"deviationHigh": "95"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "40",
+			"deviationHigh": "50"
 		},
 		{
 			"id": "ABCD-1232",
 			"type": "regrind",
 			"badge": "R",
-			"deviationLow": "10",
-			"low": "20",
-			"high": "70",
-			"deviationHigh": "95"
+			"deviationLow": "0",
+			"low": "0",
+			"high": "10",
+			"deviationHigh": "50"
 		},
 		{
 			"id": "ABCD-1230",
 			"type": "virgin",
 			"badge": "V",
-			"deviationLow": "1",
-			"low": "20",
-			"high": "50",
-			"deviationHigh": "100"
+			"deviationLow": "0",
+			"low": "10",
+			"high": "20",
+			"deviationHigh": "30"
 		}
 	],
 	"infeasible": "true",
@@ -251,8 +251,8 @@
 				"pounds": "11484",
 				"deviationLow": "0",
 				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"high": "40",
+				"deviationHigh": "50"
 			},
 			{
 				"id": "ABCD-1300",
@@ -283,9 +283,9 @@
 				"percentUsed": "30.2",
 				"pounds": "10872",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "17",
+				"high": "35",
+				"deviationHigh": "35"
 			},
 			{
 				"id": "ABCD-1316",
@@ -315,9 +315,9 @@
 				"percentUsed": "17.3",
 				"pounds": "6228",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "3",
+				"high": "100",
+				"deviationHigh": "100"
 			},
 			{
 				"id": "ABCD-1320",
@@ -347,9 +347,9 @@
 				"percentUsed": "6.9",
 				"pounds": "2484",
 				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"low": "20",
+				"high": "30",
+				"deviationHigh": "35"
 			},
 			{
 				"id": "ABCD-1309",
@@ -378,10 +378,10 @@
 				"reservation": "",
 				"percentUsed": "3.7",
 				"pounds": "1332",
-				"deviationLow": "0",
-				"low": "0",
-				"high": "0",
-				"deviationHigh": "0"
+				"deviationLow": "4.5",
+				"low": "4.5",
+				"high": "4.5",
+				"deviationHigh": "4.5"
 			}
 		]
 	},
