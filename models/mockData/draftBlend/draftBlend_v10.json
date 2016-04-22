@@ -164,17 +164,17 @@
 				"deviationLow": "0.18",
 				"low": "0.18",
 				"actual": "0.34",
-				"high": "0.4",
-				"deviationHigh": "0.4"
+				"high": "0.40",
+				"deviationHigh": "0.40"
 			},
 			{
 				"spec": "label.izod",
 				"status": "warning",
 				"deviationLow": "1.5",
-				"low": "3",
-				"actual": "2",
-				"high": "5",
-				"deviationHigh": "6"
+				"low": "3.0",
+				"actual": "2.0",
+				"high": "5.0",
+				"deviationHigh": "6.0"
 			},
 			{
 				"spec": "label.ncls",
