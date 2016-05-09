@@ -1,0 +1,21 @@
+<div class="blend-spec-summary">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <span class="fa {{i18n "icon.details"}}"></span> {{i18n "feature.blendSpecRulesDetails.description"}}
+            </p>
+			{{> "blend-spec-rules-modal"}}
+			{{> "resin-mix-guidelines-modal"}}
+        </div>
+        <ul class="list-group">
+			{{#blendSpecRules}}
+                <li id="{{id}}" class="list-group-item">
+					{{blendSpecRule}}
+                </li>
+			{{/blendSpecRules}}
+        </ul>
+    </div>
+</div>

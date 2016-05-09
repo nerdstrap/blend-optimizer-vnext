@@ -1,0 +1,130 @@
+<form id="blend-spec-details-form" class="blend-optimizer-form">
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="checkbox checkbox-primary">
+                <input id="siloBlend" name="siloBlend" type="checkbox" class="styled" {{#if siloBlend}}checked{{/if}} data-id="{{id}}">
+                <label for="siloBlend">{{i18n "label.siloBlend"}}</label>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label class="control-label" for="blendSpecName">{{i18n "label.blendSpecName"}}</label>
+                <div class="input-group">
+                    <span id="blendSpecNamePrefix" class="input-group-addon">{{blendSpecNamePrefix}}</span>
+                    <input id="blendSpecName" name="blendSpecName" type="text" class="form-control width-col-sm-2" value="{{blendSpecName}}">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label class="control-label" for="blendSpecNameFormatted">&nbsp;</label>
+                <div class="input-group">
+                    <h3>
+                        <span class="fa {{i18n "icon.transformRight"}}"></span>
+                        <span id="blendSpecNameFormatted">{{blendSpecNamePrefix}}{{blendSpecName}}</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label" for="blendSpecDescription">{{i18n "label.blendSpecDescription"}}</label>
+                <div class="input-group">
+                    <input id="blendSpecDescription" name="blendSpecDescription" type="text" class="form-control width-col-sm-6">
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label" for="plannerSeries">{{i18n "label.plannerSeries"}}</label>
+                <div class="input-group">
+                    <select id="plannerSeries" name="plannerSeries" class="form-control width-col-sm-4">
+                        <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerSeries"}}</option>
+						{{#plannerSeries}}
+                            <option value="{{id}}" data-description="{{{description}}}" data-productLines="{{json productLines}}" data-plannercodes="{{json plannerCodes}}">{{plannerSeries}}</option>
+						{{/plannerSeries}}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="productLine">{{i18n "label.productLine"}}</label>
+                <div class="input-group">
+                    <select id="productLine" name="productLine" class="form-control width-col-sm-4">
+                        <option value="" selected="selected" disabled="disabled">{{i18n "label.productLine"}}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="productSize">{{i18n "label.productSize"}}</label>
+                <div class="input-group">
+                    <select id="productSize" name="productSize" class="form-control width-col-sm-4">
+                        <option value="" selected="selected" disabled="disabled">{{i18n "label.productSize"}}</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="form-group">
+                <label class="control-label" for="plannerCodes">{{i18n "label.plannerCodes"}}</label>
+                <div class="input-group">
+                    <select id="plannerCodes" name="plannerCodes" class="form-control chosen-select width-col-sm-6" multiple="">
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <h4 id="plannerCodeDescription"></h4>
+            </div>
+            <div class="form-group">
+                <h4>{{i18n "label.productSKUs"}}</h4>
+                <span id="productSKUs"></span>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label" for="blendSpecTags">{{i18n "label.blendSpecTags"}}</label>
+                <div class="input-group">
+                    <select id="blendSpecTags" name="blendSpecTags" class="form-control chosen-select width-col-sm-4" multiple="">
+						{{#blendSpecTags}}
+                            <option value="{{id}}">{{blendSpecTag}}</option>
+						{{/blendSpecTags}}
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label class="control-label" for="blendSpecComments">{{i18n "label.comments"}}</label>
+                <div class="input-group">
+                    <input id="blendSpecComments" name="blendSpecComments" type="text" class="form-control width-col-sm-4">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="form-group">
+                <label for="active" class="control-label">&nbsp;</label>
+                <div class="input-group">
+                    <span class="js-switch-label checked">{{i18n "label.inactive"}}</span>
+                    <input id="active" name="active" type="checkbox" class="js-switch">
+                    <span class="js-switch-label">{{i18n "label.active"}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="form-group">
+                <label class="control-label">&nbsp;</label>
+                <div class="input-group">
+                    <button type="button" class="btn btn-primary">{{i18n "button.save"}}</button>
+                    <button type="button" class="btn btn-default">{{i18n "button.cancel"}}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

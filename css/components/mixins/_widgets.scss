@@ -1,0 +1,11 @@
+// Widgets
+
+@mixin widget-variant($border, $text-color, $bg-color) {
+	border-color: $border;
+	color: $text-color;
+	background-color: $bg-color;
+
+	a, a:hover, a:visited {
+		color: $text-color;
+	}
+}

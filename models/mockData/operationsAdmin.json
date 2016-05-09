@@ -1,0 +1,34 @@
+{
+	"selectedPlant": "P31 - North Springfield",
+	"header": "area.operationsAdmin.title",
+	"menuRows": [
+		{
+			"menuItems": [
+				{
+					"id": "ABCD-1230",
+					"href": "lot-maintenance",
+					"title": "area.lotMaintenance.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.lotMaintenance.description"
+				},
+				{
+					"id": "ABCD-1231",
+					"href": "user-permissions",
+					"title": "area.userPermissions.title",
+					"type": "info",
+					"icon": "fa-cog",
+					"description": "area.userPermissions.description"
+				},
+				{
+					"id": "ABCD-1232",
+					"href": "broadcast-messages",
+					"title": "area.broadcastMessages.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.broadcastMessages.description"
+				}
+			]
+		}
+	]
+}

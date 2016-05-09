@@ -4,7 +4,7 @@
 	"breadcrumbs": [
 		{
 			"status": "active",
-			"title": "feature.optimizerMaintenance.title",
+			"title": "area.optimizerMaintenance.title",
 			"href": "optimizer-maintenance"
 		}
 	],

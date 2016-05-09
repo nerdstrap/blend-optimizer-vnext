@@ -1,0 +1,38 @@
+<div class="excluded-lots">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{i18n "feature.excludedLots.title"}}</h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <span class="fa {{i18n "icon.quickSelect"}}"></span> {{i18n "feature.quickSelect.description"}}
+            </p>
+            <form id="excluded-lots-form" name="excluded-lots-form" class="blend-optimizer-form">
+                <div class="form-group">
+                    <label for="excludedSKUs" class="control-label hidden">{{i18n "label.skus"}}</label>
+                    <div class="input-group">
+                        <select id="excludedSKUs" name="excludedSKUs" data-placeholder="{{i18n "label.skus"}}" class="form-control chosen-select width-col-sm-4" multiple>
+							{{#materialTypes}}
+                                <option value="{{sku}}">{{sku}}</option>
+							{{/materialTypes}}
+                        </select>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="panel-body">
+            <p>
+                <span class="fa {{i18n "icon.dragDrop"}}"></span> {{i18n "feature.dragDrop.description"}}
+            </p>
+        </div>
+        <ul id="excludedLots" class="list-group sortable">
+            <div class="sortable-empty hidden">{{i18n "feature.dragDropTarget.description"}}</div>
+			{{#excludedLots}}
+                <li id="{{id}}" class="list-group-item {{type}} {{sku}}">
+					{{> "collapsible-lot"}}
+                </li>
+			{{/excludedLots}}
+        </ul>
+    </div>
+</div>
+

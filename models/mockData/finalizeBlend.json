@@ -4,22 +4,22 @@
 	"breadcrumbs": [
 		{
 			"status": "active",
-			"title": "feature.selectBlend.title",
+			"title": "area.selectBlend.title",
 			"href": "create-blend"
 		},
 		{
 			"status": "active",
-			"title": "feature.lotPreferences.title",
+			"title": "area.lotPreferences.title",
 			"href": "lot-preferences"
 		},
 		{
 			"status": "active",
-			"title": "feature.draftBlend.title",
+			"title": "area.draftBlend.title",
 			"href": "draft-blend"
 		},
 		{
 			"status": "active",
-			"title": "feature.finalizeBlend.title"
+			"title": "area.finalizeBlend.title"
 		}
 	],
 	"datacrumbs": [

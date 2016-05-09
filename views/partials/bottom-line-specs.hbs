@@ -1,0 +1,44 @@
+<h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
+<table id="bottomLineSpecs" class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{i18n "label.spec"}}</th>
+        <th>{{i18n "label.deviationLow"}}</th>
+        <th>{{i18n "label.low"}}</th>
+        <th>{{i18n "label.high"}}</th>
+        <th>{{i18n "label.deviationHigh"}}</th>
+        <th>{{i18n "label.notify"}}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+	{{#bottomLineSpecs}}
+        <tr id="{{id}}">
+            <th>{{i18n spec}}</th>
+            <td>{{deviationLow}}</td>
+            <td>{{low}}</td>
+            <td>{{high}}</td>
+            <td>{{deviationHigh}}</td>
+            <td>
+				{{#notificationRecipients}}
+                    <a data-toggle="popover" data-placement="left" data-content="{{fullName}}">{{initials}}</a>
+					{{#unless @last}},{{/unless}}
+				{{/notificationRecipients}}
+            </td>
+            <td>
+                <button class="btn btn-xs btn-default">{{i18n "button.edit"}}</button>
+				{{#if optional}}
+                    <button class="btn btn-xs btn-danger">{{i18n "button.delete"}}</button>
+				{{/if}}
+            </td>
+        </tr>
+	{{/bottomLineSpecs}}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="7">
+			{{> "addBottomLineSpecModal"}}
+        </th>
+    </tr>
+    </tfoot>
+</table>

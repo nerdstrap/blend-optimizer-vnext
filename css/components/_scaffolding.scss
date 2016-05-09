@@ -64,4 +64,7 @@ a {
 	background-color: $gray-bg;
 	min-height: 568px;
 	min-width: $screen-md-min;
+	width: $screen-md-min;
+	max-width: $screen-md-min;
+	margin: auto;
 }

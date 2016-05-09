@@ -1,10 +1,4 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h2>{{i18n "area.dashboard.title"}}</h2>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
 {{#broadcastMessages}}
     <div class="alert alert-{{type}}" role="alert">
@@ -12,16 +6,16 @@
     </div>
 {{/broadcastMessages}}
 
-<div class="row margin-bottom-20">
-    <div class="col-sm-4">
+<div class="row">
+    <div class="col-sm-3">
         <div class="ibox">
             <div class="ibox-title">
 				{{> "ibox-tools"}}
                 <h3>{{i18n "feature.alerts.title"}}</h3>
             </div>
             <div class="ibox-content ibox-heading">
-                <h3><i class="fa {{i18n "icon.alerts"}}"></i> {{i18n "feature.newAlerts.title"}}</h3>
-                <small><i class="fa {{i18n "icon.close"}}"></i> {{newAlertsMessage}}</small>
+                <h3><span class="fa {{i18n "icon.alerts"}}"></span> {{i18n "feature.newAlerts.title"}}</h3>
+                <small><span class="fa {{i18n "icon.close"}}"></span> {{newAlertsMessage}}</small>
             </div>
             <div class="ibox-content">
                 <div class="feed-activity-list">
@@ -39,10 +33,10 @@
             </div>
         </div>
     </div>
-    <div class="col-sm-8">
-        <div class="row margin-bottom-20">
+    <div class="col-sm-9">
+        <div class="row">
 			{{#kpis}}
-                <div class="col-md-4">
+                <div class="col-sm-4">
                     <div class="ibox">
                         <div class="ibox-title">
                             <div class="pull-right">
@@ -53,7 +47,7 @@
                         <div class="ibox-content">
                             <h2>{{majorData}}</h2>
                             <div class="pull-right text-{{status}}">{{minorData}}
-                                <i class="fa {{i18n minorDataIcon}}"></i>
+                                <span class="fa {{i18n minorDataIcon}}"></span>
                             </div>
                             <p class="small">{{i18n description}}</p>
                         </div>
@@ -63,42 +57,78 @@
         </div>
         <div class="row">
             <div class="col-sm-12">
-                <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
-                <canvas id="barChart" height="240px" width="800px"></canvas>
-				{{#if datasets}}
-                    <ul class="list-inline margin-bottom-20">
-						{{#datasets}}
-                            <li>
-                                <div class="bar-chart-legend bar-chart-{{type}}"></div>{{i18n status}}
-                            </li>
-						{{/datasets}}
-                    </ul>
-				{{/if}}
+                <div class="ibox">
+                    <div class="ibox-title">
+                        <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
+                    </div>
+                    <div class="ibox-content">
+                        <h3>{{i18n "feature.rawMaterialsOnHand.title"}}</h3>
+                        <canvas id="barChart" height="240px" width="700px"></canvas>
+						{{#if datasets}}
+                            <ul class="list-inline margin-bottom-20">
+								{{#datasets}}
+                                    <li>
+                                        <div class="bar-chart-legend bar-chart-{{type}}"></div>{{i18n status}}
+                                    </li>
+								{{/datasets}}
+                            </ul>
+						{{/if}}
+                    </div>
+                </div>
             </div>
         </div>
         <h3>{{i18n "feature.materialUsage.title"}}</h3>
-        <div class="row margin-bottom-20">
+        <div class="row">
             <div class="col-sm-4">
                 <div class="ibox">
                     <div class="ibox-title">
-                        <h4>{{i18n "label.reserved"}}</h4>
+                        <h4>{{i18n "label.recommended"}}</h4>
                     </div>
                     <div class="ibox-content">
-                        <div class="margin-left-15">
+                        <div class="doughnut-kpi">
                             <canvas id="reservedDoughnutChart" width="140px" height="140px"></canvas>
+                            <ul class="list-inline margin-top-10">
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-hcm"></div>
+									{{i18n "label.highCostMaterialAbbreviation"}}
+                                </li>
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-lcm"></div>
+									{{i18n "label.lowCostMaterialAbbreviation"}}
+                                </li>
+                            </ul>
                         </div>
+                        <p class="small">{{i18n "feature.reservedMaterialUsage.description"}}</p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="ibox">
                     <div class="ibox-title">
+                        <div class="pull-right">
+                            <span>{{i18n "label.rank"}}</span>
+                            <span id="actualRank" class="label label-info">{{actualRank}}</span>
+                        </div>
                         <h4>{{i18n "label.actual"}}</h4>
                     </div>
                     <div class="ibox-content">
-                        <div class="margin-left-15">
+                        <div class="doughnut-kpi">
                             <canvas id="actualDoughnutChart" width="140px" height="140px"></canvas>
+                            <ul class="list-inline margin-top-10">
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-hcm"></div>
+									{{i18n "label.highCostMaterialAbbreviation"}}
+                                </li>
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-lcm"></div>
+									{{i18n "label.lowCostMaterialAbbreviation"}}
+                                </li>
+                            </ul>
                         </div>
+                        <div class="pull-right text-{{status}}">40
+                            <span class="fa fa-level-up"></span>
+                        </div>
+                        <p class="small">{{i18n "feature.actualMaterialUsage.description"}}</p>
                     </div>
                 </div>
             </div>
@@ -108,14 +138,24 @@
                         <h4>{{i18n "label.target"}}</h4>
                     </div>
                     <div class="ibox-content">
-                        <div class="margin-left-15">
+                        <div class="doughnut-kpi">
                             <canvas id="targetDoughnutChart" width="140px" height="140px"></canvas>
+                            <ul class="list-inline margin-top-10">
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-hcm"></div>
+									{{i18n "label.highCostMaterialAbbreviation"}}
+                                </li>
+                                <li>
+                                    <div class="doughnut-chart-legend doughnut-chart-lcm"></div>
+									{{i18n "label.lowCostMaterialAbbreviation"}}
+                                </li>
+                            </ul>
                         </div>
+                        <p class="small">{{i18n "feature.targetMaterialUsage.description"}}</p>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -208,7 +248,7 @@
 
             var _doughnutDatasetOptions = {
                 virgin: {
-                    label: "{{i18n options.virgin.label}}",
+                    label: "{{i18n options.lcm.label}}",
                     color: "{{options.virgin.color}}",
                     highlight: "{{options.virgin.highlight}}"
                 },
@@ -223,7 +263,7 @@
                     highlight: "{{options.regrind.highlight}}"
                 },
                 color: {
-                    label: "{{i18n options.color.label}}",
+                    label: "{{i18n options.hcm.label}}",
                     color: "{{options.color.color}}",
                     highlight: "{{options.color.highlight}}"
                 },

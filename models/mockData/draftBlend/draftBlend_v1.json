@@ -61,6 +61,10 @@
 		{
 			"id": "ABCD-1233",
 			"modificationReason": "Scrap"
+		},
+		{
+			"id": "ABCD-1234",
+			"modificationReason": "Reducing Spec"
 		}
 	],
 	"deviationReasons": [
@@ -82,8 +86,8 @@
 		}
 	],
 	"modification": "true",
-	"modificationReason":"Location Unavailable",
-	"modificationComments":"the train cart wasn't in position",
+	"modificationReason": "Reducing Spec",
+	"modificationComments": "also lowered x usage",
 	"modifications": [
 		{
 			"id": "ABCD-1230",

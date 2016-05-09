@@ -1,0 +1,45 @@
+<div class="overflow-x-scroll">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{i18n "label.org"}}</th>
+            <th>{{i18n "label.dept"}}</th>
+            <th>{{i18n "label.deptDescription"}}</th>
+            <th>{{i18n "label.deptClass"}}</th>
+            <th>{{i18n "label.deptClassDescription"}}</th>
+            <th>{{i18n "label.locationCode"}}</th>
+            <th>{{i18n "label.inactiveDate"}}</th>
+            <th>{{i18n "label.feeder"}}</th>
+            <th>{{i18n "label.screw"}}</th>
+            <th>{{i18n "label.meltPump"}}</th>
+            <th>{{i18n "label.screenChanger"}}</th>
+            <th>{{i18n "label.dryer"}}</th>
+        </tr>
+        </thead>
+        <tbody>
+		{{#oracleDepartmentAttributes}}
+            <tr id="{{id}}">
+                <td>{{plant}}</td>
+                <td>{{department}}</td>
+                <td>{{departmentDescription}}</td>
+                <td>{{class}}</td>
+                <td>{{classDescription}}</td>
+                <td>{{location}}</td>
+                <td>{{inactiveDate}}</td>
+                <td>{{feeder}}</td>
+                <td>{{screw}}</td>
+                <td>{{meltPump}}</td>
+                <td>{{screenChanger}}</td>
+                <td>{{dryer}}</td>
+            </tr>
+		{{/oracleDepartmentAttributes}}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="8">
+                &nbsp;
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>

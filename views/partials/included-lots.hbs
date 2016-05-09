@@ -1,0 +1,26 @@
+<div class="included-lots">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{i18n "feature.includedLots.title"}}</h3>
+        </div>
+        <div class="panel-body">
+            <p>
+                <span class="fa {{i18n "icon.dragDrop"}}"></span> {{i18n "feature.dragDrop.description"}}
+            </p>
+        </div>
+		{{#draftBlend.includedLots}}
+            <ul id="includedLots{{@index}}" class="list-group sortable">
+                <li id="{{id}}" class="list-group-item {{type}} {{sku}} original">
+					{{> "collapsible-lot-included"}}
+                </li>
+            </ul>
+		{{/draftBlend.includedLots}}
+        <div class="panel-footer">
+            <div class="panel-heading">
+                <h4 class="panel-title">{{i18n "label.totals"}}</h4>
+                <h4 class="panel-title">{{draftBlend.percentUsed}}{{{i18n "label.percent"}}}</h4>
+                <h4 class="panel-title">{{draftBlend.pounds}} {{i18n "label.pounds"}}</h4>
+            </div>
+        </div>
+    </div>
+</div>

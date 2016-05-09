@@ -1,6 +1,18 @@
 {
 	"selectedPlant": "P31 - North Springfield",
 	"header": "area.createBlendSpec.title",
+	"breadcrumbs": [
+		{
+			"status": "active",
+			"title": "area.optimizerMaintenance.title",
+			"href": "optimizer-maintenance"
+		},
+		{
+			"status": "active",
+			"title": "area.blendSpecList.title",
+			"href": "blend-spec-list"
+		}
+	],
 	"blendSpecTags": [
 		{
 			"id": "ABCD-1230",

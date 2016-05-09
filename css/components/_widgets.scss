@@ -1,0 +1,56 @@
+.widget {
+	display: table;
+	width: 100%;
+	margin-bottom: $line-height-computed;
+	background-color: $widget-bg;
+	min-height: ($line-height-computed * 4);
+
+	a, a:hover, a:visited {
+		color: $widget-default-text;
+	}
+}
+
+.widget-icon {
+	display: table-cell;
+	width: 40px;
+
+	> span.fa {
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+}
+
+.widget-heading {
+	display: table-cell;
+
+	> .widget-title, .widget-description {
+		margin-top: 0 !important;
+		margin-bottom: 0 !important;
+		margin-left: 5px !important;
+	}
+}
+
+// Contextual variations
+.widget-default {
+	@include widget-variant($widget-default-border, $widget-default-text, $widget-default-bg);
+}
+
+.widget-primary {
+	@include widget-variant($widget-primary-border, $widget-primary-text, $widget-primary-bg);
+}
+
+.widget-success {
+	@include widget-variant($widget-success-border, $widget-success-text, $widget-success-bg);
+}
+
+.widget-info {
+	@include widget-variant($widget-info-border, $widget-info-text, $widget-info-bg);
+}
+
+.widget-warning {
+	@include widget-variant($widget-warning-border, $widget-warning-text, $widget-warning-bg);
+}
+
+.widget-danger {
+	@include widget-variant($widget-danger-border, $widget-danger-text, $widget-danger-bg);
+}

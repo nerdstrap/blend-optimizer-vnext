@@ -61,6 +61,10 @@
 		{
 			"id": "ABCD-1233",
 			"modificationReason": "Scrap"
+		},
+		{
+			"id": "ABCD-1234",
+			"modificationReason": "Reducing Spec"
 		}
 	],
 	"deviationReasons": [

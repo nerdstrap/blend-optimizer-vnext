@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-	$('#draftBlend').click(function (e) {
+	$('#generate-draft-blend-button').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}
@@ -9,7 +9,7 @@ $(document).ready(function () {
 
 	var availableLots = document.getElementById('availableLots');
 	Sortable.create(availableLots, {
-		handle: ".lot-header",
+		handle: ".lot-heading",
 		animation: 0,
 		group: 'availableLots',
 		sort: true
@@ -17,7 +17,7 @@ $(document).ready(function () {
 
 	var excludedLots = document.getElementById('excludedLots');
 	Sortable.create(excludedLots, {
-		handle: ".lot-header",
+		handle: ".lot-heading",
 		animation: 0,
 		group: 'availableLots',
 		sort: true,
@@ -30,9 +30,11 @@ $(document).ready(function () {
 		}
 	});
 
-	$('#availableLotsPlaceholderListItem').addClass('hidden');
-	$('#excludedLotsPlaceholderListItem', '#ineligibleLotsPlaceholderListItem').addClass('hidden');
-
+	if ($(excludedLots).children('li').length) {
+		$('.sortable-empty').addClass('hidden');
+	} else {
+		$('.sortable-empty').removeClass('hidden');
+	}
 
 	$('#skus').on('change', function (evt, params) {
 		var $availableLotsList = $('#availableLots');

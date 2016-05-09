@@ -1,0 +1,41 @@
+{
+	"selectedPlant": "P31 - North Springfield",
+	"header": "area.broadcastMessages.title",
+	"breadcrumbs": [
+		{
+			"status": "active",
+			"title": "area.operationsAdmin.title",
+			"href": "operations-admin"
+		}
+	],
+	"currentBroadcastMessageLevel": "warning",
+	"currentBroadcastMessage": "This is a warning (yellow) type broadcast message. It will show under the page title on every page and can not be dismissed.",
+	"audiences": [
+		{
+			"id": "ABCD-1230",
+			"audience": "global"
+		},
+		{
+			"id": "ABCD-1231",
+			"audience": "regional"
+		},
+		{
+			"id": "ABCD-1232",
+			"audience": "plant"
+		}
+	],
+	"levels": [
+		{
+			"id": "ABCD-1230",
+			"level": "label.info"
+		},
+		{
+			"id": "ABCD-1231",
+			"level": "label.warning"
+		},
+		{
+			"id": "ABCD-1232",
+			"level": "label.danger"
+		}
+	]
+}

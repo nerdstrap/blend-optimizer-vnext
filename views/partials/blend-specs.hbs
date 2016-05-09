@@ -1,0 +1,31 @@
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>{{i18n "label.blendSpecName"}}</th>
+        <th>{{i18n "label.description"}}</th>
+        <th>{{i18n "label.tags"}}</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+	{{#blendSpecs}}
+        <tr id="{{id}}">
+            <td>{{name}}</td>
+            <td>{{{description}}}</td>
+            <td>{{tags}}</td>
+            <td>
+                <button id="editBlendSpec" type="button" class="btn btn-primary">{{i18n "button.edit"}}</button>
+                <button id="copyBlendSpec" type="button" class="btn btn-default">{{i18n "button.copy"}}</button>
+				{{> "selectPlantsModal" @root}}
+            </td>
+        </tr>
+	{{/blendSpecs}}
+    </tbody>
+    <tfoot>
+    <tr>
+        <th colspan="5">
+            <button id="newBlendSpec" type="button" class="btn btn-warning">{{i18n "button.new"}}</button>
+        </th>
+    </tr>
+    </tfoot>
+</table>

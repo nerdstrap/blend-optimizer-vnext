@@ -1,46 +1,14 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.oracleItemCategories.title"}}</h3>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>{{i18n "label.item"}}</th>
-        <th>{{i18n "label.itemDescription"}}</th>
-        <th>{{i18n "label.inventoryCategory"}}</th>
-        <th>{{i18n "label.blendOptimizerType"}}</th>
-        <th>{{i18n "label.blendOptimizerHighMolecularWeight"}}</th>
-        <th>{{i18n "label.blendOptimizerValue"}}</th>
-        <th>{{i18n "label.blendOptimizerCost"}}</th>
-        <th>{{i18n "label.blendOptimizerNotAvailable"}}</th>
-    </tr>
-    </thead>
-    <tbody>
-	{{#oracleItemCategories}}
-        <tr id="{{id}}">
-            <td>{{sku}}</td>
-            <td>{{description}}</td>
-            <td>{{inventoryCategory}}</td>
-            <td>{{i18n materialCategoryType}}</td>
-            <td>{{highMolecularWeight}}</td>
-            <td>{{valuable}}</td>
-            <td>{{highCost}}</td>
-            <td>{{notAvailable}}</td>
-        </tr>
-	{{/oracleItemCategories}}
-    </tbody>
-    <tfoot>
-    <tr>
-        <th colspan="8">
-            &nbsp;
-        </th>
-    </tr>
-    </tfoot>
-</table>
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.oracleItemCategories.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+		{{> "oracleItemCategories"}}
+    </div>
+</div>
 
 {{#contentFor "pageScripts"}}
     <script src="js/oracleItemCategories.js"></script>

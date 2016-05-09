@@ -1,0 +1,43 @@
+{
+	"selectedPlant": "P31 - North Springfield",
+	"header": "area.userPermissions.title",
+	"breadcrumbs": [
+		{
+			"status": "active",
+			"title": "area.operationsAdmin.title",
+			"href": "operations-admin"
+		}
+	],
+	"userPermissions": [
+		{
+			"id": "ABCD-1230",
+			"name": "David Weeks",
+			"username": "dweeks",
+			"organization": "WEEK",
+			"user": "YES",
+			"manager": "YES",
+			"materialScience": "NO",
+			"pricing": "YES"
+		},
+		{
+			"id": "ABCD-1231",
+			"name": "Yves Brisson",
+			"username": "ybrisson",
+			"organization": "P22",
+			"user": "YES",
+			"manager": "YES",
+			"materialScience": "NO",
+			"pricing": "NO"
+		},
+		{
+			"id": "ABCD-1232",
+			"name": "Isabelle Roy",
+			"username": "iroy",
+			"organization": "P22,P23",
+			"user": "YES",
+			"manager": "NO",
+			"materialScience": "NO",
+			"pricing": "YES"
+		}
+	]
+}

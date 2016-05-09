@@ -7,19 +7,14 @@ mockData['alerts'] = require('./mockData/alerts.json');
 mockData['plants'] = require('./mockData/plants.json');
 
 mockData['index'] = require('./mockData/index.json');
-mockData['kitchenSink'] = require('./mockData/kitchenSink.json');
 
 mockData['dashboard'] = require('./mockData/dashboard.json');
-
-mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
 
 mockData['optimizerMaintenance'] = require('./mockData/optimizerMaintenance.json');
 mockData['oracleItemCategories'] = require('./mockData/oracleItemCategories.json');
 mockData['oracleDepartmentAttributes'] = require('./mockData/oracleDepartmentAttributes.json');
-mockData['techAdmin'] = require('./mockData/techAdmin.json');
 mockData['masterRules'] = require('./mockData/masterRules.json');
 mockData['globalRules'] = require('./mockData/globalRules.json');
-
 mockData['blendSpecList'] = require('./mockData/blendSpecList.json');
 mockData['blendSpec'] = require('./mockData/blendSpec.json');
 mockData['createBlendSpec'] = require('./mockData/createBlendSpec.json');
@@ -35,6 +30,12 @@ mockData['draftBlend_v11'] = require('./mockData/draftBlend/draftBlend_v11.json'
 mockData['draftBlend_v12'] = require('./mockData/draftBlend/draftBlend_v12.json');
 mockData['finalizeBlend'] = require('./mockData/finalizeBlend.json');
 mockData['blendSummary'] = require('./mockData/blendSummary.json');
+mockData['techAdmin'] = require('./mockData/techAdmin.json');
+
+mockData['operationsAdmin'] = require('./mockData/operationsAdmin.json');
+mockData['lotMaintenance'] = require('./mockData/lotMaintenance.json');
+mockData['userPermissions'] = require('./mockData/userPermissions.json');
+mockData['broadcastMessages'] = require('./mockData/broadcastMessages.json');
 
 module.exports = {
 
@@ -59,12 +60,6 @@ module.exports = {
 	index: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['index']);
-		}
-	},
-
-	kitchenSink: function (options, callback) {
-		if (callback) {
-			callback(null, mockData['kitchenSink']);
 		}
 	},
 
@@ -140,9 +135,27 @@ module.exports = {
 		}
 	},
 
+	operationsAdmin: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['operationsAdmin']);
+		}
+	},
+
 	lotPreferences: function (options, callback) {
 		if (callback) {
 			callback(null, mockData['lotPreferences']);
+		}
+	},
+
+	userPermissions: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['userPermissions']);
+		}
+	},
+
+	broadcastMessages: function (options, callback) {
+		if (callback) {
+			callback(null, mockData['broadcastMessages']);
 		}
 	},
 

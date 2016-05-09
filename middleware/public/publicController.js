@@ -88,8 +88,20 @@ module.exports = function (app) {
 			_renderView('dashboard', req, res, next);
 		},
 
+		operationsAdmin: function (req, res, next) {
+			_renderView('operationsAdmin', req, res, next);
+		},
+
 		lotMaintenance: function (req, res, next) {
 			_renderView('lotMaintenance', req, res, next);
+		},
+
+		userPermissions: function (req, res, next) {
+			_renderView('userPermissions', req, res, next);
+		},
+
+		broadcastMessages: function (req, res, next) {
+			_renderView('broadcastMessages', req, res, next);
 		},
 
 		createBlend: function (req, res, next) {

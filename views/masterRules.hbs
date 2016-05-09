@@ -6,68 +6,8 @@
         <h3>{{i18n "feature.masterRules.title"}}</h3>
     </div>
     <div class="ibox-content">
-        <form id="masterRuleSearchForm" class="blend-optimizer-form">
-            <div class="row margin-bottom-20">
-                <div class="col-sm-8">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <input id="masterRuleFilter" name="masterRuleFilter" type="text" class="form-control" placeholder="{{i18n "placeholder.smartSearchRules"}}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <div class="input-group">
-                            <button id="filterMasterRuleList" type="button" class="btn btn-primary">{{i18n "button.search"}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <table class="table table-striped">
-            <thead>
-            <tr>
-                <th>{{i18n "label.name"}}</th>
-                <th>{{i18n "label.summary"}}</th>
-                <th>{{i18n "label.data"}}</th>
-                <th>{{i18n "label.blendSpecs"}}</th>
-                <th>{{i18n "label.plants"}}</th>
-                <th>&nbsp;</th>
-            </tr>
-            </thead>
-            <tbody>
-			{{#masterRulesData}}
-                <tr id="{{id}}">
-                    <td>{{name}}</td>
-                    <td>{{{summary}}}</td>
-                    <td>{{{data}}}</td>
-                    <td>
-						{{#blendSpecs}}
-                            <a href="/blend-spec/{{id}}">{{blendSpecName}}</a>
-							{{#unless @last}},{{/unless}}
-						{{/blendSpecs}}
-                    </td>
-                    <td>
-						{{#plants}}
-                            <span>{{name}}</span>
-							{{#unless @last}},{{/unless}}
-						{{/plants}}
-                    </td>
-                    <td>
-                        <button id="editMasterRule" type="button" class="btn btn-default">{{i18n "button.edit"}}</button>
-                    </td>
-                </tr>
-			{{/masterRulesData}}
-            </tbody>
-            <tfoot>
-            <tr>
-                <th colspan="6">
-					{{> "addMasterRuleModal"}}
-                </th>
-            </tr>
-            </tfoot>
-        </table>
+		{{> "master-rules-search"}}
+		{{> "master-rules"}}
     </div>
 </div>
 

@@ -1,13 +1,31 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.techAdmin.title"}}</h3>
-        </div>
+{{> "pageHeader"}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.techAdmin.title"}}</h3>
     </div>
-{{/contentFor}}
-
-<div class="row margin-bottom-20">
-
+    <div class="ibox-content">
+		{{#menuRows}}
+            <div class="row">
+				{{#menuItems}}
+                    <div class="col-sm-4">
+                        <div class="widget widget-{{type}}">
+                            <a href="{{href}}">
+                                <div class="widget-icon">
+                                    <span class="fa fa-2x {{i18n icon}}"></span>
+                                </div>
+                                <div class="widget-heading">
+                                    <h3 class="widget-title">{{i18n title}}</h3>
+                                    <small class="widget-description">{{i18n description}}</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+				{{/menuItems}}
+            </div>
+		{{/menuRows}}
+    </div>
 </div>
 
 {{#contentFor "pageScripts"}}

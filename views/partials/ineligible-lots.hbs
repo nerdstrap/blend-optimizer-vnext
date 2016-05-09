@@ -1,0 +1,45 @@
+<div class="ineligible-lots">
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{i18n "feature.ineligibleLots.title"}}</h3>
+        </div>
+		{{#if manager}}
+            <div class="panel-body">
+                <p>
+                    <span class="fa {{i18n "icon.quickSelect"}}"></span> {{i18n "feature.quickSelect.description"}}
+                </p>
+                <form id="ineligible-lots-form" name="ineligible-lots-form" class="blend-optimizer-form">
+                    <div class="form-group">
+                        <label for="ineligibleSKUs" class="control-label sr-only">{{i18n "label.skus"}}</label>
+                        <div class="input-group">
+                            <select id="ineligibleSKUs" name="ineligibleSKUs" data-placeholder="{{i18n "label.skus"}}" class="form-control chosen-select width-col-sm-4" multiple>
+								{{#materialTypes}}
+                                    <option value="{{sku}}">{{sku}}</option>
+								{{/materialTypes}}
+                            </select>
+                        </div>
+                    </div>
+                </form>
+            </div>
+		{{/if}}
+        <div class="panel-body">
+			{{#if manager}}
+                <p>
+                    <span class="fa {{i18n "icon.dragDrop"}}"></span> {{i18n "feature.dragDrop.description"}}
+                </p>
+			{{else}}
+                <p>
+                    <span class="fa {{i18n "icon.stop"}}"></span> {{i18n "feature.lotMaintenance.description"}}
+                </p>
+			{{/if}}
+        </div>
+        <ul id="ineligibleLots" class="list-group">
+			{{#ineligibleLots}}
+                <li id="{{id}}" class="list-group-item {{type}} {{sku}}">
+					{{> "collapsible-lot"}}
+                </li>
+			{{/ineligibleLots}}
+        </ul>
+    </div>
+</div>
+

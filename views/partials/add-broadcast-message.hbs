@@ -1,0 +1,30 @@
+<h3>{{i18n "feature.addBroadcastMessage.title"}}</h3>
+<form id="add-broadcast-message-form" class="blend-optimizer-form">
+    <div class="form-group">
+        <label for="audience" class="control-label">{{i18n "label.audience"}}</label>
+        <div class="input-group">
+            <select id="audience" name="level" class="form-control width-col-sm-4">
+				{{#audiences}}
+                    <option value="{{id}}">{{audience}}</option>
+				{{/audiences}}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="level" class="control-label">{{i18n "label.level"}}</label>
+        <div class="input-group">
+            <select id="level" name="level" class="form-control width-col-sm-4">
+				{{#levels}}
+                    <option value="{{id}}">{{i18n level}}</option>
+				{{/levels}}
+            </select>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="message" class="control-label">{{i18n "label.broadcastMessage"}}</label>
+        <div class="input-group">
+            <input id="message" name="message" type="text" class="form-control width-col-sm-4">
+        </div>
+    </div>
+    <button type="button" class="btn btn-primary">{{i18n "button.add"}}</button>
+</form>

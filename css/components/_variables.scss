@@ -765,8 +765,8 @@ $list-group-link-heading-color: #333 !default;
 //##
 
 $panel-bg:                    #fff !default;
-$panel-body-padding:          15px !default;
-$panel-heading-padding:       10px 15px !default;
+$panel-body-padding:          5px !default;
+$panel-heading-padding:       5px !default;
 $panel-footer-padding:        $panel-heading-padding !default;
 $panel-border-radius:         $border-radius-base !default;
 
@@ -960,46 +960,37 @@ $ibox-default-border:		#e7eaec !default;
 //
 //##
 
-// Basics of a lot panel
-$lot-panel-bg:                    $white-bg !default;
-$lot-panel-body-padding:          15px !default;
-$lot-panel-heading-padding:       10px 15px !default;
-$lot-panel-border-radius:         $border-radius-base !default;
-
-//** Border color for elements within lot panels
-$lot-panel-inner-border:          #e7eaec !default;
-
-$lot-panel-default-text:          $gray-dark !default;
-$lot-panel-default-border:        #e7eaec !default;
-
-//== Lot List group
+//== Lots
 //
 //##
 
-$lot-list-group-bg:								$white-bg !default;
-$lot-list-group-padding:						0 10px !default;
-$lot-list-group-item-margin:					10px 0 !default;
-$lot-list-group-item-border:        			#e7eaec !default;
-$lot-list-group-item-border-radius:         	$border-radius-base !default;
+$lot-bg:                    #fff !default;
+$lot-border:                #ddd !default;
+$lot-border-radius:         $border-radius-base !default;
 
+$lot-default-text:          $gray-dark !default;
+$lot-default-border:        #ddd !default;
+$lot-default-bg:            #f5f5f5 !default;
 
-//== Lot widget
-//
-//##
+$lot-primary-text:          #fff !default;
+$lot-primary-border:        $brand-primary !default;
+$lot-primary-bg:            $brand-primary !default;
 
-$lot-bg:					$white-bg !default;
-$lot-heading-bg:			#f3f6fb !default;
-$lot-title-padding:			10px 15px !default;
-$lot-content-padding:		10px 15px !default;
-$lot-border-radius:			$border-radius-base !default;
-$lot-info-bg:				$state-info-bg !default;
+$lot-success-text:          $state-success-text !default;
+$lot-success-border:        $state-success-border !default;
+$lot-success-bg:            $state-success-bg !default;
+
+$lot-info-text:             $state-info-text !default;
 $lot-info-border:           $state-info-border !default;
+$lot-info-bg:               $state-info-bg !default;
 
-//** Border color for elements within lot
-$lot-inner-border:			#e7eaec !default;
+$lot-warning-text:          $state-warning-text !default;
+$lot-warning-border:        $state-warning-border !default;
+$lot-warning-bg:            $state-warning-bg !default;
 
-$lot-default-text:			$gray-dark !default;
-$lot-default-border:		#e7eaec !default;
+$lot-danger-text:           $state-danger-text !default;
+$lot-danger-border:         $state-danger-border !default;
+$lot-danger-bg:             $state-danger-bg !default;
 
 //== Material Category widget
 //
@@ -1016,3 +1007,37 @@ $material-category-inner-border:		#e7eaec !default;
 
 $material-category-default-text:		$gray-dark !default;
 $material-category-default-border:		#e7eaec !default;
+
+//== Widgets
+//
+//##
+
+$widget-bg:                    #fff !default;
+$widget-padding:       		   10px 5px !default;
+$widget-border-radius:         $border-radius-base !default;
+$widget-default-text:          $gray-dark;
+$widget-border:                #ddd !default;
+
+$widget-default-text:          #fff !default;
+$widget-default-border:        #ddd !default;
+$widget-default-bg:            #f5f5f5 !default;
+
+$widget-primary-text:          #fff !default;
+$widget-primary-border:        $brand-primary !default;
+$widget-primary-bg:            $brand-primary !default;
+
+$widget-success-text:          #fff !default;
+$widget-success-border:        $brand-success !default;
+$widget-success-bg:            $brand-success !default;
+
+$widget-info-text:             #fff !default;
+$widget-info-border:           $brand-info !default;
+$widget-info-bg:               $brand-info !default;
+
+$widget-warning-text:          #fff !default;
+$widget-warning-border:        $brand-warning !default;
+$widget-warning-bg:            $brand-warning !default;
+
+$widget-danger-text:           #fff !default;
+$widget-danger-border:         $brand-danger !default;
+$widget-danger-bg:             $brand-danger !default;

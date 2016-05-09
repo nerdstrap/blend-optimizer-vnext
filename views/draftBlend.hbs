@@ -5,10 +5,10 @@
         <div class="ibox-tools">
             <ul class="list-inline">
                 <li>
-                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                    <a class="collapse-ibox-link"><span class="fa {{i18n "icon.expand"}}"></span></a>
                 </li>
                 <li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa {{i18n "icon.dropdownMenu"}}"></i></a>
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa {{i18n "icon.dropdownMenu"}}"></span></a>
                     <ul class="dropdown-menu dropdown-ibox">
                         <li><a href="#">Deviate</a></li>
                     </ul>
@@ -20,167 +20,7 @@
         </h5>
     </div>
     <div class="ibox-content">
-        <div class="row">
-            <div class="col-sm-4">
-                <h3>{{i18n "feature.bottomLineSpecs.title"}}</h3>
-                <canvas id="radarChart" width="315px" height="315px"></canvas>
-                <div class="hidden">
-                    <input id="toggleRadarDatasetHigh" name="toggleRadarDatasetHigh" type="checkbox" class="toggle-radar-dataset hidden" data-id="ABCD-0000" checked>
-                </div>
-                <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
-				{{#if datasets}}
-                    <ul class="list-inline margin-bottom-20">
-                        <li><span>{{i18n "feature.radarChartLegend.title"}}</span></li>
-						{{#datasets}}
-                            <li>
-                                <div class="radar-chart-legend radar-chart-{{type}}"></div>{{i18n status}}
-                            </li>
-						{{/datasets}}
-                    </ul>
-				{{/if}}
-				{{#if modifications}}
-                    <ul class="list-inline">
-                        <li><span>{{i18n "feature.draftBlendModifications.title"}}</span></li>
-						{{#modifications}}
-                            <li>
-                                <div class="checkbox checkbox-{{type}}">
-                                    <input id="toggleRadarDataset{{@index}}" name="toggleRadarDataset{{@index}}" type="checkbox" class="styled toggle-radar-dataset" {{#if checked}}checked{{/if}} data-id="{{id}}">
-                                    <label for="toggleRadarDataset{{@index}}"></label>
-                                </div>
-                                <a href="{{href}}" data-blendid="{{{id}}}">{{i18n title}}</a>
-                            </li>
-						{{/modifications}}
-                    </ul>
-				{{/if}}
-            </div>
-            <div class="col-sm-4">
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-						{{#if deviation}}
-                            <th>&nbsp;</th>
-						{{/if}}
-                        <th>{{i18n "label.spec"}}</th>
-						{{#if deviation}}
-                            <th>{{i18n "label.deviationLow"}}</th>
-						{{/if}}
-                        <th>{{i18n "label.low"}}</th>
-                        <th>{{i18n "label.actual"}}</th>
-                        <th>{{i18n "label.high"}}</th>
-						{{#if deviation}}
-                            <th>{{i18n "label.deviationHigh"}}</th>
-						{{/if}}
-                    </tr>
-                    </thead>
-                    <tbody>
-					{{#draftBlend.bottomLineSpecs}}
-                        <tr class="{{status}}">
-							{{#if @root.deviation}}
-                                <td>
-                                    <div class="checkbox checkbox-warning">
-                                        <input id="deviateSpec{{@index}}" name="deviateSpec{{@index}}" type="checkbox" class="styled">
-                                        <label for="deviateSpec{{@index}}"></label>
-                                    </div>
-                                </td>
-							{{/if}}
-                            <th>{{i18n spec}}</th>
-							{{#if @root.deviation}}
-                                <td>{{deviationLow}}</td>
-							{{/if}}
-                            <td>{{low}}</td>
-                            <td>{{actual}}</td>
-                            <td>{{high}}</td>
-							{{#if @root.deviation}}
-                                <td>{{deviationHigh}}</td>
-							{{/if}}
-                        </tr>
-					{{/draftBlend.bottomLineSpecs}}
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td {{#if deviation}}colspan="7" {{else}}colspan="4"{{/if}}>
-                            &nbsp;
-                        </td>
-                    </tr>
-                    </tfoot>
-                </table>
-            </div>
-            <div class="col-sm-4">
-                <form id="deviateBlendForm" name="deviateBlendForm" class="blend-optimizer-form {{#if infeasible}}{{#if deviation}}hidden{{else}}infeasible{{/if}}{{else}}hidden{{/if}}">
-                    <div class="form-group">
-                        <button id="deviateBlend" type="button" class="btn btn-warning">{{i18n "button.deviateBlend"}}</button>
-                    </div>
-                </form>
-                <form id="reoptimizeBlendForm" name="reoptimizeBlendForm" class="blend-optimizer-form {{#if deviation}}{{#if modification}}hidden{{else}}reoptimize{{/if}}{{else}}hidden{{/if}}">
-                    <div class="form-group {{#if deviation}}deviation{{else}}hidden{{/if}}">
-                        <label for="deviationReason" class="control-label">{{i18n "label.deviationReason"}}</label>
-                        <div class="input-group">
-                            <select id="deviationReason" name="deviationReason" class="form-control">
-								{{#deviationReasons}}
-                                    <option id="{{id}}">{{deviationReason}}</option>
-								{{/deviationReasons}}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group {{#if deviation}}deviation{{else}}hidden{{/if}}">
-                        <label for="deviationComments" class="control-label">{{i18n "label.deviationComments"}}</label>
-                        <div class="input-group">
-                            <input id="deviationComments" name="deviationComments" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group {{#if deviation}}hidden{{else}}modification{{/if}}">
-                        <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
-                        <div class="input-group">
-                            <select id="modificationReason" name="modificationReason" class="form-control">
-								{{#modificationReasons}}
-                                    <option id="{{id}}">{{modificationReason}}</option>
-								{{/modificationReasons}}
-                            </select>
-                        </div>
-                    </div>
-                    <div class="form-group {{#if deviation}}hidden{{else}}modification{{/if}}">
-                        <label for="modificationComments" class="control-label">{{i18n "label.modificationComments"}}</label>
-                        <div class="input-group">
-                            <input id="modificationComments" name="modificationComments" type="text" class="form-control">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button id="reoptimizeBlend" type="button" class="btn btn-warning" data-href="{{reoptimizeDataset}}">{{i18n "button.reoptimizeBlend"}}</button>
-                        <button type="button" class="btn btn-default reset-blend">{{i18n "button.reset"}}</button>
-                    </div>
-                </form>
-                <form id="finalizeBlendForm" class="blend-optimizer-form {{#if infeasible}}hidden{{else}}optimal{{/if}}">
-                    <div class="form-group {{#if modificationReason}}modification{{else}}hidden{{/if}}">
-                        <label for="modificationReasonReadOnly" class="control-label">{{i18n "label.modificationReason"}}</label>
-                        <div class="input-group">
-                            <input id="modificationReasonReadOnly" name="modificationReasonReadOnly" type="text" class="form-control" value="{{modificationReason}}" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group {{#if modificationComments}}modification{{else}}hidden{{/if}}">
-                        <label for="modificationCommentsReadOnly" class="control-label">{{i18n "label.modificationCommentsReadOnly"}}</label>
-                        <div class="input-group">
-                            <input id="modificationCommentsReadOnly" name="modificationCommentsReadOnly" type="text" class="form-control" value="{{modificationComments}}" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group {{#if deviationReason}}deviation{{else}}hidden{{/if}}">
-                        <label for="deviationReasonReadOnly" class="control-label">{{i18n "label.deviationReason"}}</label>
-                        <div class="input-group">
-                            <input id="deviationReasonReadOnly" name="deviationReasonReadOnly" type="text" class="form-control" value="{{deviationReason}}" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group {{#if deviationComments}}deviation{{else}}hidden{{/if}}">
-                        <label for="deviationCommentsReadOnly" class="control-label">{{i18n "label.deviationCommentsReadOnly"}}</label>
-                        <div class="input-group">
-                            <input id="deviationCommentsReadOnly" name="deviationCommentsReadOnly" type="text" class="form-control" value="{{deviationComments}}" readonly>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <button id="finalizeBlend" type="button" class="btn btn-primary">{{i18n "button.finalizeBlend"}}</button>
-                        <button type="button" class="btn btn-default reset-blend {{#if optimal}}hidden{{else}}optimal{{/if}}">{{i18n "button.reset"}}</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+		{{> "draft-blend-details"}}
     </div>
 </div>
 
@@ -189,129 +29,32 @@
         <div class="ibox-tools">
             <ul class="list-inline">
                 <li>
-                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.expand"}}"></i></a>
+                    <a class="collapse-ibox-link"><span class="fa {{i18n "icon.expand"}}"></span></a>
                 </li>
             </ul>
         </div>
         <h5>{{i18n "feature.materialCategoryUsage.title"}}</h5>
     </div>
     <div class="ibox-content" style="display: none;">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="lot-panel-heading">
-                    <h3 class="lot-panel-title">{{i18n "feature.materialCategoryThresholds.title"}}</h3>
-                </div>
-                <div class="lot-panel-heading">
-                    <h6 class="lot-panel-title">
-                        <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.slideRange.description"}}
-                    </h6>
-                </div>
-                <ul id="materialCategories" class="lot-list-group">
-					{{#materialCategories}}
-                        <li id="{{id}}" class="lot-list-group-item">
-							{{> "materialCategory"}}
-                        </li>
-					{{/materialCategories}}
-                </ul>
-            </div>
-            <div class="col-sm-4">
-                <h3>{{i18n "feature.blendSpecRulesSummary.title"}}</h3>
-                <div class="pull-right">
-                    <ul class="list-unstyled">
-                        <li>{{> "viewBlendSpecRules"}}</li>
-                        <li>{{> "viewResinMixGuidelines"}}</li>
-                    </ul>
-                </div>
-                <ol>
-					{{#blendSpecRules}}
-                        <li>{{blendSpecRule}}</li>
-					{{/blendSpecRules}}
-                </ol>
-            </div>
-        </div>
+		{{> "material-category-usage"}}
     </div>
 </div>
 
-<div class="ibox border-bottom-20">
+<div class="ibox">
     <div class="ibox-title">
         <div class="ibox-tools">
             <ul class="list-inline">
                 <li>
-                    <a class="collapse-ibox-link"><i class="fa {{i18n "icon.collapse"}}"></i></a>
+                    <a class="collapse-ibox-link"><span class="fa {{i18n "icon.collapse"}}"></span></a>
                 </li>
             </ul>
         </div>
         <h5>{{i18n "feature.includedLots.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <div class="row">
-            <div class="col-sm-8">
-                <div class="lot-panel">
-                    <div class="lot-panel-heading">
-                        <h3 class="lot-panel-title">{{i18n "feature.includedLots.title"}}</h3>
-                    </div>
-                    <div class="lot-panel-heading">
-                        <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
-                        </h6>
-                    </div>
-					{{#draftBlend.includedLots}}
-                        <ul id="includedLots{{@index}}" class="lot-list-group included-lot-list-group">
-                            <li id="{{id}}" class="lot-list-group-item sortable original {{type}} {{sku}}">
-								{{> "includedLot"}}
-                            </li>
-                        </ul>
-					{{/draftBlend.includedLots}}
-                    <div class="lot-panel-footer">
-                        <div class="lot-panel-content">
-                            <div class="lot-header">
-                                <h4>{{i18n "label.totals"}}</h4>
-                            </div>
-                            <div class="lot-usage">
-                                <div class="header-container">
-                                    <h4>{{draftBlend.percentUsed}}{{{i18n "label.percent"}}}</h4>
-                                </div>
-                                <div class="header-container">
-                                    <h4>{{draftBlend.pounds}} {{i18n "label.pounds"}}</h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="lot-panel">
-                    <div class="lot-panel-heading">
-                        <h3 class="lot-panel-title">{{i18n "feature.availableLots.title"}}</h3>
-                    </div>
-                    <div class="lot-panel-heading">
-                        <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.pointClick"}}"></i> {{i18n "feature.filterMaterialTypes.title"}}
-                        </h6>
-                    </div>
-                    <div class="lot-panel-body">
-                        <div id="materialCategoriesFilter" data-toggle="buttons-checkbox" class="btn-group" role="group">
-							{{#materialCategories}}
-                                <button type="button" role="button" data-materialcategory="{{type}}" class="btn btn-data-toggle-material-category btn-{{type}}">
-                                    <i class="fa {{i18n "icon.check"}}"></i> {{type}}
-                                </button>
-							{{/materialCategories}}
-                        </div>
-                    </div>
-                    <div class="lot-panel-heading">
-                        <h6 class="lot-panel-title">
-                            <i class="fa {{i18n "icon.dragDrop"}}"></i> {{i18n "feature.dragDrop.description"}}
-                        </h6>
-                    </div>
-                    <ul id="availableLots" class="lot-list-group sortable">
-						{{#availableLots}}
-                            <li id="{{id}}" class="lot-list-group-item {{type}} {{sku}}">
-								{{> "lot"}}
-                            </li>
-						{{/availableLots}}
-                    </ul>
-                </div>
-            </div>
+        <div class="lot-preferences">
+			{{> "included-lots"}}
+			{{> "available-lots"}}
         </div>
     </div>
 </div>

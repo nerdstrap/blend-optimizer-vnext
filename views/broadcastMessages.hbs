@@ -1,0 +1,26 @@
+{{> "pageHeader"}}
+
+<div class="ibox">
+    <div class="ibox-title">
+        <h3>{{i18n "feature.broadcastMessages.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+        <div class="row">
+            <div class="col-sm-4">
+				{{> "add-broadcast-message"}}
+            </div>
+            <div class="col-sm-8">
+				{{> "current-broadcast-message"}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/broadcastMessages.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+{{/contentFor}}

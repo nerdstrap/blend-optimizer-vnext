@@ -1,63 +1,30 @@
-{{#contentFor "pageHeader"}}
-    <div class="page-header">
-        <div class="container-fluid">
-            <h3>{{i18n "area.optimizerMaintenance.title"}}</h3>
-        </div>
-    </div>
-{{/contentFor}}
+{{> "pageHeader"}}
 
-<div class="row margin-bottom-20">
-    <div class="col-sm-3">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title panel-primary">{{i18n "feature.oracleItemCategories.title"}}</h3>
-            </div>
-            <div class="panel-body">
-                <button id="oracleItemCategories" type="button" class="btn btn-warning">{{i18n "button.oracleItemCategories"}}</button>
-            </div>
-        </div>
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.optimizerMaintenance.title"}}</h3>
     </div>
-    <div class="col-sm-3">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title panel-primary">{{i18n "feature.oracleDepartmentAttributes.title"}}</h3>
+    <div class="ibox-content">
+		{{#menuRows}}
+            <div class="row">
+				{{#menuItems}}
+                    <div class="col-sm-4">
+                        <div class="widget widget-{{type}}">
+                            <a href="{{href}}">
+                                <div class="widget-icon">
+                                    <span class="fa fa-2x {{i18n icon}}"></span>
+                                </div>
+                                <div class="widget-heading">
+                                    <h3 class="widget-title">{{i18n title}}</h3>
+                                    <small class="widget-description">{{i18n description}}</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+				{{/menuItems}}
             </div>
-            <div class="panel-body">
-                <button id="oracleDepartmentAttributes" type="button" class="btn btn-warning">{{i18n "button.oracleDepartmentAttributes"}}</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="panel">
-            <div class="panel-heading panel-info">
-                <h3 class="panel-title">{{i18n "feature.blendSpecList.title"}}</h3>
-            </div>
-            <div class="panel-body">
-                <button id="blendSpecList" type="button" class="btn btn-warning">{{i18n "button.blendSpecList"}}</button>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-3">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title panel-primary">{{i18n "feature.globalRules.title"}}</h3>
-            </div>
-            <div class="panel-body">
-                <button id="globalRules" type="button" class="btn btn-warning">{{i18n "button.globalRules"}}</button>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-3">
-        <div class="panel">
-            <div class="panel-heading">
-                <h3 class="panel-title panel-warning">{{i18n "feature.masterRules.title"}}</h3>
-            </div>
-            <div class="panel-body">
-                <button id="masterRules" type="button" class="btn btn-warning">{{i18n "button.masterRules"}}</button>
-            </div>
-        </div>
+		{{/menuRows}}
     </div>
 </div>
 
@@ -65,41 +32,6 @@
     <script src="js/optimizerMaintenance.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-
-            $('#oracleItemCategories').click(function (e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                window.location.href = 'oracle-item-categories';
-            });
-
-            $('#oracleDepartmentAttributes').click(function (e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                window.location.href = 'oracle-department-attributes';
-            });
-
-            $('#globalRules').click(function (e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                window.location.href = 'global-rules';
-            });
-
-            $('#masterRules').click(function (e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                window.location.href = 'master-rules';
-            });
-
-            $('#blendSpecList').click(function (e) {
-                if (e) {
-                    e.preventDefault();
-                }
-                window.location.href = 'blend-spec-list';
-            });
 
         });
     </script>

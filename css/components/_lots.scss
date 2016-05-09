@@ -1,162 +1,151 @@
 .lot {
-	width: 362px;
-	min-width: 362px;
+	margin: 0;
+	padding: 0;
+	display: table;
+	width: 100%;
 	background-color: $lot-bg;
-
-	border-top: solid 1px $lot-default-border;
-	border-right: solid 1px $lot-default-border;
-	border-left: solid 1px $lot-default-border;
-	border-bottom: none 0;
+	border-top: 1px solid $lot-border;
+	border-right: 1px solid $lot-border;
+	border-bottom: 0 none;
+	border-left: 1px solid $lot-border;
 	border-radius: $lot-border-radius;
+	@include box-shadow(0 1px 1px rgba(0, 0, 0, .05));
 
-	.lot-title {
-		cursor: move;
-		position: relative;
+	> .lot-indicator {
 		margin: 0;
 		padding: 0;
-		height: $line-height-computed * 4;
+		display: table-cell;
+		width: 7px;
+		background-color: $brand-primary;
 
-		.lot-label {
-			position: absolute;
-			top: 10px;
-			left: 10px;
+		&.warning {
+			background-color: $brand-warning;
 		}
-
-		.lot-header {
-			position: absolute;
-			top: 10px;
-			left: 35px;
-
-			.lot-sku {
-				font-weight: bold;
-				margin-right: 10px;
-			}
-
-			.lot-number {
-				font-weight: normal;
-				margin-right: 3px;
-			}
-
-			.lot-category {
-				font-weight: normal;
-				margin-right: 3px;
-			}
-
-			.lot-size {
-				font-style: italic;
-				margin-right: 3px;
-			}
-
-			.lot-density {
-				margin-right: 3px;
-			}
-
-			.lot-melt {
-				margin-right: 3px;
-			}
-
-			.lot-izod {
-				margin-right: 3px;
-			}
-
-			.lot-ncls {
-				margin-right: 3px;
-			}
+		&.danger {
+			background-color: $brand-danger;
 		}
+	}
 
-		.lot-tools {
-			position: absolute;
-			top: 10px;
-			right: 10px;
-			z-index: 1000;
+	> .lot-badge {
+		margin: 0;
+		padding: 0;
+		display: table-cell;
+		width: 25px;
+		> span.label {
+			float: left;
+			margin-top: 5px;
+			margin-left: 5px;
+		}
+	}
 
-			> ul {
+	.lot-header {
+		display: table-cell;
 
-				> li {
-					padding: 0;
+		> div {
+			margin-left: 10px;
 
-					> a {
-						color: $gray-dark;
-
-						&:hover {
-							color: $gray-dark;
-						}
-						&:visited {
-							color: $gray-dark;
-						}
-					}
-				}
+			&:first-child {
+				margin-top: 5px;
 			}
 
-			@media (min-width: 768px) {
-				.dropdown-menu {
-					right: 0;
-					left: auto;
-				}
+			&:last-child {
+				margin-bottom: 5px;
 			}
 		}
 	}
 
-	.lot-content {
-		margin: 0;
-		padding: 10px;
+	> .lot-menu {
+		display: table-cell;
+		width: 30px;
 
-		border-top: solid 1px $lot-inner-border;
-		border-right: none 0;
-		border-left: none 0;
-		border-bottom: solid 1px $lot-inner-border;
-		border-radius: $lot-border-radius;
+		> ul {
+			margin-top: 5px;
+			margin-right: 5px;
 
-		&.lot-heading {
-			background-color: $ibox-heading-bg;
-			border-bottom: none 0;
+			> li {
+				padding: 0;
+
+				> a {
+					color: $gray-dark;
+
+					&:hover {
+						color: $gray-dark;
+					}
+					&:visited {
+						color: $gray-dark;
+					}
+				}
+			}
 		}
 
-		.lot-details {
-			margin-left: 25px;
-
-			.lot-supplier {
-				margin-right: 3px;
-			}
-
-			.lot-comments {
-				font-style: italic;
-				margin-right: 3px;
-			}
-
-			.lot-price {
-				font-style: italic;
-				margin-right: 3px;
-			}
-
-			.lot-age {
-				margin-right: 3px;
+		@media (min-width: 768px) {
+			.dropdown-menu {
+				right: 0;
+				left: auto;
 			}
 		}
 	}
 
 	&.border-bottom {
-		border-bottom: solid 1px $lot-default-border;
+		border-bottom: solid 1px $lot-border;
 	}
 
-	&.lot-prioritized {
-		background-color: $lot-info-bg;
-		border-color: $lot-info-border;
+}
 
-		> .lot-content {
-			border-color: $lot-info-border;
-		}
+.lot-body {
+	border-top: 1px solid transparent;
+	border-right: 1px solid $lot-border;
+	border-bottom: 1px solid $lot-border;
+	border-left: 1px solid $lot-border;
+}
+
+.lot-title {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-right: 3px;
+	text-overflow: clip;
+
+	&.lot-sku {
+		font-weight: bold;
 	}
 
-	&.lot-success {
-		border-left: solid 7px $brand-primary;
+	&.lot-number {
 	}
 
-	&.lot-warning {
-		border-left: solid 7px $brand-warning;
+	&.lot-category {
 	}
 
-	&.lot-danger {
-		border-left: solid 7px $brand-danger;
+	&.lot-size {
+		font-style: italic;
 	}
+
+	&.lot-density {
+	}
+
+	&.lot-melt {
+	}
+
+	&.lot-izod {
+	}
+
+	&.lot-ncls {
+	}
+
+	&.lot-supplier {
+	}
+
+	&.lot-comments {
+	}
+
+	&.lot-price {
+	}
+
+	&.lot-age {
+	}
+}
+
+.lot-prioritized {
+	color: $lot-info-text;
+	background-color: $lot-info-bg;
+	border-color: $lot-info-border;
 }

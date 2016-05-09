@@ -1,0 +1,35 @@
+<div class="overflow-x-scroll">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{{i18n "label.name"}}</th>
+            <th>{{i18n "label.username"}}</th>
+            <th>{{i18n "label.organization"}}</th>
+            <th>{{i18n "label.user"}}</th>
+            <th>{{i18n "label.manager"}}</th>
+            <th>{{i18n "label.materialScience"}}</th>
+            <th>{{i18n "label.pricing"}}</th>
+        </tr>
+        </thead>
+        <tbody>
+		{{#userPermissions}}
+            <tr id="{{id}}">
+                <td>{{name}}</td>
+                <td>{{username}}</td>
+                <td>{{organization}}</td>
+                <td>{{user}}</td>
+                <td>{{manager}}</td>
+                <td>{{materialScience}}</td>
+                <td>{{pricing}}</td>
+            </tr>
+		{{/userPermissions}}
+        </tbody>
+        <tfoot>
+        <tr>
+            <th colspan="7">
+                &nbsp;
+            </th>
+        </tr>
+        </tfoot>
+    </table>
+</div>

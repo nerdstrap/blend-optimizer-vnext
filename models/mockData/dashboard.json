@@ -76,6 +76,9 @@
 			"minorDataIcon": "icon.levelDown"
 		}
 	],
+	"reservedRank": "22",
+	"actualRank": "33",
+	"targetRank": "11",
 	"labels": [
 		"label.virgin",
 		"label.flake",
@@ -121,13 +124,13 @@
 			{
 				"id": "ABCD-1230",
 				"type": "color",
-				"label": "label.virgin",
+				"label": "label.hcm",
 				"value": "35"
 			},
 			{
 				"id": "ABCD-1231",
 				"type": "virgin",
-				"label": "label.flake",
+				"label": "label.lcm",
 				"value": "65"
 			}
 		],
@@ -135,13 +138,13 @@
 			{
 				"id": "ABCD-1230",
 				"type": "color",
-				"label": "label.virgin",
+				"label": "label.hcm",
 				"value": "45"
 			},
 			{
 				"id": "ABCD-1231",
 				"type": "virgin",
-				"label": "label.flake",
+				"label": "label.lcm",
 				"value": "55"
 			}
 		],
@@ -149,13 +152,13 @@
 			{
 				"id": "ABCD-1230",
 				"type": "color",
-				"label": "label.virgin",
+				"label": "label.hcm",
 				"value": "25"
 			},
 			{
 				"id": "ABCD-1231",
 				"type": "virgin",
-				"label": "label.flake",
+				"label": "label.lcm",
 				"value": "75"
 			}
 		]

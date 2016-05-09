@@ -1,0 +1,20 @@
+{{> "pageHeader"}}
+
+<div class="ibox">
+    <div class="ibox-title">
+		{{> "ibox-tools"}}
+        <h3>{{i18n "feature.userPermissions.title"}}</h3>
+    </div>
+    <div class="ibox-content">
+		{{> "userPermissions"}}
+    </div>
+</div>
+
+{{#contentFor "pageScripts"}}
+    <script src="js/userPermissions.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+    </script>
+{{/contentFor}}

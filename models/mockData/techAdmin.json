@@ -1,158 +1,261 @@
 {
 	"selectedPlant": "P31 - North Springfield",
 	"header": "area.techAdmin.title",
-	"breadcrumbs": [
+	"menuRows": [
 		{
-			"status": "active",
-			"title": "feature.optimizerMaintenance.title",
-			"href": "optimizer-maintenance"
+			"menuItems": [
+				{
+					"id": "ABCD-1230",
+					"href": "tech-admin/item-setup",
+					"title": "area.itemSetup.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.itemSetup.description"
+				},
+				{
+					"id": "ABCD-1231",
+					"href": "tech-admin/global-settings",
+					"title": "area.globalSettings.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.globalSettings.description"
+				},
+				{
+					"id": "ABCD-1232",
+					"href": "tech-admin/reason-code-setup",
+					"title": "area.reasonCodeSetup.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.reasonCodeSetup.description"
+				}
+			]
+		},
+		{
+			"menuItems": [
+				{
+					"id": "ABCD-1233",
+					"href": "tech-admin/display-settings",
+					"title": "area.displaySettings.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.displaySettings.description"
+				},
+				{
+					"id": "ABCD-1234",
+					"href": "tech-admin/organization-setup",
+					"title": "area.organizationSetup.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.organizationSetup.description"
+				},
+				{
+					"id": "ABCD-1235",
+					"href": "tech-admin/property-setup",
+					"title": "area.propertySetup.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.propertySetup.description"
+				}
+			]
+		},
+		{
+			"menuItems": [
+				{
+					"id": "ABCD-1236",
+					"href": "tech-admin/planner-setup",
+					"title": "area.plannerSetup.title",
+					"type": "warning",
+					"icon": "fa-cog",
+					"description": "area.plannerSetup.description"
+				}
+			]
 		}
 	],
-	"colors": [
+	"organizations": [
 		{
 			"id": "ABCD-1230",
-			"name": "default"
+			"org": "P20",
+			"orgDescription": "Thorndale (ON)"
 		},
 		{
 			"id": "ABCD-1231",
-			"name": "primary"
+			"org": "P21",
+			"orgDescription": "Heidelberg (ON)"
 		},
 		{
 			"id": "ABCD-1232",
-			"name": "success"
+			"org": "P22",
+			"orgDescription": "St. Germain (QC)"
 		},
 		{
 			"id": "ABCD-1233",
-			"name": "info"
+			"org": "P23",
+			"orgDescription": "Carman (MB)"
 		},
 		{
 			"id": "ABCD-1234",
-			"name": "warning"
+			"org": "P24",
+			"orgDescription": "Winchester (ON)"
 		},
 		{
 			"id": "ABCD-1235",
-			"name": "danger"
-		}
-	],
-	"materialTypeCategories": [
-		{
-			"id": "ABCD-1230",
-			"type": "virgin",
-			"badge": "V",
-			"description": "Virgin Resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		},
-		{
-			"id": "ABCD-1231",
-			"type": "flake",
-			"badge": "F",
-			"description": "Flake Resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		},
-		{
-			"id": "ABCD-1232",
-			"type": "regrind",
-			"badge": "R",
-			"description": "Regrind (internal)",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		},
-		{
-			"id": "ABCD-1233",
-			"type": "repro",
-			"badge": "P",
-			"description": "Reprocessed (internal)",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		},
-		{
-			"id": "ABCD-1234",
-			"type": "color",
-			"badge": "C",
-			"description": "Color resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		},
-		{
-			"id": "ABCD-1235",
-			"type": "ocra",
-			"badge": "O",
-			"description": "Other",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
+			"org": "P25",
+			"orgDescription": "Madera"
 		},
 		{
 			"id": "ABCD-1236",
-			"type": "hybrid",
-			"badge": "Y",
-			"description": "Hybrid flake / spec resin",
-			"deviationLow":"0",
-			"low":"0",
-			"high":"100",
-			"deviationHigh":"100"
-		}
-	],
-	"globalRules": [
-		{
-			"id": "ABCD-1230",
-			"type":"sequence",
-			"name": "SEQ-H-1",
-			"summary":"Sequence H materials",
-			"data": "mat:#H,seq[#ZP,#Z,#HX,#H]"
+			"org": "P26",
+			"orgDescription": "Napoleon"
 		},
 		{
-			"id": "ABCD-1231",
-			"type":"equipment",
-			"name": "EQUIP-30-1",
-			"summary":"class 30 don't use flake",
-			"data": "class:#30,bucket[#flake:0],"
+			"id": "ABCD-1237",
+			"org": "P27",
+			"orgDescription": "Wooster"
 		},
 		{
-			"id": "ABCD-1232",
-			"type":"geographic",
-			"name": "GEO-NE-1",
-			"summary":"northern plants use ZX",
-			"data": "plant[#30,#31,#32],mat[#ZX:max]"
-		}
-	],
-	"masterRules": [
-		{
-			"id": "ABCD-1230",
-			"name": "VM-1-TM-1",
-			"summary":"min V and Y",
-			"data": "bucket[#virgin:min,#tyvek:min]"
+			"id": "ABCD-1238",
+			"org": "P29",
+			"orgDescription": "Waverly"
 		},
 		{
-			"id": "ABCD-1231",
-			"name": "VR15",
-			"summary":"peg R at 15",
-			"data": "bucket[#regrind:15]"
+			"id": "ABCD-1239",
+			"org": "P30",
+			"orgDescription": "Owosso"
 		},
 		{
-			"id": "ABCD-1232",
-			"name": "MR-SP01-XX02",
-			"summary":"max spec usage",
-			"data": "bucket[#spec:max]"
+			"id": "ABCD-1240",
+			"org": "P31",
+			"orgDescription": "North Springfield"
 		},
 		{
-			"id": "ABCD-1233",
-			"name": "MR-P30-FL01",
-			"summary":"P30 max flake usage",
-			"data": "plant:30,bucket[#flake:max]"
+			"id": "ABCD-1241",
+			"org": "P32",
+			"orgDescription": "Buena Vista"
+		},
+		{
+			"id": "ABCD-1242",
+			"org": "P33",
+			"orgDescription": "Washougal"
+		},
+		{
+			"id": "ABCD-1243",
+			"org": "P35",
+			"orgDescription": "Perry"
+		},
+		{
+			"id": "ABCD-1244",
+			"org": "P36",
+			"orgDescription": "Ludlow"
+		},
+		{
+			"id": "ABCD-1245",
+			"org": "P37",
+			"orgDescription": "Findlay"
+		},
+		{
+			"id": "ABCD-1246",
+			"org": "P42",
+			"orgDescription": "Ennis"
+		},
+		{
+			"id": "ABCD-1247",
+			"org": "P43",
+			"orgDescription": "Bakersfield"
+		},
+		{
+			"id": "ABCD-1248",
+			"org": "P44",
+			"orgDescription": "Logan"
+		},
+		{
+			"id": "ABCD-1249",
+			"org": "P45",
+			"orgDescription": "Olympia"
+		},
+		{
+			"id": "ABCD-1250",
+			"org": "P46",
+			"orgDescription": "Mendota"
+		},
+		{
+			"id": "ABCD-1251",
+			"org": "P47",
+			"orgDescription": "Muncy"
+		},
+		{
+			"id": "ABCD-1252",
+			"org": "P48",
+			"orgDescription": "Brazil"
+		},
+		{
+			"id": "ABCD-1253",
+			"org": "P49",
+			"orgDescription": "Yoakum"
+		},
+		{
+			"id": "ABCD-1254",
+			"org": "P50",
+			"orgDescription": "Fairmont"
+		},
+		{
+			"id": "ABCD-1255",
+			"org": "P51",
+			"orgDescription": "New Miami"
+		},
+		{
+			"id": "ABCD-1256",
+			"org": "P52",
+			"orgDescription": "Oelwein"
+		},
+		{
+			"id": "ABCD-1257",
+			"org": "P53",
+			"orgDescription": "Charlotte"
+		},
+		{
+			"id": "ABCD-1258",
+			"org": "P55",
+			"orgDescription": "Jackson"
+		},
+		{
+			"id": "ABCD-1259",
+			"org": "P58",
+			"orgDescription": "Watertown"
+		},
+		{
+			"id": "ABCD-1260",
+			"org": "P59",
+			"orgDescription": "Phoenix"
+		},
+		{
+			"id": "ABCD-1261",
+			"org": "P60",
+			"orgDescription": "Eagle Grove"
+		},
+		{
+			"id": "ABCD-1262",
+			"org": "P61",
+			"orgDescription": "Livermore"
+		},
+		{
+			"id": "ABCD-1263",
+			"org": "P64",
+			"orgDescription": "London"
+		},
+		{
+			"id": "ABCD-1264",
+			"org": "P66",
+			"orgDescription": "Buxton"
+		},
+		{
+			"id": "ABCD-1265",
+			"org": "P67",
+			"orgDescription": "Wintergarden"
+		},
+		{
+			"id": "ABCD-1266",
+			"org": "P69",
+			"orgDescription": "Salt Lake City"
 		}
 	]
 }

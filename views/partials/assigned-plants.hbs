@@ -1,0 +1,14 @@
+<h3>{{i18n "feature.assignedPlants.title"}}</h3>
+<div class="row">
+	{{#plantGroups}}
+        <div class="col-sm-4">
+            <ul class="list-group assigned-plant-group" data-toggle="items">
+				{{#plants}}
+                    <li id="{{id}}" class="list-group-item assigned-plant-item">
+                        <span class="fa {{i18n "icon.plus"}}"></span><span class="fa {{i18n "icon.minus"}}"></span> {{name}}-{{description}}
+                    </li>
+				{{/plants}}
+            </ul>
+        </div>
+	{{/plantGroups}}
+</div>

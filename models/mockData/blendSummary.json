@@ -4,23 +4,23 @@
 	"breadcrumbs": [
 		{
 			"status": "disabled",
-			"title": "feature.selectBlend.title"
+			"title": "area.selectBlend.title"
 		},
 		{
 			"status": "disabled",
-			"title": "feature.lotPreferences.title"
+			"title": "area.lotPreferences.title"
 		},
 		{
 			"status": "disabled",
-			"title": "feature.draftBlend.title"
+			"title": "area.draftBlend.title"
 		},
 		{
 			"status": "disabled",
-			"title": "feature.finalizeBlend.title"
+			"title": "area.finalizeBlend.title"
 		},
 		{
 			"status": "active",
-			"title": "feature.saveBlend.title"
+			"title": "area.saveBlend.title"
 		}
 	],
 	"datacrumbs": [
