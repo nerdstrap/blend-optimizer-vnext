@@ -462,5 +462,7 @@
 	"feature.reservedMaterialUsage.description": "OptimizerGold Reservations",
 	"feature.actualMaterialUsage.description": "PE Blends",
 	"feature.targetMaterialUsage.description": "Consumption Targets",
-	"label.recommended": "Recommended"
+	"label.recommended": "Recommended",
+	"button.siloBlend": "button.siloBlend",
+	"button.manualBlend": "button.manualBlend"
 }

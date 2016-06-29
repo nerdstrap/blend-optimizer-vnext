@@ -36,7 +36,7 @@ $(document).ready(function () {
 		$('.sortable-empty').removeClass('hidden');
 	}
 
-	$('#skus').on('change', function (evt, params) {
+	$('#excludedSKUs').on('change', function (evt, params) {
 		var $availableLotsList = $('#availableLots');
 		var $excludedLotsList = $('#excludedLots');
 

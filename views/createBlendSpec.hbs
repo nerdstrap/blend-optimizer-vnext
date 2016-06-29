@@ -106,7 +106,7 @@
             var _plannerCodes = {{{json plannerCodes}}};
 
             function getPlannerCodeOption(id, plannerCode, description, productSKUs) {
-                var plannerCodeOption = '<option value="' + id + '" selected="selected">' + plannerCode + '</option>';
+                var plannerCodeOption = '<option value="' + id + '" selected>' + plannerCode + '</option>';
                 return plannerCodeOption;
             }
 
@@ -127,7 +127,7 @@
                 var productLines = _.filter(_productLines, function (_productLine) {
                     return _selectedPlannerSeries.productLines.indexOf(_productLine.id) !== -1;
                 });
-                var productLineOptions = '<option value="" selected="true">{{i18n "label.productLine"}}</option>';
+                var productLineOptions = '<option value="" selected>{{i18n "label.productLine"}}</option>';
                 _.forEach(productLines, function (productLine) {
                     productLineOptions += getProductLineOption(productLine.id, productLine.productLine);
                 });
@@ -151,7 +151,7 @@
                 var productSizes = _.filter(_productSizes, function (_productSize) {
                     return _selectedProductLine.productSizes.indexOf(_productSize.id) !== -1;
                 });
-                var productSizeOptions = '<option value="" selected="true">{{i18n "label.productSize"}}</option>';
+                var productSizeOptions = '<option value="" selected>{{i18n "label.productSize"}}</option>';
                 _.forEach(productSizes, function (productSize) {
                     productSizeOptions += getProductSizeOption(productSize.id, productSize.productSize);
                 });

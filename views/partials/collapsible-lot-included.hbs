@@ -5,28 +5,73 @@
     <div class="lot-badge">
         <span class="label label-{{type}}">{{badge}}</span>
     </div>
-    <div class="lot-header">
-        <div>
-            <span class="lot-title lot-sku">{{sku}}</span>
-            <span class="lot-title lot-size">{{size}} {{i18n "label.pounds"}}{{#if reservation}} of {{reservation}} {{i18n "label.pounds"}}{{/if}}</span>
+    <div class="lot-content">
+        <div class="lot-header">
+            <div>
+                <span class="lot-title lot-sku">{{sku}}</span>
+                <span class="lot-title lot-size">{{size}} {{i18n "label.pounds"}}{{#if reservation}} of {{reservation}} {{i18n "label.pounds"}}{{/if}}</span>
+            </div>
+            <div>
+                <span class="lot-title lot-number">{{lotNumber}}</span> {{#if comments}}
+                <span class="fa {{i18n "icon.comments"}}"></span>{{/if}}
+            </div>
+            <div>
+                <span class="lot-title lot-density"><strong>{{i18n "label.densityAbbreviation"}}</strong> {{density}}</span>
+                <span class="lot-title lot-melt"><strong>{{i18n "label.meltIndexAbbreviation"}}</strong> {{meltIndex}}</span>
+                <span class="lot-title lot-izod"><strong>{{i18n "label.izodAbbreviation"}}</strong> {{izod}}</span>
+                <span class="lot-title lot-ncls"><strong>{{i18n "label.nclsAbbreviation"}}</strong> {{ncls}}</span>
+            </div>
         </div>
-        <div>
-            <span class="lot-title lot-number">{{lotNumber}}</span> {{#if comments}}
-            <span class="fa {{i18n "icon.comments"}}"></span>{{/if}}
+        <div class="lot-header lot-usage">
+            <div>
+                <h4 class="lot-title lot-percent-used">{{percentUsed}}{{{i18n "label.percent"}}}</h4>
+            </div>
+            <div>
+                <h4 class="lot-title lot-pounds-used">{{pounds}} {{i18n "label.pounds"}}</h4>
+            </div>
         </div>
-        <div>
-            <span class="lot-title lot-density"><strong>{{i18n "label.densityAbbreviation"}}</strong> {{density}}</span>
-            <span class="lot-title lot-melt"><strong>{{i18n "label.meltIndexAbbreviation"}}</strong> {{meltIndex}}</span>
-            <span class="lot-title lot-izod"><strong>{{i18n "label.izodAbbreviation"}}</strong> {{izod}}</span>
-            <span class="lot-title lot-ncls"><strong>{{i18n "label.nclsAbbreviation"}}</strong> {{ncls}}</span>
-        </div>
-    </div>
-    <div class="lot-header lot-usage">
-        <div>
-            <h4 class="lot-title lot-percent-used">{{percentUsed}}{{{i18n "label.percent"}}}</h4>
-        </div>
-        <div>
-            <h4 class="lot-pounds-used">{{pounds}} {{i18n "label.pounds"}}</h4>
+        <div class="lot-body" style="display: none;">
+            <div class="lot-indicator">
+                &nbsp;
+            </div>
+            <div class="lot-badge">
+                &nbsp;
+            </div>
+            <div class="lot-header">
+                <div>
+                    <span class="lot-title lot-supplier"><strong>{{i18n "label.supplier"}}</strong> {{vendorName}}</span>
+                </div>
+                <div>
+                    <span class="lot-title lot-price"><strong>{{i18n "label.price"}}</strong> {{formatNumber price style="currency" currency="USD"}}</span>
+                </div>
+                <div>
+                    <span class="lot-title lot-comments"><strong>{{i18n "label.comments"}}</strong> {{comments}}</span>
+                </div>
+                <div>
+                    <span class="lot-title lot-age"><strong>{{i18n "label.receivedDate"}}</strong> {{received}}</span>
+                </div>
+                <div>
+                    <span class="lot-title lot-mh"><strong>{{i18n "label.highLowMeltIndexAbbreviation"}}</strong> {{meltHigh}}</span>
+                    <span class="lot-title lot-h1"><strong>{{i18n "label.h1Abbreviation"}}</strong> {{halfLife}}</span>
+                    <span class="lot-title lot-v"><strong>{{i18n "label.viscosityAbbreviation"}}</strong> {{viscosity}}</span>
+                </div>
+                <div>
+                    <span class="lot-title lot-ir"><strong>{{i18n "label.infraredAbbreviation"}}</strong> {{infrared}}</span>
+                    <span class="lot-title lot-sf"><strong>{{i18n "label.sinkFloatAbbreviation"}}</strong> {{sinkFloat}}</span>
+                    <span class="lot-title lot-co"><strong>{{i18n "label.contaminationAbbreviation"}}</strong> {{contamination}}</span>
+                </div>
+            </div>
+            <div class="lot-header lot-usage">
+                <div class="slider-value-lower">
+                    <label for="includeLot{{@index}}SnapValueLower" class="control-label">{{i18n "label.low"}}</label>
+                    <input id="includeLot{{@index}}SnapValueLower" name="includeLot{{@index}}SnapValueLower" type="text" class="form-control slider-snap-value-control width-col-sm-1" value="{{low}}">
+                </div>
+                <div class="slider-value-upper">
+                    <label for="includeLot{{@index}}SnapValueUpper" class="control-label">{{i18n "label.high"}}</label>
+                    <input id="includeLot{{@index}}SnapValueUpper" name="includeLot{{@index}}SnapValueUpper" type="text" class="form-control slider-snap-value-control width-col-sm-1" value="{{high}}">
+                </div>
+                <div id="includedLot{{@index}}Usage" class="included-lot-slider" data-low="{{low}}" data-high="{{high}}" data-snapvaluelower="includeLot{{@index}}SnapValueLower" data-snapvalueupper="includeLot{{@index}}SnapValueUpper"></div>
+            </div>
         </div>
     </div>
     <div class="lot-menu">
@@ -42,48 +87,5 @@
                 </ul>
             </li>
         </ul>
-    </div>
-</div>
-<div class="lot lot-body lot-{{status}} {{#if priority}}lot-prioritized{{/if}}" style="display: none;">
-    <div class="lot-indicator">
-        &nbsp;
-    </div>
-    <div class="lot-badge">
-        &nbsp;
-    </div>
-    <div class="lot-header">
-        <div>
-            <span class="lot-title lot-supplier"><strong>{{i18n "label.supplier"}}</strong> {{vendorName}}</span>
-        </div>
-        <div>
-            <span class="lot-title lot-price"><strong>{{i18n "label.price"}}</strong> {{formatNumber price style="currency" currency="USD"}}</span>
-        </div>
-        <div>
-            <span class="lot-title lot-comments"><strong>{{i18n "label.comments"}}</strong> {{comments}}</span>
-        </div>
-        <div>
-            <span class="lot-title lot-age"><strong>{{i18n "label.receivedDate"}}</strong> {{received}}</span>
-        </div>
-        <div>
-            <span class="lot-title lot-mh"><strong>{{i18n "label.highLowMeltIndexAbbreviation"}}</strong> {{meltHigh}}</span>
-            <span class="lot-title lot-h1"><strong>{{i18n "label.h1Abbreviation"}}</strong> {{halfLife}}</span>
-            <span class="lot-title lot-v"><strong>{{i18n "label.viscosityAbbreviation"}}</strong> {{viscosity}}</span>
-        </div>
-        <div>
-            <span class="lot-title lot-ir"><strong>{{i18n "label.infraredAbbreviation"}}</strong> {{infrared}}</span>
-            <span class="lot-title lot-sf"><strong>{{i18n "label.sinkFloatAbbreviation"}}</strong> {{sinkFloat}}</span>
-            <span class="lot-title lot-co"><strong>{{i18n "label.contaminationAbbreviation"}}</strong> {{contamination}}</span>
-        </div>
-    </div>
-    <div class="lot-header lot-usage">
-        <div class="slider-value-lower">
-            <label for="includeLot{{@index}}SnapValueLower" class="control-label">{{i18n "label.low"}}</label>
-            <input id="includeLot{{@index}}SnapValueLower" name="includeLot{{@index}}SnapValueLower" type="text" class="form-control slider-snap-value-control width-col-sm-1" value="{{low}}">
-        </div>
-        <div class="slider-value-upper">
-            <label for="includeLot{{@index}}SnapValueUpper" class="control-label">{{i18n "label.high"}}</label>
-            <input id="includeLot{{@index}}SnapValueUpper" name="includeLot{{@index}}SnapValueUpper" type="text" class="form-control slider-snap-value-control width-col-sm-1" value="{{high}}">
-        </div>
-        <div id="includedLot{{@index}}Usage" class="included-lot-slider" data-low="{{low}}" data-high="{{high}}" data-snapvaluelower="includeLot{{@index}}SnapValueLower" data-snapvalueupper="includeLot{{@index}}SnapValueUpper"></div>
     </div>
 </div>

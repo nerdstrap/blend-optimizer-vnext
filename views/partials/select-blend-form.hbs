@@ -1,0 +1,64 @@
+<form id="select-blend-form" name="select-blend-form" action="" method="post" class="blend-optimizer-form">
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="department" class="control-label">{{i18n "label.department"}}</label>
+                <div class="input-group">
+                    <select id="department" name="department" title="department" class="form-control">
+                        <option value="" selected disabled>{{i18n "label.department"}}</option>
+						{{#departments}}
+                            <option value="{{id}}">{{department}}</option>
+						{{/departments}}
+                    </select>
+                </div>
+                <p id="departmentDescription"></p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="plannerCode" class="control-label">{{i18n "label.plannerCode"}}</label>
+                <div class="input-group">
+                    <select id="plannerCode" name="plannerCode" title="plannerCode" class="form-control">
+                    </select>
+                </div>
+                <p id="plannerCodeDescription"></p>
+                <p id="productSKUs"></p>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
+                <div class="input-group">
+                    <select id="blendSpec" name="blendSpec" title="blendSpec" class="form-control">
+                    </select>
+                </div>
+            </div>
+            <p id="blendSpecDescription"></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="minimumBlendSize" class="control-label">{{i18n "label.minimumBlendSize"}}</label>
+                <div class="input-group">
+                    <input id="minimumBlendSize" name="minimumBlendSize" title="minimumBlendSize" type="text" class="form-control" value="{{defaultBlendSize}}">
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="form-group">
+                <label for="numberOfComponents" class="control-label">{{i18n "label.numberOfComponents"}}</label>
+                <div class="input-group">
+                    <select id="numberOfComponents" name="numberOfComponents" title="numberOfComponents" class="form-control">
+						{{#numberOfComponents}}
+                            <option value="{{number}}">{{number}}</option>
+						{{/numberOfComponents}}
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <button id="lotPreferences" type="button" class="btn btn-primary">{{i18n "button.lotPreferences"}}</button>
+        </div>
+    </div>
+</form>

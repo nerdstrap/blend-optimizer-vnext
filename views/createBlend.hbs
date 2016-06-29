@@ -2,101 +2,21 @@
 
 <div class="ibox">
     <div class="ibox-title">
-		{{> "ibox-tools"}}
+        <div class="ibox-tools">
+            <ul class="list-inline">
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="fa {{i18n "icon.dropdownMenu"}}"></span></a>
+                    <ul class="dropdown-menu dropdown-ibox">
+                        <li><a href="#">{{i18n "button.siloBlend"}}</a></li>
+                        <li><a href="#">{{i18n "button.manualBlend"}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
         <h5>{{i18n "feature.selectBlend.title"}}</h5>
     </div>
     <div class="ibox-content">
-        <form id="select-blend-form" class="blend-optimizer-form">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="department" class="control-label">{{i18n "label.department"}}</label>
-                        <div class="input-group">
-                            <select id="department" name="department" class="form-control width-col-sm-4">
-                                <option value="" selected="selected" disabled="disabled">{{i18n "label.department"}}</option>
-								{{#departments}}
-                                    <option value="{{id}}" data-description="{{{description}}}" data-plannercodes="{{json plannerCodes}}">{{department}}</option>
-								{{/departments}}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="plannerCode" class="control-label">{{i18n "label.plannerCode"}}</label>
-                        <div class="input-group">
-                            <select id="plannerCode" name="plannerCode" class="form-control width-col-sm-4">
-                                <option value="" selected="selected" disabled="disabled">{{i18n "label.plannerCode"}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="blendSpec" class="control-label">{{i18n "label.blendSpec"}}</label>
-                        <div class="input-group">
-                            <select id="blendSpec" name="blendSpec" class="form-control width-col-sm-4">
-                                <option value="" selected="selected" disabled="disabled">{{i18n "label.blendSpec"}}</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-sm-4">
-                    <h4 id="departmentDescription"></h4>
-                </div>
-                <div class="col-sm-4">
-                    <h4 id="plannerCodeDescription"></h4>
-                    <div class="hidden">
-                        <strong>{{i18n "label.productSKUs"}}</strong> <span id="productSKUs"></span>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <h4 id="blendSpecDescription"></h4>
-                </div>
-            </div>
-        </form>
-    </div>
-</div>
-<div class="ibox">
-    <div class="ibox-title">
-		{{> "ibox-tools"}}
-        <h5>{{i18n "feature.blendSize.title"}}</h5>
-    </div>
-    <div class="ibox-content">
-        <form id="blend-size-form" class="blend-optimizer-form">
-            <div class="row">
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="minimumBlendSize" class="control-label">{{i18n "label.minimumBlendSize"}}</label>
-                        <div class="input-group">
-                            <input id="minimumBlendSize" name="minimumBlendSize" type="text" class="form-control width-col-sm-4" value="{{defaultBlendSize}}">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="numberOfComponents" class="control-label">{{i18n "label.numberOfComponents"}}</label>
-                        <div class="input-group">
-                            <select id="numberOfComponents" name="numberOfComponents" class="form-control width-col-sm-4">
-								{{#numberOfComponents}}
-                                    <option value="{{number}}">{{number}}</option>
-								{{/numberOfComponents}}
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-4">
-                    <div class="form-group">
-                        <label for="lotPreferences" class="control-label">&nbsp;</label>
-                        <div class="input-group">
-                            <button id="lotPreferences" type="button" class="btn btn-primary">{{i18n "button.lotPreferences"}}</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
+		{{> "select-blend-form"}}
     </div>
 </div>
 
@@ -104,63 +24,100 @@
     <script src="js/createBlend.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            var _plannerCodes = {{{json plannerCodes}}};
-            var _blendSpecs = {{{json blendSpecs}}};
 
-            function getPlannerCodeOption(id, plannerCode, description, blendSpecs, productSKUs) {
-                var plannerCodeOption = '<option value="' + id + '" data-description="' + description + '" data-blendspecs=\'' + JSON.stringify(blendSpecs) + '\' data-productskus="' + productSKUs + '">' + plannerCode + '</option>';
+            var _departments = [
+				{{#departments}}
+                    {
+                        "id": "{{id}}",
+                        "department": "{{{department}}}",
+                        "description": "{{{description}}}",
+                        "plannerCodes": [
+							{{#plannerCodes}}
+                                "{{this}}"{{#unless @last}},{{/unless}}
+							{{/plannerCodes}}
+                        ]
+                    }{{#unless @last}},{{/unless}}
+				{{/departments}}
+            ];
+
+            var _plannerCodes = [
+				{{#plannerCodes}}
+                    {
+                        "id": "{{id}}",
+                        "plannerCode": "{{{plannerCode}}}",
+                        "description": "{{{description}}}",
+                        "productSKUs": "{{{productSKUs}}}",
+                        "blendSpecs": [
+							{{#blendSpecs}}
+                                "{{this}}"{{#unless @last}},{{/unless}}
+							{{/blendSpecs}}
+                        ]
+                    }{{#unless @last}},{{/unless}}
+				{{/plannerCodes}}
+            ];
+
+            var _blendSpecs = [
+				{{#blendSpecs}}
+                    {
+                        "id": "{{id}}",
+                        "blendSpec": "{{{blendSpec}}}",
+                        "description": "{{{description}}}"
+                    }{{#unless @last}},{{/unless}}
+				{{/blendSpecs}}
+            ];
+
+            function getPlannerCodeOption(id, plannerCode) {
+                var plannerCodeOption = '<option value="' + id + '">' + plannerCode + '</option>';
                 return plannerCodeOption;
             }
 
-            function department_onChange(departmentId) {
+            function getBlendSpecOption(id, blendSpec) {
+                var blendSpecOption = '<option value="' + id + '">' + blendSpec + '</option>';
+                return blendSpecOption;
+            }
+
+            function department_onChange() {
                 var $selectedDepartment = $('#department').find('option:selected');
-                var departmentDescription = $selectedDepartment.attr('data-description');
-                var departmentPlannerCodes = JSON.parse($selectedDepartment.attr('data-plannercodes'));
+                var _selectedDepartment = _.find(_departments, {'id': $selectedDepartment.val()});
+
                 var plannerCodes = _.filter(_plannerCodes, function (_plannerCode) {
-                    return departmentPlannerCodes.indexOf(_plannerCode.id) !== -1;
+                    return _selectedDepartment.plannerCodes.indexOf(_plannerCode.id) !== -1;
                 });
 
-                $('#departmentDescription').text(departmentDescription);
-                $('#plannerCodeDescription').text('');
-                $('#productSKUs').text('').parent().addClass('hidden');
+                $('#departmentDescription').html(_selectedDepartment.description);
+                $('#plannerCodeDescription').html('');
+                $('#productSKUs').html('');
 
-                var plannerCodeOptions = '<option value="" selected="true" disabled="disabled">{{i18n "label.plannerCode"}}</option>';
+                var plannerCodeOptions = '<option value="" selected disabled>{{i18n "label.plannerCode"}}</option>';
                 _.forEach(plannerCodes, function (plannerCode) {
-                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode, plannerCode.description, plannerCode.blendSpecs, plannerCode.productSKUs);
+                    plannerCodeOptions += getPlannerCodeOption(plannerCode.id, plannerCode.plannerCode);
                 });
                 $('#plannerCode').html(plannerCodeOptions).trigger("chosen:updated");
             }
 
-            function getBlendSpecOption(id, blendSpec, description) {
-                var blendSpecOption = '<option value="' + id + '" data-description="' + description + '">' + blendSpec + '</option>';
-                return blendSpecOption;
-            }
-
-            function plannerCode_onChange(plannerCodeId) {
+            function plannerCode_onChange() {
                 var $selectedPlannerCode = $('#plannerCode').find('option:selected');
-                var plannerCodeDescription = $selectedPlannerCode.attr('data-description');
-                var productSKUs = $selectedPlannerCode.attr('data-productskus');
-                var plannerCodeBlendSpecs = JSON.parse($selectedPlannerCode.attr('data-blendspecs'));
+                var _selectedPlannerCode = _.find(_plannerCodes, {'id': $selectedPlannerCode.val()});
+
                 var blendSpecs = _.filter(_blendSpecs, function (_blendSpec) {
-                    return plannerCodeBlendSpecs.indexOf(_blendSpec.id) !== -1;
+                    return _selectedPlannerCode.blendSpecs.indexOf(_blendSpec.id) !== -1;
                 });
 
-                $('#plannerCodeDescription').html(plannerCodeDescription);
-                $('#productSKUs').text(productSKUs).parent().removeClass('hidden');
-                $('#blendSpecDescription').text('');
+                $('#plannerCodeDescription').html(_selectedPlannerCode.description);
+                $('#productSKUs').html(JSON.stringify(_selectedPlannerCode.productSKUs));
 
-                var blendSpecOptions = '<option value="" selected="true" disabled="disabled">{{i18n "label.blendSpec"}}</option>';
+                var blendSpecOptions = '<option value="" selected disabled>{{i18n "label.blendSpec"}}</option>';
                 _.forEach(blendSpecs, function (blendSpec) {
-                    blendSpecOptions += getBlendSpecOption(blendSpec.id, blendSpec.blendSpec, blendSpec.description);
+                    blendSpecOptions += getBlendSpecOption(blendSpec.id, blendSpec.blendSpec);
                 });
                 $('#blendSpec').html(blendSpecOptions).trigger("chosen:updated");
             }
 
-            function blendSpec_onChange(blendSpecId) {
+            function blendSpec_onChange() {
                 var $selectedBlendSpec = $('#blendSpec').find('option:selected');
-                var blendSpecDescription = $selectedBlendSpec.attr('data-description');
+                var _selectedBlendSpec = _.find(_blendSpecs, {'id': $selectedBlendSpec.val()});
 
-                $('#blendSpecDescription').text(blendSpecDescription);
+                $('#blendSpecDescription').html(_selectedBlendSpec.description);
             }
 
             $('#department').on('change', function (evt, params) {
@@ -173,6 +130,13 @@
 
             $('#blendSpec').on('change', function (evt, params) {
                 blendSpec_onChange();
+            });
+
+            $('#lotPreferences').click(function (e) {
+                if (e) {
+                    e.preventDefault();
+                }
+                window.location.href = 'lot-preferences';
             });
         });
     </script>

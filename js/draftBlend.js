@@ -180,7 +180,7 @@ $(document).ready(function () {
 		sort: true
 	});
 
-	$('.btn-data-toggle-material-category').click(function (e) {
+	$('.btn-filter-material-category').click(function (e) {
 		if (e) {
 			e.preventDefault();
 		}
@@ -191,7 +191,7 @@ $(document).ready(function () {
 			activeMaterialCategories.push($target.attr('data-materialcategory'));
 		}
 
-		$('#materialCategoriesFilter').children('button.active').each(function (index, element) {
+		$('#material-categories-filter').find('.btn-group > button.active').each(function (index, element) {
 			var $element = $(element);
 			if ($element.is('.active') && !$element.is('.focus')) {
 				activeMaterialCategories.push($element.attr('data-materialcategory'));

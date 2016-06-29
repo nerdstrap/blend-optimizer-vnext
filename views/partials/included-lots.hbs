@@ -9,7 +9,7 @@
             </p>
         </div>
 		{{#draftBlend.includedLots}}
-            <ul id="includedLots{{@index}}" class="list-group sortable">
+            <ul id="includedLots{{@index}}" class="list-group included-lot-list-group sortable">
                 <li id="{{id}}" class="list-group-item {{type}} {{sku}} original">
 					{{> "collapsible-lot-included"}}
                 </li>
@@ -18,8 +18,8 @@
         <div class="panel-footer">
             <div class="panel-heading">
                 <h4 class="panel-title">{{i18n "label.totals"}}</h4>
-                <h4 class="panel-title">{{draftBlend.percentUsed}}{{{i18n "label.percent"}}}</h4>
-                <h4 class="panel-title">{{draftBlend.pounds}} {{i18n "label.pounds"}}</h4>
+                <h4 class="panel-title total-percent-used">{{draftBlend.percentUsed}}{{{i18n "label.percent"}}}</h4>
+                <h4 class="panel-title total-pounds">{{draftBlend.pounds}} {{i18n "label.pounds"}}</h4>
             </div>
         </div>
     </div>

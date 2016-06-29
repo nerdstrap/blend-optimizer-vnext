@@ -94,7 +94,7 @@
             <div class="form-group {{#if deviation}}deviation{{else}}hidden{{/if}}">
                 <label for="deviationReason" class="control-label">{{i18n "label.deviationReason"}}</label>
                 <div class="input-group">
-                    <select id="deviationReason" name="deviationReason" class="form-control">
+                    <select id="deviationReason" name="deviationReason" class="form-control width-col-sm-4">
 						{{#deviationReasons}}
                             <option id="{{id}}">{{deviationReason}}</option>
 						{{/deviationReasons}}
@@ -104,13 +104,13 @@
             <div class="form-group {{#if deviation}}deviation{{else}}hidden{{/if}}">
                 <label for="deviationComments" class="control-label">{{i18n "label.deviationComments"}}</label>
                 <div class="input-group">
-                    <input id="deviationComments" name="deviationComments" type="text" class="form-control">
+                    <input id="deviationComments" name="deviationComments" type="text" class="form-control width-col-sm-4">
                 </div>
             </div>
             <div class="form-group {{#if deviation}}hidden{{else}}modification{{/if}}">
                 <label for="modificationReason" class="control-label">{{i18n "label.modificationReason"}}</label>
                 <div class="input-group">
-                    <select id="modificationReason" name="modificationReason" class="form-control">
+                    <select id="modificationReason" name="modificationReason" class="form-control width-col-sm-4">
 						{{#modificationReasons}}
                             <option id="{{id}}">{{modificationReason}}</option>
 						{{/modificationReasons}}
@@ -120,7 +120,7 @@
             <div class="form-group {{#if deviation}}hidden{{else}}modification{{/if}}">
                 <label for="modificationComments" class="control-label">{{i18n "label.modificationComments"}}</label>
                 <div class="input-group">
-                    <input id="modificationComments" name="modificationComments" type="text" class="form-control">
+                    <input id="modificationComments" name="modificationComments" type="text" class="form-control width-col-sm-4">
                 </div>
             </div>
             <div class="form-group">

@@ -18,10 +18,9 @@ $(document).ready(function () {
 	$('.collapse-lot-link').click(function (e) {
 		var lot = $(e.target).closest('div.lot');
 		var button = $(e.target).closest('i');
-		var content = lot.next('div.lot-body');
+		var content = lot.find('div.lot-body');
 		content.slideToggle(200);
 		button.toggleClass('fa-chevron-up').toggleClass('fa-chevron-down');
-		lot.toggleClass('').toggleClass('border-bottom');
 		setTimeout(function () {
 			lot.resize();
 			lot.find('[id^=map-]').resize();

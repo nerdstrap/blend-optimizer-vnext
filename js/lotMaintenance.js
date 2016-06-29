@@ -28,8 +28,8 @@ $(document).ready(function () {
 		}
 	});
 
-	var priorityLots = document.getElementById('priorityLots');
-	Sortable.create(priorityLots, {
+	var prioritizedLots = document.getElementById('prioritizedLots');
+	Sortable.create(prioritizedLots, {
 		animation: 0,
 		group: 'availableLots',
 		sort: true,
@@ -41,5 +41,5 @@ $(document).ready(function () {
 			var fromList = evt.from;
 		}
 	});
-	
+
 });

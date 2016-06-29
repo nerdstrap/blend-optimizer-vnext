@@ -1,0 +1,26 @@
+<form id="form1" name="form1" action="form1_action" method="post" class="">
+    <fieldset>
+        <legend>{{i18n "form1.title"}}</legend>
+        <div class="">
+            <label for="select1" class="">{{i18n "label.select1"}}</label>
+            <select id="select1" name="select1" title="select1" class="">
+                <option value="{{i18n "options.select1.default"}}" selected disabled>{{{i18n "options.select1.default"}}}</option>
+				{{#select1_options}}
+                    <option value="{{value}}">{{{text}}}</option>
+				{{/select1_options}}
+            </select>
+        </div>
+        <div class="">
+            <label for="textbox1" class="">{{i18n "label.textbox1"}}</label>
+            <input id="textbox1" name="textbox1" title="textbox1" type="text" class="">
+        </div>
+        <div class="">
+            <label for="textbox2" class="">{{i18n "label.textbox2"}}</label>
+            <input id="textbox2" name="textbox2" title="textbox2" type="text" class="">
+        </div>
+        <div class="">
+            <label for="textbox3" class="">{{i18n "label.textbox3"}}</label>
+            <input id="textbox3" name="textbox3" title="textbox3" type="text" class="">
+        </div>
+    </fieldset>
+</form>

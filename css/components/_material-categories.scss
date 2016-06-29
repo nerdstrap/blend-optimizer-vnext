@@ -1,38 +1,28 @@
 .material-category {
-	width: 770px;
-	min-width: 770px;
 	background-color: $material-category-bg;
 
 	border-top: solid 1px $material-category-default-border;
 	border-right: solid 1px $material-category-default-border;
 	border-left: solid 1px $material-category-default-border;
-	border-bottom: none 0;
+	border-bottom: solid 1px $material-category-default-border;
 	border-radius: $material-category-border-radius;
 
 	.material-category-content {
-		position: relative;
-		margin: 0;
+		display: table;
+		margin-top: 10px;
+		margin-left: 10px;
 		padding: 0;
-		height: $line-height-computed * 8;
-
-		border-top: solid 1px $material-category-inner-border;
-		border-right: none 0;
-		border-left: none 0;
-		border-bottom: solid 1px $material-category-inner-border;
-		border-radius: $material-category-border-radius;
 
 		.material-category-label {
-			position: absolute;
-			top: 10px;
-			left: 10px;
+			display: table-cell;
+			vertical-align: top;
+			width: 35px;
 		}
+
 		.material-category-details {
-			position: absolute;
-			top: 10px;
-			left: 45px;
-			width: 198px;
-			min-width: 198px;
-			margin-left: 0;
+			display: table-cell;
+			vertical-align: top;
+			width: 140px;
 
 			.material-category-name {
 				font-weight: bold;
@@ -41,11 +31,9 @@
 		}
 
 		.material-category-usage {
-			position: absolute;
-			top: 10px;
-			left: 310px;
-			width: 376px;
-			min-width: 376px;
+			display: table-cell;
+			width: 400px;
+			height: 140px;
 
 			> .slider-value-lower {
 				float: left;
@@ -71,9 +59,5 @@
 				margin-top: 60px;
 			}
 		}
-	}
-
-	&.border-bottom {
-		border-bottom: solid 1px $material-category-default-border;
 	}
 }

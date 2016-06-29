@@ -1,20 +1,22 @@
 <div class="row">
     <div class="col-sm-8">
-        <div class="lot-panel-heading">
-            <h3 class="lot-panel-title">{{i18n "feature.materialCategoryThresholds.title"}}</h3>
+        <div class="panel">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{i18n "feature.materialCategoryThresholds.title"}}</h3>
+            </div>
+            <div class="panel-body">
+                <p>
+                    <span class="fa {{i18n "icon.dragDrop"}}"></span> {{i18n "feature.slideRange.description"}}
+                </p>
+            </div>
+            <ul id="materialCategories" class="list-group">
+				{{#materialCategories}}
+                    <li id="{{id}}" class="list-group-item">
+						{{> "materialCategory"}}
+                    </li>
+				{{/materialCategories}}
+            </ul>
         </div>
-        <div class="lot-panel-heading">
-            <h6 class="lot-panel-title">
-                <span class="fa {{i18n "icon.dragDrop"}}"></span> {{i18n "feature.slideRange.description"}}
-            </h6>
-        </div>
-        <ul id="materialCategories" class="lot-list-group">
-			{{#materialCategories}}
-                <li id="{{id}}" class="lot-list-group-item">
-					{{> "materialCategory"}}
-                </li>
-			{{/materialCategories}}
-        </ul>
     </div>
     <div class="col-sm-4">
 		{{> "blend-spec-summary"}}

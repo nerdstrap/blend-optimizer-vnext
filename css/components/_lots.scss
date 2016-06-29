@@ -1,19 +1,14 @@
 .lot {
-	margin: 0;
-	padding: 0;
 	display: table;
 	width: 100%;
 	background-color: $lot-bg;
 	border-top: 1px solid $lot-border;
 	border-right: 1px solid $lot-border;
-	border-bottom: 0 none;
+	border-bottom: 1px solid $lot-border;
 	border-left: 1px solid $lot-border;
 	border-radius: $lot-border-radius;
-	@include box-shadow(0 1px 1px rgba(0, 0, 0, .05));
 
 	> .lot-indicator {
-		margin: 0;
-		padding: 0;
 		display: table-cell;
 		width: 7px;
 		background-color: $brand-primary;
@@ -27,35 +22,57 @@
 	}
 
 	> .lot-badge {
-		margin: 0;
-		padding: 0;
 		display: table-cell;
-		width: 25px;
-		> span.label {
-			float: left;
-			margin-top: 5px;
-			margin-left: 5px;
-		}
+		vertical-align: top;
+		width: 35px;
+		padding: 5px;
 	}
 
-	.lot-header {
+	> .lot-content {
 		display: table-cell;
+		vertical-align: top;
+		padding: 5px;
 
-		> div {
-			margin-left: 10px;
+		.lot-header {
+			display: table-cell;
+			vertical-align: top;
+			width: 220px;
+		}
 
-			&:first-child {
-				margin-top: 5px;
+		.lot-usage {
+			display: table-cell;
+			vertical-align: top;
+			width: 340px;
+
+			> .slider-value-lower {
+				float: left;
+
+				input.slider-snap-value-control {
+					margin-left: 10px;
+					width: 60px !important;
+					display: inline-block;
+				}
 			}
 
-			&:last-child {
-				margin-bottom: 5px;
+			> .slider-value-upper {
+				float: right;
+
+				input.slider-snap-value-control {
+					margin-left: 10px;
+					width: 60px !important;
+					display: inline-block;
+				}
+			}
+
+			> .included-lot-slider {
+				margin-top: 60px;
 			}
 		}
 	}
 
 	> .lot-menu {
 		display: table-cell;
+		vertical-align: top;
 		width: 30px;
 
 		> ul {
@@ -85,18 +102,6 @@
 			}
 		}
 	}
-
-	&.border-bottom {
-		border-bottom: solid 1px $lot-border;
-	}
-
-}
-
-.lot-body {
-	border-top: 1px solid transparent;
-	border-right: 1px solid $lot-border;
-	border-bottom: 1px solid $lot-border;
-	border-left: 1px solid $lot-border;
 }
 
 .lot-title {
@@ -142,10 +147,22 @@
 
 	&.lot-age {
 	}
+
+	&.lot-pounds-used {
+		margin-left: 200px;
+	}
+
+	&.lot-percent-used {
+		margin-left: 200px;
+	}
 }
 
 .lot-prioritized {
 	color: $lot-info-text;
 	background-color: $lot-info-bg;
 	border-color: $lot-info-border;
+}
+
+.lot-body > .lot-usage {
+	height: 140px;
 }
